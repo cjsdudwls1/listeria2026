@@ -245,6 +245,48 @@ lines = [
 ]
 r = bullets(ws, r, lines)
 
+# ---- 5. (추가 요청) 20260901.테이블정의서 색 표시 변수 — 기존 행 번호가 바뀌지 않도록 마지막 행 뒤에 추가
+TD, TDC = J('td_status.json'), J('td_colored_rows.json')
+def at(table, *cols):
+    xs = [next(y for y in TDC if y['table'] == table and y['column'] == c) for c in cols]
+    return f"[{xs[0]['sheet']} 시트 {'·'.join(str(x['row']) for x in xs)}행]"
+ns, pr = TD['nas_station'], TD['predict']
+n_yel = sum(1 for y in TDC if '노랑' in y['colors']); n_grn = sum(1 for y in TDC if '초록' in y['colors']); n_crm = sum(1 for y in TDC if '연노랑(크림)' in y['colors'])
+def st(t, c): return f"{v(t, c)['stations_with_value_study']}곳"
+lines_td = [
+    '■ 5. (추가) 「20260901.테이블정의서」에 색으로 표시된 변수의 수집 가능 여부',
+    f" - 표시 현황: 노란색 {n_yel}개 · 초록색 {n_grn}개(모두 설명 칸에 표시). 그 밖에 빨간색 1개(수분함량), ba_data 뷰 시트의 연한 노란색 {n_crm}행(판정 결과)",
+    ' - 원자료: 표시된 DB 변수는 모두 원래 값 그대로 내려받아 둠(리스테리아ML/data/collected/raw/, 수분활성도 표는 data/collected/80_t_aw_cl.parquet)',
+    ' - 한눈에 보기(% = 국내 시료 중 기준일 당일 값이 있는 비율)',
+    f"   · 수집 가능, 95% 이상: 종관기상 합계일조시간 {pct(dc('ASOS','sum_sshr')['present'])} · 농업기상 일강수량 {pct(dc('NAS','rn')['present'])}",
+    f"   · 수집 가능, 70~95%: 농업기상 평균기온 {pct(dc('NAS','temp')['present'])} · 농업기상 일사량 {pct(dc('NAS','srqty')['present'])}",
+    f"   · 수집 가능하지만 70% 미만: 종관기상 합계일사량 {pct(dc('ASOS','sum_gsr')['present'])} · 농업기상 일조시간 {pct(dc('NAS','sun_time')['present'])}",
+    '   · 수집 가능(위치 정보라 비율 대신 관측소 219곳 모두 값 있음): 농업기상 관측소 설치 위도·경도',
+    f"   · 수집 가능하지만 리스테리아 위해인자 목록 밖: 에어코리아 미세먼지농도 {pct(dc('AIR','pm10_value')['present'])} · 농업기상 평균습도 {pct(dc('NAS','hum')['present'])}",
+    '   · DB에 있으나 사용 여부 결정 필요: 수분활성도 · 식품 pH · 염도(빨간색 수분함량 포함)',
+    '   · DB에 있으나 우리 시료에 쓸 수 없음: 기상청 예보 강수량',
+    ' - 노란색',
+    f"   · 에어코리아 미세먼지농도 {at('keco_airkorea_fine_dust_info', 'pm10_value')}: 수집 가능하지만 리스테리아 위해인자 목록 밖(데이터출처 엑셀의 같은 행에서 이산화질소·일산화탄소·아황산가스만 빨간 글자). 연구기간 값 있음 {pct(v(K,'pm10_value')['nonnull_study'])}(측정소 {v(K,'pm10_value')['stations_total']}곳 중 {st(K,'pm10_value')}), 국내 시료 {pct(dc('AIR','pm10_value')['present'])} → 빈 이유: {reason('AIR', ['pm10_value'])}",
+    f"   · 종관기상 합계일조시간 {at('kma_asos_daily_info', 'sum_sshr')}: 수집 가능. 관측소 {st(A,'sum_sshr')} 모두 기록, 연구기간 {pct(v(A,'sum_sshr')['nonnull_study'])}, 국내 시료 {pct(dc('ASOS','sum_sshr')['present'])} → 빈 이유: {reason('ASOS', ['sum_sshr'])}. 문자 타입이지만 값은 모두 숫자(단위 시간, 값의 {v(A,'sum_sshr')['zero_pct_of_values']}%가 0시간)",
+    f"   · 종관기상 합계일사량 {at('kma_asos_daily_info', 'sum_gsr')}: 수집 가능하지만 관측소 99곳 중 {st(A,'sum_gsr')}만 기록. 연구기간 {pct(v(A,'sum_gsr')['nonnull_study'])}, 국내 시료 {pct(dc('ASOS','sum_gsr')['present'])} → 빈 이유: {reason('ASOS', ['sum_gsr'], never_label='일사량을 기록하지 않는 관측소')}. (참고) 일사량을 기록한 관측소 중 가장 가까운 곳이면 {pct(cov('ASOS','sum_gsr')['var_sameday_pct'])}(거리 중앙값 {cov('ASOS','avg_ta')['dist_p50']}→{cov('ASOS','sum_gsr')['var_dist_p50']}km). 정의서 설명의 '일사랑'은 오타",
+    f"   · 농업기상 평균기온 {at('nas_agri_weather_daily_info', 'temp')}: 수집 가능. 관측소 219곳 중 {st(N,'temp')} 기록, 연구기간 {pct(v(N,'temp')['nonnull_study'])}, 국내 시료 {pct(dc('NAS','temp')['present'])} → 빈 이유: {reason('NAS', ['temp'], never_label='기온을 기록하지 않는 관측소')}. 범위(-35~45℃) 밖 {v(N,'temp')['rules']['범위밖(-35~45)']}건(최저 {v(N,'temp')['min']:g} · 최고 {v(N,'temp')['max']:g})",
+    f"   · 농업기상 평균습도 {at('nas_agri_weather_daily_info', 'hum')}: 수집 가능하지만 리스테리아 위해인자 목록 밖(습도는 예측인자 PPT·데이터출처 엑셀 빨간 글자 어디에도 없음). 관측소 219곳 중 {st(N,'hum')} 기록, 연구기간 {pct(v(N,'hum')['nonnull_study'])}, 국내 시료 {pct(dc('NAS','hum')['present'])} → 빈 이유: {reason('NAS', ['hum'], never_label='습도를 기록하지 않는 관측소')}. 습도 0% 값 {v(N,'hum')['rules']['값0']}건",
+    f"   · 농업기상 일강수량 {at('nas_agri_weather_daily_info', 'rn')}: 수집 가능. 관측소 219곳 중 {st(N,'rn')} 기록, 연구기간 {pct(v(N,'rn')['nonnull_study'])}, 국내 시료 {pct(dc('NAS','rn')['present'])} → 빈 이유: {reason('NAS', ['rn'], never_label='강수량을 기록하지 않는 관측소')}. 비가 안 온 날도 0mm로 기록(값의 {v(N,'rn')['zero_pct_of_values']}%)해 정의서 설명(0을 기록하므로 빈 값은 진짜 결측)과 맞음. 490mm 이상 {v(N,'rn')['rules']['490mm이상']}건",
+    f"   · 농업기상 관측소 설치 위도·경도 {at('nas_agri_weather_obs_station', 'instl_la', 'instl_lo')}: 수집 가능. 관측소 {ns['rows']}곳 모두 값 있음 · 모두 국내 범위(위도 {ns['la_min']:.1f}~{ns['la_max']:.1f}, 경도 {ns['lo_min']:.1f}~{ns['lo_max']:.1f}) · 좌표가 겹치는 관측소 없음. 기상값이 아니라 시료와 가장 가까운 관측소를 찾는 위치 정보(2번 항목). 사용 안 함으로 표시된 {ns['use_yn'].get('0', 0)}곳은 시험용 관측소(동방로거테스트)",
+    f"   · 수분활성도 · 식품 pH · 염도 {at('t_aw_cl', 'aw', 'ph', 'na')}: DB에 있으나 사용 여부 결정 필요(3번 '식품 수분활성도·pH·염도 표의 문제')",
+    f"     → 값 있는 품목(전체 {n(aw['rows'])}): 수분활성도 {n(aw['aw']['table_nonblank'])} · pH {n(aw['ph']['table_nonblank'])} · 염도 {n(aw['na']['table_nonblank'])} / 숫자가 아닌 범위·부등호 글자('0.91~0.98', '<0.6' 등)인 행: {aw['aw']['range_text_rows']} · {aw['ph']['range_text_rows']} · {aw['na']['range_text_rows']}",
+    f"     → 국내 시료 연결(품목코드 정확 일치): 수분활성도 {pct(aw['aw']['domestic'])}(리서치팀 파일 원래 값 기준 32.0%) · pH {pct(aw['ph']['domestic'])} · 염도 {pct(aw['na']['domestic'])} / 국내 검출 시료 {pct(aw['aw']['detected_domestic'])} · {pct(aw['ph']['detected_domestic'])} · {pct(aw['na']['detected_domestic'])}",
+    f"     → 수분활성도에만 DB에서 채운 값 {aw['filled_codes']}품목 · 바뀐 값 {aw['changed_codes']}품목 · 부등호가 반대인 6품목이 섞임. 정의서에는 이 표가 8열·1,262행인데 이번에 내려받은 표는 값 출처 표시 열이 더해진 9열·{n(aw['rows'])}행 → 정의서 작성(2026-09-01) 뒤 표가 바뀐 것으로 보임",
+    ' - 초록색',
+    f"   · 기상청 예보 강수량 {at('kma_weather_predict_info', 'precip_mm')}: DB에 있으나 우리 시료에 쓸 수 없음. {pr['date_ranges']['meas_date'][0][:10]} 발표 예보 {n(pr['rows'])}행(예보 날짜 {pr['date_ranges']['forecast_date'][0][:10]}~{pr['date_ranges']['forecast_date'][1][:10]} {pr['forecast_days']}일, {pr['grids']}개 격자)뿐이라 시료 기준일(2015-04-07~2026-06-30)과 겹치는 날이 없음",
+    f"   · 농업기상 일조시간 {at('nas_agri_weather_daily_info', 'sun_time')}: 수집 가능하지만 관측소 219곳 중 {st(N,'sun_time')}만 기록(정의서 설명 '91/219'와 같음). 연구기간 {pct(v(N,'sun_time')['nonnull_study'])}, 국내 시료 {pct(dc('NAS','sun_time')['present'])} → 빈 이유: {reason('NAS', ['sun_time'], never_label='일조시간을 기록하지 않는 관측소')}. 문자 타입, 단위 분(중앙값 {v(N,'sun_time')['p50']:.0f}분). (참고) 일조시간을 기록한 관측소 중 가장 가까운 곳이면 {pct(cov('NAS','sun_time')['var_sameday_pct'])}(거리 중앙값 {cov('NAS','temp')['dist_p50']}→{cov('NAS','sun_time')['var_dist_p50']}km)",
+    f"   · 농업기상 일사량 {at('nas_agri_weather_daily_info', 'srqty')}: 수집 가능. 관측소 219곳 중 {st(N,'srqty')} 기록(정의서 설명 '180/219'와 같음). 연구기간 {pct(v(N,'srqty')['nonnull_study'])}, 국내 시료 {pct(dc('NAS','srqty')['present'])} → 빈 이유: {reason('NAS', ['srqty'], never_label='일사량을 기록하지 않는 관측소')}. 39.5 이상 {n(v(N,'srqty')['rules']['39.5이상'])}건(40 근처 몰림). (참고) 일사량을 기록한 관측소 중 가장 가까운 곳이면 {pct(cov('NAS','srqty')['var_sameday_pct'])}(거리 중앙값 {cov('NAS','temp')['dist_p50']}→{cov('NAS','srqty')['var_dist_p50']}km)",
+    ' - 그 밖의 색',
+    f"   · 빨간색 수분함량 {at('t_aw_cl', 'mc')}: 수분활성도 표의 수분함량. 값 있는 품목 {n(aw['mc']['table_nonblank'])}, 범위·부등호 글자 {aw['mc']['range_text_rows']}행, 국내 시료 연결 {pct(aw['mc']['domestic'])}. 사용 여부는 수분활성도 표와 함께 결정",
+    f"   · 연한 노란색 [ba_data 뷰 시트 {n_crm}행]: 위해요소별 판정 뷰의 '★ 검출/불검출 판정' 칸(예측 대상). 리스테리아 판정 결과는 우리 시료 파일에 이미 있어 수집 대상 아님",
+]
+r = bullets(ws, r, lines_td)
+
 # ================================================================== 1. 수집 가능 여부
 ws = wb.create_sheet('1_수집가능여부')
 title(ws, 1, '1. 리스테리아 위해인자 — 식정원 DB 수집 가능 여부',
