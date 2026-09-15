@@ -1,0 +1,66 @@
+{
+ "진공_top": {
+  "PE비닐로 진공포장 또는 기밀포장하여 박스 또는 용기포장": 174,
+  "나일론/폴리에틸렌 포장지에 진공포장": 158,
+  "PE 진공포장": 146,
+  "NY(나이론) / PE(폴리에틸렌) 포장지에 진공포장": 114,
+  "PE 필름 또는  나일론 PE 필름에 진공포장": 94,
+  "나일론피이 필름에 진공 또는 실링포장": 91,
+  "내포장:종이, PET(용기), 진공 / 외포장:종이": 89,
+  "PE.  PE+NY  진공포장": 89
+ },
+ "진공_det_rows": 22,
+ "가스질소_top": {
+  "폴리프로필렌, EVA (질소 및 탄산가스 충전)": 153,
+  "폴리프로필렌(PP) 또는 폴리에틸렌(PE)용기내에 일정량을 계량하여 넣은 다음 나일론폴리에틸렌(NYPE)필름 또는 폴리에틸렌(PE)으로 MAP포장 또는 진공포장한다.": 36,
+  "스틸캔(질소충전), 종이(외포장)+에틸렌수지(내포장)": 18,
+  "폴리에틸렌(질소및탄산가스충전)": 14,
+  "폴리에틸렌(질소가스 충전)": 12,
+  "나일론 폴리에틸렌(NYPP) 또는 폴리에틸렌(PE)재질의 봉투에 진공포장하여 2차살균한 제품을 폴리프로필렌(PP) 또는 폴리에틸렌(PE)용기내에 넣은 다음 나일론폴리에틸렌(NYPE)필름 또는 폴리에틸렌(PE)으로 실링포장한다.폴리프로필렌(PP) 또는 폴리에틸렌(PE)용기내에 일정량을 계량하여넣은 다음 나일론폴리에틸렌(NYPE)필름 또는 폴리에틸렌(PE)으로MAP포장 또는 진공포장한다.": 11
+ },
+ "진공_products": 620,
+ "lpsms_stats": [
+  {
+   "tablename": "lpsms_lcf_insp_rqst",
+   "attname": "insp_rqst_dt",
+   "null_frac": 0.0,
+   "n_distinct": 5069.0,
+   "mcv": "{20130902,20150309,20160620,20150810,20160711,20190701,20130715,20131028,20140519,20190429,20190826,20260511,20140113,20"
+  },
+  {
+   "tablename": "lpsms_lcf_insp_rqst",
+   "attname": "wrkshp_gubn_cd_nm",
+   "null_frac": 0.013833334,
+   "n_distinct": 3.0,
+   "mcv": "{도축장,식육포장처리장,식육판매장}"
+  },
+  {
+   "tablename": "lpsms_lcf_insp_rqst",
+   "attname": "mte_rqsts_no",
+   "null_frac": 1.0,
+   "n_distinct": 0.0,
+   "mcv": null
+  },
+  {
+   "tablename": "lpsms_lcf_insp_smp",
+   "attname": "insp_smp_nm",
+   "null_frac": 1.0,
+   "n_distinct": 0.0,
+   "mcv": null
+  },
+  {
+   "tablename": "lpsms_lcf_insp_smp",
+   "attname": "pckn_mtrl",
+   "null_frac": 1.0,
+   "n_distinct": 0.0,
+   "mcv": null
+  },
+  {
+   "tablename": "lpsms_lcf_insp_smp",
+   "attname": "pckn_unt",
+   "null_frac": 1.0,
+   "n_distinct": 0.0,
+   "mcv": null
+  }
+ ]
+}
