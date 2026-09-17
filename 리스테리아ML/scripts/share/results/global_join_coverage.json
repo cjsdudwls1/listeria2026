@@ -1,0 +1,519 @@
+{
+ "judge_values": {
+  "불검출": 674568,
+  "검출": 1969
+ },
+ "route_crosstab": {
+  "domestic": {
+   "domestic": 628895,
+   "overseas": 0
+  },
+  "overseas": {
+   "domestic": 0,
+   "overseas": 47642
+  }
+ },
+ "date_same_as_db_fallback": 676537,
+ "overseas_rows": 47642,
+ "overseas_pos": 125,
+ "overseas_date_basis": {
+  "선적일": 47063,
+  "의뢰일": 446,
+  "제조일": 133
+ },
+ "overseas_date_null": 0,
+ "overseas_date_range": [
+  "2015-05-21 00:00:00",
+  "2026-06-20 00:00:00"
+ ],
+ "nation_col_filled": {
+  "prdctn_nation_code": 38275,
+  "orgplce_nation_code": 38465,
+  "import_nation_code": 45536
+ },
+ "nation_col_filled_domestic": {
+  "prdctn_nation_code": 3,
+  "orgplce_nation_code": 4687,
+  "import_nation_code": 33218
+ },
+ "nation_pair_differ": {
+  "prdctn_nation_code|orgplce_nation_code": {
+   "both": 38275,
+   "differ": 0
+  },
+  "prdctn_nation_code|import_nation_code": {
+   "both": 38275,
+   "differ": 5073
+  },
+  "orgplce_nation_code|import_nation_code": {
+   "both": 38323,
+   "differ": 5073
+  }
+ },
+ "nation_src": {
+  "생산국": 38275,
+  "수입국": 7213,
+  "없음": 1964,
+  "원산지": 190
+ },
+ "a2_not_convertible": {
+  "KOREA": 67,
+  "U.S.A": 64,
+  "CHINA": 7,
+  "이탈리아": 2,
+  "덴마크": 1,
+  "스페인": 1
+ },
+ "not_convertible_by_col": {
+  "prdctn_nation_code": {},
+  "orgplce_nation_code": {
+   "KOREA": 67,
+   "U.S.A": 64,
+   "CHINA": 7,
+   "이탈리아": 2,
+   "덴마크": 1,
+   "스페인": 1
+  },
+  "import_nation_code": {}
+ },
+ "no_nation_rows": {
+  "rows": 1964,
+  "pos": 12,
+  "date_basis": {
+   "선적일": 1896,
+   "제조일": 53,
+   "의뢰일": 15
+  },
+  "addr_source": {
+   "해외제조업소": 1896,
+   "업소주소": 35,
+   "제조사소재지": 33
+  },
+  "has_latlon": 1964,
+  "sorg_nation_found": 1895,
+  "sorg_nation_top": {
+   "US": 269,
+   "IT": 244,
+   "FR": 232,
+   "ES": 163,
+   "CN": 148,
+   "NZ": 76,
+   "DE": 67,
+   "TH": 65
+  },
+  "sorg_nation_found_all_overseas": 47421,
+  "sorg_vs_rule_differ": 16
+ },
+ "top_countries": {
+  "USA": 8373,
+  "ITA": 7385,
+  "FRA": 6567,
+  "CHN": 2282,
+  "ESP": 2094,
+  "NLD": 1810,
+  "DEU": 1482,
+  "AUS": 1396,
+  "THA": 1314,
+  "NZL": 1314,
+  "JPN": 1295,
+  "VNM": 1154,
+  "TWN": 1082,
+  "GRC": 648,
+  "DNK": 610
+ },
+ "n_countries": 95,
+ "gw_rows": 1047294,
+ "gw_countries": 249,
+ "gw_date_range": [
+  "2015-01-01 00:00:00",
+  "2026-07-07 00:00:00"
+ ],
+ "gw_dup_key": 0,
+ "gw_null_full": {
+  "temperature_mean": 0,
+  "temperature_max": 0,
+  "temperature_min": 0,
+  "precipitation_sum": 0,
+  "relative_humidity_mean": 0,
+  "soil_moisture_mean": 0,
+  "sunshine_duration": 0,
+  "wind_speed_mean": 0,
+  "wind_speed_max": 1,
+  "shortwave_radiation_sum": 0
+ },
+ "gw_country_end_dates": {
+  "2026-07-07": 249
+ },
+ "gw_has_KOR": true,
+ "gw_countries_with_gaps": 0,
+ "gw_reason": {
+  "0 연결": 45536,
+  "1 국가 코드 3종 모두 없음": 1964,
+  "2 alpha-2→alpha-3 변환표에 없음": 142
+ },
+ "gw_reason_pos": {
+  "0 연결": 113,
+  "1 국가 코드 3종 모두 없음": 12
+ },
+ "gw_reason_detail_countries": {
+  "2 alpha-2→alpha-3 변환표에 없음": {
+   "KOREA": 67,
+   "U.S.A": 64,
+   "CHINA": 7,
+   "이탈리아": 2,
+   "덴마크": 1,
+   "스페인": 1
+  }
+ },
+ "gw_late_dates": null,
+ "gw_late_by_basis": {},
+ "gw_col_filled": {
+  "temperature_mean": 45536,
+  "temperature_max": 45536,
+  "temperature_min": 45536,
+  "precipitation_sum": 45536,
+  "relative_humidity_mean": 45536,
+  "soil_moisture_mean": 45536,
+  "sunshine_duration": 45536,
+  "wind_speed_mean": 45536,
+  "wind_speed_max": 45536,
+  "shortwave_radiation_sum": 45536
+ },
+ "gw_col_filled_pos": {
+  "temperature_mean": 113,
+  "temperature_max": 113,
+  "temperature_min": 113,
+  "precipitation_sum": 113,
+  "relative_humidity_mean": 113,
+  "soil_moisture_mean": 113,
+  "sunshine_duration": 113,
+  "wind_speed_mean": 113,
+  "wind_speed_max": 113,
+  "shortwave_radiation_sum": 113
+ },
+ "gw_col_zero": {
+  "precipitation_sum": 21897,
+  "sunshine_duration": 2262,
+  "shortwave_radiation_sum": 0
+ },
+ "gw_sunshine_zero_detail": {
+  "countries": {
+   "USA": 574,
+   "FRA": 383,
+   "DEU": 146,
+   "NLD": 127,
+   "VNM": 103,
+   "TWN": 97,
+   "JPN": 93,
+   "ITA": 85
+  },
+  "months": {
+   "1": 402,
+   "2": 318,
+   "3": 235,
+   "4": 126,
+   "5": 95,
+   "6": 34,
+   "7": 32,
+   "8": 61,
+   "9": 97,
+   "10": 140,
+   "11": 238,
+   "12": 484
+  },
+  "radiation_when_zero_median": 2.24
+ },
+ "gw_col_null_among_hit": {
+  "temperature_mean": 0,
+  "temperature_max": 0,
+  "temperature_min": 0,
+  "precipitation_sum": 0,
+  "relative_humidity_mean": 0,
+  "soil_moisture_mean": 0,
+  "sunshine_duration": 0,
+  "wind_speed_mean": 0,
+  "wind_speed_max": 0,
+  "shortwave_radiation_sum": 0
+ },
+ "gw_point_const_per_country": true,
+ "gw_points_top": {
+  "USA": {
+   "lat": 38.91,
+   "lon": -77.07,
+   "country_lat": 38.89,
+   "country_lon": -77.05
+  },
+  "ITA": {
+   "lat": 41.93,
+   "lon": 12.43,
+   "country_lat": 41.9,
+   "country_lon": 12.48
+  },
+  "FRA": {
+   "lat": 48.89,
+   "lon": 2.29,
+   "country_lat": 48.87,
+   "country_lon": 2.33
+  },
+  "CHN": {
+   "lat": 39.89,
+   "lon": 116.36,
+   "country_lat": 39.92,
+   "country_lon": 116.38
+  },
+  "ESP": {
+   "lat": 40.39,
+   "lon": -3.68,
+   "country_lat": 40.4,
+   "country_lon": -3.68
+  },
+  "AUS": {
+   "lat": -35.25,
+   "lon": 149.08,
+   "country_lat": -35.27,
+   "country_lon": 149.13
+  }
+ },
+ "gw_point_vs_country_center_km": {
+  "median": 4.0,
+  "max": 14.7
+ },
+ "dist_km": {
+  "n": 45536,
+  "median": 430.8,
+  "p90": 3662.7,
+  "max": 19824.7,
+  "over100": 41576,
+  "over500": 18889,
+  "over1000": 12673
+ },
+ "dist_by_country": {
+  "USA": {
+   "count": 8373,
+   "median": 1386.0,
+   "max": 11587.0
+  },
+  "ITA": {
+   "count": 7385,
+   "median": 427.0,
+   "max": 9900.0
+  },
+  "FRA": {
+   "count": 6567,
+   "median": 263.0,
+   "max": 10195.0
+  },
+  "CHN": {
+   "count": 2282,
+   "median": 644.0,
+   "max": 12932.0
+  },
+  "ESP": {
+   "count": 2094,
+   "median": 339.0,
+   "max": 11374.0
+  },
+  "NLD": {
+   "count": 1810,
+   "median": 46.0,
+   "max": 152.0
+  },
+  "DEU": {
+   "count": 1482,
+   "median": 394.0,
+   "max": 637.0
+  },
+  "AUS": {
+   "count": 1396,
+   "median": 465.0,
+   "max": 7917.0
+  }
+ },
+ "gs_rows": 235,
+ "gs_iso3_unique": 235,
+ "gs_null": {
+  "ph_mean": 7,
+  "ph_std": 7,
+  "n_pixels": 0,
+  "nation_code": 0
+ },
+ "gs_has_KOR": true,
+ "gs_ph_range": [
+  4.62,
+  8.23
+ ],
+ "gs_reason": {
+  "0 연결(ph_mean 있음)": 45531,
+  "1 국가 코드 3종 모두 없음": 1964,
+  "2 alpha-2→alpha-3 변환표에 없음": 142,
+  "4 나라는 있으나 ph_mean 빈 값": 5
+ },
+ "gs_missing_countries": {},
+ "gs_ph_null_countries_in_overseas": {
+  "MDV": 4,
+  "MHL": 1
+ },
+ "gs_ph_null_countries_all": [
+  [
+   "MHL",
+   "마셜 제도",
+   "0.0"
+  ],
+  [
+   "IOT",
+   "영국령 인도양 지역",
+   "0.0"
+  ],
+  [
+   "BMU",
+   "버뮤다",
+   "0.0"
+  ],
+  [
+   "MDV",
+   "몰디브",
+   "0.0"
+  ],
+  [
+   "ATF",
+   "프랑스령 남방 및 남극 지역",
+   "0.0"
+  ],
+  [
+   "HMD",
+   "허드 맥도널드 제도",
+   "0.0"
+  ],
+  [
+   "TUV",
+   "투발루",
+   "0.0"
+  ]
+ ],
+ "gs_filled_pos": 113,
+ "gw_countries_not_in_gs": [
+  "ATA",
+  "BES",
+  "BVT",
+  "CCK",
+  "CXR",
+  "GIB",
+  "GLP",
+  "GUF",
+  "MTQ",
+  "MYT",
+  "REU",
+  "SJM",
+  "TKL",
+  "UMI"
+ ],
+ "factory_weather_sameday": {
+  "rows": 47642,
+  "keys_unique": true,
+  "in_overseas": 47642,
+  "temperature_mean_filled": 47642,
+  "obsr_eq_base": 47642
+ },
+ "fine_dust_tables": [
+  {
+   "schema": "api_data_info",
+   "table_name": "global_factory_fine_dust",
+   "kind": "TABLE",
+   "est_rows": 228527600,
+   "table_comment": "글로벌_제조업소_좌표기준_미세먼지"
+  },
+  {
+   "schema": "api_data_info",
+   "table_name": "global_fine_dust_info",
+   "kind": "TABLE",
+   "est_rows": 1047045,
+   "table_comment": "글로벌_미세먼지_정보"
+  }
+ ],
+ "fine_dust_columns": {
+  "global_factory_fine_dust": [
+   [
+    "lat",
+    "double precision",
+    "위도"
+   ],
+   [
+    "lon",
+    "double precision",
+    "경도"
+   ],
+   [
+    "date",
+    "date",
+    "예보일"
+   ],
+   [
+    "pm25",
+    "double precision",
+    "초미세먼지"
+   ],
+   [
+    "pm10",
+    "double precision",
+    "미세먼지"
+   ],
+   [
+    "n_obs",
+    "integer",
+    "예보일 평균에 사용된 시점 개수"
+   ]
+  ],
+  "global_fine_dust_info": [
+   [
+    "alpha_3",
+    "character varying(3)",
+    "ISO 3자리 국가코드"
+   ],
+   [
+    "meas_date",
+    "date",
+    "측정일"
+   ],
+   [
+    "name_en",
+    "character varying(100)",
+    "국가명_영문"
+   ],
+   [
+    "name_ko",
+    "character varying(50)",
+    "국가명_국문"
+   ],
+   [
+    "region_ko",
+    "character varying(20)",
+    "대륙명_국문"
+   ],
+   [
+    "region_en",
+    "character varying(50)",
+    "대륙명_영문"
+   ],
+   [
+    "pm10",
+    "numeric(8,4)",
+    "미세먼지"
+   ],
+   [
+    "pm25",
+    "numeric(8,4)",
+    "초미세먼지"
+   ],
+   [
+    "match_lat",
+    "numeric(10,8)",
+    "매칭_경도"
+   ],
+   [
+    "match_lon",
+    "numeric(70,7)",
+    "매칭_경도"
+   ]
+  ]
+ }
+}
