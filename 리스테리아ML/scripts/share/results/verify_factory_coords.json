@@ -1,0 +1,87 @@
+{
+ "rows": 47642,
+ "h_eq_grid_double": 47642,
+ "sample_eq_grid_as_float64": 0,
+ "sample_eq_grid_as_float32": 47642,
+ "base_date_eq": 47642,
+ "grid_points_double": 3072,
+ "grid_points_float32": 3071,
+ "collapsed_points": [
+  {
+   "lat_g": -37.8052664,
+   "lon_g": 144.7618964,
+   "lat32": -37.80526733,
+   "lon32": 144.76190186
+  },
+  {
+   "lat_g": -37.8052665,
+   "lon_g": 144.7618969,
+   "lat32": -37.80526733,
+   "lon32": 144.76190186
+  }
+ ],
+ "collapsed_rows": 31,
+ "collapsed_rows_detail": [
+  {
+   "lat_g": -37.8052665,
+   "lon_g": 144.7618969,
+   "rows": 3
+  },
+  {
+   "lat_g": -37.8052664,
+   "lon_g": 144.7618964,
+   "rows": 28
+  }
+ ],
+ "collapsed_distance_m": 0.045,
+ "collapsed_same_date_values": [
+  {
+   "base_date": "2016-02-19",
+   "lat_g": "-37.8052664",
+   "lon_g": "144.7618964",
+   "temperature_mean": "16.3",
+   "precipitation_sum": "0.0",
+   "relative_humidity_mean": "65.0"
+  },
+  {
+   "base_date": "2016-03-25",
+   "lat_g": "-37.8052664",
+   "lon_g": "144.7618964",
+   "temperature_mean": "15.6",
+   "precipitation_sum": "0.3",
+   "relative_humidity_mean": "72.0"
+  },
+  {
+   "base_date": "2016-06-30",
+   "lat_g": "-37.8052664",
+   "lon_g": "144.7618964",
+   "temperature_mean": "8.4",
+   "precipitation_sum": "7.9",
+   "relative_humidity_mean": "84.0"
+  },
+  {
+   "base_date": "2016-07-14",
+   "lat_g": "-37.8052664",
+   "lon_g": "144.7618964",
+   "temperature_mean": "10.2",
+   "precipitation_sum": "0.0",
+   "relative_humidity_mean": "72.0"
+  },
+  {
+   "base_date": "2016-11-10",
+   "lat_g": "-37.8052664",
+   "lon_g": "144.7618964",
+   "temperature_mean": "12.5",
+   "precipitation_sum": "0.4",
+   "relative_humidity_mean": "73.0"
+  },
+  {
+   "base_date": "2016-12-01",
+   "lat_g": "-37.8052664",
+   "lon_g": "144.7618964",
+   "temperature_mean": "16.8",
+   "precipitation_sum": "0.0",
+   "relative_humidity_mean": "73.0"
+  }
+ ]
+}
