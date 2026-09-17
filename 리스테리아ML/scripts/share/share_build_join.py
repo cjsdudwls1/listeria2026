@@ -4,7 +4,8 @@
 - LIMS조인_토양pH_필지단위.parquet : 토양검정은 같은 동·연도에 필지가 여러 개라 집계 없이 시료×필지로 펼친 별도 파일(DB수집에 soil_ph_info 가 있을 때만)
 - 컬럼사전.xlsx / _품질진단.json : 한글명·명세서 설명·연결 방법·값 있음 비율 (데이터품질진단.md 는 share_quality_md.py 가 _품질진단.json 에서 생성)
 연결 규칙(값을 바꾸지 않는 '어느 행을 붙일지' 규칙):
-  · 국내 기상·대기 = 국내 시료 좌표(DB 전처리 시료표 위도·경도, 없으면 시료 파일 좌표)와 기준일(mnfctur_de) 당일 자료 행이 있는 관측소 중 가장 가까운 1곳(하버사인 거리).
+  · 국내 기상·대기 = 국내 시료 좌표(시료 파일 listeria_body.parquet 의 lat·lon 원값)와 기준일(mnfctur_de) 당일 자료 행이 있는 관측소 중 가장 가까운 1곳(하버사인 거리).
+    DB 전처리 시료표 좌표(db_lat·db_lon)는 참고로만 두고 조인에 쓰지 않음(2026-09-17 사용자 지시). 두 좌표 일치 비율은 _품질진단.json 기상→좌표.
     관측소 좌표는 관측소표의 현재(최신 이력) 좌표를 씀(옛 기준일에도 당시 위치가 아니라 최신 위치). 그날 행이 있으면 항목이 전부 빈 행이라도 그 관측소가 뽑힘.
   · 수입 시료에는 국내 관측소를 붙이지 않음(빈 값)
   · 품목제조대장 = 품목제조번호 원문 일치 → 없으면 숫자만 일치; 같은 번호 여러 행이면 삭제 안 된 행 우선 → 최신 수정일시 → 품목 보고 대장 번호 큰 행. 삭제 안 된 행이 없으면 삭제 행이 붙음(ledg_del_yn='Y'로 구분)
@@ -54,10 +55,31 @@ def merge_left(X, right, left_on, right_on, prefix, cols, how_txt, table, note='
 # ================= 1. DB 전처리 시료표(연결 키·참고 컬럼) =================
 hp = P('hazard_preprocessed_data'); hp['lims_data_key'] = hp['lims_data_key'].astype(str)
 HPC = ['lat', 'lon', 'prdlst_nm', 'mapped_prdlst_code', 'statistic_prdlst_nm_1', 'statistic_prdlst_nm_2', 'statistic_prdlst_nm_3', 'statistic_prdlst_nm_4', 'prdlst_mnfctur_sttemnt_no', 'cntc_sys_key2']
-X = merge_left(X, hp, 'lims_data_key', 'lims_data_key', 'db_', HPC, '시료 고유키(lims_data_key) 1:1', 'ready_data.hazard_preprocessed_data', 'lat·lon·prdlst_nm·품목제조번호·수입접수번호는 다른 표를 붙이는 연결 키')
+X = merge_left(X, hp, 'lims_data_key', 'lims_data_key', 'db_', HPC, '시료 고유키(lims_data_key) 1:1', 'ready_data.hazard_preprocessed_data', 'prdlst_nm·mapped_prdlst_code·품목제조번호·수입접수번호는 다른 표를 붙이는 연결 키. lat·lon 은 참고(조인에 쓰지 않음)')
 Q['연결']['hazard_preprocessed_data'] = {'키 매칭 %': pct(X['db_mapped_prdlst_code'].notna() | X['db_lat'].notna()), '설명': '우리 시료 키 전부 DB에 존재'}
-lat_use = X['db_lat'].fillna(body['lat'].astype(float)).to_numpy(float); lon_use = X['db_lon'].fillna(body['lon'].astype(float)).to_numpy(float)
-Q['기상']['좌표'] = {'DB 좌표 없어 시료 파일 좌표 사용(행)': int(X['db_lat'].isna().sum()), '좌표 없음(행)': int(np.isnan(lat_use).sum())}
+# 기상·대기 관측소 찾기 좌표 = 시료 파일 lat·lon 원값(float32 저장값을 그대로 float64 로 읽어 거리 계산만 함, 값 변경 없음)
+lat_use = body['lat'].to_numpy(np.float64); lon_use = body['lon'].to_numpy(np.float64)
+# 시료 파일 좌표 vs DB 전처리 시료표 좌표 일치 비율(참고)
+_bl, _bo = body['lat'].to_numpy(), body['lon'].to_numpy()
+_dl, _do = X['db_lat'].to_numpy(np.float64), X['db_lon'].to_numpy(np.float64)
+_has = ~np.isnan(_dl) & ~np.isnan(_do)
+_ex64 = _has & (_bl.astype(np.float64) == _dl) & (_bo.astype(np.float64) == _do)
+_ex32 = _has & (_bl == _dl.astype(np.float32)) & (_bo == _do.astype(np.float32))
+_r = np.radians
+_km = 2 * 6371 * np.arcsin(np.sqrt(np.sin((_r(_dl) - _r(lat_use)) / 2) ** 2 + np.cos(_r(lat_use)) * np.cos(_r(_dl)) * np.sin((_r(_do) - _r(lon_use)) / 2) ** 2))
+_hp_src = X['lims_data_key'].map(hp.drop_duplicates('lims_data_key').set_index('lims_data_key')['addr_source'].astype(str)) if 'addr_source' in hp.columns else pd.Series('', index=X.index)
+def _cm(g):
+    n = int(g.sum())
+    return {'행': n, 'DB 좌표 있음(행)': int((g & _has).sum()), 'DB 좌표 없음(행)': int((g & ~_has).sum()),
+            '정확히 일치: 저장값 그대로 비교(행)': int((g & _ex64).sum()), '정확히 일치: 저장값 그대로 비교(%)': round(float((g & _ex64).sum() / n * 100), 4) if n else None,
+            '정확히 일치: DB 값을 시료 파일과 같은 float32 로 맞춰 비교(행)': int((g & _ex32).sum()), '정확히 일치: DB 값을 시료 파일과 같은 float32 로 맞춰 비교(%)': round(float((g & _ex32).sum() / n * 100), 4) if n else None,
+            '불일치(행)': int((g & ~_ex32).sum()), '두 좌표 거리 1m 초과(행)': int((g & _has & (_km > 0.001)).sum()), '두 좌표 거리 1km 초과(행)': int((g & _has & (_km > 1)).sum()), '두 좌표 거리 10km 초과(행)': int((g & _has & (_km > 10)).sum())}
+Q['기상']['좌표'] = {'관측소 찾기에 쓴 좌표': '시료 파일(listeria_body.parquet) lat·lon', '시료 파일 좌표 없음(행)': int((np.isnan(lat_use) | np.isnan(lon_use)).sum()),
+                   '자료형': f"시료 파일 {body['lat'].dtype} / DB 전처리 시료표 {hp['lat'].dtype}",
+                   '시료 파일 vs DB 전처리 시료표 좌표 일치': {'전체': _cm(np.ones(N, bool)), '국내': _cm(DOM), '수입': _cm(OVS)},
+                   'float32 로 맞춰 일치한 행의 저장값 그대로 차이 최대(도)': max(float(np.abs(lat_use - _dl)[_ex32].max()), float(np.abs(lon_use - _do)[_ex32].max())) if _ex32.any() else None,
+                   '불일치 행 주소 출처(시료 파일 / DB 전처리 시료표)': {f'{a} / {b}': int(v) for (a, b), v in pd.DataFrame({'a': body['addr_source'].astype(str).to_numpy()[_has & ~_ex32], 'b': _hp_src.to_numpy()[_has & ~_ex32]}).value_counts().items()},
+                   '불일치 행 두 좌표 거리 km': {'중앙값': round(float(np.median(_km[_has & ~_ex32])), 1), '최대': round(float(np.max(_km[_has & ~_ex32])), 1)} if (_has & ~_ex32).any() else {}}
 
 # ================= 2. 식약처 검사 원본 =================
 mo = P('m_org_lims_data_info'); mo['lims_data_key'] = mo['lims_data_key'].astype(str)
@@ -156,7 +178,7 @@ def nearest_join(X, st, daily, sid, dcol, VARS, prefix, netname, st_table, name_
         D = hav(la[:, None], lo[:, None], SLA[None, ci], SLO[None, ci])
         j = D.argmin(1); out_sid[rows] = cs[j]; out_dist[rows] = D[np.arange(len(rows)), j]
     X[f'{prefix}{sid}'] = pd.Series(out_sid, index=X.index).astype('string'); X[f'{prefix}dist_km'] = np.round(out_dist, 3)
-    reg(f'{prefix}{sid}', st_table, sid, '연결된 관측소(기준일 당일 자료가 있는 관측소 중 가장 가까운 곳)', '연결 정보'); reg(f'{prefix}dist_km', '(연결 정보)', '', '시료 좌표에서 연결된 관측소(현재 좌표)까지 지표면 거리(km, 하버사인, 소수 3자리)', '연결 정보')
+    reg(f'{prefix}{sid}', st_table, sid, '연결된 관측소(기준일 당일 자료가 있는 관측소 중 가장 가까운 곳)', '연결 정보'); reg(f'{prefix}dist_km', '(연결 정보)', '', '시료 파일 좌표(lat·lon)에서 연결된 관측소(현재 좌표)까지 지표면 거리(km, 하버사인, 소수 3자리)', '연결 정보')
     if name_col:
         nm = st.set_index(sid)[name_col].astype('string'); X[f'{prefix}{name_col}'] = X[f'{prefix}{sid}'].map(nm).astype('string'); reg(f'{prefix}{name_col}', st_table, name_col, '연결된 관측소 이름(관측소표)', '연결 정보')
     key = pd.DataFrame({sid: X[f'{prefix}{sid}'].astype(object), '_d': base_date})
@@ -197,7 +219,7 @@ kst = P('keco_airkorea_obs_station'); kst['chg_dt'] = pd.to_datetime(kst['chg_dt
 sK = kst.sort_values(['_u', 'chg_dt'], ascending=False).drop_duplicates('station_nm')[['station_nm', 'dm_x', 'dm_y']].rename(columns={'dm_x': 'lat', 'dm_y': 'lon'}).astype({'lat': float, 'lon': float})
 AIR_V = ['no2_value', 'co_value', 'so2_value', 'pm10_value']
 X = nearest_join(X, sK, P('keco_airkorea_fine_dust_info'), 'station_nm', 'msur_dt', AIR_V, 'air_', ('에어코리아', 'api_data_info.keco_airkorea_fine_dust_info'), 'api_data_info.keco_airkorea_obs_station')
-Q['기상']['방식'] = '국내 시료만. 기준일(mnfctur_de) 당일 자료 행이 있는 관측소 가운데 시료 좌표에서 가장 가까운 1곳의 그날 값. 빈 값은 채우지 않음. 관측소 좌표는 관측소표의 현재(최신 이력) 좌표: 종관기상 = 관측소표 최신 이력 행, 농업기상 = 설치 위도·경도, 에어코리아 = dm_x(위도)·dm_y(경도), 같은 이름 여러 행이면 운영 중 행 우선. 그날 행이 있으면 항목이 전부 빈 행이라도 그 관측소가 뽑힘'
+Q['기상']['방식'] = '국내 시료만. 기준일(mnfctur_de) 당일 자료 행이 있는 관측소 가운데 시료 파일(listeria_body.parquet) lat·lon 좌표에서 가장 가까운 1곳의 그날 값. 빈 값은 채우지 않음. 관측소 좌표는 관측소표의 현재(최신 이력) 좌표: 종관기상 = 관측소표 최신 이력 행, 농업기상 = 설치 위도·경도, 에어코리아 = dm_x(위도)·dm_y(경도), 같은 이름 여러 행이면 운영 중 행 우선. 그날 행이 있으면 항목이 전부 빈 행이라도 그 관측소가 뽑힘'
 Q['기상']['시험용 관측소'] = {'동방로거테스트(561034A001)로 연결된 국내 행': int((X.loc[DOM, 'nas_obsr_spot_code'].astype('string') == '561034A001').sum())}
 if not HAVE('water_pollution'): MISSING.append('water_pollution(수질오염원 설치시설 표, 컬럼 8개): 추출본 없어 DB수집 폴더에 없음(원래도 좌표계 미확인이라 시료에 붙이지 않는 표)')
 
@@ -211,8 +233,8 @@ BODY_SPEC = {'mnfctur_de': 'mnfctur_de_or_fallback', 'src_route': 'geo_route'}  
 MANUAL = {'lims_data_key': '시료 고유키(검사기관코드_시료의뢰번호_시료순번_시험항목순번)', 'hazard_label': '위해요소 이름', 'judge_result': '판정 결과(검출/불검출)', 'src_route': '국내/수입 경로(domestic=국내, overseas=수입)', 'data_source': '데이터 출처',
           'expr_iem_nm': '시험 항목 명', 'result_value': '결과 값 원문', 'result_value_num': '결과 값(숫자 변환)', 'judge_stdr': '판정 기준 원문', 'judge_stdr_num': '판정 기준(숫자 변환)', 'inspct_instt_code': '검사 기관 코드',
           'prdlst_code': '품목 코드', 'train_prdlst_code': '학습용 품목코드(전처리)', 'train_prdlst_nm': '학습용 품목명(전처리)', 'prduct_nm': '제품 명', 'mnfctur_cmpny_nm': '제조 회사 명', 'mnfctur_de': '기준일(제조일, 없으면 선적일·의뢰일)',
-          'date_basis': '기준일 출처(제조일/선적일/의뢰일)', 'addr': '주소', 'addr_source': '주소 출처', 'legal_dong_code': '법정동 코드(10자리)', 'lat': '위도', 'lon': '경도',
-          'db_lat': '전처리 시료표 위도(관측소 찾기에 사용)', 'db_lon': '전처리 시료표 경도(관측소 찾기에 사용)', 'db_prdlst_nm': '전처리 시료표 품목 명(수분 문헌값 연결 키)', 'db_mapped_prdlst_code': '전처리 시료표 품목코드(옛 코드를 새 코드로 바꾼 값, 분류·수분활성도 표 연결 키)',
+          'date_basis': '기준일 출처(제조일/선적일/의뢰일)', 'addr': '주소', 'addr_source': '주소 출처', 'legal_dong_code': '법정동 코드(10자리)', 'lat': '위도(기상·대기 관측소 찾기에 사용)', 'lon': '경도(기상·대기 관측소 찾기에 사용)',
+          'db_lat': '전처리 시료표 위도(참고, 조인에 쓰지 않음)', 'db_lon': '전처리 시료표 경도(참고, 조인에 쓰지 않음)', 'db_prdlst_nm': '전처리 시료표 품목 명(수분 문헌값 연결 키)', 'db_mapped_prdlst_code': '전처리 시료표 품목코드(옛 코드를 새 코드로 바꾼 값, 분류·수분활성도 표 연결 키)',
           'db_statistic_prdlst_nm_1': '전처리 시료표 통계용 품목분류 1단계', 'db_statistic_prdlst_nm_2': '전처리 시료표 통계용 품목분류 2단계', 'db_statistic_prdlst_nm_3': '전처리 시료표 통계용 품목분류 3단계', 'db_statistic_prdlst_nm_4': '전처리 시료표 통계용 품목분류 4단계',
           'db_prdlst_mnfctur_sttemnt_no': '전처리 시료표 품목제조번호(품목제조대장 연결 키)', 'db_cntc_sys_key2': '전처리 시료표 수입접수번호(수입 검사 원본 연결 키)',
           'asos_stn_id': '종관기상 연결 관측소 번호', 'asos_stn_ko': '종관기상 연결 관측소 이름', 'asos_dist_km': '종관기상 연결 관측소까지 거리(km)', 'nas_obsr_spot_code': '농업기상 연결 관측소 코드', 'nas_obsr_spot_nm': '농업기상 연결 관측소 이름', 'nas_dist_km': '농업기상 연결 관측소까지 거리(km)',
@@ -301,7 +323,14 @@ Q['빠진 것'] = MISSING
 
 # ================= 10. 컬럼사전·품질 JSON 저장 =================
 Q['시료'] = {'행': N, '국내': int(DOM.sum()), '수입': int(OVS.sum()), '검출': int(DET.sum()), '국내 검출': int((DOM & DET).sum()), '수입 검출': int((OVS & DET).sum()), '조인 후 행': int(len(X)), '조인 후 열': int(X.shape[1])}
-with pd.ExcelWriter(os.path.join(SHARE, '컬럼사전.xlsx')) as w:
+DIC_PATH = os.path.join(SHARE, '컬럼사전.xlsx')
+try:
+    _w = pd.ExcelWriter(DIC_PATH)
+except PermissionError:  # 엑셀에서 열려 있으면 덮어쓰지 않고 새 이름으로 저장
+    DIC_PATH = os.path.join(SHARE, '컬럼사전_새판.xlsx'); _w = pd.ExcelWriter(DIC_PATH)
+    print('경고: 컬럼사전.xlsx 가 열려 있어 컬럼사전_새판.xlsx 로 저장')
+Q['컬럼사전 파일'] = os.path.basename(DIC_PATH)
+with _w as w:
     dic.to_excel(w, sheet_name='LIMS조인_데이터셋', index=False)
     if len(sj.columns) > 1:
         soil_dic = pd.DataFrame([{'컬럼': c, '원표': 'api_data_info.soil_ph_info' if c.startswith('soil_') else 'listeria_body.parquet', '한글명': ('토양검정 ' + (rep.get('soil_ph_info', {}).get(c[5:], {}).get('한글') or spec.get('soil_ph_info', {}).get(c[5:]) or c[5:])) if c.startswith('soil_') else MANUAL.get(c, c),
