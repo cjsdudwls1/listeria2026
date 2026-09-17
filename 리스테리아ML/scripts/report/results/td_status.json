@@ -1,0 +1,49 @@
+{
+ "nas_station": {
+  "rows": 219,
+  "codes": 219,
+  "la_nonnull": 219,
+  "lo_nonnull": 219,
+  "la_min": 33.254689,
+  "la_max": 38.297008,
+  "lo_min": 124.71063,
+  "lo_max": 129.45222,
+  "outside_korea_box": 0,
+  "coords_shared_by_2plus": 0,
+  "codes_with_daily": 219,
+  "use_yn": {
+   "1": 218,
+   "0": 1
+  },
+  "with_end_date": 1,
+  "instl_la_type": "float64"
+ },
+ "predict": {
+  "rows": 1068,
+  "precip_nonnull": 1068,
+  "precip_num_nonnull": 1068,
+  "precip_min": 0.0,
+  "precip_max": 115.1,
+  "precip_zero": 62,
+  "date_ranges": {
+   "meas_date": [
+    "2026-07-01 00:00:00",
+    "2026-07-01 00:00:00"
+   ],
+   "forecast_date": [
+    "2026-07-01 00:00:00",
+    "2026-07-12 00:00:00"
+   ],
+   "hghst_artmp": [
+    "20.05",
+    "32.96"
+   ],
+   "lowst_artmp": [
+    "14.06",
+    "25.41"
+   ]
+  },
+  "grids": 89,
+  "forecast_days": 12
+ }
+}

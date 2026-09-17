@@ -1,0 +1,258 @@
+{
+ "ASOS.avg_ta": {
+  "present": 97.1,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.1,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.max_ta": {
+  "present": 97.2,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.0,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.min_ta": {
+  "present": 97.2,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.0,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.sum_rn": {
+  "present": 36.6,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 60.7,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.avg_ws": {
+  "present": 97.1,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.2,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.max_ws": {
+  "present": 97.2,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.1,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.max_ins_ws": {
+  "present": 97.1,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.1,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.sum_sshr": {
+  "present": 96.9,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.3,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.sum_gsr": {
+  "present": 61.5,
+  "no_row": 2.8,
+  "station_never_records": 27.0,
+  "null_on_that_day": 8.7,
+  "nearest_stations_used": 98,
+  "of_which_never": 26
+ },
+ "ASOS.avg_ts": {
+  "present": 97.2,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.1,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.min_tg": {
+  "present": 97.1,
+  "no_row": 2.8,
+  "station_never_records": 0.0,
+  "null_on_that_day": 0.1,
+  "nearest_stations_used": 98,
+  "of_which_never": 0
+ },
+ "ASOS.avg_cm5_te": {
+  "present": 33.3,
+  "no_row": 2.8,
+  "station_never_records": 58.6,
+  "null_on_that_day": 5.4,
+  "nearest_stations_used": 98,
+  "of_which_never": 69
+ },
+ "ASOS.avg_cm10_te": {
+  "present": 33.3,
+  "no_row": 2.8,
+  "station_never_records": 58.6,
+  "null_on_that_day": 5.4,
+  "nearest_stations_used": 98,
+  "of_which_never": 69
+ },
+ "ASOS.avg_cm20_tes": {
+  "present": 33.3,
+  "no_row": 2.8,
+  "station_never_records": 58.6,
+  "null_on_that_day": 5.4,
+  "nearest_stations_used": 98,
+  "of_which_never": 69
+ },
+ "ASOS.avg_cm30_te": {
+  "present": 33.3,
+  "no_row": 2.8,
+  "station_never_records": 58.6,
+  "null_on_that_day": 5.4,
+  "nearest_stations_used": 98,
+  "of_which_never": 69
+ },
+ "NAS.temp": {
+  "present": 90.1,
+  "no_row": 2.4,
+  "station_never_records": 3.8,
+  "null_on_that_day": 3.6,
+  "nearest_stations_used": 212,
+  "of_which_never": 20
+ },
+ "NAS.hghst_artmp": {
+  "present": 90.1,
+  "no_row": 2.4,
+  "station_never_records": 3.8,
+  "null_on_that_day": 3.6,
+  "nearest_stations_used": 212,
+  "of_which_never": 20
+ },
+ "NAS.lowst_artmp": {
+  "present": 90.1,
+  "no_row": 2.4,
+  "station_never_records": 3.8,
+  "null_on_that_day": 3.6,
+  "nearest_stations_used": 212,
+  "of_which_never": 19
+ },
+ "NAS.rn": {
+  "present": 96.2,
+  "no_row": 2.4,
+  "station_never_records": 1.1,
+  "null_on_that_day": 0.3,
+  "nearest_stations_used": 212,
+  "of_which_never": 12
+ },
+ "NAS.wind": {
+  "present": 79.6,
+  "no_row": 2.4,
+  "station_never_records": 13.1,
+  "null_on_that_day": 4.8,
+  "nearest_stations_used": 212,
+  "of_which_never": 33
+ },
+ "NAS.max_wind": {
+  "present": 79.6,
+  "no_row": 2.4,
+  "station_never_records": 13.1,
+  "null_on_that_day": 4.9,
+  "nearest_stations_used": 212,
+  "of_which_never": 33
+ },
+ "NAS.widdir": {
+  "present": 79.6,
+  "no_row": 2.4,
+  "station_never_records": 7.5,
+  "null_on_that_day": 10.4,
+  "nearest_stations_used": 212,
+  "of_which_never": 31
+ },
+ "NAS.srqty": {
+  "present": 72.3,
+  "no_row": 2.4,
+  "station_never_records": 23.2,
+  "null_on_that_day": 2.0,
+  "nearest_stations_used": 212,
+  "of_which_never": 35
+ },
+ "NAS.sun_time": {
+  "present": 39.1,
+  "no_row": 2.4,
+  "station_never_records": 49.7,
+  "null_on_that_day": 8.7,
+  "nearest_stations_used": 212,
+  "of_which_never": 121
+ },
+ "NAS.soil_wt": {
+  "present": 54.8,
+  "no_row": 2.4,
+  "station_never_records": 23.5,
+  "null_on_that_day": 19.3,
+  "nearest_stations_used": 212,
+  "of_which_never": 66
+ },
+ "NAS.gr_temp": {
+  "present": 47.2,
+  "no_row": 2.4,
+  "station_never_records": 42.7,
+  "null_on_that_day": 7.7,
+  "nearest_stations_used": 212,
+  "of_which_never": 107
+ },
+ "NAS.soil_temp": {
+  "present": 15.6,
+  "no_row": 2.4,
+  "station_never_records": 72.2,
+  "null_on_that_day": 9.7,
+  "nearest_stations_used": 212,
+  "of_which_never": 168
+ },
+ "NAS.hum": {
+  "present": 89.8,
+  "no_row": 2.4,
+  "station_never_records": 4.1,
+  "null_on_that_day": 3.7,
+  "nearest_stations_used": 212,
+  "of_which_never": 20
+ },
+ "AIR.no2_value": {
+  "present": 85.2,
+  "no_row": 13.4,
+  "station_never_records": 0.0,
+  "null_on_that_day": 1.5,
+  "nearest_stations_used": 630,
+  "of_which_never": 0
+ },
+ "AIR.co_value": {
+  "present": 85.1,
+  "no_row": 13.4,
+  "station_never_records": 0.0,
+  "null_on_that_day": 1.6,
+  "nearest_stations_used": 630,
+  "of_which_never": 1
+ },
+ "AIR.so2_value": {
+  "present": 85.1,
+  "no_row": 13.4,
+  "station_never_records": 0.0,
+  "null_on_that_day": 1.5,
+  "nearest_stations_used": 630,
+  "of_which_never": 1
+ },
+ "AIR.pm10_value": {
+  "present": 85.1,
+  "no_row": 13.4,
+  "station_never_records": 0.0,
+  "null_on_that_day": 1.5,
+  "nearest_stations_used": 630,
+  "of_which_never": 0
+ }
+}

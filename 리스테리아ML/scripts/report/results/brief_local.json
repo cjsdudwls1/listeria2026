@@ -1,0 +1,757 @@
+{
+ "n": {
+  "all": 676537,
+  "domestic": 628895,
+  "overseas": 47642,
+  "det_domestic": 1844,
+  "det_overseas": 125
+ },
+ "ovs_date_basis": {
+  "선적일": 47063,
+  "의뢰일": 446,
+  "제조일": 133
+ },
+ "ovs_date_basis_det": {
+  "선적일": 125
+ },
+ "ovs_geo_match_level": {},
+ "ovs_addr_source": {
+  "해외제조업소": 47431,
+  "제조사소재지": 176,
+  "업소주소": 35
+ },
+ "ovs_nation_top": {
+  "US": 8373,
+  "IT": 7385,
+  "FR": 6567,
+  "CN": 2282,
+  "ES": 2094,
+  "NL": 1810,
+  "DE": 1482,
+  "AU": 1396,
+  "TH": 1314,
+  "NZ": 1314,
+  "JP": 1295,
+  "VN": 1154
+ },
+ "ovs_coords": 3072,
+ "ovs_coords_per_nation_top": {
+  "US": 561,
+  "IT": 308,
+  "FR": 249,
+  "CN": 215,
+  "JP": 197,
+  "ES": 177,
+  "AU": 152,
+  "DE": 135
+ },
+ "ovs_rows_top_coords": [
+  {
+   "lat": 50.2777243,
+   "lon": 2.8302842,
+   "rows": 960,
+   "nation": "FR"
+  },
+  {
+   "lat": 35.0476083,
+   "lon": 138.5129709,
+   "rows": 567,
+   "nation": "TW"
+  },
+  {
+   "lat": 46.7291187,
+   "lon": 11.6526818,
+   "rows": 527,
+   "nation": "IT"
+  },
+  {
+   "lat": 35.375718,
+   "lon": 139.607435,
+   "rows": 497,
+   "nation": "ES"
+  },
+  {
+   "lat": 15.7757292,
+   "lon": 101.0161316,
+   "rows": 482,
+   "nation": "TH"
+  }
+ ],
+ "gfw_sameday": {
+  "rows": 47642,
+  "matched": 47642,
+  "nonnull_pct": {
+   "temperature_mean": 100.0,
+   "temperature_max": 100.0,
+   "temperature_min": 100.0,
+   "relative_humidity_mean": 100.0,
+   "relative_humidity_max": 100.0,
+   "relative_humidity_min": 100.0,
+   "precipitation_sum": 100.0,
+   "wind_speed_mean": 100.0,
+   "wind_speed_max": 100.0,
+   "wind_speed_min": 100.0,
+   "radiation_sum": 100.0,
+   "sunshine_duration": 100.0,
+   "soil_moisture_mean": 100.0
+  },
+  "min": {
+   "temperature_mean": -30.1,
+   "temperature_max": -21.6,
+   "temperature_min": -37.6,
+   "relative_humidity_mean": 8.0,
+   "relative_humidity_max": 14.0,
+   "relative_humidity_min": 2.0,
+   "precipitation_sum": 0.0,
+   "wind_speed_mean": 0.9,
+   "wind_speed_max": 1.9,
+   "wind_speed_min": 0.0,
+   "radiation_sum": 0.0,
+   "sunshine_duration": 0.0,
+   "soil_moisture_mean": 0.0
+  },
+  "max": {
+   "temperature_mean": 38.6,
+   "temperature_max": 47.4,
+   "temperature_min": 32.4,
+   "relative_humidity_mean": 100.0,
+   "relative_humidity_max": 100.0,
+   "relative_humidity_min": 100.0,
+   "precipitation_sum": 161.6,
+   "wind_speed_mean": 58.6,
+   "wind_speed_max": 97.3,
+   "wind_speed_min": 47.1,
+   "radiation_sum": 33.81,
+   "sunshine_duration": 80775.53,
+   "soil_moisture_mean": 0.741
+  }
+ },
+ "gwi": {
+  "rows": 1047294,
+  "date_min": "2015-01-01",
+  "date_max": "2026-07-07",
+  "countries": 249,
+  "nonnull_study_pct": {
+   "temperature_mean": 100.0,
+   "temperature_max": 100.0,
+   "temperature_min": 100.0,
+   "relative_humidity_mean": 100.0,
+   "precipitation_sum": 100.0,
+   "wind_speed_mean": 100.0,
+   "wind_speed_max": 100.0,
+   "shortwave_radiation_sum": 100.0,
+   "sunshine_duration": 100.0,
+   "soil_moisture_mean": 100.0
+  },
+  "points_per_country_max": 1
+ },
+ "splore_sttus": {
+  "present": {
+   "domestic": 2.6,
+   "overseas": 84.4,
+   "det_domestic": 1.7,
+   "det_overseas": 92.0
+  },
+  "values_domestic": {
+   "냉장": 11853,
+   "실온": 3059,
+   "냉동": 1582
+  },
+  "values_overseas": {
+   "냉장": 18106,
+   "냉동": 15475,
+   "실온": 6638
+  }
+ },
+ "cnvync_sttus_tp": {
+  "present": {
+   "domestic": 0.4,
+   "overseas": 0.0,
+   "det_domestic": 0.3,
+   "det_overseas": 0.0
+  },
+  "values": {
+   "2.0": 1377,
+   "0.0": 228,
+   "10.0": 222,
+   "5.0": 112,
+   "4.0": 106,
+   "-18.0": 87,
+   "20.0": 81,
+   "15.0": 65
+  },
+  "unit_present": {
+   "domestic": 0.0,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  }
+ },
+ "cnvync_mth": {
+  "present": {
+   "domestic": 13.6,
+   "overseas": 0.2,
+   "det_domestic": 19.4,
+   "det_overseas": 0.0
+  },
+  "values": {
+   "방문": 66145,
+   "택배": 11934,
+   "기타": 6887,
+   "퀵": 875,
+   "우편": 41
+  }
+ },
+ "dom_mnf_present": {
+  "domestic": 47.1,
+  "overseas": 0.3,
+  "det_domestic": 32.3,
+  "det_overseas": 0.0
+ },
+ "dom_mnf_to_request_days": {
+  "n": 295907,
+  "p10": 0.0,
+  "p25": 0.0,
+  "p50": 2.0,
+  "p75": 7.0,
+  "p90": 20.0,
+  "neg": 1393
+ },
+ "distb_de_present": {
+  "domestic": 30.3,
+  "overseas": 0.3,
+  "det_domestic": 13.1,
+  "det_overseas": 0.0
+ },
+ "distb_de_minus_mnf_days_domestic": {
+  "n": 124715,
+  "p10": 3.0,
+  "p25": 14.0,
+  "p50": 44.0,
+  "p75": 241.0,
+  "p90": 365.0,
+  "neg": 56
+ },
+ "distb_de_minus_request_days_domestic": {
+  "n": 190368,
+  "p10": 4.0,
+  "p25": 13.0,
+  "p50": 46.0,
+  "p75": 260.0,
+  "p90": 364.0,
+  "neg": 3451
+ },
+ "valid_tmlmt": {
+  "present": {
+   "domestic": 2.5,
+   "overseas": 0.0,
+   "det_domestic": 1.0,
+   "det_overseas": 0.0
+  },
+  "values": {
+   "1.0": 1725,
+   "40.0": 1573,
+   "2.0": 1459,
+   "6.0": 1328,
+   "30.0": 1076,
+   "3.0": 785
+  }
+ },
+ "ledger_key": {
+  "domestic": 32.3,
+  "overseas": 0.0,
+  "det_domestic": 12.1,
+  "det_overseas": 0.0
+ },
+ "ledger.pog_daycnt": {
+  "present": {
+   "domestic": 30.9,
+   "overseas": 0.0,
+   "det_domestic": 12.1,
+   "det_overseas": 0.0
+  },
+  "top": {
+   "제조일로부터 12개월": 5584,
+   "제조일로부터 6개월": 3475,
+   "제조일로부터 60일": 3379,
+   "제조일로부터 12개월까지": 3233,
+   "제조일로부터 30일": 2463,
+   "제조일로부터 1년": 2354,
+   "제조일로부터 20일": 2264,
+   "제조일로부터 3개월": 2220
+  }
+ },
+ "ledger.qlity_mntnc_tmlmt_daycnt": {
+  "present": {
+   "domestic": 0.8,
+   "overseas": 0.0,
+   "det_domestic": 0.5,
+   "det_overseas": 0.0
+  },
+  "top": {
+   "해당없음": 1316,
+   "해당없음.": 478,
+   "-": 449,
+   "제조일로부터 8시간": 79,
+   "생략": 75,
+   ".": 73,
+   "상온에서 8시간": 72,
+   "1일": 61
+  }
+ },
+ "ledger.frmlc_mtrqlt": {
+  "present": {
+   "domestic": 29.0,
+   "overseas": 0.0,
+   "det_domestic": 10.7,
+   "det_overseas": 0.0
+  },
+  "top": {
+   "폴리에틸렌(내면)": 14632,
+   "폴리에틸렌": 14042,
+   "PE": 5717,
+   "폴리에틸렌(PE)": 4856,
+   "폴리프로필렌": 3996,
+   "내포장(내면)-폴리에틸렌": 1475,
+   " ": 1176,
+   "PET": 1131
+  }
+ },
+ "ledger.mnf_cnd_cn": {
+  "present": {
+   "domestic": 0.2,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  },
+  "top": {
+   "레토르트식품": 80,
+   "실온제조": 77,
+   "냉장보관": 52,
+   "진공포장/보존료 미사용/ 비살균제품": 38,
+   "식품공전개정에 따른 식품유형 직권(곡류가공품→즉석섭취식품)변경(2011.": 37,
+   "준수사항이행": 37,
+   "식품위생법제22조제6항 및 같은법시행규칙제25조": 35,
+   "제조일과 제조시간을 함께 표시해야 함 / 냉장보관 / 보존료 사용 무 /": 34
+  }
+ },
+ "ledger.prsrv_distb_stdr_cn": {
+  "present": {
+   "domestic": 0.0,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  },
+  "top": {
+   "실온보관": 156,
+   "냉장보관": 92,
+   "직사광선을 피하고 서늘한 곳에 보관하여 주십시오.": 13,
+   "직사광선을 피하고 서늘한 곳에 보관": 6,
+   "습기와 직사광선을 피하여 건냉한 곳에 보관하십시오. 개봉 후 수분이 닿을": 6,
+   "실온": 3,
+   "수분, 열에 의해 품질에 영향을 받을 수 있으므로 직사광선을 피해 서늘한": 2,
+   "직사광선을 피하고 서늘하고 건조한 곳에 보관하십시오.": 2
+  }
+ },
+ "ledger.haccp_appn_no": {
+  "present": {
+   "domestic": 0.0,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  },
+  "top": {}
+ },
+ "ledger.pog_patterns_domestic": {
+  "제조일로부터 N개월": 45787,
+  "제조일로부터 N일": 71644,
+  "제조일로부터 N년": 6256,
+  "숫자만·개월만 등 기타": 63058
+ },
+ "ledger_keywords_domestic_rows": {
+  "제조조건: 가열·살균·멸균": 192,
+  "제조조건: 냉동·냉장": 170,
+  "보존유통기준: 냉장": 98,
+  "보존유통기준: 냉동": 0,
+  "보존유통기준: 실온·상온": 166,
+  "포장재질: 진공": 4194,
+  "포장재질: 가스·질소": 253
+ },
+ "s_org_key": {
+  "domestic": 0.0,
+  "overseas": 99.6,
+  "det_domestic": 0.0,
+  "det_overseas": 100.0
+ },
+ "s_org_prpos_nm": {
+  "present": {
+   "domestic": 0.0,
+   "overseas": 99.6,
+   "det_domestic": 0.0,
+   "det_overseas": 100.0
+  },
+  "values_overseas": {
+   "판매용": 45688,
+   "자사제품제조용": 1713,
+   "외화획득용 원료": 16,
+   "반송품(기타)": 11,
+   "반송품(국내기준규격)": 3
+  },
+  "values_det_overseas": {
+   "판매용": 124,
+   "자사제품제조용": 1
+  }
+ },
+ "import_dates_present": {
+  "shipng_de": {
+   "domestic": 0.0,
+   "overseas": 98.8,
+   "det_domestic": 0.0,
+   "det_overseas": 100.0
+  },
+  "entrpt_de": {
+   "domestic": 0.0,
+   "overseas": 99.6,
+   "det_domestic": 0.0,
+   "det_overseas": 100.0
+  },
+  "wrhous_carry_de": {
+   "domestic": 0.0,
+   "overseas": 99.6,
+   "det_domestic": 0.0,
+   "det_overseas": 100.0
+  },
+  "distb_bgn_de": {
+   "domestic": 0.0,
+   "overseas": 99.2,
+   "det_domestic": 0.0,
+   "det_overseas": 100.0
+  },
+  "distb_end_de": {
+   "domestic": 0.0,
+   "overseas": 88.8,
+   "det_domestic": 0.0,
+   "det_overseas": 71.2
+  },
+  "packng_plc_cd": {
+   "domestic": 0.0,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  },
+  "packng_plc_addr": {
+   "domestic": 0.0,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  }
+ },
+ "import_placeholder_9999": {
+  "distb_bgn_de": 23,
+  "distb_end_de": 23
+ },
+ "import_days": {
+  "선적→입항": {
+   "n": 47067,
+   "p10": 1.0,
+   "p25": 1.0,
+   "p50": 5.0,
+   "p75": 32.0,
+   "p90": 47.0,
+   "neg": 0
+  },
+  "입항→보관창고반입": {
+   "n": 47429,
+   "p10": 0.0,
+   "p25": 1.0,
+   "p50": 2.0,
+   "p75": 3.0,
+   "p90": 5.0,
+   "neg": 54
+  },
+  "보관창고반입→검사의뢰": {
+   "n": 47429,
+   "p10": 1.0,
+   "p25": 2.0,
+   "p50": 4.0,
+   "p75": 8.0,
+   "p90": 17.0,
+   "neg": 37
+  },
+  "선적→검사의뢰": {
+   "n": 47067,
+   "p10": 3.0,
+   "p25": 6.0,
+   "p50": 17.0,
+   "p75": 43.0,
+   "p90": 62.0,
+   "neg": 1
+  },
+  "유통시작일−선적일": {
+   "n": 46853,
+   "p10": -37.0,
+   "p25": 29.0,
+   "p50": 179.0,
+   "p75": 400.0,
+   "p90": 689.0,
+   "neg": 9046
+  },
+  "유통종료일−선적일": {
+   "n": 42100,
+   "p10": 39.0,
+   "p25": 115.0,
+   "p50": 330.0,
+   "p75": 543.0,
+   "p90": 713.0,
+   "neg": 0
+  },
+  "유통종료일−유통시작일": {
+   "n": 42109,
+   "p10": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 0.0,
+   "p90": 240.0,
+   "neg": 0
+  }
+ },
+ "import_name_keywords_overseas_rows": {
+  "품명: 냉동": 7995,
+  "품명: 냉장": 766,
+  "품명: 횟감·생식": 8003,
+  "품명: 가열": 655,
+  "품명 예시(냉동·냉장 포함)": {
+   "참다랑어(냉동,필렛(F),횟감)": 919,
+   "눈다랑어(냉동,필렛(F),횟감)": 771,
+   "흰다리새우(냉동,살,자숙,포장횟감)": 646,
+   "황새치(냉동,필렛(F),횟감)": 563,
+   "성게알(냉장,횟감)": 405,
+   "참다랑어(냉동,볼살,횟감)": 364,
+   "참다랑어(냉동,턱살,횟감)": 307,
+   "참다랑어(냉동,목살,횟감)": 287
+  }
+ },
+ "ovs_manufacturer": {
+  "key": {
+   "domestic": 0.0,
+   "overseas": 19.8,
+   "det_domestic": 0.0,
+   "det_overseas": 34.4
+  },
+  "haccp_crtfc_yn_overseas": {
+   "N": 9423
+  },
+  "fsms_yn_overseas": {
+   "N": 5348,
+   "Y": 3965
+  },
+  "fsms_crtfc_yn_overseas": {
+   "N": 5665,
+   "Y": 3648
+  }
+ },
+ "type_name_keywords": {
+  "가열·살균·멸균": {
+   "rows": {
+    "domestic": 3.8,
+    "overseas": 1.4,
+    "det_domestic": 0.3,
+    "det_overseas": 0.0
+   },
+   "n_domestic": 23600,
+   "n_overseas": 655,
+   "top_names": {
+    "알가열제품": 19818,
+    "가열양념육": 3484,
+    "알가열성형제품": 953
+   }
+  },
+  "비가열·생(生)": {
+   "rows": {
+    "domestic": 0.3,
+    "overseas": 4.6,
+    "det_domestic": 0.2,
+    "det_overseas": 9.6
+   },
+   "n_domestic": 2006,
+   "n_overseas": 2169,
+   "top_names": {
+    "생햄": 2247,
+    "생치즈": 1815,
+    "생면": 100,
+    "생강": 10,
+    "생식함유제품": 2,
+    "생식제품": 1
+   }
+  },
+  "냉동": {
+   "rows": {
+    "domestic": 0.0,
+    "overseas": 0.0,
+    "det_domestic": 0.1,
+    "det_overseas": 0.0
+   },
+   "n_domestic": 208,
+   "n_overseas": 0,
+   "top_names": {
+    "새우냉동": 98,
+    "기타수산물냉동": 20,
+    "한치냉동": 7,
+    "연어냉동": 7,
+    "참다랑어냉동": 7,
+    "블루베리냉동": 6
+   }
+  },
+  "냉장": {
+   "rows": {
+    "domestic": 0.0,
+    "overseas": 0.0,
+    "det_domestic": 0.0,
+    "det_overseas": 0.0
+   },
+   "n_domestic": 7,
+   "n_overseas": 0,
+   "top_names": {
+    "넙치신선냉장": 3,
+    "갈치신선냉장": 2,
+    "참돔신선냉장": 2
+   }
+  },
+  "즉석섭취·신선편의": {
+   "rows": {
+    "domestic": 6.0,
+    "overseas": 0.0,
+    "det_domestic": 2.2,
+    "det_overseas": 0.0
+   },
+   "n_domestic": 37963,
+   "n_overseas": 0,
+   "top_names": {
+    "즉석섭취식품": 37337,
+    "신선편의식품": 626
+   }
+  },
+  "즉석조리": {
+   "rows": {
+    "domestic": 0.2,
+    "overseas": 0.0,
+    "det_domestic": 0.3,
+    "det_overseas": 0.0
+   },
+   "n_domestic": 1059,
+   "n_overseas": 0,
+   "top_names": {
+    "즉석조리식품": 1059
+   }
+  },
+  "훈제·발효·건조": {
+   "rows": {
+    "domestic": 4.9,
+    "overseas": 2.6,
+    "det_domestic": 0.4,
+    "det_overseas": 0.8
+   },
+   "n_domestic": 30720,
+   "n_overseas": 1215,
+   "top_names": {
+    "농후발효유": 15711,
+    "발효유": 7235,
+    "건조저장육류": 6753,
+    "발효소시지": 1141,
+    "크림발효유": 324,
+    "농후크림발효유": 258
+   }
+  }
+ },
+ "type_definitions": [
+  {
+   "code": "C0129180100000",
+   "name": "즉석섭취식품",
+   "dfn": "동․식물성 원료를 식품이나 식품첨가물을 가하여 제조․가공한 것으로서 더 이상의 가열, 조리과정 없이 그대로 섭취 할 수 있는 김밥, 햄버거, 선식 등의 식품을 말한다."
+  },
+  {
+   "code": "C0129180200000",
+   "name": "즉석조리식품",
+   "dfn": "동․식물성 원료를 식품이나 식품첨가물을 가하여 제조․가공한 것으로서 단순가열 등의 조리과정을 거치거나 이와 동등한 방법을 거쳐 섭취 할 수 있는 국, 탕, 스프 등의 식품을 말한다."
+  },
+  {
+   "code": "C0129180300000",
+   "name": "신선편의식품",
+   "dfn": "농․임산물을 세척, 박피, 절단 또는 세절 등의 가공공정을 거치거나 이에 단순히 식품 또는 식품첨가물을 가한 것으로서 그대로 섭취할 수 있는 샐러드, 새싹채소 등의 식품을 말한다."
+  },
+  {
+   "code": "C0202010200000",
+   "name": "생햄",
+   "dfn": "식육의 부위를 염지한 것이나 이에 식품첨가물 등을 첨가하여 저온에서 훈연 또는 숙성･건조한 것을 말한다(뼈나 껍질이 있는 것도 포함한다)."
+  },
+  {
+   "code": "C0316010200000",
+   "name": "생햄",
+   "dfn": "식육의 부위를 염지한 것이나 이에 식품첨가물을 가하여 저온에서 훈연 또는 숙성･건조한 것을 말한다(뼈나 껍질이 있는 것도 포함한다)."
+  },
+  {
+   "code": "C0317010700000",
+   "name": "알가열제품",
+   "dfn": "알을 그대로 또는 이에 식품이나 식품첨가물을 가하여 가열처리공정을 거친 것과 알을 삶은 후 그대로 또는 껍질을 제거하여 식품 또는 식품첨가물을 가하여 조리거나 가공한 것을 말한다(알 내용물 30% 이상)."
+  },
+  {
+   "code": "C0322020100000",
+   "name": "즉석섭취식품",
+   "dfn": "동․식물성 원료를 식품이나 식품첨가물을 가하여 제조․가공한 것으로서 더 이상의 가열, 조리과정 없이 그대로 또는 단순 혼합하여 섭취 할 수 있는 도시락, 김밥, 햄버거, 선식, 비빔밥 등의 식품을 말한다."
+  },
+  {
+   "code": "C0322020200000",
+   "name": "신선편의식품",
+   "dfn": "농․임산물을 세척, 박피, 절단 또는 세절 등의 가공공정을 거치거나 이에 단순히 식품 또는 식품첨가물을 가한 것으로서 그대로 섭취할 수 있는 샐러드, 새싹채소 등의 식품을 말한다."
+  },
+  {
+   "code": "C0322020300000",
+   "name": "즉석조리식품",
+   "dfn": "동･식물성 원료에 식품이나 식품첨가물을 가하여 제조‧가공한 것으로서 단순가열 등의 가열조리과정을 거치면 섭취할 수 있도록 제조된 국, 탕, 수프, 순대 등의 식품을 말한다. 다만, 간편조리세트에 속하는 것은 제외한다."
+  }
+ ],
+ "product_name_keywords": {
+  "냉동": {
+   "domestic": 1.2,
+   "overseas": 18.0,
+   "det_domestic": 2.3,
+   "det_overseas": 48.0
+  },
+  "냉장": {
+   "domestic": 2.2,
+   "overseas": 1.6,
+   "det_domestic": 5.6,
+   "det_overseas": 1.6
+  },
+  "진공": {
+   "domestic": 0.0,
+   "overseas": 0.0,
+   "det_domestic": 0.0,
+   "det_overseas": 0.0
+  },
+  "훈제": {
+   "domestic": 1.4,
+   "overseas": 1.5,
+   "det_domestic": 1.7,
+   "det_overseas": 3.2
+  },
+  "횟감·회": {
+   "domestic": 0.0,
+   "overseas": 16.6,
+   "det_domestic": 0.3,
+   "det_overseas": 33.6
+  },
+  "살균": {
+   "domestic": 6.3,
+   "overseas": 0.4,
+   "det_domestic": 1.9,
+   "det_overseas": 0.0
+  },
+  "가열": {
+   "domestic": 8.6,
+   "overseas": 0.5,
+   "det_domestic": 5.6,
+   "det_overseas": 0.0
+  }
+ }
+}

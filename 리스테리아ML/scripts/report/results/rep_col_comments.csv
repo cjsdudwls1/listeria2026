@@ -1,0 +1,615 @@
+﻿schema,table,column,comment,type
+api_data_info,global_factory_weather,weather_seq,자동 증분 일련번호(PK),bigint
+api_data_info,global_factory_weather,lat_g,위도. hazard_preprocessed_data 원본 lat과 동일 값(조인 키),double precision
+api_data_info,global_factory_weather,lon_g,경도. hazard_preprocessed_data 원본 lon과 동일 값(조인 키),double precision
+api_data_info,global_factory_weather,obsr_de,관측 일자(UTC 기준),date
+api_data_info,global_factory_weather,temperature_mean,일평균 지상 2m 기온(°C). 곰팡이 생장률·독소 생성률 파생변수 입력,real
+api_data_info,global_factory_weather,temperature_max,일최고 지상 2m 기온(°C),real
+api_data_info,global_factory_weather,temperature_min,일최저 지상 2m 기온(°C),real
+api_data_info,global_factory_weather,relative_humidity_mean,일평균 지상 2m 상대습도(%). 수분활성도 대리변수·VPD 산출 입력,real
+api_data_info,global_factory_weather,relative_humidity_max,일최고 지상 2m 상대습도(%),real
+api_data_info,global_factory_weather,relative_humidity_min,일최저 지상 2m 상대습도(%),real
+api_data_info,global_factory_weather,precipitation_sum,일강수량 합계(mm). 비·소나기·강설 물환산 포함,real
+api_data_info,global_factory_weather,wind_speed_mean,일평균 지상 10m 풍속(km/h),real
+api_data_info,global_factory_weather,wind_speed_max,일최대 지상 10m 풍속(km/h),real
+api_data_info,global_factory_weather,wind_speed_min,일최소 지상 10m 풍속(km/h),real
+api_data_info,global_factory_weather,radiation_sum,일 단파복사량 합계(MJ/m²),real
+api_data_info,global_factory_weather,sunshine_duration,일조시간(초). 구름에 가리지 않은 실제 일조,real
+api_data_info,global_factory_weather,soil_moisture_mean,"표층(0~7cm) 일평균 토양수분(m³/m³). ERA5-Land 제공, 해안·도서 결측 가능",real
+api_data_info,global_factory_weather,created_at,적재 일시,timestamp with time zone
+api_data_info,global_soil_ph,iso3,,text
+api_data_info,global_soil_ph,name_ko,,text
+api_data_info,global_soil_ph,nation_code,,text
+api_data_info,global_soil_ph,sub_region,,text
+api_data_info,global_soil_ph,ph_mean,,double precision
+api_data_info,global_soil_ph,ph_std,,double precision
+api_data_info,global_soil_ph,n_pixels,,double precision
+api_data_info,global_weather_info,alpha_3,ISO3166 3자리 구분코드,character varying(5)
+api_data_info,global_weather_info,date,측정일,date
+api_data_info,global_weather_info,sunshine_duration,일조시간,numeric
+api_data_info,global_weather_info,precipitation_sum,강수량 합계,numeric
+api_data_info,global_weather_info,wind_speed_max,최대 풍속,numeric
+api_data_info,global_weather_info,wind_speed_mean,평균 풍속,numeric
+api_data_info,global_weather_info,temperature_min,최저 기온,numeric
+api_data_info,global_weather_info,temperature_max,최대 기온,numeric
+api_data_info,global_weather_info,temperature_mean,평균 기온,numeric
+api_data_info,global_weather_info,relative_humidity_mean,평균 상대 습도,numeric
+api_data_info,global_weather_info,shortwave_radiation_sum,일일 일사랑 합계,numeric
+api_data_info,global_weather_info,soil_moisture_mean,평균 토양 수분 함량,numeric
+api_data_info,global_weather_info,lat,인접 측정소 위도,numeric
+api_data_info,global_weather_info,lon,인접 측정소 경도,numeric
+api_data_info,global_weather_info,country_lat,국가기준 위도,numeric
+api_data_info,global_weather_info,country_lon,국가기준 경도,numeric
+api_data_info,global_weather_info,name_ko,국가명(한글),character varying(60)
+api_data_info,keco_airkorea_fine_dust_info,station_nm,측정소명,character varying(50)
+api_data_info,keco_airkorea_fine_dust_info,msur_dt,측정일,date
+api_data_info,keco_airkorea_fine_dust_info,so2_value,아황산가스 평균농도,"numeric(4,3)"
+api_data_info,keco_airkorea_fine_dust_info,co_value,일산화탄소 평균농도,"numeric(4,3)"
+api_data_info,keco_airkorea_fine_dust_info,o3_value,오존 평균농도,"numeric(4,3)"
+api_data_info,keco_airkorea_fine_dust_info,no2_value,이산화질소 평균농도,"numeric(4,3)"
+api_data_info,keco_airkorea_fine_dust_info,pm10_value,미세먼지(PM10) 평균농도,"numeric(4,1)"
+api_data_info,keco_airkorea_fine_dust_info,pm25_value,미세먼지(PM25) 평균농도,"numeric(4,1)"
+api_data_info,keco_airkorea_obs_station,station_nm,측정소 명,character varying(50)
+api_data_info,keco_airkorea_obs_station,addr,측정소 주소,character varying(600)
+api_data_info,keco_airkorea_obs_station,year,설치년도,character varying(5)
+api_data_info,keco_airkorea_obs_station,mang_name,측정망,character varying(200)
+api_data_info,keco_airkorea_obs_station,item,측정항목,character varying(50)
+api_data_info,keco_airkorea_obs_station,dm_x,WGS84 기반 X 좌표,"numeric(13,10)"
+api_data_info,keco_airkorea_obs_station,dm_y,WGS84 기반 Y 좌표,"numeric(13,10)"
+api_data_info,keco_airkorea_obs_station,year_end,종료연도,character varying(5)
+api_data_info,keco_airkorea_obs_station,use_yn,,character varying(1)
+api_data_info,keco_airkorea_obs_station,reg_dt,,date
+api_data_info,keco_airkorea_obs_station,chg_dt,,date
+api_data_info,keco_airkorea_obs_station,legaldong_code,,character varying(11)
+api_data_info,kma_asos_daily_info,stn_id,,text
+api_data_info,kma_asos_daily_info,stn_nm,,text
+api_data_info,kma_asos_daily_info,meas_date,,date
+api_data_info,kma_asos_daily_info,avg_ta,,double precision
+api_data_info,kma_asos_daily_info,min_ta,,double precision
+api_data_info,kma_asos_daily_info,min_ta_hrmt,,text
+api_data_info,kma_asos_daily_info,max_ta,,double precision
+api_data_info,kma_asos_daily_info,max_ta_hrmt,,text
+api_data_info,kma_asos_daily_info,sum_rn_dur,,text
+api_data_info,kma_asos_daily_info,mi_10_max_rn,,double precision
+api_data_info,kma_asos_daily_info,mi_10_max_rn_hrmt,,text
+api_data_info,kma_asos_daily_info,hr_1_max_rn,,double precision
+api_data_info,kma_asos_daily_info,hr_1_max_rn_hrmt,,text
+api_data_info,kma_asos_daily_info,sum_rn,,double precision
+api_data_info,kma_asos_daily_info,max_ins_ws,,double precision
+api_data_info,kma_asos_daily_info,max_ins_ws_wd,,double precision
+api_data_info,kma_asos_daily_info,max_ins_ws_hrmt,,text
+api_data_info,kma_asos_daily_info,max_ws,,double precision
+api_data_info,kma_asos_daily_info,max_ws_wd,,double precision
+api_data_info,kma_asos_daily_info,max_ws_hrmt,,text
+api_data_info,kma_asos_daily_info,avg_ws,,double precision
+api_data_info,kma_asos_daily_info,hr_24_sum_rws,,double precision
+api_data_info,kma_asos_daily_info,max_ws1,,double precision
+api_data_info,kma_asos_daily_info,avg_td,,double precision
+api_data_info,kma_asos_daily_info,min_rhm,,double precision
+api_data_info,kma_asos_daily_info,min_rhm_hrmt,,text
+api_data_info,kma_asos_daily_info,avg_rhm,,double precision
+api_data_info,kma_asos_daily_info,avg_pv,,double precision
+api_data_info,kma_asos_daily_info,avg_pa,,double precision
+api_data_info,kma_asos_daily_info,max_ps,,double precision
+api_data_info,kma_asos_daily_info,max_ps_hrmt,,text
+api_data_info,kma_asos_daily_info,min_ps,,double precision
+api_data_info,kma_asos_daily_info,min_ps_hrmt,,text
+api_data_info,kma_asos_daily_info,avg_ps,,double precision
+api_data_info,kma_asos_daily_info,ss_dur,,text
+api_data_info,kma_asos_daily_info,sum_sshr,,text
+api_data_info,kma_asos_daily_info,hr_1_max_icsr_hrmt,,text
+api_data_info,kma_asos_daily_info,hr_1_max_icsr,,double precision
+api_data_info,kma_asos_daily_info,sum_gsr,,double precision
+api_data_info,kma_asos_daily_info,dd_mefs,,double precision
+api_data_info,kma_asos_daily_info,dd_mefs_hrmt,,text
+api_data_info,kma_asos_daily_info,dd_mes,,double precision
+api_data_info,kma_asos_daily_info,dd_mes_hrmt,,text
+api_data_info,kma_asos_daily_info,sum_dpth_fhsc,,double precision
+api_data_info,kma_asos_daily_info,avg_tca,,double precision
+api_data_info,kma_asos_daily_info,avg_lmac,,double precision
+api_data_info,kma_asos_daily_info,avg_ts,,double precision
+api_data_info,kma_asos_daily_info,min_tg,,double precision
+api_data_info,kma_asos_daily_info,avg_cm5_te,,double precision
+api_data_info,kma_asos_daily_info,avg_cm10_te,,double precision
+api_data_info,kma_asos_daily_info,avg_cm20_tes,,double precision
+api_data_info,kma_asos_daily_info,avg_cm30_te,,double precision
+api_data_info,kma_asos_daily_info,avg_m05_te,,double precision
+api_data_info,kma_asos_daily_info,avg_m10_te,,double precision
+api_data_info,kma_asos_daily_info,avg_m15_te,,double precision
+api_data_info,kma_asos_daily_info,avg_m30_te,,double precision
+api_data_info,kma_asos_daily_info,avg_m50_te,,double precision
+api_data_info,kma_asos_daily_info,sum_lrg_ev,,double precision
+api_data_info,kma_asos_daily_info,sum_sml_ev,,double precision
+api_data_info,kma_asos_daily_info,n99_rn,,double precision
+api_data_info,kma_asos_daily_info,sum_fog_dur,,double precision
+api_data_info,kma_ground_obs_station_info,stn_id,지점번호,character varying(4)
+api_data_info,kma_ground_obs_station_info,lat,위도,"numeric(11,8)"
+api_data_info,kma_ground_obs_station_info,lon,경도,"numeric(11,8)"
+api_data_info,kma_ground_obs_station_info,stn_sp,지점 특성코드,character varying(6)
+api_data_info,kma_ground_obs_station_info,ht,노장 해발고도 (m),"numeric(5,2)"
+api_data_info,kma_ground_obs_station_info,ht_pa,기압계 해발고도 (m),"numeric(5,2)"
+api_data_info,kma_ground_obs_station_info,ht_ta,온도계 지상높이 (m),"numeric(3,2)"
+api_data_info,kma_ground_obs_station_info,ht_wd,풍향/풍속계 지상높이 (m),"numeric(4,2)"
+api_data_info,kma_ground_obs_station_info,ht_rn,우량계 지상높이 (m),"numeric(3,2)"
+api_data_info,kma_ground_obs_station_info,stn_ko,지점명(한글),character varying(20)
+api_data_info,kma_ground_obs_station_info,stn_en,지점명(영문),character varying(20)
+api_data_info,kma_ground_obs_station_info,stn_ad,관리관서번호,character varying(20)
+api_data_info,kma_ground_obs_station_info,fct_id,예보구역코드,character varying(10)
+api_data_info,kma_ground_obs_station_info,legaldong_code,법정동코드,character varying(11)
+api_data_info,kma_ground_obs_station_info,basin,수계코드,character varying(10)
+api_data_info,kma_ground_obs_station_info,stn_addr,법정동주소,character varying(300)
+api_data_info,kma_ground_obs_station_info,reg_dt,등록일,date
+api_data_info,kma_ground_obs_station_info,chg_dt,변경일,date
+api_data_info,kma_ground_obs_station_info,use_yn,현재 운영 여부,character varying(1)
+api_data_info,kma_ground_obs_station_info,oper_start_dt,관측 시작일,date
+api_data_info,kma_ground_obs_station_info,oper_end_dt,관측 종료일,date
+api_data_info,kma_weather_predict_info,predict_seq,seq 인조키,bigint
+api_data_info,kma_weather_predict_info,meas_date,,date
+api_data_info,kma_weather_predict_info,forecast_date,,date
+api_data_info,kma_weather_predict_info,lat,,"numeric(6,3)"
+api_data_info,kma_weather_predict_info,lon,,"numeric(7,3)"
+api_data_info,kma_weather_predict_info,temp,평균기온,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,hghst_artmp,최고온도,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,lowst_artmp,최저온도,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,hum,습도,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,wind,평균풍속,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,max_wind,최고풍속,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,precip_mm,강수량,"numeric(6,2)"
+api_data_info,kma_weather_predict_info,sun_time,dlftkfid,"numeric(6,2)"
+api_data_info,kma_weather_predict_info,soil_wt,토향수분함량,"numeric(5,2)"
+api_data_info,kma_weather_predict_info,error_msg,,text
+api_data_info,kma_weather_predict_info,created_at,,timestamp without time zone
+api_data_info,nas_agri_weather_daily_info,obsr_spot_code,관측지점코드,character varying(10)
+api_data_info,nas_agri_weather_daily_info,stn_name,관측지점명,character varying(40)
+api_data_info,nas_agri_weather_daily_info,meas_date,관측일,date
+api_data_info,nas_agri_weather_daily_info,temp,기온(℃),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,hghst_artmp,최고기온(℃),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,lowst_artmp,최저기온(℃),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,hum,습도(%),"numeric(4,1)"
+api_data_info,nas_agri_weather_daily_info,widdir,풍향,"numeric(4,1)"
+api_data_info,nas_agri_weather_daily_info,wind,풍속(m/s),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,max_wind,최대풍속(m/s),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,rn,강수량(mm),"numeric(4,1)"
+api_data_info,nas_agri_weather_daily_info,sun_time,일조시간(MM),character varying(4)
+api_data_info,nas_agri_weather_daily_info,srqty,일사량(MJ/m²),"numeric(4,1)"
+api_data_info,nas_agri_weather_daily_info,condens_time,결로시간(MM),character varying(4)
+api_data_info,nas_agri_weather_daily_info,gr_temp,초상온도(℃),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,soil_temp,지중온도(℃),"numeric(3,1)"
+api_data_info,nas_agri_weather_daily_info,soil_wt,토양수분보정값(%),"numeric(4,1)"
+api_data_info,nas_agri_weather_obs_station,obsr_spot_code,관측지점코드,character varying(10)
+api_data_info,nas_agri_weather_obs_station,obsr_spot_nm,관측지점명,character varying(50)
+api_data_info,nas_agri_weather_obs_station,do_se_code,도구분코드,character varying(3)
+api_data_info,nas_agri_weather_obs_station,mgc_code,관리기관코드,character varying(5)
+api_data_info,nas_agri_weather_obs_station,clmt_zone_code,기후지대코드,character varying(3)
+api_data_info,nas_agri_weather_obs_station,comm_mthd_code,통신방식코드,character varying(3)
+api_data_info,nas_agri_weather_obs_station,instl_la,AWS 설치 위도,"numeric(16,13)"
+api_data_info,nas_agri_weather_obs_station,instl_lo,AWS 설치 경도,"numeric(16,13)"
+api_data_info,nas_agri_weather_obs_station,instl_al,AWS 설치 고도,"numeric(5,1)"
+api_data_info,nas_agri_weather_obs_station,instl_adres,설치주소,character varying(500)
+api_data_info,nas_agri_weather_obs_station,obsr_begin_datetm,관측시작일,date
+api_data_info,nas_agri_weather_obs_station,use_yn,,character varying(1)
+api_data_info,nas_agri_weather_obs_station,reg_date,,date
+api_data_info,nas_agri_weather_obs_station,chg_dt,,date
+api_data_info,nas_agri_weather_obs_station,obsr_end_datetm,,date
+api_data_info,nas_agri_weather_obs_station,legaldong_code,,character varying(11)
+api_data_info,soil_ph_info,pnu_cd,"필지고유번호(19 자리), 2026 일부데이터부터 필지코드가 아닌 법정동코드로 변경",character varying(20)
+api_data_info,soil_ph_info,any_year,시료채취년도,character(4)
+api_data_info,soil_ph_info,exam_day,토양검정일,date
+api_data_info,soil_ph_info,exam_type,경지구분코드,character varying(2)
+api_data_info,soil_ph_info,pnu_nm,필지명,character varying(150)
+api_data_info,soil_ph_info,acid,산도,"numeric(10,2)"
+api_data_info,soil_ph_info,vldpha,유효인산,"numeric(10,2)"
+api_data_info,soil_ph_info,vldsia,유효 규산,"numeric(10,2)"
+api_data_info,soil_ph_info,om,유기물,"numeric(10,2)"
+api_data_info,soil_ph_info,posifert_mg,마그네슘,"numeric(10,2)"
+api_data_info,soil_ph_info,posifert_k,칼륨,"numeric(10,2)"
+api_data_info,soil_ph_info,posifert_ca,칼슘,"numeric(10,2)"
+api_data_info,soil_ph_info,elcd,전기전도도,"numeric(10,2)"
+api_data_info,soil_ph_info,soil_ph_seq,토양산도 SEQ,bigint
+api_data_info,soil_ph_info,legal_dong_code,법정동코드,character varying(20)
+api_data_info,soil_ph_info,legal_dong_nm,법정동명,character varying(60)
+ba_data,m_org_lims_data_info,lims_data_key,LIMS 데이터 키 (검사기관코드_시료의뢰번호_시료순번_시험항목순번),character varying(100)
+ba_data,m_org_lims_data_info,inspct_instt_code,검사 기관 코드,character varying(7)
+ba_data,m_org_lims_data_info,reqest_sys_code,ZCI07 의뢰 시스템 코드,character varying(10)
+ba_data,m_org_lims_data_info,splore_reqest_no,시료 의뢰 번호,character varying(13)
+ba_data,m_org_lims_data_info,reqest_de,의뢰 일,date
+ba_data,m_org_lims_data_info,inspct_purps_code,ZIM02 검사 목적 코드,character varying(10)
+ba_data,m_org_lims_data_info,inspct_knd_code,ZIM03 검사 종류 코드,character varying(10)
+ba_data,m_org_lims_data_info,cntc_reqest_sn,연계 의뢰 순번,numeric
+ba_data,m_org_lims_data_info,splore_sn,시료 순번,numeric
+ba_data,m_org_lims_data_info,expr_iem_sn,시험 항목 순번,numeric
+ba_data,m_org_lims_data_info,expr_iem_code,시험 항목 코드,character varying(6)
+ba_data,m_org_lims_data_info,expr_iem_nm,시험 항목 명,character varying(200)
+ba_data,m_org_lims_data_info,cntc_splore_sn,연계 시료 순번,numeric
+ba_data,m_org_lims_data_info,cntc_expr_iem_sn,연계 시험 항목 순번,numeric
+ba_data,m_org_lims_data_info,stndrd_value,규격 값,character varying(400)
+ba_data,m_org_lims_data_info,stdr_se_code,ZIM14 기준 구분 코드,character varying(10)
+ba_data,m_org_lims_data_info,jdgmnt_fom_code,ZIM15 판정 형식 코드,character varying(10)
+ba_data,m_org_lims_data_info,mxmm_value_se_code,ZIM16 최대 값 구분 코드,character varying(10)
+ba_data,m_org_lims_data_info,mxmm_value,최대 값,character varying(100)
+ba_data,m_org_lims_data_info,result_value,결과 값,character varying(400)
+ba_data,m_org_lims_data_info,jdgmnt_word_code,ZIM35 판정 용어 코드,character varying(10)
+ba_data,m_org_lims_data_info,inspct_splore_cnt,검사 시료 카운트,"numeric(10,0)"
+ba_data,m_org_lims_data_info,mxmm_perm_splore_cnt,최대 허용 시료 카운트,"numeric(10,0)"
+ba_data,m_org_lims_data_info,entrps_nm,업체 명,character varying(200)
+ba_data,m_org_lims_data_info,entrps_adres,업체주소,character varying(500)
+ba_data,m_org_lims_data_info,client_adres,의뢰자 주소,character varying(500)
+ba_data,m_org_lims_data_info,client_detail_adres,의뢰자 상세 주소,character varying(200)
+ba_data,m_org_lims_data_info,prdlst_code,품목 코드,character varying(20)
+ba_data,m_org_lims_data_info,prdlst_nm,품목 명,character varying(2000)
+ba_data,m_org_lims_data_info,splore_rcept_no,시료 접수 번호,character varying(18)
+ba_data,m_org_lims_data_info,rcept_de,접수 일,date
+ba_data,m_org_lims_data_info,reqest_instt_rcept_no,의뢰 기관 접수 번호,character varying(50)
+ba_data,m_org_lims_data_info,splore_nm,시료 명,character varying(2000)
+ba_data,m_org_lims_data_info,cnvync_sttus_tp,운반 상태 온도,"numeric(10,0)"
+ba_data,m_org_lims_data_info,cnvync_sttus_tp_unit_code,ZIM40 운반 상태 온도 단위 코드,character varying(10)
+ba_data,m_org_lims_data_info,cnvync_mth_code,ZIM08 운반 방법 코드,character varying(10)
+ba_data,m_org_lims_data_info,orgplce_nation_code,원산지 국가 코드,character varying(20)
+ba_data,m_org_lims_data_info,import_nation_code,수입 국가 코드,character varying(10)
+ba_data,m_org_lims_data_info,mnfctur_cmpny_nm,제조 회사 명,character varying(300)
+ba_data,m_org_lims_data_info,mnfctur_cmpny_locplc_nm,제조 회사 소재지 명,character varying(200)
+ba_data,m_org_lims_data_info,valid_tmlmt,유효 기한,"numeric(10,0)"
+ba_data,m_org_lims_data_info,bsn_sttemnt_no,영업 신고 번호,character varying(30)
+ba_data,m_org_lims_data_info,prdlst_mnfctur_sttemnt_no,품목 제조 신고 번호,character varying(30)
+ba_data,m_org_lims_data_info,process_tmlmt,처리 기한,"numeric(10,0)"
+ba_data,m_org_lims_data_info,process_de,처리 일,date
+ba_data,m_org_lims_data_info,inspct_compt_de,검사 완료 일,date
+ba_data,m_org_lims_data_info,prduct_code,제품 코드,character varying(10)
+ba_data,m_org_lims_data_info,prduct_nm,제품 명,character varying(2000)
+ba_data,m_org_lims_data_info,mnfctur_de,제조 일,date
+ba_data,m_org_lims_data_info,distb_de,유통 일,date
+ba_data,m_org_lims_data_info,expr_se_nm,검사구분명,character varying(100)
+ba_data,m_org_lims_data_info,reqest_sys_rcept_no,의뢰 시스템 접수 번호,character varying(20)
+ba_data,m_org_lims_data_info,reqest_instt_code,의뢰 기관 코드,character varying(7)
+ba_data,m_org_lims_data_info,upper_prdlst_code,상위 품목 코드,character varying(20)
+ba_data,m_org_lims_data_info,upper_prdlst_nm,상위 품목 명,character varying(200)
+ba_data,m_org_lims_data_info,prdlst_korean_nm,품목 한글 명,character varying(2000)
+ba_data,m_org_lims_data_info,prdlst_eng_nm,품목 영문 명,character varying(200)
+ba_data,m_org_lims_data_info,splore_sttus_code,ZIM11 시료 상태 코드,character varying(10)
+ba_data,m_org_lims_data_info,import_entrps_nm,수입 업체 명,character varying(200)
+ba_data,m_org_lims_data_info,import_entrps_adres,수입 업체 주소,character varying(500)
+ba_data,m_org_lims_data_info,inspct_reqest_dt,검사 의뢰 일시,timestamp without time zone
+ba_data,m_org_lims_data_info,inspct_begin_de,검사 시작 일,date
+ba_data,m_org_lims_data_info,inspct_end_de,검사 종료 일,date
+ba_data,m_org_lims_data_info,prdctn_nation_code,생산 국가 코드,character varying(10)
+ba_data,m_org_lims_data_info,prdctn_nation_nm,생산 국가 명,character varying(200)
+ba_data,m_org_lims_data_info,xport_nation_code,수출 국가 코드,character varying(10)
+ba_data,m_org_lims_data_info,xport_nation_nm,수출 국가 명,character varying(200)
+ba_data,m_org_lims_data_info,cntc_sys_key1,연계 시스템 KEY1,character varying(20)
+ba_data,m_org_lims_data_info,cntc_sys_key2,연계 시스템 KEY2,character varying(20)
+ba_data,m_org_lims_data_info,cntc_sys_key3,연계 시스템 KEY3,character varying(20)
+ba_data,m_org_lims_data_info,pick_de,채취 일,date
+ba_data,m_org_lims_data_info,inspct_instt_nm,검사 기관 명,character varying(200)
+ba_data,m_org_lims_data_info,label,독소명 구분자,character varying(20)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_cd,해외제조업소 코드,character varying(17)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ntncd,A02 국가코드,character varying(3)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,area_cd,지역 코드,character varying(30)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,old_regstr_rgsno,구 대장 등록번호,character varying(30)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_nm,해외제조업소 명,character varying(750)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_rpsnr_lfnm,해외제조업소 대표자 성명,character varying(110)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_addr,해외제조업소 주소,character varying(750)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_telno,해외제조업소 전화번호,character varying(30)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_emadr,해외제조업소 이메일주소,character varying(90)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,ovsmnfst_fxnum,해외제조업소 팩스번호,character varying(30)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,fsms_yn,E38 식품안전관리시스템 적용 여부,character varying(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,fsms_crtfc_yn,식품안전관리시스템 인증 여부,character varying(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,crtfc_nm,인증 명,character varying(750)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,crtfc_instt_nm,인증 기관 명,character varying(450)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,crtfc_instt_crtfc_dtm,인증 기관 인증 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,crtfc_instt_end_dtm,인증 기관 만료 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,wthdrw_yn,취하 여부,character varying(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,wthdrw_dtm,취하 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,cancl_dscntc_cd,E42 취소 중단 코드,character varying(15)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,mprc_expter_no,수산물 수출업소 번호,character varying(30)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,mprc_regist_fclty_no,수산물 등록 시설 번호,character varying(45)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,mprc_naqs_cd,수산물 국립농산물품질관리원 코드,character varying(15)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,passiv_regist_se_cd,수동 등록 구분 코드,character varying(15)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,rm,비고,character varying(6000)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,acplc_acins_dstbn_avdnc_yn,현지 실사 방해 기피 여부,character varying(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,food_begin_dtm,식품 시작 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,food_end_dtm,식품 종료 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,marn_begin_dtm,수산 시작 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,impdscntc_no,수입중단 번호,integer
+ba_data,s_co_ifd_ovsmnfst_regstr_m,atmc_updt_trget_yn,자동 갱신 대상 여부,character varying(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,register_id,등록자 ID,character varying(45)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,regist_dtm,등록 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,updusr_id,수정자 ID,character varying(45)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,updt_dtm,수정 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,fclty_cancl_dtm,시설 취소 일시,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,lo,경도,numeric
+ba_data,s_co_ifd_ovsmnfst_regstr_m,la,위도,numeric
+ba_data,s_co_ifd_ovsmnfst_regstr_m,refine_ovsmnfst_addr,정제주소,character varying(300)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,haccp_oblgapplc_trgt_yn,HACCP 의무적용 대상 여부(선적일 기준 2024.10.1부터 HACCP 인증 필수),character(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,haccp_crtfc_yn,HACCP 인증 여부,character(1)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,sfrprp_regist_fclty_no,동물성 식품 등록시설번호,character varying(45)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,sfrprp_regist_dtm,동물성 식품 등록일,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,sfrprp_fclty_cancl_dtm,동물성 식품 시설취소일,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,sfrprp_food_se_cd,동물성 식품 식품종류,character varying(15)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,haccp_crtfc_no,HACCP 인증번호,character varying(20)
+ba_data,s_co_ifd_ovsmnfst_regstr_m,haccp_crtfc_dtm,HACCP 인증일,timestamp without time zone
+ba_data,s_co_ifd_ovsmnfst_regstr_m,haccp_end_dtm,HACCP 만료일,timestamp without time zone
+ba_data,s_org_lims_data_info,lims_seq,"일련번호(PK, 자동채번)",bigint
+ba_data,s_org_lims_data_info,rcept_no,접수번호,character varying(50)
+ba_data,s_org_lims_data_info,rcept_de,접수일자,date
+ba_data,s_org_lims_data_info,prcs_de,처리일자,date
+ba_data,s_org_lims_data_info,impt_prpos_cd,수입 용도 코드,character varying(20)
+ba_data,s_org_lims_data_info,prpos_nm,용도,character varying(100)
+ba_data,s_org_lims_data_info,prdlst_cd,품목코드,character varying(30)
+ba_data,s_org_lims_data_info,prdlst_nm,품명,character varying(300)
+ba_data,s_org_lims_data_info,upper_prdlst_nm,상위품목명,character varying(300)
+ba_data,s_org_lims_data_info,prduct_cd,제품코드,character varying(30)
+ba_data,s_org_lims_data_info,prduct_nm_eng,제품명(영문),character varying(500)
+ba_data,s_org_lims_data_info,prduct_nm_kor,제품명(한글),character varying(500)
+ba_data,s_org_lims_data_info,hsk_no,HSK번호,character varying(30)
+ba_data,s_org_lims_data_info,prduct_dvs_cd,제품 구분 코드,character varying(20)
+ba_data,s_org_lims_data_info,dclr_prduct_dvs,신고제품구분,character varying(100)
+ba_data,s_org_lims_data_info,mnf_nation_cd,제조 국가 코드,character varying(10)
+ba_data,s_org_lims_data_info,mnf_nation_nm,제조국가명,character varying(100)
+ba_data,s_org_lims_data_info,impt_ownr_no,수입화주 고유번호,character varying(30)
+ba_data,s_org_lims_data_info,impt_ownr_nm,수입화주 명,character varying(300)
+ba_data,s_org_lims_data_info,impt_ownr_induty,수입화주 업종,character varying(200)
+ba_data,s_org_lims_data_info,ovsmnfst_cd,제조/수출업소코드,character varying(30)
+ba_data,s_org_lims_data_info,ovsmnfst_nm,제조/수출업소명,character varying(750)
+ba_data,s_org_lims_data_info,ovsmnfst_addr,제조/수출업소주소,character varying(750)
+ba_data,s_org_lims_data_info,packng_plc_cd,포장장소 코드,character varying(30)
+ba_data,s_org_lims_data_info,packng_plc_addr,포장장소 주소,character varying(750)
+ba_data,s_org_lims_data_info,inspct_kind,검사종류,character varying(100)
+ba_data,s_org_lims_data_info,inspct_kind_dtl,검사종류상세,character varying(200)
+ba_data,s_org_lims_data_info,inspct_kind_cd,검사종류 코드,character varying(20)
+ba_data,s_org_lims_data_info,distb_bgn_de,유통시작일,date
+ba_data,s_org_lims_data_info,distb_end_de,유통종료일,date
+ba_data,s_org_lims_data_info,bl_no,B/L번호,character varying(50)
+ba_data,s_org_lims_data_info,shipng_de,선적일자,date
+ba_data,s_org_lims_data_info,entrpt_de,입항일자,date
+ba_data,s_org_lims_data_info,wrhous_cd,보관창고코드,character varying(30)
+ba_data,s_org_lims_data_info,custom_cd,세관코드,character varying(20)
+ba_data,s_org_lims_data_info,bonded_area_cd,보세구역유형코드,character varying(20)
+ba_data,s_org_lims_data_info,wrhous_no,보관창고번호,character varying(30)
+ba_data,s_org_lims_data_info,inspct_carry_plc,검사반입장소,character varying(200)
+ba_data,s_org_lims_data_info,wrhous_carry_de,보관창고반입일,date
+ba_data,s_org_lims_data_info,inspct_instt_cd,검사기관 코드,character varying(20)
+ba_data,s_org_lims_data_info,inspct_instt_nm,검사기관,character varying(200)
+ba_data,s_org_lims_data_info,sample_no,시료 번호,character varying(50)
+ba_data,s_org_lims_data_info,inspct_reqst_de,검사의뢰일,date
+ba_data,s_org_lims_data_info,inspct_cmptn_de,검사완료일,date
+ba_data,s_org_lims_data_info,test_item,시험항목,character varying(300)
+ba_data,s_org_lims_data_info,lims_stdr,림스규격,character varying(1000)
+ba_data,s_org_lims_data_info,lims_rm,림스비고,character varying(2000)
+ba_data,s_org_lims_data_info,result_value,결과값,character varying(2000)
+ba_data,s_org_lims_data_info,result_rm,결과비고,character varying(2000)
+ba_data,s_org_lims_data_info,stdr_value,기준값,character varying(1000)
+ba_data,s_org_lims_data_info,stdr_dc,규격 설명,character varying(2000)
+ba_data,s_org_lims_data_info,stdr_value_dc,규격 값 설명,character varying(2000)
+ba_data,s_org_lims_data_info,test_result,시험결과,character varying(200)
+ba_data,s_org_lims_data_info,label,독소명 구분자,character varying(100)
+ba_data,s_org_lims_data_info,cmpn_cd,성분코드,text
+ba_data,s_org_lims_data_info,cmpn_nm,성분,text
+ba_data,t_aw_cl,prdlst_cd,,text
+ba_data,t_aw_cl,kor_nm,,text
+ba_data,t_aw_cl,lv,,double precision
+ba_data,t_aw_cl,aw,수분활성도,text
+ba_data,t_aw_cl,mc,수분함량,text
+ba_data,t_aw_cl,ph,식품pH,text
+ba_data,t_aw_cl,na,염도,text
+ba_data,t_aw_cl,aflatoxin_aw,아플라톡신_수분활성도,text
+ba_data,t_aw_cl,aw_source,,text
+ba_data,t_bsn_lcns_ledg,bsn_lcns_ledg_no,영업_인허가_대장_번호,character varying(16)
+ba_data,t_bsn_lcns_ledg,wrkshp_wrhous_area,작업장_창고_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_tot_area,작업장_총_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_salofc_area,작업장_영업소_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_qlity_jnff_area,작업장_품질_관리실_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_pkrm_area,작업장_포장실_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_mtral_pcrm_area,작업장_원료_처리실_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_mnfrm_area,작업장_제조실_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wrkshp_etc_area,작업장_기타_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,wh_no,보세창고_번호,character varying(10)
+ba_data,t_bsn_lcns_ledg,wh_kind_code,보세구역유형코드,character varying(10)
+ba_data,t_bsn_lcns_ledg,custom_code,보세창고_세관_코드,character varying(10)
+ba_data,t_bsn_lcns_ledg,uptae_cd,업태_코드,character varying(5)
+ba_data,t_bsn_lcns_ledg,bizcnd,업태,character varying(50)
+ba_data,t_bsn_lcns_ledg,telno,업소전화번호_복사값,character varying(256)
+ba_data,t_bsn_lcns_ledg,stn_reg_agree,행정정보공동이용동의,character(1)
+ba_data,t_bsn_lcns_ledg,stn_reg_addr,등록기준지,character varying(100)
+ba_data,t_bsn_lcns_ledg,stn_reg_addr_dtls,등록기준지_세부주소,character varying(100)
+ba_data,t_bsn_lcns_ledg,ssizescale_bssh_yn,소규모_맥주_제조_업소_여부,character varying(1)
+ba_data,t_bsn_lcns_ledg,smb_w,소규모주류제조_식품용수,character varying(200)
+ba_data,t_bsn_lcns_ledg,smb_m_yakju,소규모주류제조_약주YN,character varying(1)
+ba_data,t_bsn_lcns_ledg,smb_m_takju,소규모주류제조_탁주YN,character varying(1)
+ba_data,t_bsn_lcns_ledg,smb_m_mackju,소규모주류제조_맥주YN,character varying(1)
+ba_data,t_bsn_lcns_ledg,smb_m_chungju,소규모주류제조_청주YN,character varying(1)
+ba_data,t_bsn_lcns_ledg,smb_m,소규모주류제조_M,character varying(200)
+ba_data,t_bsn_lcns_ledg,smb_ls,소규모주류제조_면허,character varying(200)
+ba_data,t_bsn_lcns_ledg,site_lgaldng_cd,영업소재지 광역시도코드,character varying(10)
+ba_data,t_bsn_lcns_ledg,site_addr,영업소재지_복사값,character varying(500)
+ba_data,t_bsn_lcns_ledg,lcns_locplc_seq,영업소재지 주소정보,"numeric(10,0)"
+ba_data,t_bsn_lcns_ledg,hedofc_locplc_seq,본사_소재지_일련번호,"numeric(10,0)"
+ba_data,t_bsn_lcns_ledg,shp_refine_yn,제형_정제_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_pwdr_yn,제형_분말_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_pulp_yn,제형_과립_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_liqd_yn,제형_액상_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_exchg_yn,제형_환_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_cpsl_sfnss_yn,제형_캅셀_연질_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_cpsl_rshfl_yn,제형_캅셀_경질_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_etc_yn,제형_기타_여부,character(1)
+ba_data,t_bsn_lcns_ledg,shp_etc_cn,제형_기타_내용,character varying(1024)
+ba_data,t_bsn_lcns_ledg,self_qlity_prsec_mthd,자가_품질_검사_방법,character varying(10)
+ba_data,t_bsn_lcns_ledg,ntr_prsec_mthd_cd,자품_검사_방법_코드,character varying(10)
+ba_data,t_bsn_lcns_ledg,salpst_emply_co,판매직_종업원_수,"numeric(9,0)"
+ba_data,t_bsn_lcns_ledg,ofclk_emply_co,사무직_종업원_수,"numeric(9,0)"
+ba_data,t_bsn_lcns_ledg,blwk_emply_co,생산직_종업원_수,"numeric(9,0)"
+ba_data,t_bsn_lcns_ledg,etc_emply_co,기타_종업원_수,"numeric(9,0)"
+ba_data,t_bsn_lcns_ledg,hedofc_emply_co,본사_종업원_수,"numeric(9,0)"
+ba_data,t_bsn_lcns_ledg,rent_yn,임대_여부,character(1)
+ba_data,t_bsn_lcns_ledg,prc,가격,"numeric(13,0)"
+ba_data,t_bsn_lcns_ledg,mtht,월세,"numeric(13,0)"
+ba_data,t_bsn_lcns_ledg,gtn,보증금,"numeric(13,0)"
+ba_data,t_bsn_lcns_ledg,prsdnt_nm,영업대표자명_복사값,character varying(240)
+ba_data,t_bsn_lcns_ledg,prms_dt,허가_일자,character varying(8)
+ba_data,t_bsn_lcns_ledg,prms_cnd_cn,허가_조건_내용,character varying(1600)
+ba_data,t_bsn_lcns_ledg,lcns_no,인허가_번호,character varying(11)
+ba_data,t_bsn_lcns_ledg,lcns_remark,비고사항,character varying(1000)
+ba_data,t_bsn_lcns_ledg,grp_bsn_lcns_ledg_no,대표영업대장번호,character varying(16)
+ba_data,t_bsn_lcns_ledg,bsn_lcns_dvs_cd,영업_인허가_구분_코드_삭제,character varying(10)
+ba_data,t_bsn_lcns_ledg,gu_prms_sttemnt_no,구_허가_신고_번호,character varying(100)
+ba_data,t_bsn_lcns_ledg,cvpl_rcpt_no,민원_접수_번호,character varying(18)
+ba_data,t_bsn_lcns_ledg,prev_lcns_no,전환이전 인허가번호_통합망,character varying(100)
+ba_data,t_bsn_lcns_ledg,prev_instt_cd,전환이전 기관코드,character(7)
+ba_data,t_bsn_lcns_ledg,prev_induty_cd,전환이전 업종코드,character varying(10)
+ba_data,t_bsn_lcns_ledg,befr_sys_ledg_no,이전_시스템_대장_번호,character varying(20)
+ba_data,t_bsn_lcns_ledg,befr_sys_ledg_dvs,이전_시스템_대장_구분,character varying(10)
+ba_data,t_bsn_lcns_ledg,plot_area,대지_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,bd_area,건축_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,lbrtry_area,시험실_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,cstdy_fclty_area,보관_시설_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,spcl_workshop_area,특수_작업실_면적,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,owner_list,양식장_지분권자성명목록,character varying(500)
+ba_data,t_bsn_lcns_ledg,fish_water_area,양식장_수면적_m2,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,fish_farm_area,양식장_부지면적_m2,"numeric(15,3)"
+ba_data,t_bsn_lcns_ledg,fish_sort,양식장_양식수산물종류,character varying(500)
+ba_data,t_bsn_lcns_ledg,fish_induty_cd,양식장_세부업종코드,character varying(3)
+ba_data,t_bsn_lcns_ledg,domini_sort,축종_도축업,character varying(500)
+ba_data,t_bsn_lcns_ledg,bssh_seq,업소_일련번호,"numeric(10,0)"
+ba_data,t_bsn_lcns_ledg,bssh_nm,업소명_복사값,character varying(256)
+ba_data,t_bsn_lcns_ledg,instt_cd,기관_코드,character(7)
+ba_data,t_bsn_lcns_ledg,induty_cd,업종코드(BSSH에서 복사된 값),character varying(10)
+ba_data,t_bsn_lcns_ledg,food_hf_ls_cl_cd,식품_건기_축산_분류_코드,character varying(10)
+ba_data,t_bsn_lcns_ledg,cnsgn_sbdvs_gbn,위탁_소분_여부,character varying(10)
+ba_data,t_bsn_lcns_ledg,alctn_ordno,할당_순번,"numeric(3,0)"
+ba_data,t_bsn_lcns_ledg,futyfoodmanagebssh_yn,불량식품관리업소_여부,character(1)
+ba_data,t_bsn_lcns_ledg,emphsmanagebssh_yn,중점관리업소_여부,character(1)
+ba_data,t_bsn_lcns_ledg,dnlfutyfoodbssh_yn,부정식품업소여부,character(1)
+ba_data,t_bsn_lcns_ledg,del_yn,삭제_여부,character(1)
+ba_data,t_bsn_lcns_ledg,cndl_bgn_dt,조건부_시작_일자,character varying(8)
+ba_data,t_bsn_lcns_ledg,cndl_end_dt,조건부_종료_일자,character varying(8)
+ba_data,t_bsn_lcns_ledg,cndl_prvns,조건부_사유,character varying(1600)
+ba_data,t_bsn_lcns_ledg,clstmp_bgn_dt,휴업_시작_일자,character varying(8)
+ba_data,t_bsn_lcns_ledg,clstmp_end_dt,휴업_종료_일자,character varying(8)
+ba_data,t_bsn_lcns_ledg,clsbiz_dt,폐업_일자,character varying(8)
+ba_data,t_bsn_lcns_ledg,clsbiz_dvs_cd,폐업_구분_코드_CRCD,character varying(10)
+ba_data,t_bsn_lcns_ledg,clsbiz_prvns,폐업_사유,character varying(2048)
+ba_data,t_bsn_lcns_ledg,cretr_id,생성자_아이디,character varying(32)
+ba_data,t_bsn_lcns_ledg,cret_dtm,생성_일시,timestamp without time zone
+ba_data,t_bsn_lcns_ledg,last_updtr_id,최종_수정자_아이디,character varying(32)
+ba_data,t_bsn_lcns_ledg,last_updt_dtm,최종_수정_일시,timestamp without time zone
+ba_data,t_bsn_lcns_ledg,pet_outin_yn,반려동물 동반 출입 여부,character(1)
+ba_data,t_prdlst_cl,prdlst_cd,품목_코드,character varying(20)
+ba_data,t_prdlst_cl,kor_nm,한글_명,character varying(100)
+ba_data,t_prdlst_cl,eng_nm,영문_명,text
+ba_data,t_prdlst_cl,ncknm,이명,text
+ba_data,t_prdlst_cl,dfn,정의,text
+ba_data,t_prdlst_cl,vald_begn_dt,유효_개시_일자,text
+ba_data,t_prdlst_cl,vald_end_dt,VALD_END_DT,text
+ba_data,t_prdlst_cl,lv,레벨,double precision
+ba_data,t_prdlst_cl,attrb_seq,속성_일련번호,text
+ba_data,t_prdlst_cl,hrnk_prdlst_cd,상위_품목_코드,text
+ba_data,t_prdlst_cl,htrk_prdlst_cd,최상위_품목_코드,text
+ba_data,t_prdlst_cl,mxtr_prdlst_yn,조합_품목_여부,character varying(1)
+ba_data,t_prdlst_cl,prdlst_yn,품목_여부,character varying(1)
+ba_data,t_prdlst_cl,updt_prvns,수정_사유,text
+ba_data,t_prdlst_cl,use_yn,사용_여부,character varying(1)
+ba_data,t_prdlst_cl,cretr_id,생성자_아이디,text
+ba_data,t_prdlst_cl,cret_dtm,생성_일시,text
+ba_data,t_prdlst_cl,last_updtr_id,최종_수정자_아이디,text
+ba_data,t_prdlst_cl,last_updt_dtm,최종_수정_일시,text
+ba_data,t_prdlst_cl,rm,비고,character varying(1)
+ba_data,t_prdlst_cl,slfctrl_relm_use_yn,자율_영역_사용_여부,character varying(1)
+ba_data,t_prdlst_cl,uncl_prdlst_cd_yn,미분류_품목_코드_여부,character varying(1)
+ba_data,t_prdlst_cl,fdgrp_yn,식품군_여부,text
+ba_data,t_prdlst_cl,dis_order,순서,double precision
+ba_data,t_prdlst_cl,artcl_gun_code,식품군코드,text
+ba_data,t_prdlst_cl,chd_smbl_fd_yn,어린이기호식품여부,character varying(1)
+ba_data,t_prdlst_cl,fd_applc_gd,"식품해당여부(고열량,저영양) 안내문구",text
+ba_data,t_prdlst_cl,fd_applc_yn,"식품해당여부(고열량,저영양)",character varying(1)
+ba_data,t_prdlst_cl,food_hf_ls_cl_cd,식품_건기_축산_분류_코드_FHL1,integer
+ba_data,t_prdlst_cl,ntrt_essntl_yn,영양성분필수여부,character varying(1)
+ba_data,t_prdlst_mnf_ledg,prdlst_report_ledg_no,품목 보고 대장 번호,text
+ba_data,t_prdlst_mnf_ledg,prdlst_report_no,품목 보고 번호,text
+ba_data,t_prdlst_mnf_ledg,prdlst_cd,품목 코드,text
+ba_data,t_prdlst_mnf_ledg,prms_dt,보고 신고일자,text
+ba_data,t_prdlst_mnf_ledg,end_dt,생산종료 일자,text
+ba_data,t_prdlst_mnf_ledg,prdlst_nm,품목 명,text
+ba_data,t_prdlst_mnf_ledg,pog_daycnt,유통기한,text
+ba_data,t_prdlst_mnf_ledg,qlity_mntnc_tmlmt_daycnt,품질 유지 기한 일수,text
+ba_data,t_prdlst_mnf_ledg,frmlc_mtrqlt,포장 재질,text
+ba_data,t_prdlst_mnf_ledg,gu_prdlst_mnf_manage_no,구 품목 제조 관리 번호,text
+ba_data,t_prdlst_mnf_ledg,food_hf_ls_cl_cd,식품 건기 축산 분류 코드,text
+ba_data,t_prdlst_mnf_ledg,haccp_appn_no,HACCP 지정 번호,text
+ba_data,t_prdlst_mnf_ledg,del_yn,삭제 여부,text
+ba_data,t_prdlst_mnf_ledg,cvpl_rcpt_no,민원 접수 번호,text
+ba_data,t_prdlst_mnf_ledg,cretr_id,생성자 아이디,text
+ba_data,t_prdlst_mnf_ledg,cret_dtm,생성 일시,timestamp without time zone
+ba_data,t_prdlst_mnf_ledg,last_updtr_id,최종 수정자 아이디,text
+ba_data,t_prdlst_mnf_ledg,last_updt_dtm,최종 수정 일시,timestamp without time zone
+ba_data,t_prdlst_mnf_ledg,bsn_lcns_ledg_no,영업 인허가 대장 번호,text
+ba_data,t_prdlst_mnf_ledg,mnf_cnd_cn,제조 조건 내용,text
+ba_data,t_prdlst_mnf_ledg,prsrv_distb_stdr_cn,보존 유통 기준 내용,text
+ba_data,t_prdlst_mnf_ledg,hieng_lntrt_dvs_cd,고열량 저영양 구분 코드,text
+ba_data,t_prdlst_mnf_ledg,befr_sys_ledg_dvs,이전 시스템 대장 구분,text
+ba_data,t_prdlst_mnf_ledg,befr_sys_ledg_no,이전 시스템 대장 번호,text
+ba_data,t_prdlst_mnf_ledg,pog_cn,"(사용중지, pog_daycnt로 단일화) 유통기한",text
+ba_data,t_prdlst_mnf_ledg,pog_why,POG 사유,text
+ba_data,t_prdlst_mnf_ledg,instt_cd,관할기관코드,text
+ba_data,t_prdlst_mnf_ledg,induty_cd,업종코드,text
+ba_data,t_prdlst_mnf_ledg,prcs_dept_nm,처리 부서 명,text
+ba_data,t_prdlst_mnf_ledg,prcs_charger_nm,처리 담당자 명,text
+ba_data,t_prdlst_mnf_ledg,etqty_xport_prdlst_yn,전량 수출 품목 여부,text
+ba_data,t_prdlst_mnf_ledg,del_why,삭제 사유,text
+ba_data,t_prdlst_mnf_ledg,org_prdlst_report_no,변경전 품목보고번호,text
+ba_data,t_prdlst_mnf_ledg,mat_open_yn,원재료정보 인터넷개방여부 YN,text
+ba_data,t_prdlst_mnf_ledg,halal_cert_yn,할랄인증식품여부 YN,text
+ba_data,t_prdlst_mnf_ledg,artcl_end_why,품목 종료 사유,text
+ba_data,t_prdlst_mnf_ledg,hieng_lntrt_na_cn,고열량 저영양 해당없음 사유,text
+ready_data,hazard_preprocessed_data,lims_data_key,,character varying(100)
+ready_data,hazard_preprocessed_data,hazard_label,,text
+ready_data,hazard_preprocessed_data,judge_result,,text
+ready_data,hazard_preprocessed_data,dup_count,,bigint
+ready_data,hazard_preprocessed_data,splore_cnt,,bigint
+ready_data,hazard_preprocessed_data,expr_iem_cnt,,bigint
+ready_data,hazard_preprocessed_data,expr_iem_nm,,character varying(200)
+ready_data,hazard_preprocessed_data,result_value,,character varying(400)
+ready_data,hazard_preprocessed_data,mxmm_value,,text
+ready_data,hazard_preprocessed_data,cntc_reqest_sn,,numeric
+ready_data,hazard_preprocessed_data,inspct_instt_code,,character varying(7)
+ready_data,hazard_preprocessed_data,inspct_instt_nm,,character varying(200)
+ready_data,hazard_preprocessed_data,prdlst_code,,character varying(20)
+ready_data,hazard_preprocessed_data,prdlst_nm_org,,character varying(2000)
+ready_data,hazard_preprocessed_data,prduct_nm,,character varying(2000)
+ready_data,hazard_preprocessed_data,mnfctur_cmpny_nm,,character varying(300)
+ready_data,hazard_preprocessed_data,mnfctur_cmpny_locplc_nm,,character varying(200)
+ready_data,hazard_preprocessed_data,prdlst_mnfctur_sttemnt_no,,character varying(30)
+ready_data,hazard_preprocessed_data,mnfctur_de,,date
+ready_data,hazard_preprocessed_data,reqest_de,,date
+ready_data,hazard_preprocessed_data,inspct_begin_de,,date
+ready_data,hazard_preprocessed_data,mnfctur_de_or_fallback,,date
+ready_data,hazard_preprocessed_data,date_basis,,text
+ready_data,hazard_preprocessed_data,orgplce_nation_code,,character varying(20)
+ready_data,hazard_preprocessed_data,import_nation_code,,character varying(10)
+ready_data,hazard_preprocessed_data,prdctn_nation_code,,character varying(10)
+ready_data,hazard_preprocessed_data,splore_reqest_no,,character varying(13)
+ready_data,hazard_preprocessed_data,splore_sn,,numeric
+ready_data,hazard_preprocessed_data,splore_nm,,character varying(2000)
+ready_data,hazard_preprocessed_data,cntc_sys_key2,,character varying(20)
+ready_data,hazard_preprocessed_data,addr,,text
+ready_data,hazard_preprocessed_data,addr_source,,text
+ready_data,hazard_preprocessed_data,geo_route,,text
+ready_data,hazard_preprocessed_data,ovsmnfst_nm,,character varying(750)
+ready_data,hazard_preprocessed_data,bsn_lcns_ledg_no,,text
+ready_data,hazard_preprocessed_data,prms_dt,,date
+ready_data,hazard_preprocessed_data,clsbiz_dt,,date
+ready_data,hazard_preprocessed_data,legal_dong_code,,text
+ready_data,hazard_preprocessed_data,lon,,double precision
+ready_data,hazard_preprocessed_data,lat,,double precision
+ready_data,hazard_preprocessed_data,geo_match_level,,text
+ready_data,hazard_preprocessed_data,geo_source,,text
+ready_data,hazard_preprocessed_data,geocode_status,,text
+ready_data,hazard_preprocessed_data,prdlst_nm,,text
+ready_data,hazard_preprocessed_data,train_prdlst_code,,text
+ready_data,hazard_preprocessed_data,train_prdlst_nm,,text
+ready_data,hazard_preprocessed_data,statistic_prdlst_nm_1,,text
+ready_data,hazard_preprocessed_data,statistic_prdlst_nm_2,,text
+ready_data,hazard_preprocessed_data,statistic_prdlst_nm_3,,text
+ready_data,hazard_preprocessed_data,statistic_prdlst_nm_4,,text
+ready_data,hazard_preprocessed_data,mapped_prdlst_code,,text
+ready_data,hazard_preprocessed_data,aw_grade,,smallint
+ready_data,hazard_preprocessed_data,aw_match_level,,text
+ready_data,hazard_preprocessed_data,anals_se,,text
