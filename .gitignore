@@ -5,3 +5,13 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# DB 에서 내려받은 원자료·조인 결과 (대용량·외부 반출 주의 — 메인 폴더에만 둔다, 2026-09-17 사용자 결정)
+# 공유용/ 아래 parquet 는 리스테리아ML/공유용/.gitignore 가 제외한다
+리스테리아ML/data/collected/
+
+# 엑셀·워드가 열려 있을 때 생기는 임시 잠금 파일
+~$*
+
+# Claude Code 작업용 worktree
+.claude/worktrees/

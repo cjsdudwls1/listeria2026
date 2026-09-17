@@ -7,7 +7,7 @@ SQL·임의 분류 규칙은 부록, 답변은 마지막 쪽 답변 기록지.
 
 입력 (읽기만): data/listeria_body.parquet, data/collected/nb2_db_attr.parquet,
                nb2_db_codes.csv, nb2_db_s_org_listeria.parquet  (DB 추출: scripts/nb2_extract_db.py, SELECT 만)
-출력: docs/질문리스트/리스테리아_질문리스트_예시3건_v0.2.docx, docs/질문리스트/캡처/표*.png
+출력: docs/03_질문리스트/이전버전/리스테리아_질문리스트_예시3건_v0.2.docx, docs/03_질문리스트/이전버전/캡처/표*.png
 필요: python-docx, Pillow, Microsoft Edge 또는 Chrome (표 캡처용 헤드리스 실행)
 사용: py make_question_docx.py
 """
@@ -32,7 +32,7 @@ from docx.shared import Cm, Pt, RGBColor
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).resolve().parents[1]          # 리스테리아ML
 DATA, COL = ROOT / "data", ROOT / "data" / "collected"
-OUT_DIR = ROOT / "docs" / "질문리스트"
+OUT_DIR = ROOT / "docs" / "03_질문리스트" / "이전버전"
 CAP_DIR = OUT_DIR / "캡처"
 DOCX = OUT_DIR / "리스테리아_질문리스트_예시3건_v0.2.docx"
 VERSION = "v0.2"

@@ -1,6 +1,0 @@
-﻿table_name,total_size,est_rows,table_comment,indexes
-lcns_ledg_hist_rawmtrl,14 GB,51482040,인허가 대장 이력 원재료,"CREATE UNIQUE INDEX pk_lcns_ledg_hist_rawmtrl ON ba_data_info.lcns_ledg_hist_rawmtrl USING btree (rawmtrl_sno, prdlst_report_ledg_no, hist_ordno)"
-prdlst_mnf_ledg,2069 MB,4120507,품목_제조_대장,CREATE UNIQUE INDEX pk_prdlst_mnf_ledg ON ba_data_info.prdlst_mnf_ledg USING btree (prdlst_report_ledg_no)
-mnf_step_exam,170 MB,56826,제조_단계_조사,CREATE UNIQUE INDEX pk_mnf_step_exam ON ba_data_info.mnf_step_exam USING btree (doc_no)
-t_cmmn_spec,24 MB,87114,통합망_공통_기준규격,CREATE UNIQUE INDEX pk_cmmn_spec ON ba_data_info.t_cmmn_spec USING btree (cmmn_spec_seq)
-distb_step_exam,14 MB,53895,유통_단계_조사,CREATE UNIQUE INDEX pk_distb_step_exam ON ba_data_info.distb_step_exam USING btree (doc_no)

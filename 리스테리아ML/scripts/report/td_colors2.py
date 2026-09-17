@@ -3,7 +3,7 @@
 import sys, json
 sys.stdout.reconfigure(encoding='utf-8')
 import openpyxl
-P = r"C:\Users\NT751\Desktop\천영진\리스테리아ML\docs\20260901.테이블정의서 (1).xlsx"
+P = r"C:\Users\NT751\Desktop\천영진\리스테리아ML\docs\참고자료\20260901.테이블정의서 (1).xlsx"
 wb = openpyxl.load_workbook(P)
 def ck(c):
     f = c.fill

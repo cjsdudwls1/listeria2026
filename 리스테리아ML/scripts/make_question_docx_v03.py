@@ -33,7 +33,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent                                   # 리스테리아ML
 NB_PATH = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "notebook" / "4_기상_가공식품_타겟범위.ipynb"
 SPEC_PATH = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE / "question_spec_v03.py"
-OUT_DIR = ROOT / "docs" / "질문리스트"
+OUT_DIR = ROOT / "docs" / "03_질문리스트"
 CAP_DIR = OUT_DIR / "캡처_v0.3"
 DOCX = Path(sys.argv[3]) if len(sys.argv) > 3 else OUT_DIR / "리스테리아_질문리스트_v0.3.docx"
 

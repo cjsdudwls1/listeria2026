@@ -4,7 +4,7 @@ import sys, json
 from collections import Counter, defaultdict
 sys.stdout.reconfigure(encoding='utf-8')
 import openpyxl
-P = r"C:\Users\NT751\Desktop\천영진\리스테리아ML\docs\20260901.테이블정의서 (1).xlsx"
+P = r"C:\Users\NT751\Desktop\천영진\리스테리아ML\docs\참고자료\20260901.테이블정의서 (1).xlsx"
 wb = openpyxl.load_workbook(P)
 print('시트:', [(ws.title, ws.max_row, ws.max_column) for ws in wb.worksheets])
 def color_key(c):
