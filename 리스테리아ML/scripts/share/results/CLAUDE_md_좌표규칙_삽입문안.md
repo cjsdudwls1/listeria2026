@@ -1,3 +1,0 @@
-<!-- 메인 C:\Users\NT751\Desktop\천영진\CLAUDE.md 의 "## 데이터 원칙" 절, "- 누수 주의: ..." 줄 바로 아래에 넣을 문안 -->
-- **좌표로 매칭할 때는 항상 시료 파일(`data/listeria_body.parquet`)의 `lat`·`lon` 을 쓴다** (2026-09-17 사용자 지시). 관측소 최근접(ASOS·NAS·에어코리아), 해외 제조소 좌표 표(`global_factory_weather`·`global_factory_fine_dust`), 거리 계산 등 좌표가 들어가는 모든 조인에 적용한다. DB 전처리 시료표(`ready_data.hazard_preprocessed_data`) 좌표(조인 데이터셋의 `db_lat`·`db_lon`, 추출본의 `h_lat`·`h_lon` 등)는 참고로만 두고 매칭에 쓰지 않는다.
-  - 두 좌표는 국내 296행이 다르다(DB 주소 출처 '제조사소재지(보완)' 290행 + DB 좌표 없음 6행). 시료 파일 좌표는 float32 라 double 로 저장된 DB 표 좌표와 그대로 등호 비교하면 0건 일치한다 — 표 좌표를 float32 로 맞춰 비교하거나 최근접으로 붙이고, 방법은 사용자에게 확인한다. 해외 제조소 좌표는 float32 로 맞추면 3,072곳이 3,071곳이 된다(호주 1곳 31행이 4.5cm 떨어진 표 좌표 2개에 해당).
