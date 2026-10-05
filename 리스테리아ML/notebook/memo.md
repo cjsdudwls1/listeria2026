@@ -26,7 +26,7 @@
 1. 교수님한테 드릴 데이터 생성
 
 - C:\cheon\cheon_wokespace\listeria2026\리스테리아ML2\data에 C:\cheon\cheon_wokespace\listeria2026\리스테리아ML\data\listeria_body.parquet + 식정원 db에 기상데이터+식품데이터(식품활성도 등)+품목코드(lv)를 조인한 데이터 생성.
-- 이름은 'lims+기상+식품+품목코드+유통기한.parquet'. 
+- 이름은 'lims+기상+토양+식품+품목코드+유통기한.parquet'. 
 - 로마자로 적힌 한국 주소 행을 국내(domestic)로 옮겨서 ㄱㄱ.
 - 'C:\cheon\cheon_wokespace\listeria2026\리스테리아ML\EXP\1\3_기상조인_후_학습.ipynb','C:\cheon\cheon_wokespace\listeria2026\리스테리아ML\EXP\1\1_데이터정제.ipynb' 참고.
 - 토양 pH·유기물·유효인산은 행정구역 단위 집계: 시료의 legal_dong_code(법정동)와 토양 자료의 법정동을 맞춰 동 평균 pH를 붙입니다. 법정동 코드 있는지부터 확인하고 진행. 없으면 말해.
