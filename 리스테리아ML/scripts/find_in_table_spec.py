@@ -5,7 +5,7 @@ import openpyxl
 
 # 테이블정의서 xlsx 2개(모델팀본, 20260901본)의 모든 시트에서 낱말이 들어 있는 행을 그대로 출력한다.
 # 사용: py find_in_table_spec.py t_aw_cl [낱말 ...]
-FILES = [Path(r"C:\Users\NT751\Desktop\천영진\테이블명세서(모델팀)\테이블정의서.xlsx"),
+FILES = [Path(r"C:\Users\NT751\Desktop\천영진\문서\테이블명세서(모델팀)\테이블정의서.xlsx"),
          Path(r"C:\Users\NT751\Desktop\천영진\리스테리아ML\docs\참고자료\20260901.테이블정의서 (1).xlsx")]
 words = [w.lower() for w in sys.argv[1:]]
 
