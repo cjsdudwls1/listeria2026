@@ -1,5 +1,5 @@
-# DB 접속 정보 (커밋 금지)
-테이블명세서(모델팀)/database계정.txt
+# DB 접속 정보 (커밋 금지) — 폴더를 옮겨도 걸리도록 파일 이름만 적는다
+database계정.txt
 # 리스테리아ML/.env 등 환경 파일 — DB 비밀번호가 들어 있음 (2026-09-28)
 .env
 
@@ -9,7 +9,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # DB 에서 내려받은 원자료·조인 결과 (대용량·외부 반출 주의 — 메인 폴더에만 둔다, 2026-09-17 사용자 결정)
-# 공유용/ 아래 parquet 는 리스테리아ML/공유용/.gitignore 가 제외한다
+# 공유용 폴더 아래 parquet 는 그 폴더 안의 .gitignore 가 제외한다
 리스테리아ML/data/collected/
 
 # MLflow 실험 기록 — 실행할 때마다 커지는 DB·그림·예측 파일 (2026-09-29 사용자 결정)
@@ -26,5 +26,8 @@ __pycache__/
 
 # Claude Code 작업용 worktree
 .claude/worktrees/
-리스테리아ML/공유용_*.zip
-리스테리아ML/mlflow_backup_*/
+# 옛 공유용 zip·옛 MLflow 기록 — 어느 폴더에 있든 무시(보관/ 으로 옮김)
+공유용_*.zip
+mlflow_backup_*/
+# 팀에서 받은 안내문 — 계정 정보 줄이 있어 git 에 올리지 않는다 (2026-10-13, PC 에만 둔다)
+가이드.txt
