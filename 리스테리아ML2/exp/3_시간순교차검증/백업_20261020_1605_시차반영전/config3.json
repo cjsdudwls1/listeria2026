@@ -1,0 +1,103 @@
+{
+  "_설명": "3차 실험(시간순 교차검증) 설정. 값만 바꾸면 코드 수정 없이 새 데이터·기간으로 돈다. 칸 설명은 src/cfg3.py 머리말.",
+  "data": {
+    "data_dir": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋",
+    "sample_file": "시료_시군구.parquet",
+    "weather_file": "식정원_db_기상기후/시군구_일별_기상.parquet",
+    "nb_tfidf_by_train_end": {}
+  },
+  "dates": {
+    "data_end": null,
+    "n_folds": 3,
+    "folds": null,
+    "test": null
+  },
+  "window_L": 100,
+  "seed": 42,
+  "smoothing_k": {
+    "select": true,
+    "candidates": [10, 30, 50, 100, 200],
+    "fixed": 10,
+    "model": "cat",
+    "featset": ["wx", "hist_core"],
+    "judge": "pr_auc"
+  },
+  "threshold": {"rule": "max_precision_at_recall", "recall_min": 0.80},
+  "optuna_objectives": ["pr_auc"],
+  "optuna_top_n": 5,
+  "tune_models": ["xgb", "lgbm", "cat", "bilstm"],
+  "vanilla_stage1": ["xgb:summary", "lgbm:summary", "cat:summary", "xgb:raw", "lgbm:raw", "cat:raw", "bilstm:seq"],
+  "boost": {"max_rounds": 2000, "patience": 100},
+  "tree_device": "cpu",
+  "featset_all": ["wx", "spi", "soilmed", "food", "extidx", "rg", "g123", "wxanom", "hist_core", "logn1", "sd1", "woe", "n1", "ae4"],
+  "featset_tune": ["wx", "spi", "soilmed", "food", "extidx", "rg", "g123", "wxanom", "hist_core", "logn1", "sd1", "woe", "n1", "ae4", "n2", "n0"],
+  "chain": {"Ls": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], "stop_if_raw_wins": true, "parallel_bilstm": true, "kselect": true},
+  "optuna": {
+    "n_trials": 30,
+    "sampler": "tpe",
+    "sampler_seed": 42,
+    "spaces": {
+      "xgb": {
+        "learning_rate": ["float_log", 0.01, 0.3],
+        "max_depth": ["int", 3, 10],
+        "min_child_weight": ["float_log", 1.0, 100.0],
+        "subsample": ["float", 0.5, 1.0],
+        "colsample_bytree": ["float", 0.3, 1.0],
+        "reg_lambda": ["float_log", 0.001, 100.0],
+        "reg_alpha": ["float_log", 0.001, 10.0]
+      },
+      "lgbm": {
+        "learning_rate": ["float_log", 0.01, 0.3],
+        "num_leaves": ["int_log", 15, 255],
+        "min_child_samples": ["int_log", 5, 300],
+        "subsample": ["float", 0.5, 1.0],
+        "subsample_freq": ["fixed", 1],
+        "colsample_bytree": ["float", 0.3, 1.0],
+        "reg_lambda": ["float_log", 0.001, 100.0],
+        "reg_alpha": ["float_log", 0.001, 10.0]
+      },
+      "cat": {
+        "learning_rate": ["float_log", 0.01, 0.3],
+        "depth": ["int", 4, 10],
+        "l2_leaf_reg": ["float_log", 1.0, 30.0],
+        "random_strength": ["float_log", 0.1, 10.0],
+        "bagging_temperature": ["float", 0.0, 1.0]
+      },
+      "rf": {
+        "n_estimators": ["int", 100, 500],
+        "max_depth": ["int_or_none", 5, 40],
+        "min_samples_leaf": ["int_log", 1, 100],
+        "max_features": ["float", 0.05, 0.5],
+        "max_samples": ["float", 0.3, 1.0]
+      },
+      "lr": {
+        "C": ["float_log", 0.0001, 100.0]
+      },
+      "bilstm": {
+        "hidden": ["int_log", 32, 256],
+        "layers": ["int", 1, 2],
+        "dropout": ["float", 0.0, 0.5],
+        "lr": ["float_log", 0.0001, 0.003],
+        "batch": ["cat", 512, 1024, 2048],
+        "emb_dim": ["int", 4, 16],
+        "head": ["int_log", 32, 128]
+      }
+    }
+  },
+  "bundle_drop": {
+    "rule": "no_decrease_any_increase",
+    "metrics": null,
+    "tol": 0.0,
+    "max_passes": 20,
+    "n1_judge_folds": null
+  },
+  "group_items": {"top_n": 5},
+  "smoke": {
+    "enabled": false,
+    "n_sgg": 12,
+    "train_neg_max": 6000,
+    "eval_per_h_max": 300,
+    "seed": 0
+  },
+  "mem_floor_gb": 10.0
+}

@@ -1,0 +1,107 @@
+{
+  "stage1": {
+    "rule": "step1 7회 중 val 60일 평균 PR-AUC 최대 (test 미사용). 같은 값이면 실행 순서 앞쪽",
+    "ranking": [
+      {
+        "run": "catboost__summary__L100",
+        "val_pr_auc_mean60": 0.0727799986610365
+      },
+      {
+        "run": "catboost__raw__L100",
+        "val_pr_auc_mean60": 0.05700551893833402
+      },
+      {
+        "run": "lstm__seq__L100",
+        "val_pr_auc_mean60": 0.05538096618767356
+      },
+      {
+        "run": "xgboost__summary__L100",
+        "val_pr_auc_mean60": 0.04502661626038583
+      },
+      {
+        "run": "lightgbm__summary__L100",
+        "val_pr_auc_mean60": 0.0337269157476362
+      },
+      {
+        "run": "xgboost__raw__L100",
+        "val_pr_auc_mean60": 0.02897593938181269
+      },
+      {
+        "run": "lightgbm__raw__L100",
+        "val_pr_auc_mean60": 0.021819305229915573
+      }
+    ],
+    "selected_model": "catboost",
+    "selected_input": "summary",
+    "selected_run": "catboost__summary__L100"
+  },
+  "stage2": {
+    "rule": "선정 (모델, 입력 방식) 의 L=10..100 중 val 60일 평균 PR-AUC 최대 (test 미사용). 같은 값이면 짧은 L",
+    "ranking": [
+      {
+        "run": "catboost__summary__L050",
+        "L": 50,
+        "val_pr_auc_mean60": 0.07509863149411086
+      },
+      {
+        "run": "catboost__summary__L100",
+        "L": 100,
+        "val_pr_auc_mean60": 0.0727799986610365
+      },
+      {
+        "run": "catboost__summary__L090",
+        "L": 90,
+        "val_pr_auc_mean60": 0.06635082617143383
+      },
+      {
+        "run": "catboost__summary__L070",
+        "L": 70,
+        "val_pr_auc_mean60": 0.06606903511662925
+      },
+      {
+        "run": "catboost__summary__L040",
+        "L": 40,
+        "val_pr_auc_mean60": 0.06416280370823231
+      },
+      {
+        "run": "catboost__summary__L030",
+        "L": 30,
+        "val_pr_auc_mean60": 0.06214767191542791
+      },
+      {
+        "run": "catboost__summary__L080",
+        "L": 80,
+        "val_pr_auc_mean60": 0.061618034980729805
+      },
+      {
+        "run": "catboost__summary__L010",
+        "L": 10,
+        "val_pr_auc_mean60": 0.061259346862452504
+      },
+      {
+        "run": "catboost__summary__L060",
+        "L": 60,
+        "val_pr_auc_mean60": 0.05895165030642172
+      },
+      {
+        "run": "catboost__summary__L020",
+        "L": 20,
+        "val_pr_auc_mean60": 0.05711879747400347
+      }
+    ],
+    "L_star": 50
+  },
+  "baseline": {
+    "run": "catboost__summary__L050",
+    "model": "CatBoost",
+    "input": "요약(summary)",
+    "L": 50,
+    "val_pr_auc_mean60": 0.07509863149411086,
+    "test_pr_auc_mean60": 0.03277296403500265,
+    "threshold": 0.01940990425646305
+  },
+  "imbalance_handling": "불균형 처리 없음 - 가중치·샘플링·pos_weight 모두 쓰지 않음(사용자 지시)",
+  "table_note": "모델비교·window비교의 test Precision·Recall·F2·TP·FN·FP·TN 은 h 1~60 예측을 모두 합친 혼동행렬 기준(n = test 행 수 x 60). baseline_1_60일 은 h 별 값",
+  "note": "선정은 val 만 사용. test 는 기록용.",
+  "smoke": false
+}

@@ -1,0 +1,100 @@
+{
+ "model": "cat",
+ "bundles": [
+  "wx"
+ ],
+ "mean": {
+  "pr_auc": 0.06570491754919555,
+  "p_at_r": 0.010308947884678262,
+  "r_at_thr": 0.8002654280026543,
+  "precision": 0.01030629895112135,
+  "recall": 0.7999873210682197,
+  "f1": 0.02035036931410506,
+  "accuracy": 0.7274962131801731,
+  "roc_auc": 0.8419997251396674,
+  "inspect_reduction": 0.7246656179366242,
+  "tp": 80.4,
+  "fp": 7718.65,
+  "fn": 20.066666666666666,
+  "tn": 20578.383333333335,
+  "n": 28397.5,
+  "top1": 0.2018111609483095,
+  "top5": 0.41361303323121584,
+  "top10": 0.5413890087473069,
+  "top20": 0.718161812984116
+ },
+ "mean_folds": [
+  3
+ ],
+ "by_fold": {
+  "3": {
+   "fold": 3,
+   "n_train_rows": 222793,
+   "n_train_pos": 851,
+   "best_rounds": 29,
+   "n_trained": 129,
+   "fit_seconds": 47.6,
+   "predict_seconds": 1.67,
+   "n_num": 286,
+   "n_cat": 4,
+   "pr_auc": 0.06570491754919555,
+   "p_at_r": 0.010308947884678262,
+   "r_at_thr": 0.8002654280026543,
+   "threshold": 0.005288753192871809,
+   "threshold_rule": "max_precision_at_recall>=0.80",
+   "precision": 0.01030629895112135,
+   "recall": 0.7999873210682197,
+   "f1": 0.02035036931410506,
+   "accuracy": 0.7274962131801731,
+   "roc_auc": 0.8419997251396674,
+   "inspect_reduction": 0.7246656179366242,
+   "tp": 80.4,
+   "fp": 7718.65,
+   "fn": 20.066666666666666,
+   "tn": 20578.383333333335,
+   "n": 28397.5,
+   "top1": 0.2018111609483095,
+   "top5": 0.41361303323121584,
+   "top10": 0.5413890087473069,
+   "top20": 0.718161812984116,
+   "n_rows": 1703850,
+   "n_pos": 6028,
+   "h_without_both_classes": []
+  }
+ },
+ "best_rounds": [
+  29
+ ],
+ "fit_seconds": 47.6,
+ "importance_bundle": {
+  "base": 0.41606370332506226,
+  "wx": 0.5839362966749378
+ },
+ "run": "cat__base__L100__s42",
+ "model_name": "CatBoost",
+ "L": 100,
+ "seed": 42,
+ "device": "CPU",
+ "folds": [
+  3
+ ],
+ "thresholds": {
+  "3": 0.005288753192871809
+ },
+ "best_rounds_mean": 29.0,
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "limitations": [],
+ "finished_at": "2026-10-20 12:18:39",
+ "complete": true,
+ "total_seconds": 50.9,
+ "test_rows_built": 0,
+ "note": "이 명령은 시험 행을 만들지 않음(cv.TEST_ACCESS 빈 것 확인)",
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "rescored_at": "2026-10-20 13:02:41",
+ "rescored_from": "f2_max",
+ "rescore_note": "재학습 없음 - 저장된 맞혀 보는 행 예측으로 기준값·지표만 다시 계산"
+}

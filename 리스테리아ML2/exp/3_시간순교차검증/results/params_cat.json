@@ -1,0 +1,129 @@
+{
+ "model": "cat",
+ "params": {
+  "iterations": 2000,
+  "random_seed": 42,
+  "verbose": 0,
+  "allow_writing_files": false,
+  "task_type": "CPU",
+  "learning_rate": 0.14075451277734788,
+  "depth": 4,
+  "l2_leaf_reg": 2.310773267380095,
+  "random_strength": 2.885017850518113,
+  "bagging_temperature": 0.7963202929716622
+ },
+ "not_saved": [],
+ "trial": 18,
+ "study": "tune_base_wx18_k200_L80_s42_obj-wpr_auc",
+ "bundles": [
+  "wx",
+  "spi",
+  "soilmed",
+  "food",
+  "extidx",
+  "rg",
+  "g123",
+  "wxanom",
+  "hist_core",
+  "logn1",
+  "sd1",
+  "woe",
+  "n1",
+  "ae4",
+  "n2",
+  "n0"
+ ],
+ "wvars": [
+  "avg_temp",
+  "max_temp",
+  "min_temp",
+  "rain",
+  "avg_wind",
+  "max_wind",
+  "sunshine",
+  "solar_rad",
+  "soil_t5",
+  "soil_t10",
+  "soil_t20",
+  "soil_t30",
+  "soil_t_nas",
+  "soil_moist",
+  "no2",
+  "so2",
+  "wind_dir_sin",
+  "wind_dir_cos"
+ ],
+ "pre_drop_units": [],
+ "k": {
+  "k": 200,
+  "used": true,
+  "selected_by_cv": true,
+  "source": "selection_k.json"
+ },
+ "L": 80,
+ "seed": 42,
+ "scores": {
+  "accuracy": 0.847858128085412,
+  "best_rounds": [
+   211,
+   81,
+   63
+  ],
+  "by_fold": {
+   "1": {
+    "wpr_auc": 0.09462727145679797,
+    "pr_auc": 0.09254954145688327,
+    "p_at_r": 0.028320750436576395,
+    "threshold": 0.005474577657878399
+   },
+   "2": {
+    "wpr_auc": 0.11736269786666553,
+    "pr_auc": 0.11145842606669003,
+    "p_at_r": 0.019746497665110073,
+    "threshold": 0.005826905369758606
+   },
+   "3": {
+    "wpr_auc": 0.045239731488764215,
+    "pr_auc": 0.04511810621937632,
+    "p_at_r": 0.015181358236004833,
+    "threshold": 0.0034991020802408457
+   }
+  },
+  "f1": 0.041013786633478454,
+  "fit_seconds": 213.15,
+  "fn": 21.316666666666666,
+  "fp": 4190.6611111111115,
+  "inspect_reduction": 0.8447535082911535,
+  "n": 27554.094444444443,
+  "p_at_r": 0.021082868779230435,
+  "params_full": {
+   "learning_rate": 0.14075451277734788,
+   "depth": 4,
+   "l2_leaf_reg": 2.310773267380095,
+   "random_strength": 2.885017850518113,
+   "bagging_temperature": 0.7963202929716622
+  },
+  "pr_auc": 0.08304202458098321,
+  "precision": 0.021082692972871325,
+  "r_at_thr": 0.8002644709603253,
+  "recall": 0.8004437919796388,
+  "roc_auc": 0.9047874617714907,
+  "tn": 23256.71111111111,
+  "top1": 0.24406674711768783,
+  "top10": 0.7200905347210567,
+  "top20": 0.8513587908037739,
+  "top5": 0.5939162502737692,
+  "tp": 85.40555555555557,
+  "wpr_auc": 0.08574323360407592,
+  "wrecall": 0.8020313936162898
+ },
+ "chosen_at": "2026-10-21 20:12:59",
+ "device": "cpu",
+ "suggested": {
+  "learning_rate": 0.14075451277734788,
+  "depth": 4,
+  "l2_leaf_reg": 2.310773267380095,
+  "random_strength": 2.885017850518113,
+  "bagging_temperature": 0.7963202929716622
+ }
+}

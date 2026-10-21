@@ -1,0 +1,112 @@
+{
+  "run": "B1__s42",
+  "exp": "B1",
+  "plan": "사양 B (계획서 번호 없음)",
+  "desc": "로지스틱 회귀: A3 이력 변수 9 + h (표준화)",
+  "model": "lr",
+  "seed": 42,
+  "smoke": true,
+  "feats": {
+    "weather": false,
+    "cats": false,
+    "hist": [
+      "rate5",
+      "logn5",
+      "rate1"
+    ],
+    "woe": false,
+    "k": 10
+  },
+  "feats_from": null,
+  "group": null,
+  "group_codes": null,
+  "options": {},
+  "alignment": "목표일 d, 앞당김 h -> T = d - h, 기상 창 = T-50 .. T-1, 이력 창 = T-P .. T-1 (T 당일 제외)",
+  "splits": {
+    "train": "d <= 2024-06-30",
+    "val": "2024-07-01~2025-06-30",
+    "test": "2025-07-01~2026-06-30"
+  },
+  "rows": {
+    "train": {
+      "n": 20851,
+      "pos": 851
+    },
+    "val": {
+      "n": 1622,
+      "pos": 122
+    },
+    "test": {
+      "n": 1668,
+      "pos": 168
+    }
+  },
+  "h_assignment": "학습 행: default_rng(42).integers(1,61) (전체 학습 행, 단위 키+d 정렬); 조기 종료용 검증: default_rng(43); 평가: h=1..60 전부",
+  "n_features": 10,
+  "n_features_desc": "숫자 10 (h 1 + 기상 0 + 이력 9), 범주 없음",
+  "feature_columns": [
+    "h",
+    "hist_rate5y_p3",
+    "hist_rate5y_sgg",
+    "hist_rate5y_unit",
+    "hist_logn5y_p3",
+    "hist_logn5y_sgg",
+    "hist_logn5y_unit",
+    "hist_rate1y_p3",
+    "hist_rate1y_sgg",
+    "hist_rate1y_unit"
+  ],
+  "window_range": [
+    "2015-05-06",
+    "2026-06-28"
+  ],
+  "n_train_rows": 20851,
+  "n_train_pos": 851,
+  "code_md5": {
+    "run.py": "4917009be8f4ea5c19601469c8452c86",
+    "e2cfg.py": "3d236a0483fce7ab8325035468c8351a",
+    "e2data.py": "3e5f650dd8909f95809f42f819f1714e",
+    "e2dl.py": "438df95f54ace7b4c09c985acf12bb50",
+    "e2dl_impl.py": "6804d8a46936660ed94ec25d197d84a5",
+    "e2eval.py": "d66e64ec194c2387305bd05c52a0987d",
+    "e2hist.py": "25b18b5f51793e254425d7d9c8922b9b",
+    "e2models.py": "6536bd511614cfd230f406ca22e5d3b9",
+    "e2smote.py": "95a2cdaa6f81619cef29092d5ea71543",
+    "e2tables.py": "833aadcc85af6a9f7fe27de8eb083f16",
+    "1차/config.py": "58147e30b04c8c0ca5d6ff68d0f95186",
+    "1차/data.py": "ab019a250b49194a173e80baf92d6a99",
+    "1차/features.py": "72febeef30e5867b0f7e86867b1baf5a",
+    "1차/metrics.py": "04a200744e80458a2a5dd2f130ac9fdb",
+    "1차/models.py": "f4b2bc4005b8740e9e37f31079e5dbd0",
+    "1차/common.py": "d108f839287a6e1899c420c537b142f8"
+  },
+  "model_info": {
+    "library_params": {
+      "C": 1.0,
+      "l1_ratio": 0.0,
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "class_weight": null
+    },
+    "standardize": "학습 행 평균·표준편차(결측 무시, ddof=0)로 표준화, 표준편차 0/전부 결측 열은 1, 결측은 표준화 뒤 0(=학습 평균)",
+    "n_iter": 16,
+    "converged": true,
+    "nan_rate_train": 0.0,
+    "n_allnan_cols": 0,
+    "n_zero_sd_cols": 0,
+    "coef": [
+      0.04353644118084742,
+      0.33853738310081694,
+      0.10138033281163329,
+      0.12053402617856955,
+      0.6234861222951141,
+      -0.051725999800477436,
+      0.024865628061091993,
+      0.09288886320205289,
+      0.10197458624138976,
+      0.22233335656065198
+    ],
+    "intercept": -3.58098138280728,
+    "early_stopping": "없음(검증은 기준값·선정에만). best_val_ap = 조기 종료용 검증 h 배정에서의 AP(기록용)"
+  }
+}

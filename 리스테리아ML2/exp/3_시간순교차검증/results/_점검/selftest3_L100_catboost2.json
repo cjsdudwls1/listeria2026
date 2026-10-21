@@ -1,0 +1,336 @@
+{
+ "L": 100,
+ "started": "2026-10-20 13:13:03",
+ "parts": [
+  "catboost2"
+ ],
+ "smoke": {
+  "enabled": false,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "folds": {
+  "1": {
+   "train_rows": 157671,
+   "train_pos_rows": 563,
+   "eval_pairs": 1601116,
+   "eval_pos_pairs": 6708,
+   "eval_rows_per_h_min_max": [
+    26458,
+    26995
+   ],
+   "eval_pos_per_h_min_max_mean": [
+    103,
+    121,
+    111.8
+   ],
+   "eval_unique_unit_day_rows": 31877,
+   "eval_unique_pos_rows": 145,
+   "samples_pos_year_d": 230,
+   "samples_pos_eval_d_range": 228,
+   "samples_pos_d_in_T_range": 171,
+   "spec_pos_samples": 230
+  },
+  "2": {
+   "train_rows": 189688,
+   "train_pos_rows": 709,
+   "eval_pairs": 1654771,
+   "eval_pos_pairs": 6474,
+   "eval_rows_per_h_min_max": [
+    27315,
+    27979
+   ],
+   "eval_pos_per_h_min_max_mean": [
+    100,
+    116,
+    107.9
+   ],
+   "eval_unique_unit_day_rows": 33073,
+   "eval_unique_pos_rows": 142,
+   "samples_pos_year_d": 196,
+   "samples_pos_eval_d_range": 196,
+   "samples_pos_d_in_T_range": 152,
+   "spec_pos_samples": 196
+  },
+  "3": {
+   "train_rows": 222793,
+   "train_pos_rows": 851,
+   "eval_pairs": 1703850,
+   "eval_pos_pairs": 6028,
+   "eval_rows_per_h_min_max": [
+    27853,
+    28899
+   ],
+   "eval_pos_per_h_min_max_mean": [
+    97,
+    104,
+    100.46666666666667
+   ],
+   "eval_unique_unit_day_rows": 34109,
+   "eval_unique_pos_rows": 122,
+   "samples_pos_year_d": 164,
+   "samples_pos_eval_d_range": 164,
+   "samples_pos_d_in_T_range": 131,
+   "spec_pos_samples": 164
+  }
+ },
+ "test_rows": {
+  "pairs": 1737545,
+  "unit_day_rows": 34632,
+  "d_range": [
+   "2025-07-02",
+   "2026-06-30"
+  ],
+  "note": "시험은 위치·날짜만 셈(입력·예측·채점 없음)"
+ },
+ "catboost_compare2": {
+  "es_rows": 34249,
+  "es_pos": 122,
+  "es_h_eq_2차_default_rng43": true,
+  "e_full_reproduction": {
+   "bit_equal": true,
+   "n": 1703850,
+   "n_diff": 0,
+   "max_abs_diff": 0.0,
+   "best_rounds": 31,
+   "learning_rate": 0.08910299837589264,
+   "tree_count": 31
+  },
+  "d_iter2000_no_eval_lr_fixed_first31": {
+   "bit_equal": true,
+   "n": 1703850,
+   "n_diff": 0,
+   "max_abs_diff": 0.0,
+   "learning_rate": 0.08910299837589264
+  }
+ },
+ "checks": [
+  {
+   "name": "[기본 경계] 겹 1: 학습 d <= 2022-06-30, 맞혀 보는 T ∈ [2022-07-01, 2023-05-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2022-06-30",
+    "eval_T": [
+     "2022-07-01",
+     "2023-05-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[기본 경계] 겹 2: 학습 d <= 2023-06-30, 맞혀 보는 T ∈ [2023-07-01, 2024-05-01], 모든 h 같은 306일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2023-06-30",
+    "eval_T": [
+     "2023-07-01",
+     "2024-05-01"
+    ],
+    "T_days_per_h": [
+     306
+    ]
+   }
+  },
+  {
+   "name": "[기본 경계] 겹 3: 학습 d <= 2024-06-30, 맞혀 보는 T ∈ [2024-07-01, 2025-05-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2024-06-30",
+    "eval_T": [
+     "2024-07-01",
+     "2025-05-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[기본 경계] 시험 T ∈ [2025-07-01, 2026-05-01], d <= 데이터 끝 2026-06-30",
+   "ok": true,
+   "detail": [
+    "2025-07-01",
+    "2026-05-01",
+    "2026-06-30"
+   ]
+  },
+  {
+   "name": "[기본 경계] 시험 행이 어떤 겹의 학습·맞혀 보는 행·최종 학습 행에도 없음",
+   "ok": true,
+   "detail": {
+    "겹": {
+     "1": [
+      0,
+      0
+     ],
+     "2": [
+      0,
+      0
+     ],
+     "3": [
+      0,
+      0
+     ]
+    },
+    "learn_d_max": "2025-06-30",
+    "test_d_min": "2025-07-02"
+   }
+  },
+  {
+   "name": "겹 1: 모든 h 에 검출·불검출 있음",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "겹 2: 모든 h 에 검출·불검출 있음",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "겹 3: 모든 h 에 검출·불검출 있음",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "겹 3 학습 행 = 2차 학습 분할(222,793행/검출 851), h = 2차 규칙 default_rng(42)",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "겹 3 맞혀 보는 행 = 2차 E00 pred_val 의 T 기준 행(키·d·h·y, 같은 순서)",
+   "ok": true,
+   "detail": {
+    "2차": 1703850,
+    "3차": 1703850
+   }
+  },
+  {
+   "name": "겹 3 h 별 행 수·검출 수 = 2차 analysis/T기준_통합_L100/h별_행수_검증.csv '통합(T 기준)'",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "모든 창(T−100 .. T−1)이 기상표 안",
+   "ok": true,
+   "detail": [
+    "2014-12-12",
+    "2025-06-28"
+   ]
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 겹 1: 학습 d <= 2021-12-31, 맞혀 보는 T ∈ [2022-01-01, 2022-11-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2021-12-31",
+    "eval_T": [
+     "2022-01-01",
+     "2022-11-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 겹 2: 학습 d <= 2022-12-31, 맞혀 보는 T ∈ [2023-01-01, 2023-11-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2022-12-31",
+    "eval_T": [
+     "2023-01-01",
+     "2023-11-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 겹 3: 학습 d <= 2023-12-31, 맞혀 보는 T ∈ [2024-01-01, 2024-11-01], 모든 h 같은 306일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2023-12-31",
+    "eval_T": [
+     "2024-01-01",
+     "2024-11-01"
+    ],
+    "T_days_per_h": [
+     306
+    ]
+   }
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 시험 T ∈ [2025-01-01, 2025-11-01], d <= 데이터 끝 2025-12-31",
+   "ok": true,
+   "detail": [
+    "2025-01-01",
+    "2025-11-01",
+    "2025-12-31"
+   ]
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 시험 행이 어떤 겹의 학습·맞혀 보는 행·최종 학습 행에도 없음",
+   "ok": true,
+   "detail": {
+    "겹": {
+     "1": [
+      0,
+      0
+     ],
+     "2": [
+      0,
+      0
+     ],
+     "3": [
+      0,
+      0
+     ]
+    },
+    "learn_d_max": "2024-12-31",
+    "test_d_min": "2025-01-02"
+   }
+  },
+  {
+   "name": "[가짜 경계] 데이터 끝(2025-12-31) 뒤 행은 어디에도 안 쓰임",
+   "ok": true,
+   "detail": {
+    "끝 뒤 행": 17701
+   }
+  },
+  {
+   "name": "CatBoost (e): 2차 E00 과 같은 조건(eval set·지표·조기 종료)으로 다시 학습 -> 2차 E00 예측과 비트 단위로 같음(3차 학습 행·입력이 2차와 같음)",
+   "ok": true,
+   "detail": {
+    "bit_equal": true,
+    "n": 1703850,
+    "n_diff": 0,
+    "max_abs_diff": 0.0,
+    "best_rounds": 31,
+    "learning_rate": 0.08910299837589264,
+    "tree_count": 31
+   }
+  },
+  {
+   "name": "CatBoost (d): 반복 2000·eval set 없음(학습률 고정)의 앞 31그루 = 2차 E00 (같으면 eval set 은 나무에 영향 없음, 반복 수 설정만 영향)",
+   "ok": true,
+   "detail": {
+    "bit_equal": true,
+    "n": 1703850,
+    "n_diff": 0,
+    "max_abs_diff": 0.0,
+    "learning_rate": 0.08910299837589264
+   }
+  },
+  {
+   "name": "점검 중 시험 행 접근 기록이 남지 않음(점검용 위치 세기는 지운 뒤 확인)",
+   "ok": true,
+   "detail": []
+  }
+ ],
+ "all_ok": true,
+ "seconds": 168.8
+}

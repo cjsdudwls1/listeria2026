@@ -1,0 +1,116 @@
+{
+ "H60__s42": {
+  "orig_md5": {
+   "config.json": "6c21bff8bde9af882e5e727c276f9f70",
+   "metrics_by_h.csv": "acc24ce9acce267d32e57c21cb51520f",
+   "pred_test.parquet": "7a1723b4ee768274df2b9b99cb957b0c",
+   "pred_val.parquet": "d3d85eb390a1462d213357ae5c1c1586",
+   "summary.json": "aa570a676fffcbf64ebaa20d1db6875f"
+  },
+  "masked": {
+   "config.json": 1,
+   "summary.json": 1
+  },
+  "md5": {
+   "config.json": "04a3923de5abc4c25724f6f276194d2d",
+   "metrics_by_h.csv": "acc24ce9acce267d32e57c21cb51520f",
+   "pred_test.parquet": "7a1723b4ee768274df2b9b99cb957b0c",
+   "pred_val.parquet": "d3d85eb390a1462d213357ae5c1c1586",
+   "summary.json": "898063cfc0e765bd71c26483b01200c6"
+  },
+  "bytes": {
+   "config.json": 12315,
+   "metrics_by_h.csv": 22666,
+   "pred_test.parquet": 8745212,
+   "pred_val.parquet": 8589155,
+   "summary.json": 4827
+  },
+  "complete": true,
+  "account_string_left": [],
+  "monitor_5s": {
+   "samples": 324,
+   "peak_anon_GB": 23.703,
+   "peak_rss_GB": 23.822,
+   "peak_swap_GB": 0.0,
+   "min_avail_GB": 76.359,
+   "start": "2026-10-19 13:52:36",
+   "end": "2026-10-19 14:19:47"
+  }
+ },
+ "H60__s43": {
+  "orig_md5": {
+   "config.json": "08a1cec994367e641ccbebacc8897193",
+   "metrics_by_h.csv": "c5c5da7398b92101d2652851114f7ba8",
+   "pred_test.parquet": "435e1dd28e351873a1ab339bc7ea6b06",
+   "pred_val.parquet": "74a247d7502f2dc9898bec97603dfedd",
+   "summary.json": "11c8916f264f3226cd66c8f8c37baa5e"
+  },
+  "masked": {
+   "config.json": 1,
+   "summary.json": 1
+  },
+  "md5": {
+   "config.json": "72070529aea1140e7ca56049dce4311d",
+   "metrics_by_h.csv": "c5c5da7398b92101d2652851114f7ba8",
+   "pred_test.parquet": "435e1dd28e351873a1ab339bc7ea6b06",
+   "pred_val.parquet": "74a247d7502f2dc9898bec97603dfedd",
+   "summary.json": "5fa9ae242bb6cbb5a3d66bdefa08526d"
+  },
+  "bytes": {
+   "config.json": 12829,
+   "metrics_by_h.csv": 22841,
+   "pred_test.parquet": 8741107,
+   "pred_val.parquet": 8597654,
+   "summary.json": 4789
+  },
+  "complete": true,
+  "account_string_left": [],
+  "monitor_5s": {
+   "samples": 347,
+   "peak_anon_GB": 24.522,
+   "peak_rss_GB": 24.642,
+   "peak_swap_GB": 0.0,
+   "min_avail_GB": 75.173,
+   "start": "2026-10-19 14:19:47",
+   "end": "2026-10-19 14:48:48"
+  }
+ },
+ "H60__s44": {
+  "orig_md5": {
+   "config.json": "c0bf813ee2a85ac71a8c6acc4cca870b",
+   "metrics_by_h.csv": "30c6ed117e8c1be42bb4c1deb59e1623",
+   "pred_test.parquet": "e4edb8e13ae7771a5b59afda46566a5a",
+   "pred_val.parquet": "ddbe0b2637e3e0b9cada0282fc567350",
+   "summary.json": "ac623b4801ff4ed6f64e5a27ebe6ce9c"
+  },
+  "masked": {
+   "config.json": 1,
+   "summary.json": 1
+  },
+  "md5": {
+   "config.json": "c688b0aa5bc07cb4c85a269a2bb6382f",
+   "metrics_by_h.csv": "30c6ed117e8c1be42bb4c1deb59e1623",
+   "pred_test.parquet": "e4edb8e13ae7771a5b59afda46566a5a",
+   "pred_val.parquet": "ddbe0b2637e3e0b9cada0282fc567350",
+   "summary.json": "d53bf1869af7c1c22f4bcb3e1f23d793"
+  },
+  "bytes": {
+   "config.json": 12394,
+   "metrics_by_h.csv": 22861,
+   "pred_test.parquet": 8104251,
+   "pred_val.parquet": 7988344,
+   "summary.json": 4834
+  },
+  "complete": true,
+  "account_string_left": [],
+  "monitor_5s": {
+   "samples": 329,
+   "peak_anon_GB": 22.352,
+   "peak_rss_GB": 22.472,
+   "peak_swap_GB": 0.0,
+   "min_avail_GB": 77.213,
+   "start": "2026-10-19 14:48:49",
+   "end": "2026-10-19 15:16:17"
+  }
+ }
+}

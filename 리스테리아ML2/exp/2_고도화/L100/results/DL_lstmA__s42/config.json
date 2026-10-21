@@ -1,0 +1,262 @@
+{
+  "run": "DL_lstmA__s42",
+  "exp": "DL_lstmA",
+  "plan": "사양 DL",
+  "desc": "LSTM, 방식 A(h 입력), 100일",
+  "model": "dl",
+  "seed": 42,
+  "smoke": false,
+  "feats": null,
+  "feats_from": null,
+  "group": null,
+  "group_codes": null,
+  "options": {},
+  "alignment": "목표일 d, 앞당김 h -> T = d - h, 기상 창 = T-100 .. T-1, 이력 창 = T-P .. T-1 (T 당일 제외)",
+  "splits": {
+    "train": "d <= 2024-06-30",
+    "val": "2024-07-01~2025-06-30",
+    "test": "2025-07-01~2026-06-30"
+  },
+  "rows": {
+    "train": {
+      "n": 222793,
+      "pos": 851
+    },
+    "val": {
+      "n": 34249,
+      "pos": 122
+    },
+    "test": {
+      "n": 34770,
+      "pos": 168
+    }
+  },
+  "h_assignment": "학습 행: default_rng(42).integers(1,61) (전체 학습 행, 단위 키+d 정렬); 조기 종료용 검증: default_rng(43); 평가: h=1..60 전부",
+  "n_features": 3805,
+  "n_features_desc": "시퀀스 100일 x 38채널(표준화 19 + 결측 표시 19) + 범주 4(임베딩 각 8) + h/60",
+  "feature_columns": null,
+  "window_range": [
+    "2014-10-29",
+    "2026-06-28"
+  ],
+  "n_train_rows": 222793,
+  "n_train_pos": 851,
+  "wx_L": 100,
+  "select_rule": {
+    "name": "tint",
+    "rule": "검증 T 통합 60일평균 PR-AUC: 저장 검증 예측(pred_val.parquet) 중 예측하는 날 T = d − h 가 2024-07-01 ~ 2025-05-01 인 행만(2025-05-01 = 검증 끝 2025-06-30 − 60일, 모든 h 같은 예측일 305일), h 마다 PR-AUC(sklearn average_precision) -> h 1~60 단순 평균, 시드가 여러 개면 시드 평균. 시험 미사용"
+  },
+  "code_md5": {
+    "run.py": "036a230dfe9c8e16890a6505805eb79e",
+    "e2ae.py": "ec7f791eb9fbf139ff668ab0a8453359",
+    "e2cfg.py": "aed5bbdd3a9ebcc9d72fbc6449fe81cf",
+    "e2data.py": "e8028a9a223035a962e48e31b78e1add",
+    "e2dl.py": "438df95f54ace7b4c09c985acf12bb50",
+    "e2dl_impl.py": "6804d8a46936660ed94ec25d197d84a5",
+    "e2eval.py": "09fcca480b34c71dccaadaccdf65f7a9",
+    "e2fg.py": "9017633331d861557170ccf86200d0e5",
+    "e2fs.py": "565fa80456e0cc733fedbd6b4b8013a3",
+    "e2hist.py": "8008df80e7c740a4c1a8d66e2c22e3e5",
+    "e2models.py": "3fff83a07bbf35338dba2fbb11e93ec5",
+    "e2nb.py": "9fa1f6ac723c247d327accbcf6d7641d",
+    "e2smote.py": "361cde2232d04c18e15d3878490631dc",
+    "e2stk.py": "9fc71a229da753951cb840b9f2834aa9",
+    "e2tables.py": "fb1245d04afb670d24c8c4d10be8625f",
+    "1차/config.py": "58147e30b04c8c0ca5d6ff68d0f95186",
+    "1차/data.py": "ab019a250b49194a173e80baf92d6a99",
+    "1차/features.py": "72febeef30e5867b0f7e86867b1baf5a",
+    "1차/metrics.py": "04a200744e80458a2a5dd2f130ac9fdb",
+    "1차/models.py": "f4b2bc4005b8740e9e37f31079e5dbd0",
+    "1차/common.py": "d108f839287a6e1899c420c537b142f8"
+  },
+  "model_info": {
+    "arch": "lstm",
+    "mode": "A",
+    "L": 100,
+    "encoder": "LSTM(38->64, 1층, 단방향), 마지막 은닉 = 1차 models.make_lstm_net",
+    "head": "Linear(->64) ReLU Dropout(0.2) Linear(->1)",
+    "n_params": 37209,
+    "input_channels": "19 변수 표준화(학습 기간 <= 2024-06-30 기상표 평균·표준편차, NaN 무시, ddof=0) 후 NaN->0 + 결측 표시 19 = 38",
+    "standardize_mean": [
+      13.28226375579834,
+      18.753093719482422,
+      8.559322357177734,
+      3.351846694946289,
+      1.8864027261734009,
+      4.541130065917969,
+      6.45647668838501,
+      14.106230735778809,
+      15.01644229888916,
+      14.958318710327148,
+      15.070158004760742,
+      15.146103858947754,
+      14.151403427124023,
+      21.63341522216797,
+      0.018111614510416985,
+      0.4478694498538971,
+      0.003398844739422202,
+      -0.16773372888565063,
+      0.059881895780563354
+    ],
+    "standardize_std": [
+      9.791190147399902,
+      9.812296867370605,
+      10.268447875976562,
+      12.033008575439453,
+      0.8799278140068054,
+      1.472597360610962,
+      3.842344284057617,
+      7.0148539543151855,
+      9.872544288635254,
+      9.665375709533691,
+      9.313243865966797,
+      8.967771530151367,
+      9.353011131286621,
+      7.339110851287842,
+      0.01137577649205923,
+      0.16361306607723236,
+      0.0016211732290685177,
+      0.5907391309738159,
+      0.4713435769081116
+    ],
+    "embedding_dim_each": 8,
+    "embedding_sizes_train_vocab_plus0": [
+      16,
+      256,
+      51,
+      204
+    ],
+    "embedding_padding_rows_zero_after_fit": true,
+    "h_input": "h/60",
+    "loss": "BCEWithLogits (pos_weight 없음)",
+    "optimizer": "Adam lr=0.001",
+    "batch": 1024,
+    "eval_batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "early_stopping": "조기 종료용 검증(h = default_rng(seed+1)) sklearn average_precision, 최고 에폭 가중치 복원",
+    "seed": 42,
+    "shuffle": "에폭마다 torch.randperm(Generator seed 42)",
+    "init": "torch.manual_seed(42), cuda.manual_seed_all(42), cudnn.benchmark=False",
+    "device": "cuda",
+    "gpu_name": "NVIDIA A100-PCIE-40GB",
+    "gpu_train_peak_allocated_gb": 1.05132288,
+    "gpu_train_peak_reserved_gb": 1.55189248,
+    "gpu_eval_peak_allocated_gb": 0.848368128,
+    "seconds_per_epoch_train_mean": 0.9192485159093683,
+    "eval_seconds_total": 3.7952752113342285,
+    "labels_B": null,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.07779985011572343,
+        "val_ap": 0.011621364443246813,
+        "train_seconds": 1.282738447189331,
+        "val_seconds": 0.04364204406738281,
+        "seconds": 1.3263845443725586,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.02462234301492572,
+        "val_ap": 0.06156286583872378,
+        "train_seconds": 0.8975808620452881,
+        "val_seconds": 0.03564810752868652,
+        "seconds": 0.9332332611083984,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.022909479077965225,
+        "val_ap": 0.07118025515435136,
+        "train_seconds": 0.8826651573181152,
+        "val_seconds": 0.03589344024658203,
+        "seconds": 0.9185612201690674,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.022102270790145075,
+        "val_ap": 0.08546145531235312,
+        "train_seconds": 0.8814163208007812,
+        "val_seconds": 0.035546302795410156,
+        "seconds": 0.9169652462005615,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.021516790939281362,
+        "val_ap": 0.0757193595579994,
+        "train_seconds": 0.8829689025878906,
+        "val_seconds": 0.03552103042602539,
+        "seconds": 0.918492317199707,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.021258947810098325,
+        "val_ap": 0.08745456890348766,
+        "train_seconds": 0.8789033889770508,
+        "val_seconds": 0.03560471534729004,
+        "seconds": 0.9145107269287109,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.021053425914291806,
+        "val_ap": 0.03815255608485044,
+        "train_seconds": 0.884833574295044,
+        "val_seconds": 0.03546714782714844,
+        "seconds": 0.9203033447265625,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.020796767851431777,
+        "val_ap": 0.0792346790876872,
+        "train_seconds": 0.8848092555999756,
+        "val_seconds": 0.03536510467529297,
+        "seconds": 0.9201769828796387,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.020725878243924144,
+        "val_ap": 0.07877884200917638,
+        "train_seconds": 0.8786330223083496,
+        "val_seconds": 0.03544425964355469,
+        "seconds": 0.9140799045562744,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.020564290846552733,
+        "val_ap": 0.08440700207004403,
+        "train_seconds": 0.8768270015716553,
+        "val_seconds": 0.03522491455078125,
+        "seconds": 0.9120545387268066,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      },
+      {
+        "epoch": 11,
+        "train_loss": 0.020374931078916844,
+        "val_ap": 0.081772832682182,
+        "train_seconds": 0.8803577423095703,
+        "val_seconds": 0.03533792495727539,
+        "seconds": 0.9156982898712158,
+        "batches": 218,
+        "gpu_peak_allocated_gb_so_far": 1.05132288
+      }
+    ]
+  }
+}

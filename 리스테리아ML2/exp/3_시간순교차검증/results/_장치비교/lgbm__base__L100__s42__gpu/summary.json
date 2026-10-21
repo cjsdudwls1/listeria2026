@@ -1,0 +1,100 @@
+{
+ "model": "lgbm",
+ "bundles": [
+  "wx"
+ ],
+ "mean": {
+  "pr_auc": 0.0356316667257545,
+  "p_at_r": 0.010347675902981152,
+  "r_at_thr": 0.8000995355009953,
+  "precision": 0.01037889404862795,
+  "recall": 0.7999520426548309,
+  "f1": 0.02049079541278405,
+  "accuracy": 0.7285262724431985,
+  "roc_auc": 0.8379646665300744,
+  "inspect_reduction": 0.725695902545152,
+  "tp": 80.38333333333334,
+  "fp": 7687.866666666667,
+  "fn": 20.083333333333332,
+  "tn": 20609.166666666668,
+  "n": 28397.5,
+  "top1": 0.12061825629179618,
+  "top5": 0.3163378191265675,
+  "top10": 0.4859493653719291,
+  "top20": 0.7047040268635656
+ },
+ "mean_folds": [
+  3
+ ],
+ "by_fold": {
+  "3": {
+   "fold": 3,
+   "n_train_rows": 222793,
+   "n_train_pos": 851,
+   "best_rounds": 745,
+   "n_trained": 845,
+   "fit_seconds": 179.82,
+   "predict_seconds": 12.72,
+   "n_num": 286,
+   "n_cat": 4,
+   "pr_auc": 0.0356316667257545,
+   "p_at_r": 0.010347675902981152,
+   "r_at_thr": 0.8000995355009953,
+   "threshold": 1.733207454890362e-06,
+   "threshold_rule": "max_precision_at_recall>=0.80",
+   "precision": 0.01037889404862795,
+   "recall": 0.7999520426548309,
+   "f1": 0.02049079541278405,
+   "accuracy": 0.7285262724431985,
+   "roc_auc": 0.8379646665300744,
+   "inspect_reduction": 0.725695902545152,
+   "tp": 80.38333333333334,
+   "fp": 7687.866666666667,
+   "fn": 20.083333333333332,
+   "tn": 20609.166666666668,
+   "n": 28397.5,
+   "top1": 0.12061825629179618,
+   "top5": 0.3163378191265675,
+   "top10": 0.4859493653719291,
+   "top20": 0.7047040268635656,
+   "n_rows": 1703850,
+   "n_pos": 6028,
+   "h_without_both_classes": []
+  }
+ },
+ "best_rounds": [
+  745
+ ],
+ "fit_seconds": 179.82,
+ "importance_bundle": {
+  "base": 0.11386327081626023,
+  "wx": 0.8861367291837393
+ },
+ "run": "lgbm__base__L100__s42__gpu",
+ "model_name": "LightGBM",
+ "L": 100,
+ "seed": 42,
+ "device": "gpu(OpenCL)",
+ "folds": [
+  3
+ ],
+ "thresholds": {
+  "3": 1.733207454890362e-06
+ },
+ "best_rounds_mean": 745.0,
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "limitations": [],
+ "finished_at": "2026-10-20 12:26:06",
+ "complete": true,
+ "total_seconds": 194.3,
+ "test_rows_built": 0,
+ "note": "이 명령은 시험 행을 만들지 않음(cv.TEST_ACCESS 빈 것 확인)",
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "rescored_at": "2026-10-20 13:02:45",
+ "rescored_from": "f2_max",
+ "rescore_note": "재학습 없음 - 저장된 맞혀 보는 행 예측으로 기준값·지표만 다시 계산"
+}

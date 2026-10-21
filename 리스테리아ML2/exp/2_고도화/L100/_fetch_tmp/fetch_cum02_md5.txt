@@ -1,0 +1,17 @@
+1b7dd28d336e7a5e3ebcde79e3c0ce34  CUM02__s42/config.json
+9ae5693f8186acf3e8892357a1289c73  CUM02__s42/summary.json
+099c17e85a33867c75326c8ea5f65a2b  CUM02__s42/metrics_by_h.csv
+f746bbce1c1a1a6d81105a733cb73222  CUM02__s42/pred_val.parquet
+57c743a29ae5a433b7b5e57b63598c66  CUM02__s42/pred_test.parquet
+cb4963a6ab852b3d8b7c174ac1da81f4  CUM02__s43/config.json
+97626823aeb1fe49d32bbbf822620ebb  CUM02__s43/summary.json
+e4ea9277c37db7826b24d55d85c8403c  CUM02__s43/metrics_by_h.csv
+9beb9fbc1482767900acfbb7a436d02c  CUM02__s43/pred_val.parquet
+c9c3177effe116c2cac7cacf9a344431  CUM02__s43/pred_test.parquet
+f467ee97330309c81d49d3dba238936a  CUM02__s44/config.json
+5dbd5c7263ec506dd50176efd7e360c1  CUM02__s44/summary.json
+7ce83b9847f4c06393098ffc01a871c3  CUM02__s44/metrics_by_h.csv
+9c462db78955a0e367b74d638338360c  CUM02__s44/pred_val.parquet
+bb5e937ef3bce52c488c24162caf990f  CUM02__s44/pred_test.parquet
+8874d2a940479892b182ac26a1e35e36  groups.json
+6f68f624a379c7db50fa32ecb3fe07b5  data_summary.csv

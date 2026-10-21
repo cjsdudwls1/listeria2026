@@ -1,0 +1,4 @@
+﻿단계,회차,시도한 묶음,묶음 중요도,기준 PR-AUC,기준 P@R,후보 PR-AUC,후보 P@R,결정,남은 묶음,판단 겹
+0,0,(시작: 전부),,0.004624027340799248,0.004256252796020301,,,시작,"wx,spi,soilmed,food,extidx,rg,g123,wxanom,hist_core,logn1,sd1,woe,n1,ae4",
+1,1,ae4,0.0,0.004624027340799248,0.004256252796020301,0.004624027340799248,0.004256252796020301,되돌림,"wx,spi,soilmed,food,extidx,rg,g123,wxanom,hist_core,logn1,sd1,woe,n1,ae4","1,2,3"
+2,1,extidx,0.0,0.004624027340799248,0.004256252796020301,0.004624027340799248,0.004256252796020301,되돌림,"wx,spi,soilmed,food,extidx,rg,g123,wxanom,hist_core,logn1,sd1,woe,n1,ae4","1,2,3"

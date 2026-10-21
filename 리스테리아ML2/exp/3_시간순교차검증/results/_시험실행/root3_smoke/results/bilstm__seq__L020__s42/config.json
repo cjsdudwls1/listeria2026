@@ -1,0 +1,1063 @@
+{
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "threshold_desc": "판정 기준값 = 60개 h 합친 예측에서 Recall ≥ 0.80 를 지키는 기준값 가운데 Precision 이 가장 큰 값(같은 Precision 이면 Recall 이 큰 쪽), 판정 = 예측 확률 ≥ 기준값",
+ "bounds": {
+  "data_end": "2026-06-30",
+  "data_end_source": "시료 파일 mnfctur_de 최댓값",
+  "test": {
+   "t_start": "2025-07-01",
+   "t_end": "2026-05-01",
+   "d_range": [
+    "2025-07-02",
+    "2026-06-30"
+   ]
+  },
+  "learn_end": "2025-06-30",
+  "folds": [
+   {
+    "fold": 1,
+    "train_end": "2022-06-30",
+    "t_start": "2022-07-01",
+    "t_end": "2023-05-01"
+   },
+   {
+    "fold": 2,
+    "train_end": "2023-06-30",
+    "t_start": "2023-07-01",
+    "t_end": "2024-05-01"
+   },
+   {
+    "fold": 3,
+    "train_end": "2024-06-30",
+    "t_start": "2024-07-01",
+    "t_end": "2025-05-01"
+   }
+  ],
+  "h_max": 60,
+  "h_rule": "학습 행 h: 기준일 d <= 2024-06-30(마지막 겹 학습 끝) 행 = default_rng(seed), 그 뒤 ~ 2025-06-30(학습 자료 끝) 행 = default_rng(seed+1), 각각 단위 키+d 정렬 순서로 integers(1, 61)",
+  "rule": "시험 = 데이터 마지막 1년(T ∈ [시험 시작, 데이터 끝 − 60일]), 겹 = 그 앞 해를 한 해씩(같은 규칙), 학습 = 각 겹 그해 시작 전"
+ },
+ "config": {
+  "config_path": "~/cyj_listeria/exp3/3_시간순교차검증/config3.json",
+  "config": {
+   "_설명": "3차 실험(시간순 교차검증) 설정. 값만 바꾸면 코드 수정 없이 새 데이터·기간으로 돈다. 칸 설명은 src/cfg3.py 머리말.",
+   "data": {
+    "data_dir": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋",
+    "sample_file": "시료_시군구.parquet",
+    "weather_file": "식정원_db_기상기후/시군구_일별_기상.parquet",
+    "nb_tfidf_by_train_end": {}
+   },
+   "dates": {
+    "data_end": null,
+    "n_folds": 3,
+    "folds": null,
+    "test": null
+   },
+   "window_L": 100,
+   "seed": 42,
+   "smoothing_k": {
+    "select": true,
+    "candidates": [
+     10,
+     30
+    ],
+    "fixed": 10,
+    "model": "cat",
+    "featset": [
+     "wx",
+     "hist_core"
+    ],
+    "judge": "pr_auc"
+   },
+   "threshold": {
+    "rule": "max_precision_at_recall",
+    "recall_min": 0.8
+   },
+   "optuna_objectives": [
+    "pr_auc"
+   ],
+   "optuna_top_n": 5,
+   "tune_models": [
+    "xgb",
+    "lgbm",
+    "cat",
+    "bilstm"
+   ],
+   "vanilla_stage1": [
+    "xgb:summary",
+    "lgbm:summary",
+    "cat:summary",
+    "xgb:raw",
+    "lgbm:raw",
+    "cat:raw",
+    "bilstm:seq"
+   ],
+   "boost": {
+    "max_rounds": 2000,
+    "patience": 100
+   },
+   "tree_device": "cpu",
+   "featset_all": [
+    "wx",
+    "spi",
+    "soilmed",
+    "food",
+    "extidx",
+    "rg",
+    "g123",
+    "wxanom",
+    "hist_core",
+    "logn1",
+    "sd1",
+    "woe",
+    "n1",
+    "ae4"
+   ],
+   "featset_tune": [
+    "wx",
+    "spi",
+    "soilmed",
+    "food",
+    "extidx",
+    "rg",
+    "g123",
+    "wxanom",
+    "hist_core",
+    "logn1",
+    "sd1",
+    "woe",
+    "n1",
+    "ae4",
+    "n2",
+    "n0"
+   ],
+   "chain": {
+    "Ls": [
+     10,
+     20,
+     30,
+     40,
+     50,
+     60,
+     70,
+     80,
+     90,
+     100
+    ],
+    "stop_if_raw_wins": true,
+    "parallel_bilstm": true,
+    "kselect": true
+   },
+   "optuna": {
+    "n_trials": 30,
+    "sampler": "tpe",
+    "sampler_seed": 42,
+    "spaces": {
+     "xgb": {
+      "learning_rate": [
+       "float_log",
+       0.01,
+       0.3
+      ],
+      "max_depth": [
+       "int",
+       3,
+       10
+      ],
+      "min_child_weight": [
+       "float_log",
+       1.0,
+       100.0
+      ],
+      "subsample": [
+       "float",
+       0.5,
+       1.0
+      ],
+      "colsample_bytree": [
+       "float",
+       0.3,
+       1.0
+      ],
+      "reg_lambda": [
+       "float_log",
+       0.001,
+       100.0
+      ],
+      "reg_alpha": [
+       "float_log",
+       0.001,
+       10.0
+      ]
+     },
+     "lgbm": {
+      "learning_rate": [
+       "float_log",
+       0.01,
+       0.3
+      ],
+      "num_leaves": [
+       "int_log",
+       15,
+       255
+      ],
+      "min_child_samples": [
+       "int_log",
+       5,
+       300
+      ],
+      "subsample": [
+       "float",
+       0.5,
+       1.0
+      ],
+      "subsample_freq": [
+       "fixed",
+       1
+      ],
+      "colsample_bytree": [
+       "float",
+       0.3,
+       1.0
+      ],
+      "reg_lambda": [
+       "float_log",
+       0.001,
+       100.0
+      ],
+      "reg_alpha": [
+       "float_log",
+       0.001,
+       10.0
+      ]
+     },
+     "cat": {
+      "learning_rate": [
+       "float_log",
+       0.01,
+       0.3
+      ],
+      "depth": [
+       "int",
+       4,
+       10
+      ],
+      "l2_leaf_reg": [
+       "float_log",
+       1.0,
+       30.0
+      ],
+      "random_strength": [
+       "float_log",
+       0.1,
+       10.0
+      ],
+      "bagging_temperature": [
+       "float",
+       0.0,
+       1.0
+      ]
+     },
+     "rf": {
+      "n_estimators": [
+       "int",
+       100,
+       500
+      ],
+      "max_depth": [
+       "int_or_none",
+       5,
+       40
+      ],
+      "min_samples_leaf": [
+       "int_log",
+       1,
+       100
+      ],
+      "max_features": [
+       "float",
+       0.05,
+       0.5
+      ],
+      "max_samples": [
+       "float",
+       0.3,
+       1.0
+      ]
+     },
+     "lr": {
+      "C": [
+       "float_log",
+       0.0001,
+       100.0
+      ]
+     },
+     "bilstm": {
+      "hidden": [
+       "int_log",
+       32,
+       256
+      ],
+      "layers": [
+       "int",
+       1,
+       2
+      ],
+      "dropout": [
+       "float",
+       0.0,
+       0.5
+      ],
+      "lr": [
+       "float_log",
+       0.0001,
+       0.003
+      ],
+      "batch": [
+       "cat",
+       512,
+       1024,
+       2048
+      ],
+      "emb_dim": [
+       "int",
+       4,
+       16
+      ],
+      "head": [
+       "int_log",
+       32,
+       128
+      ]
+     }
+    }
+   },
+   "bundle_drop": {
+    "rule": "no_decrease_any_increase",
+    "metrics": null,
+    "tol": 0.0,
+    "max_passes": 20,
+    "n1_judge_folds": null
+   },
+   "group_items": {
+    "top_n": 5
+   },
+   "smoke": {
+    "enabled": true,
+    "n_sgg": 12,
+    "train_neg_max": 6000,
+    "eval_per_h_max": 300,
+    "seed": 0
+   },
+   "mem_floor_gb": 10.0
+  },
+  "bounds": {
+   "data_end": "2026-06-30",
+   "data_end_source": "시료 파일 mnfctur_de 최댓값",
+   "test": {
+    "t_start": "2025-07-01",
+    "t_end": "2026-05-01",
+    "d_range": [
+     "2025-07-02",
+     "2026-06-30"
+    ]
+   },
+   "learn_end": "2025-06-30",
+   "folds": [
+    {
+     "fold": 1,
+     "train_end": "2022-06-30",
+     "t_start": "2022-07-01",
+     "t_end": "2023-05-01"
+    },
+    {
+     "fold": 2,
+     "train_end": "2023-06-30",
+     "t_start": "2023-07-01",
+     "t_end": "2024-05-01"
+    },
+    {
+     "fold": 3,
+     "train_end": "2024-06-30",
+     "t_start": "2024-07-01",
+     "t_end": "2025-05-01"
+    }
+   ],
+   "h_max": 60,
+   "h_rule": "학습 행 h: 기준일 d <= 2024-06-30(마지막 겹 학습 끝) 행 = default_rng(seed), 그 뒤 ~ 2025-06-30(학습 자료 끝) 행 = default_rng(seed+1), 각각 단위 키+d 정렬 순서로 integers(1, 61)",
+   "rule": "시험 = 데이터 마지막 1년(T ∈ [시험 시작, 데이터 끝 − 60일]), 겹 = 그 앞 해를 한 해씩(같은 규칙), 학습 = 각 겹 그해 시작 전"
+  },
+  "L": 20,
+  "c1_original_values_not_used": {
+   "DATA_DIR": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋",
+   "SAMPLE_PATH": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋/시료_시군구.parquet",
+   "WEATHER_PATH": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋/식정원_db_기상기후/시군구_일별_기상.parquet",
+   "TRAIN_END": "2024-06-30",
+   "VAL_START": "2024-07-01",
+   "VAL_END": "2025-06-30",
+   "TEST_START": "2025-07-01",
+   "TEST_END": "2026-06-30"
+  },
+  "c1_patched": {
+   "DATA_DIR": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋",
+   "SAMPLE_PATH": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋/시료_시군구.parquet",
+   "WEATHER_PATH": "C:\\Users\\NT751\\Desktop\\천영진\\리스테리아ML2\\data\\데이터셋/식정원_db_기상기후/시군구_일별_기상.parquet",
+   "split_dates": "모든 행을 Ctx2 'train' 한 분할로(먼 미래 날짜) - 3차는 행 날짜로 고름"
+  }
+ },
+ "score_rule": {
+  "threshold_rule": "max_precision_at_recall>=0.80",
+  "threshold": "판정 기준값 = 60개 h 합친 예측에서 Recall ≥ 0.80 를 지키는 기준값 가운데 Precision 이 가장 큰 값(같은 Precision 이면 Recall 이 큰 쪽), 판정 = 예측 확률 ≥ 기준값 - 겹마다 그 겹 맞혀 보는 행으로, 최종은 세 겹 맞혀 보는 행 예측을 합친 것에서 같은 규칙",
+  "pr_auc": "겹마다 h 별 average precision(sklearn) -> h 1..60 단순 평균 -> 겹 평균",
+  "p_at_r": "겹마다 그 기준값에서 60개 h 합친 Precision(= Recall ≥ 0.80 에서의 최대 Precision) -> 겹 평균",
+  "f2": "겹마다 60개 h 합친 행에서 F2 가 가장 높은 기준값의 F2(같은 F2 면 낮은 기준값, 사양 그대로) -> 겹 평균 - 목표·판단용 값(보고 기준값과 따로)",
+  "optuna_objectives": "Optuna 다목적 목표 = ['pr_auc'] (겹 평균, 모두 최대화 - config3 optuna_objectives, 사용자 결정 대기)",
+  "metrics": "Accuracy·Precision·Recall·F1·검사축소율(= 1 − (TP+FP+FN)/N)·상위 k%·ROC-AUC = 그 기준값에서 h 마다 -> h 평균 -> 겹 평균, TP·FP·FN·TN·N = h 당 평균 -> 겹 평균. 검출(또는 불검출)이 없는 h 는 PR-AUC·ROC-AUC·상위 k%·Precision 평균에서 빠짐(h_without_both_classes 에 기록)",
+  "topk": "h 마다 확률 내림차순(같으면 행 순서) 상위 ceil(행 수 x k/100) 행의 검출 ÷ 그 h 검출 (k = 1·5·10·20)",
+  "early_stopping": "부스팅 3종: 그 겹 맞혀 보는 행 PR-AUC(h 별 average precision 의 h 1..60 평균, 같은 식의 빠른 계산 ap60_fast)를 매 반복, 인내 100",
+  "test": "시험: 기준값 = 세 겹 맞혀 보는 행 예측을 합친 것에서 같은 규칙. 점수 = h 1~60 평균, 건수 = h 당 평균"
+ },
+ "code_md5": {
+  "cfg3.py": "943781e24c99382a574be8ca25f4f5fc",
+  "cv.py": "18dbf5867534f3576b9646e2693f2673",
+  "models3.py": "0bffa504a94a7c4a9b3f2bc23f77134c",
+  "ae3.py": "29ff93301e5060b9549d2b91c3b44f15",
+  "engine3.py": "1ac8a6660058018575b3f878f92dc8e9",
+  "run3.py": "17087e269df19b7f72ec7773226a24e7",
+  "selftest3.py": "a72aa352253a0b9458e094c609f818c9",
+  "2차/e2cfg.py": "7c301e96f9485bdc3ed7afe743c383f0",
+  "2차/e2data.py": "e8028a9a223035a962e48e31b78e1add",
+  "2차/e2models.py": "3fff83a07bbf35338dba2fbb11e93ec5",
+  "2차/e2hist.py": "8008df80e7c740a4c1a8d66e2c22e3e5",
+  "2차/e2fg.py": "9017633331d861557170ccf86200d0e5",
+  "2차/e2nb.py": "9fa1f6ac723c247d327accbcf6d7641d",
+  "2차/e2ae.py": "1243d746e7e30e91888bfe993ddaaf90",
+  "1차/config.py": "58147e30b04c8c0ca5d6ff68d0f95186",
+  "1차/data.py": "ab019a250b49194a173e80baf92d6a99",
+  "1차/features.py": "72febeef30e5867b0f7e86867b1baf5a",
+  "1차/metrics.py": "04a200744e80458a2a5dd2f130ac9fdb",
+  "1차/models.py": "f4b2bc4005b8740e9e37f31079e5dbd0"
+ },
+ "python": "3.12.3",
+ "library_versions": {
+  "numpy": "2.5.3",
+  "pandas": "2.3.3",
+  "scikit-learn": "1.9.1",
+  "xgboost": "3.3.0",
+  "lightgbm": "4.7.0",
+  "catboost": "1.2.10",
+  "optuna": "5.0.0",
+  "torch": "2.13.0+cu126",
+  "pyarrow": "24.0.0"
+ },
+ "argv": [
+  "vanilla",
+  "--pairs",
+  "bilstm:seq",
+  "--L",
+  "20",
+  "--root",
+  "~/cyj_listeria/root3_smoke",
+  "--smoke",
+  "--device",
+  "cpu",
+  "--seed",
+  "42",
+  "--drop-eval-cache"
+ ],
+ "seed": 42,
+ "smoke": {
+  "enabled": true,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "model": "bilstm",
+ "model_name": "BiLSTM",
+ "bundles": [
+  "seq"
+ ],
+ "bundle_names": {
+  "seq": "기상 시퀀스(BiLSTM)"
+ },
+ "feature_columns": [
+  "seq_20x38"
+ ],
+ "cat_columns": [
+  "sido",
+  "sgg",
+  "p2",
+  "p3"
+ ],
+ "model_info": {
+  "1": {
+   "model": "bilstm",
+   "config": {
+    "hidden": 64,
+    "layers": 1,
+    "emb_dim": 8,
+    "head": 64,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "eval_batch": 8192
+   },
+   "n_tab": 0,
+   "best_epoch": 30,
+   "n_epochs": 30,
+   "es_best_value": 0.08663533906180966,
+   "history": [
+    {
+     "epoch": 1,
+     "train_loss": 0.6666621118783951,
+     "es_ap60": 0.0029186223945405604,
+     "seconds": 0.5
+    },
+    {
+     "epoch": 2,
+     "train_loss": 0.5552441477775574,
+     "es_ap60": 0.004968266681610445,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 3,
+     "train_loss": 0.43645016849040985,
+     "es_ap60": 0.006641773500355998,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 4,
+     "train_loss": 0.3035679906606674,
+     "es_ap60": 0.007459394898701419,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 5,
+     "train_loss": 0.1699868142604828,
+     "es_ap60": 0.009291366846277042,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 6,
+     "train_loss": 0.06715796887874603,
+     "es_ap60": 0.01408742043633345,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 7,
+     "train_loss": 0.021872596349567175,
+     "es_ap60": 0.025694780683774555,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 8,
+     "train_loss": 0.011235805694013834,
+     "es_ap60": 0.04684934562768563,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 9,
+     "train_loss": 0.011805718997493386,
+     "es_ap60": 0.05205924646510729,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 10,
+     "train_loss": 0.011759845954657067,
+     "es_ap60": 0.05984891263464971,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 11,
+     "train_loss": 0.014135200472082943,
+     "es_ap60": 0.068562685026484,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 12,
+     "train_loss": 0.01461528311483562,
+     "es_ap60": 0.07039298848753786,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 13,
+     "train_loss": 0.012540341995190829,
+     "es_ap60": 0.0723284208269906,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 14,
+     "train_loss": 0.01166976717649959,
+     "es_ap60": 0.0725623125383131,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 15,
+     "train_loss": 0.011575271666515619,
+     "es_ap60": 0.0703300028182583,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 16,
+     "train_loss": 0.010049188727862202,
+     "es_ap60": 0.0715406669142367,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 17,
+     "train_loss": 0.010390509676653892,
+     "es_ap60": 0.07295702048114329,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 18,
+     "train_loss": 0.010786446393467486,
+     "es_ap60": 0.07360310632111458,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 19,
+     "train_loss": 0.01020385829906445,
+     "es_ap60": 0.07517011275331707,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 20,
+     "train_loss": 0.010984484222717583,
+     "es_ap60": 0.07631516287863037,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 21,
+     "train_loss": 0.009644606034271419,
+     "es_ap60": 0.07896879264526321,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 22,
+     "train_loss": 0.01011517207371071,
+     "es_ap60": 0.07773781601954975,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 23,
+     "train_loss": 0.008959885773947462,
+     "es_ap60": 0.07828664775284441,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 24,
+     "train_loss": 0.00883295941457618,
+     "es_ap60": 0.07855700535847594,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 25,
+     "train_loss": 0.008267475321190432,
+     "es_ap60": 0.07975857304030678,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 26,
+     "train_loss": 0.008646167028928176,
+     "es_ap60": 0.07771955405275839,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 27,
+     "train_loss": 0.009360381111036986,
+     "es_ap60": 0.07976463859784294,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 28,
+     "train_loss": 0.00875623311731033,
+     "es_ap60": 0.08183899433899434,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 29,
+     "train_loss": 0.008806084399111569,
+     "es_ap60": 0.08465356402856401,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 30,
+     "train_loss": 0.008655700454255566,
+     "es_ap60": 0.08663533906180966,
+     "seconds": 0.0
+    }
+   ],
+   "standardize": "겹 학습 끝 2022-06-30 까지 기상표 평균·표준편차",
+   "vocab_sizes": [
+    9,
+    12,
+    27,
+    75
+   ],
+   "gpu_peak_gb": 1.74,
+   "fit_seconds": 4.0,
+   "device": "cuda",
+   "get_params": {
+    "hidden": 64,
+    "layers": 1,
+    "emb_dim": 8,
+    "head": 64,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "eval_batch": 8192
+   }
+  },
+  "2": {
+   "model": "bilstm",
+   "config": {
+    "hidden": 64,
+    "layers": 1,
+    "emb_dim": 8,
+    "head": 64,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "eval_batch": 8192
+   },
+   "n_tab": 0,
+   "best_epoch": 30,
+   "n_epochs": 30,
+   "es_best_value": 0.21829052891552891,
+   "history": [
+    {
+     "epoch": 1,
+     "train_loss": 0.6212819933891296,
+     "es_ap60": 0.004904380244656819,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 2,
+     "train_loss": 0.5038347482681275,
+     "es_ap60": 0.00561563295368341,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 3,
+     "train_loss": 0.36360558271408083,
+     "es_ap60": 0.0075091802250073,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 4,
+     "train_loss": 0.19115095287561418,
+     "es_ap60": 0.011153567960491603,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 5,
+     "train_loss": 0.054608524218201636,
+     "es_ap60": 0.014618318805492265,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 6,
+     "train_loss": 0.013102194853127002,
+     "es_ap60": 0.023874013458038485,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 7,
+     "train_loss": 0.011621430795639754,
+     "es_ap60": 0.03404052190342358,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 8,
+     "train_loss": 0.010893483267864212,
+     "es_ap60": 0.04313941187690478,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 9,
+     "train_loss": 0.015360068436712027,
+     "es_ap60": 0.053228491705173624,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 10,
+     "train_loss": 0.011293095524888486,
+     "es_ap60": 0.06554310164574509,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 11,
+     "train_loss": 0.013578165648505091,
+     "es_ap60": 0.0729498496303973,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 12,
+     "train_loss": 0.010649072425439953,
+     "es_ap60": 0.07701253659054844,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 13,
+     "train_loss": 0.009028455521911383,
+     "es_ap60": 0.08061595341414801,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 14,
+     "train_loss": 0.009579412383027374,
+     "es_ap60": 0.08388105345601532,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 15,
+     "train_loss": 0.008915101108141244,
+     "es_ap60": 0.08878013816263167,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 16,
+     "train_loss": 0.008492122474126517,
+     "es_ap60": 0.09507136773946488,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 17,
+     "train_loss": 0.012302280822768807,
+     "es_ap60": 0.10016890081441038,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 18,
+     "train_loss": 0.008885419787839055,
+     "es_ap60": 0.10920747401693691,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 19,
+     "train_loss": 0.00977574335411191,
+     "es_ap60": 0.11705631198515781,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 20,
+     "train_loss": 0.009628667775541545,
+     "es_ap60": 0.12719704134874413,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 21,
+     "train_loss": 0.008217219228390605,
+     "es_ap60": 0.13409999242100631,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 22,
+     "train_loss": 0.009485441795550286,
+     "es_ap60": 0.1425004690121378,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 23,
+     "train_loss": 0.008099333848804235,
+     "es_ap60": 0.15431389497989978,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 24,
+     "train_loss": 0.008645492978394032,
+     "es_ap60": 0.16271676684000852,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 25,
+     "train_loss": 0.009376114304177462,
+     "es_ap60": 0.17003911461632049,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 26,
+     "train_loss": 0.00810597874224186,
+     "es_ap60": 0.1716218333323596,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 27,
+     "train_loss": 0.007998003996908665,
+     "es_ap60": 0.17964728738554286,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 28,
+     "train_loss": 0.007849538023583591,
+     "es_ap60": 0.19685247826791943,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 29,
+     "train_loss": 0.009265288687311113,
+     "es_ap60": 0.20630727216253533,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 30,
+     "train_loss": 0.007981098443269729,
+     "es_ap60": 0.21829052891552891,
+     "seconds": 0.0
+    }
+   ],
+   "standardize": "겹 학습 끝 2023-06-30 까지 기상표 평균·표준편차",
+   "vocab_sizes": [
+    9,
+    12,
+    29,
+    79
+   ],
+   "gpu_peak_gb": 1.74,
+   "fit_seconds": 2.1,
+   "device": "cuda",
+   "get_params": {
+    "hidden": 64,
+    "layers": 1,
+    "emb_dim": 8,
+    "head": 64,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "eval_batch": 8192
+   }
+  },
+  "3": {
+   "model": "bilstm",
+   "config": {
+    "hidden": 64,
+    "layers": 1,
+    "emb_dim": 8,
+    "head": 64,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "eval_batch": 8192
+   },
+   "n_tab": 0,
+   "best_epoch": 3,
+   "n_epochs": 8,
+   "es_best_value": 0.035541938846587344,
+   "history": [
+    {
+     "epoch": 1,
+     "train_loss": 0.6710138916969299,
+     "es_ap60": 0.010979233707394011,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 2,
+     "train_loss": 0.5135883043209711,
+     "es_ap60": 0.021940002427839573,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 3,
+     "train_loss": 0.32778207461039227,
+     "es_ap60": 0.035541938846587344,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 4,
+     "train_loss": 0.12590672199924788,
+     "es_ap60": 0.035304651025748396,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 5,
+     "train_loss": 0.024715441977605224,
+     "es_ap60": 0.01591905169715824,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 6,
+     "train_loss": 0.010885075016024834,
+     "es_ap60": 0.009064563338403086,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 7,
+     "train_loss": 0.011536425527689667,
+     "es_ap60": 0.008330415407819865,
+     "seconds": 0.0
+    },
+    {
+     "epoch": 8,
+     "train_loss": 0.02479355875402689,
+     "es_ap60": 0.008403488646020947,
+     "seconds": 0.0
+    }
+   ],
+   "standardize": "겹 학습 끝 2024-06-30 까지 기상표 평균·표준편차",
+   "vocab_sizes": [
+    9,
+    12,
+    31,
+    82
+   ],
+   "gpu_peak_gb": 1.74,
+   "fit_seconds": 1.4,
+   "device": "cuda",
+   "get_params": {
+    "hidden": 64,
+    "layers": 1,
+    "emb_dim": 8,
+    "head": 64,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "eval_batch": 8192
+   }
+  }
+ },
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "window_range": {
+  "1": [
+   "2015-08-01",
+   "2023-04-30"
+  ],
+  "2": [
+   "2015-08-01",
+   "2024-04-30"
+  ],
+  "3": [
+   "2015-08-01",
+   "2025-04-30"
+  ]
+ },
+ "tfidf": {
+  "1": null,
+  "2": null,
+  "3": null
+ },
+ "ae": {
+  "1": null,
+  "2": null,
+  "3": null
+ },
+ "h_rule": "학습 행 h: 기준일 d <= 2024-06-30(마지막 겹 학습 끝) 행 = default_rng(seed), 그 뒤 ~ 2025-06-30(학습 자료 끝) 행 = default_rng(seed+1), 각각 단위 키+d 정렬 순서로 integers(1, 61)",
+ "vanilla": "라이브러리 기본 설정, 불균형 처리 없음(models3.py 머리말)"
+}

@@ -1,0 +1,27 @@
+{
+ "tag": "cum03",
+ "files": {
+  "CUM03__s42/config.json": "d52984cbd6fb48331c705259d951ef9f",
+  "CUM03__s42/summary.json": "76c1868811e2aca83ad0bf77cc1038df",
+  "CUM03__s42/metrics_by_h.csv": "a6f7d270f322eb36eb6d5a755cf66f45",
+  "CUM03__s42/pred_val.parquet": "31e37a2ee38e9a0891d08d5f4d16367b",
+  "CUM03__s42/pred_test.parquet": "bdf8d4d186ea06ac494735da2bf22f80",
+  "CUM03__s43/config.json": "60b5d91812f5f6c3fcca6da2e4e3b222",
+  "CUM03__s43/summary.json": "079dc8a408d634c3f172fd74efd0122d",
+  "CUM03__s43/metrics_by_h.csv": "fd31a71694628e543abef1577fae50ee",
+  "CUM03__s43/pred_val.parquet": "25b7156fc58ffc4e36d6dc4105e76fe5",
+  "CUM03__s43/pred_test.parquet": "0761fefbf7f0052f615dcf0669457101",
+  "CUM03__s44/config.json": "2318a7fc4803c066fe5dfd620b1fd4f0",
+  "CUM03__s44/summary.json": "cdae8d47e7c952c579bdc666b2f3d851",
+  "CUM03__s44/metrics_by_h.csv": "2cd64471323260f49e4ff1c475e40768",
+  "CUM03__s44/pred_val.parquet": "f7d0fd2c78e867867245feb4a21bc679",
+  "CUM03__s44/pred_test.parquet": "029dd0396012bd1fb80f782886908d8a",
+  "groups.json": "8874d2a940479892b182ac26a1e35e36",
+  "data_summary.csv": "6f68f624a379c7db50fa32ecb3fe07b5",
+  "selection_k.json": "359611350ca260b4e8378191f9e54372",
+  "selection_A.json": "6387c99374faa3547b58c9ffd51eded4",
+  "selection_FG.json": "30f28b6d5c807f54c4573f3113bfb73c",
+  "selection_FS.json": "32046d1f6d2a0b3a482bb474c02f5461"
+ },
+ "masked": {}
+}

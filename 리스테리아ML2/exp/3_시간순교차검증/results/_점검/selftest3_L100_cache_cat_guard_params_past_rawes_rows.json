@@ -1,0 +1,657 @@
+{
+ "L": 100,
+ "started": "2026-10-20 19:09:53",
+ "parts": [
+  "cache",
+  "cat",
+  "guard",
+  "params",
+  "past",
+  "rawes",
+  "rows"
+ ],
+ "smoke": {
+  "enabled": false,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "folds": {
+  "1": {
+   "train_rows": 157671,
+   "train_pos_rows": 563,
+   "eval_pairs": 1601116,
+   "eval_pos_pairs": 6708,
+   "eval_rows_per_h_min_max": [
+    26458,
+    26995
+   ],
+   "eval_pos_per_h_min_max_mean": [
+    103,
+    121,
+    111.8
+   ],
+   "eval_unique_unit_day_rows": 31877,
+   "eval_unique_pos_rows": 145,
+   "samples_pos_year_d": 230,
+   "samples_pos_eval_d_range": 228,
+   "samples_pos_d_in_T_range": 171,
+   "spec_pos_samples": 230
+  },
+  "2": {
+   "train_rows": 189688,
+   "train_pos_rows": 709,
+   "eval_pairs": 1654771,
+   "eval_pos_pairs": 6474,
+   "eval_rows_per_h_min_max": [
+    27315,
+    27979
+   ],
+   "eval_pos_per_h_min_max_mean": [
+    100,
+    116,
+    107.9
+   ],
+   "eval_unique_unit_day_rows": 33073,
+   "eval_unique_pos_rows": 142,
+   "samples_pos_year_d": 196,
+   "samples_pos_eval_d_range": 196,
+   "samples_pos_d_in_T_range": 152,
+   "spec_pos_samples": 196
+  },
+  "3": {
+   "train_rows": 222793,
+   "train_pos_rows": 851,
+   "eval_pairs": 1703850,
+   "eval_pos_pairs": 6028,
+   "eval_rows_per_h_min_max": [
+    27853,
+    28899
+   ],
+   "eval_pos_per_h_min_max_mean": [
+    97,
+    104,
+    100.46666666666667
+   ],
+   "eval_unique_unit_day_rows": 34109,
+   "eval_unique_pos_rows": 122,
+   "samples_pos_year_d": 164,
+   "samples_pos_eval_d_range": 164,
+   "samples_pos_d_in_T_range": 131,
+   "spec_pos_samples": 164
+  }
+ },
+ "test_rows": {
+  "pairs": 1737545,
+  "unit_day_rows": 34632,
+  "d_range": [
+   "2025-07-02",
+   "2026-06-30"
+  ],
+  "note": "시험은 위치·날짜만 셈(입력·예측·채점 없음)"
+ },
+ "all_columns": {
+  "n_num": 520,
+  "cat": [
+   "sido",
+   "sgg",
+   "p2",
+   "p3",
+   "aw_label"
+  ],
+  "by_bundle": {
+   "wx": 285,
+   "n1": 84,
+   "wxanom": 57,
+   "spi": 30,
+   "rg": 19,
+   "g123": 16,
+   "hist_core": 9,
+   "woe": 4,
+   "logn1": 3,
+   "sd1": 3,
+   "food": 3,
+   "soilmed": 3,
+   "extidx": 3,
+   "base": 1
+  }
+ },
+ "params_roundtrip": {
+  "xgb": {
+   "bit_equal": true,
+   "best_rounds": [
+    25,
+    25
+   ],
+   "params_saved": 37,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  "lgbm": {
+   "bit_equal": true,
+   "best_rounds": [
+    7,
+    7
+   ],
+   "params_saved": 22,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  "cat": {
+   "bit_equal": true,
+   "best_rounds": [
+    8,
+    8
+   ],
+   "params_saved": 10,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  }
+ },
+ "past_check": {
+  "train_T0": "2023-03-15",
+  "train_rows": 89,
+  "eval_TE": "2022-06-30",
+  "eval_rows": 4000,
+  "units_multi": 771,
+  "control_changed_train": [
+   "hist_core",
+   "logn1",
+   "n1",
+   "sd1",
+   "woe"
+  ],
+  "control_changed_eval": [
+   "hist_core",
+   "logn1",
+   "n1",
+   "sd1",
+   "woe"
+  ],
+  "rule": "과거 이력(품목군 3단계·시군구·단위 x 5년·1년 스무딩 검출률, log(1+검사 수), 1년 불확실성)·WOE 4개·제품명 과거 유형 N1·전국 p0: 학습 행 = 그 행 예측일 T 전날까지 굴러가는 창(기준일 ∈ [T−P, T−1], P = 365·1,826일), 맞혀 보는 행·시험 행 = 그 겹(최종) 학습 끝 날 TE 까지 시료로 만든 값(기준일 ∈ [TE−P+1, TE])을 그 해 모든 행·모든 h 에 고정(학습 끝 값 고정). 계산 = 2차 e2hist·e2nb 그대로, 맞혀 보는 행·시험 행은 h 대신 d − (TE + 1일)을 넘김"
+ },
+ "raw_es_reproduction": {
+  "all_vars": {
+   "xgb": {
+    "best_live": 857,
+    "best_staged": 857,
+    "pred_max_abs_diff": 0.0,
+    "staged_check_maxdiff": 6.162047667235271e-06
+   },
+   "lgbm": {
+    "best_live": 2,
+    "best_staged": 2,
+    "pred_max_abs_diff": 0.0,
+    "staged_check_maxdiff": 0.0
+   },
+   "cat": {
+    "best_live": 28,
+    "best_staged": 28,
+    "pred_max_abs_diff": 0.0,
+    "staged_check_maxdiff": null
+   }
+  },
+  "subset_plus_hist": {
+   "xgb": {
+    "best_live": 266,
+    "best_staged": 266,
+    "pred_max_abs_diff": 0.0,
+    "perm_score_max_diff": 0.0,
+    "n_num": 310
+   },
+   "lgbm": {
+    "best_live": 47,
+    "best_staged": 47,
+    "pred_max_abs_diff": 0.0,
+    "perm_score_max_diff": 0.0,
+    "n_num": 310
+   },
+   "cat": {
+    "best_live": 41,
+    "best_staged": 41,
+    "pred_max_abs_diff": 0.0,
+    "perm_score_max_diff": 0.0,
+    "n_num": 310
+   }
+  }
+ },
+ "cat_scan": {
+  "n": 19,
+  "bad": []
+ },
+ "checks": [
+  {
+   "name": "[기본 경계] (나) 겹 1: 학습 행 d 최댓값 2022-06-30 <= 학습 끝 2022-06-30, 맞혀 보는 T ∈ [2022-07-01, 2023-05-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2022-06-30",
+    "eval_T": [
+     "2022-07-01",
+     "2023-05-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[기본 경계] (나) 겹 2: 학습 행 d 최댓값 2023-06-30 <= 학습 끝 2023-06-30, 맞혀 보는 T ∈ [2023-07-01, 2024-05-01], 모든 h 같은 306일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2023-06-30",
+    "eval_T": [
+     "2023-07-01",
+     "2024-05-01"
+    ],
+    "T_days_per_h": [
+     306
+    ]
+   }
+  },
+  {
+   "name": "[기본 경계] (나) 겹 3: 학습 행 d 최댓값 2024-06-30 <= 학습 끝 2024-06-30, 맞혀 보는 T ∈ [2024-07-01, 2025-05-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2024-06-30",
+    "eval_T": [
+     "2024-07-01",
+     "2025-05-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[기본 경계] (나) 최종 학습 행 d 최댓값 2025-06-30 <= 최종 학습 끝 2025-06-30",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "[기본 경계] 시험 T ∈ [2025-07-01, 2026-05-01], d <= 데이터 끝 2026-06-30",
+   "ok": true,
+   "detail": [
+    "2025-07-01",
+    "2026-05-01",
+    "2026-06-30"
+   ]
+  },
+  {
+   "name": "[기본 경계] 시험 행이 어떤 겹의 학습·맞혀 보는 행·최종 학습 행에도 없음",
+   "ok": true,
+   "detail": {
+    "겹": {
+     "1": [
+      0,
+      0
+     ],
+     "2": [
+      0,
+      0
+     ],
+     "3": [
+      0,
+      0
+     ]
+    },
+    "learn_d_max": "2025-06-30",
+    "test_d_min": "2025-07-02"
+   }
+  },
+  {
+   "name": "겹 1: 모든 h 에 검출·불검출 있음",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "겹 2: 모든 h 에 검출·불검출 있음",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "겹 3: 모든 h 에 검출·불검출 있음",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "모든 창(T−100 .. T−1)이 기상표 안",
+   "ok": true,
+   "detail": [
+    "2014-12-12",
+    "2025-06-28"
+   ]
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] (나) 겹 1: 학습 행 d 최댓값 2021-12-31 <= 학습 끝 2021-12-31, 맞혀 보는 T ∈ [2022-01-01, 2022-11-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2021-12-31",
+    "eval_T": [
+     "2022-01-01",
+     "2022-11-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] (나) 겹 2: 학습 행 d 최댓값 2022-12-31 <= 학습 끝 2022-12-31, 맞혀 보는 T ∈ [2023-01-01, 2023-11-01], 모든 h 같은 305일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2022-12-31",
+    "eval_T": [
+     "2023-01-01",
+     "2023-11-01"
+    ],
+    "T_days_per_h": [
+     305
+    ]
+   }
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] (나) 겹 3: 학습 행 d 최댓값 2023-12-31 <= 학습 끝 2023-12-31, 맞혀 보는 T ∈ [2024-01-01, 2024-11-01], 모든 h 같은 306일",
+   "ok": true,
+   "detail": {
+    "train_d_max": "2023-12-31",
+    "eval_T": [
+     "2024-01-01",
+     "2024-11-01"
+    ],
+    "T_days_per_h": [
+     306
+    ]
+   }
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] (나) 최종 학습 행 d 최댓값 2024-12-31 <= 최종 학습 끝 2024-12-31",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 시험 T ∈ [2025-01-01, 2025-11-01], d <= 데이터 끝 2025-12-31",
+   "ok": true,
+   "detail": [
+    "2025-01-01",
+    "2025-11-01",
+    "2025-12-31"
+   ]
+  },
+  {
+   "name": "[가짜 경계 2025-12-31] 시험 행이 어떤 겹의 학습·맞혀 보는 행·최종 학습 행에도 없음",
+   "ok": true,
+   "detail": {
+    "겹": {
+     "1": [
+      0,
+      0
+     ],
+     "2": [
+      0,
+      0
+     ],
+     "3": [
+      0,
+      0
+     ]
+    },
+    "learn_d_max": "2024-12-31",
+    "test_d_min": "2025-01-02"
+   }
+  },
+  {
+   "name": "[가짜 경계] 데이터 끝(2025-12-31) 뒤 행은 어디에도 안 쓰임",
+   "ok": true,
+   "detail": {
+    "끝 뒤 행": 17701
+   }
+  },
+  {
+   "name": "기본 입력 숫자 칸 = 286(h 1 + 기상 285)",
+   "ok": true,
+   "detail": 286
+  },
+  {
+   "name": "맞혀 보는 행 입력 캐시(기본 입력, 묶음별 캐시를 모은 행렬) = FeatureBuilder 직접 계산(비트 단위, h 1·17·33·60 블록 전체)",
+   "ok": true,
+   "detail": {
+    "1": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "2": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "3": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "학습 행 입력 캐시 = 직접 계산(무작위 2만 행)",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "학습 행 입력 캐시(기상 + 과거 이력 + WOE, 묶음별 캐시) = 직접 계산 = 2차 FeatureBuilder 에 h 그대로(굴러가는 창, 표본 3천 행)",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "캐시 입력의 과거 이력 칸 = 2차 계산에 예측일 = 겹 학습 끝 + 1일을 넘긴 값(학습 끝 값 고정, 표본 500행)",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "'변수 전부'(이상치 점수 제외) 묶음별 캐시를 모은 입력 = 한꺼번에 직접 계산(표본 3,000 (행,h), 숫자 520칸, 칸 순서 같음)",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "모델 5개: 파라미터 저장(get_params JSON) -> 불러오기(set_params) -> 다시 학습한 예측이 비트 단위로 같음",
+   "ok": true,
+   "detail": {
+    "xgb": {
+     "bit_equal": true,
+     "best_rounds": [
+      25,
+      25
+     ],
+     "params_saved": 37,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    },
+    "lgbm": {
+     "bit_equal": true,
+     "best_rounds": [
+      7,
+      7
+     ],
+     "params_saved": 22,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    },
+    "cat": {
+     "bit_equal": true,
+     "best_rounds": [
+      8,
+      8
+     ],
+     "params_saved": 10,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    }
+   }
+  },
+  {
+   "name": "모델 입력 범주 = [sido, sgg, p2, p3] + 식품 묶음 aw_label (작은 겹)",
+   "ok": true,
+   "detail": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  {
+   "name": "과거 칸 - 학습 행(T=2023-03-15, 89행): T 당일 시료(464개)를 바꿔도(정답 뒤집기·시료 더하기) 비트 단위로 그대로",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "과거 칸 - 학습 행: T 당일·이후 시료 전부(269,452개 중 T 이후)를 바꿔도 그대로",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "과거 칸 - 학습 행 대조군: T 전날 시료를 바꾸면 달라짐 ['hist_core', 'logn1', 'n1', 'sd1', 'woe']",
+   "ok": true,
+   "detail": [
+    "hist_core",
+    "logn1",
+    "n1",
+    "sd1",
+    "woe"
+   ]
+  },
+  {
+   "name": "과거 칸 - 맞혀 보는 행(겹 1, 학습 끝 2022-06-30, 표본 4000행): 학습 끝 뒤 시료 317,274개를 바꿔도 비트 단위로 그대로",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "과거 칸 - 맞혀 보는 행 대조군: 학습 끝 당일 시료를 바꾸면 달라짐 ['hist_core', 'logn1', 'n1', 'sd1', 'woe']",
+   "ok": true,
+   "detail": [
+    "hist_core",
+    "logn1",
+    "n1",
+    "sd1",
+    "woe"
+   ]
+  },
+  {
+   "name": "과거 칸 - 맞혀 보는 행 대조군: 학습 끝 직전 30일 시료를 바꾸면 달라짐",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "과거 칸 - 맞혀 보는 행: 같은 단위의 행은 h·T·d 가 달라도 값이 같음(행 2개 넘는 단위 771개)",
+   "ok": true,
+   "detail": 771
+  },
+  {
+   "name": "과거 칸 - 맞혀 보는 행 과거 이력 = 2차 e2hist 에 예측일 = 학습 끝 + 1일(창 [TE−P+1, TE])을 넘긴 값",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "원값: 묶음 단위 조기 종료 재현(raw3) = 실제 조기 종료(최적 반복 같음, 예측 차이 < 1e-6) - XGBoost·LightGBM·CatBoost (작은 겹)",
+   "ok": true,
+   "detail": {
+    "xgb": {
+     "best_live": 857,
+     "best_staged": 857,
+     "pred_max_abs_diff": 0.0,
+     "staged_check_maxdiff": 6.162047667235271e-06
+    },
+    "lgbm": {
+     "best_live": 2,
+     "best_staged": 2,
+     "pred_max_abs_diff": 0.0,
+     "staged_check_maxdiff": 0.0
+    },
+    "cat": {
+     "best_live": 28,
+     "best_staged": 28,
+     "pred_max_abs_diff": 0.0,
+     "staged_check_maxdiff": null
+    }
+   }
+  },
+  {
+   "name": "원값(기상 변수 3개 + 과거 이력 핵심 칸): 조기 종료 재현 = 실제 조기 종료, 변수 섞기 점수 = 직접 섞어 다시 예측한 값(차이 < 1e-6)",
+   "ok": true,
+   "detail": {
+    "xgb": {
+     "best_live": 266,
+     "best_staged": 266,
+     "pred_max_abs_diff": 0.0,
+     "perm_score_max_diff": 0.0,
+     "n_num": 310
+    },
+    "lgbm": {
+     "best_live": 47,
+     "best_staged": 47,
+     "pred_max_abs_diff": 0.0,
+     "perm_score_max_diff": 0.0,
+     "n_num": 310
+    },
+    "cat": {
+     "best_live": 41,
+     "best_staged": 41,
+     "pred_max_abs_diff": 0.0,
+     "perm_score_max_diff": 0.0,
+     "n_num": 310
+    }
+   }
+  },
+  {
+   "name": "(다) 고르는 단계(ALLOW_TEST 없음)에서 시험 행을 만들면 오류로 멈춤",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "name": "점검 중 시험 행 접근 기록이 남지 않음(점검용 위치 세기는 지운 뒤 확인)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "결과 폴더 config.json 19개의 범주 입력 = [sido, sgg, p2, p3](+ 식품 묶음 aw_label)",
+   "ok": true,
+   "detail": 19
+  }
+ ],
+ "all_ok": true,
+ "seconds": 1655.0
+}

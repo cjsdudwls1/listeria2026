@@ -1,0 +1,198 @@
+{
+  "run": "STK_E00__s42",
+  "exp": "STK_E00",
+  "plan": "E08 스태킹",
+  "desc": "스태킹: E00(CatBoost) + DL_lstmA(LSTM 방식 A) + DL_trfA(트랜스포머 방식 A) 저장 예측의 logit 3칸 -> 로지스틱 회귀 메타 모델(검증 구간 저장 예측 전체로 학습, 재학습 없음)",
+  "model": "stack",
+  "seed": 42,
+  "smoke": false,
+  "feats": null,
+  "feats_from": null,
+  "group": null,
+  "group_codes": null,
+  "options": {},
+  "bases": [
+    "E00",
+    "DL_lstmA",
+    "DL_trfA"
+  ],
+  "base_runs": [
+    "E00__s42",
+    "DL_lstmA__s42",
+    "DL_trfA__s42"
+  ],
+  "stack_note": "메타 모델을 검증 구간으로 학습 — 검증 점수는 메타 학습 구간(비교에는 시험 점수만)",
+  "alignment": "기본 모델 저장 예측의 키 5칸(sgg_code, train_prdlst_code, train_prdlst_code_2, d, h)으로 행을 맞춤(순서만 믿지 않음). 행 수·키 중복·키 빠짐·같은 키의 y 가 하나라도 다르면 멈춤. 맞춘 순서 = 첫 기본 모델(CatBoost) 파일 순서(h 우선)",
+  "splits": {
+    "train": "d <= 2024-06-30 (메타 모델은 쓰지 않음 - 기본 모델 학습에만 쓰였음)",
+    "val": "2024-07-01~2025-06-30 (메타 모델 학습 + 판정 기준값)",
+    "test": "2025-07-01~2026-06-30"
+  },
+  "rows": {
+    "val": {
+      "n": 34249,
+      "pos": 122
+    },
+    "test": {
+      "n": 34770,
+      "pos": 168
+    }
+  },
+  "h_assignment": "기본 모델 저장 예측의 h 1~60 전부(평가). 메타 모델 학습 = 검증 h 1~60 전부 합침",
+  "n_features": 3,
+  "n_features_desc": "숫자 3 (기본 예측 logit: E00, DL_lstmA, DL_trfA), 범주 없음",
+  "feature_columns": [
+    "logit_E00",
+    "logit_DL_lstmA",
+    "logit_DL_trfA"
+  ],
+  "window_range": null,
+  "n_train_rows": 2054940,
+  "n_train_pos": 7320,
+  "n_train_rows_note": "메타 모델 학습 행 = 검증 구간 (h, 단위x날짜 행) 전부",
+  "code_md5": {
+    "run.py": "4b9672b5fc8df96263a133619ec80b6b",
+    "e2ae.py": "28cd99e8413b78d93f03e8a03ca86d6f",
+    "e2cfg.py": "04b950d075fa2ae6a8854dc483d3ea9c",
+    "e2data.py": "e8028a9a223035a962e48e31b78e1add",
+    "e2dl.py": "438df95f54ace7b4c09c985acf12bb50",
+    "e2dl_impl.py": "6804d8a46936660ed94ec25d197d84a5",
+    "e2eval.py": "d66e64ec194c2387305bd05c52a0987d",
+    "e2fg.py": "b6976afb4a860ee33cce90e4e0124243",
+    "e2hist.py": "8008df80e7c740a4c1a8d66e2c22e3e5",
+    "e2models.py": "f6edf2a15a40c53599296947e90b302d",
+    "e2nb.py": "9fa1f6ac723c247d327accbcf6d7641d",
+    "e2smote.py": "361cde2232d04c18e15d3878490631dc",
+    "e2stk.py": "5e636c6d80b40e30cfa3854754afb82a",
+    "e2tables.py": "33706ca0465f3aa463671bbb336f8dd1",
+    "1차/config.py": "58147e30b04c8c0ca5d6ff68d0f95186",
+    "1차/data.py": "ab019a250b49194a173e80baf92d6a99",
+    "1차/features.py": "72febeef30e5867b0f7e86867b1baf5a",
+    "1차/metrics.py": "04a200744e80458a2a5dd2f130ac9fdb",
+    "1차/models.py": "f4b2bc4005b8740e9e37f31079e5dbd0",
+    "1차/common.py": "d108f839287a6e1899c420c537b142f8"
+  },
+  "model_info": {
+    "meta_model": "sklearn LogisticRegression",
+    "sklearn_version": "1.9.1",
+    "meta_params": {
+      "C": 1.0,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 10000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "meta_coef": {
+      "logit_E00": 0.32172718334971245,
+      "logit_DL_lstmA": 0.10574897337521269,
+      "logit_DL_trfA": 0.5347961350500203
+    },
+    "meta_intercept": -0.07833120102497733,
+    "n_iter": 11,
+    "converged": true,
+    "meta_input": "각 기본 예측의 logit(clip(p, 1e-6, 1 − 1e-6)) (float64, 기본 모델 순서)",
+    "meta_train": "검증 구간 저장 예측 전체(h 1~60 합침): 2,054,940행(검출 7,320)",
+    "meta_apply": "검증·시험 저장 예측에 같은 메타 모델 적용(predict_proba 검출 열, float32 저장)",
+    "alignment": "기본 모델 저장 예측의 키 5칸(sgg_code, train_prdlst_code, train_prdlst_code_2, d, h)으로 행을 맞춤(순서만 믿지 않음). 행 수·키 중복·키 빠짐·같은 키의 y 가 하나라도 다르면 멈춤. 맞춘 순서 = 첫 기본 모델(CatBoost) 파일 순서(h 우선)",
+    "key_check": {
+      "val": {
+        "n_rows": 2054940,
+        "n_per_h": 34249,
+        "n_pos_rows": 7320,
+        "key_cols": [
+          "sgg_code",
+          "train_prdlst_code",
+          "train_prdlst_code_2",
+          "d",
+          "h"
+        ],
+        "first": "E00",
+        "others": {
+          "DL_lstmA": {
+            "key_match_rows": 2054940,
+            "y_mismatch_rows": 0,
+            "same_row_order_as_first": true
+          },
+          "DL_trfA": {
+            "key_match_rows": 2054940,
+            "y_mismatch_rows": 0,
+            "same_row_order_as_first": true
+          }
+        }
+      },
+      "test": {
+        "n_rows": 2086200,
+        "n_per_h": 34770,
+        "n_pos_rows": 10080,
+        "key_cols": [
+          "sgg_code",
+          "train_prdlst_code",
+          "train_prdlst_code_2",
+          "d",
+          "h"
+        ],
+        "first": "E00",
+        "others": {
+          "DL_lstmA": {
+            "key_match_rows": 2086200,
+            "y_mismatch_rows": 0,
+            "same_row_order_as_first": true
+          },
+          "DL_trfA": {
+            "key_match_rows": 2086200,
+            "y_mismatch_rows": 0,
+            "same_row_order_as_first": true
+          }
+        }
+      }
+    },
+    "bases": {
+      "E00": {
+        "run": "E00__s42",
+        "model": "cat",
+        "val_pr_auc_w": 0.07722279351149845,
+        "test_pr_auc_w": 0.03312732793677218,
+        "pred_md5": {
+          "val": "b5d43b7995634456d5847295d09d6ce3",
+          "test": "b7995daac4ba670c048710e74a5e4aa7"
+        },
+        "summary_finished_at": "2026-10-19 00:23:32"
+      },
+      "DL_lstmA": {
+        "run": "DL_lstmA__s42",
+        "model": "dl",
+        "val_pr_auc_w": 0.05331626743624238,
+        "test_pr_auc_w": 0.02694391916823514,
+        "pred_md5": {
+          "val": "e0195c7afbcf402ef6de18527adf4f76",
+          "test": "f43221aba21e41582dce7a2e0614de48"
+        },
+        "summary_finished_at": "2026-10-19 01:01:22"
+      },
+      "DL_trfA": {
+        "run": "DL_trfA__s42",
+        "model": "dl",
+        "val_pr_auc_w": 0.06883987508281265,
+        "test_pr_auc_w": 0.03515504437168492,
+        "pred_md5": {
+          "val": "925897c14a807d3909577e8b2bbd3316",
+          "test": "ab6166a81b1dcc47d9306e842accb1e3"
+        },
+        "summary_finished_at": "2026-10-19 01:05:46"
+      }
+    },
+    "note": "메타 모델을 검증 구간으로 학습 — 검증 점수는 메타 학습 구간(비교에는 시험 점수만)",
+    "note_detail": "계획서 7절은 시간 순서 out-of-fold 예측으로 메타 모델을 학습하길 권하지만, 이번엔 기본 모델을 다시 학습하지 않고 저장 예측만 써서 메타 모델을 검증 구간 저장 예측(h 1~60 합침)으로 학습함. 그래서 검증 지표(구간가중 PR-AUC 등)는 메타 모델이 학습한 자료에서 잰 값이고, 판정 기준값도 같은 검증 예측에서 정함. 다른 실험과의 비교에는 시험 지표만 쓸 것",
+    "read_seconds": 19.4,
+    "pred_seconds": 0.33
+  }
+}
