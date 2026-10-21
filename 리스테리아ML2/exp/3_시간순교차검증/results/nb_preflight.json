@@ -1,0 +1,258 @@
+{
+ "checks": {
+  "2022-06-30": {
+   "tfidf": {
+    "tag": "2022-06-30",
+    "file": "단위날짜_tfidf_train2022-06-30.parquet",
+    "fold_specific": true
+   },
+   "nb_samples": {
+    "rows": 628517,
+    "lims_data_key_same_order": true,
+    "n_clusters": 23,
+    "flag_sums": {
+     "nb_enoki": 7405,
+     "nb_mushroom_other": 2772,
+     "nb_mush_farm": 2313,
+     "nb_env_swab": 6690,
+     "nb_raw_fish": 1576,
+     "nb_salmon_smoked": 2660,
+     "nb_raw_meat": 17391,
+     "nb_offal": 3497,
+     "nb_ground_meat": 4971,
+     "nb_marinated": 5481,
+     "nb_cured_raw": 3057,
+     "nb_raw_material": 18843,
+     "nb_finished": 23701,
+     "nb_preheat": 43169,
+     "nb_disinfect": 5212,
+     "nb_cutting": 9309,
+     "nb_chilled": 13998,
+     "nb_frozen": 12118,
+     "nb_aged": 1538,
+     "nb_postheat": 46862,
+     "nb_dried": 22936,
+     "nb_raw_seafood": 14340,
+     "nb_extract": 15867
+    },
+    "file": "시료별_뭉치.parquet"
+   },
+   "n0": {
+    "rows": 291812,
+    "matched": 291812,
+    "n_cols": 500,
+    "null_train_prdlst_code_filled": 44,
+    "null_train_prdlst_code_2_filled": 0,
+    "n_rows_eq_n_samples": true,
+    "nan_cells": 0,
+    "excluded": [
+     "n_rows"
+    ],
+    "file": "단위날짜_tfidf_train2022-06-30.parquet"
+   },
+   "n2": {
+    "rows_with_any": 81293,
+    "rows": 291812
+   },
+   "ok": true
+  },
+  "2023-06-30": {
+   "tfidf": {
+    "tag": "2023-06-30",
+    "file": "단위날짜_tfidf_train2023-06-30.parquet",
+    "fold_specific": true
+   },
+   "nb_samples": {
+    "rows": 628517,
+    "lims_data_key_same_order": true,
+    "n_clusters": 23,
+    "flag_sums": {
+     "nb_enoki": 7405,
+     "nb_mushroom_other": 2772,
+     "nb_mush_farm": 2313,
+     "nb_env_swab": 6690,
+     "nb_raw_fish": 1576,
+     "nb_salmon_smoked": 2660,
+     "nb_raw_meat": 17391,
+     "nb_offal": 3497,
+     "nb_ground_meat": 4971,
+     "nb_marinated": 5481,
+     "nb_cured_raw": 3057,
+     "nb_raw_material": 18843,
+     "nb_finished": 23701,
+     "nb_preheat": 43169,
+     "nb_disinfect": 5212,
+     "nb_cutting": 9309,
+     "nb_chilled": 13998,
+     "nb_frozen": 12118,
+     "nb_aged": 1538,
+     "nb_postheat": 46862,
+     "nb_dried": 22936,
+     "nb_raw_seafood": 14340,
+     "nb_extract": 15867
+    },
+    "file": "시료별_뭉치.parquet"
+   },
+   "n0": {
+    "rows": 291812,
+    "matched": 291812,
+    "n_cols": 500,
+    "null_train_prdlst_code_filled": 44,
+    "null_train_prdlst_code_2_filled": 0,
+    "n_rows_eq_n_samples": true,
+    "nan_cells": 0,
+    "excluded": [
+     "n_rows"
+    ],
+    "file": "단위날짜_tfidf_train2023-06-30.parquet"
+   },
+   "n2": {
+    "rows_with_any": 81293,
+    "rows": 291812
+   },
+   "ok": true
+  },
+  "2024-06-30": {
+   "tfidf": {
+    "tag": "2024-06-30",
+    "file": "단위날짜_tfidf_train2024-06-30.parquet",
+    "fold_specific": true
+   },
+   "nb_samples": {
+    "rows": 628517,
+    "lims_data_key_same_order": true,
+    "n_clusters": 23,
+    "flag_sums": {
+     "nb_enoki": 7405,
+     "nb_mushroom_other": 2772,
+     "nb_mush_farm": 2313,
+     "nb_env_swab": 6690,
+     "nb_raw_fish": 1576,
+     "nb_salmon_smoked": 2660,
+     "nb_raw_meat": 17391,
+     "nb_offal": 3497,
+     "nb_ground_meat": 4971,
+     "nb_marinated": 5481,
+     "nb_cured_raw": 3057,
+     "nb_raw_material": 18843,
+     "nb_finished": 23701,
+     "nb_preheat": 43169,
+     "nb_disinfect": 5212,
+     "nb_cutting": 9309,
+     "nb_chilled": 13998,
+     "nb_frozen": 12118,
+     "nb_aged": 1538,
+     "nb_postheat": 46862,
+     "nb_dried": 22936,
+     "nb_raw_seafood": 14340,
+     "nb_extract": 15867
+    },
+    "file": "시료별_뭉치.parquet"
+   },
+   "n0": {
+    "rows": 291812,
+    "matched": 291812,
+    "n_cols": 500,
+    "null_train_prdlst_code_filled": 44,
+    "null_train_prdlst_code_2_filled": 0,
+    "n_rows_eq_n_samples": true,
+    "nan_cells": 0,
+    "excluded": [
+     "n_rows"
+    ],
+    "file": "단위날짜_tfidf_train2024-06-30.parquet"
+   },
+   "n2": {
+    "rows_with_any": 81293,
+    "rows": 291812
+   },
+   "ok": true
+  },
+  "2025-06-30": {
+   "tfidf": {
+    "tag": "2025-06-30",
+    "file": "단위날짜_tfidf_train2025-06-30.parquet",
+    "fold_specific": true
+   },
+   "nb_samples": {
+    "rows": 628517,
+    "lims_data_key_same_order": true,
+    "n_clusters": 23,
+    "flag_sums": {
+     "nb_enoki": 7405,
+     "nb_mushroom_other": 2772,
+     "nb_mush_farm": 2313,
+     "nb_env_swab": 6690,
+     "nb_raw_fish": 1576,
+     "nb_salmon_smoked": 2660,
+     "nb_raw_meat": 17391,
+     "nb_offal": 3497,
+     "nb_ground_meat": 4971,
+     "nb_marinated": 5481,
+     "nb_cured_raw": 3057,
+     "nb_raw_material": 18843,
+     "nb_finished": 23701,
+     "nb_preheat": 43169,
+     "nb_disinfect": 5212,
+     "nb_cutting": 9309,
+     "nb_chilled": 13998,
+     "nb_frozen": 12118,
+     "nb_aged": 1538,
+     "nb_postheat": 46862,
+     "nb_dried": 22936,
+     "nb_raw_seafood": 14340,
+     "nb_extract": 15867
+    },
+    "file": "시료별_뭉치.parquet"
+   },
+   "n0": {
+    "rows": 291812,
+    "matched": 291812,
+    "n_cols": 500,
+    "null_train_prdlst_code_filled": 44,
+    "null_train_prdlst_code_2_filled": 0,
+    "n_rows_eq_n_samples": true,
+    "nan_cells": 0,
+    "excluded": [
+     "n_rows"
+    ],
+    "file": "단위날짜_tfidf_train2025-06-30.parquet"
+   },
+   "n2": {
+    "rows_with_any": 81293,
+    "rows": 291812
+   },
+   "ok": true
+  }
+ },
+ "n1_cols": 92,
+ "n2_cols": 23,
+ "n0_cols": 500,
+ "clusters": [
+  "nb_enoki",
+  "nb_mushroom_other",
+  "nb_mush_farm",
+  "nb_env_swab",
+  "nb_raw_fish",
+  "nb_salmon_smoked",
+  "nb_raw_meat",
+  "nb_offal",
+  "nb_ground_meat",
+  "nb_marinated",
+  "nb_cured_raw",
+  "nb_raw_material",
+  "nb_finished",
+  "nb_preheat",
+  "nb_disinfect",
+  "nb_cutting",
+  "nb_chilled",
+  "nb_frozen",
+  "nb_aged",
+  "nb_postheat",
+  "nb_dried",
+  "nb_raw_seafood",
+  "nb_extract"
+ ],
+ "def_period": "정규식은 2026-10-20 에 학습 자료 전체(mnfctur_de ≤ 2025-06-30) 행으로 다시 골랐음(10-19 판 21개 → 23개, 2025-06-30 뒤 정답은 쓰지 않음). 한계: 시간순 교차검증 겹 1·2·3(학습 끝 2022·2023·2024 년)에는 그 겹이 맞혀 보는 해의 검출 정보가 정의를 고를 때 섞여 있음. 이 표의 통계 기간: 학습 = 기준일 <= 2025-06-30, 검증 없음, 그 뒤 정답은 읽지 않음",
+ "at": "2026-10-21 07:11:52"
+}

@@ -1,0 +1,122 @@
+{
+  "run": "B1__s42",
+  "exp": "B1",
+  "plan": "사양 B (계획서 번호 없음)",
+  "desc": "로지스틱 회귀: A3 이력 변수 9 + h (표준화)",
+  "model": "lr",
+  "seed": 42,
+  "smoke": false,
+  "feats": {
+    "weather": false,
+    "cats": false,
+    "hist": [
+      "rate5",
+      "logn5",
+      "rate1"
+    ],
+    "woe": false,
+    "k": 10
+  },
+  "feats_from": null,
+  "group": null,
+  "group_codes": null,
+  "options": {},
+  "alignment": "목표일 d, 앞당김 h -> T = d - h, 기상 창 = T-100 .. T-1, 이력 창 = T-P .. T-1 (T 당일 제외)",
+  "splits": {
+    "train": "d <= 2024-06-30",
+    "val": "2024-07-01~2025-06-30",
+    "test": "2025-07-01~2026-06-30"
+  },
+  "rows": {
+    "train": {
+      "n": 222793,
+      "pos": 851
+    },
+    "val": {
+      "n": 34249,
+      "pos": 122
+    },
+    "test": {
+      "n": 34770,
+      "pos": 168
+    }
+  },
+  "h_assignment": "학습 행: default_rng(42).integers(1,61) (전체 학습 행, 단위 키+d 정렬); 조기 종료용 검증: default_rng(43); 평가: h=1..60 전부",
+  "n_features": 10,
+  "n_features_desc": "숫자 10 (h 1 + 기상 0 + 이력 9), 범주 없음",
+  "feature_columns": [
+    "h",
+    "hist_rate5y_p3",
+    "hist_rate5y_sgg",
+    "hist_rate5y_unit",
+    "hist_logn5y_p3",
+    "hist_logn5y_sgg",
+    "hist_logn5y_unit",
+    "hist_rate1y_p3",
+    "hist_rate1y_sgg",
+    "hist_rate1y_unit"
+  ],
+  "window_range": [
+    "2014-10-29",
+    "2026-06-28"
+  ],
+  "n_train_rows": 222793,
+  "n_train_pos": 851,
+  "wx_L": 100,
+  "select_rule": {
+    "name": "tint",
+    "rule": "검증 T 통합 60일평균 PR-AUC: 저장 검증 예측(pred_val.parquet) 중 예측하는 날 T = d − h 가 2024-07-01 ~ 2025-05-01 인 행만(2025-05-01 = 검증 끝 2025-06-30 − 60일, 모든 h 같은 예측일 305일), h 마다 PR-AUC(sklearn average_precision) -> h 1~60 단순 평균, 시드가 여러 개면 시드 평균. 시험 미사용"
+  },
+  "code_md5": {
+    "run.py": "036a230dfe9c8e16890a6505805eb79e",
+    "e2ae.py": "ec7f791eb9fbf139ff668ab0a8453359",
+    "e2cfg.py": "79c93f1140f931c5f2ad0289e4b1b3f9",
+    "e2data.py": "e8028a9a223035a962e48e31b78e1add",
+    "e2dl.py": "438df95f54ace7b4c09c985acf12bb50",
+    "e2dl_impl.py": "6804d8a46936660ed94ec25d197d84a5",
+    "e2eval.py": "09fcca480b34c71dccaadaccdf65f7a9",
+    "e2fg.py": "9017633331d861557170ccf86200d0e5",
+    "e2fs.py": "565fa80456e0cc733fedbd6b4b8013a3",
+    "e2hist.py": "8008df80e7c740a4c1a8d66e2c22e3e5",
+    "e2models.py": "3fff83a07bbf35338dba2fbb11e93ec5",
+    "e2nb.py": "9fa1f6ac723c247d327accbcf6d7641d",
+    "e2smote.py": "361cde2232d04c18e15d3878490631dc",
+    "e2stk.py": "9fc71a229da753951cb840b9f2834aa9",
+    "e2tables.py": "fb1245d04afb670d24c8c4d10be8625f",
+    "1차/config.py": "58147e30b04c8c0ca5d6ff68d0f95186",
+    "1차/data.py": "ab019a250b49194a173e80baf92d6a99",
+    "1차/features.py": "72febeef30e5867b0f7e86867b1baf5a",
+    "1차/metrics.py": "04a200744e80458a2a5dd2f130ac9fdb",
+    "1차/models.py": "f4b2bc4005b8740e9e37f31079e5dbd0",
+    "1차/common.py": "d108f839287a6e1899c420c537b142f8"
+  },
+  "model_info": {
+    "library_params": {
+      "C": 1.0,
+      "l1_ratio": 0.0,
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "class_weight": null
+    },
+    "standardize": "학습 행 평균·표준편차(결측 무시, ddof=0)로 표준화, 표준편차 0/전부 결측 열은 1, 결측은 표준화 뒤 0(=학습 평균)",
+    "n_iter": 18,
+    "converged": true,
+    "nan_rate_train": 8.079248450355263e-06,
+    "n_allnan_cols": 0,
+    "n_zero_sd_cols": 0,
+    "coef": [
+      0.023324455911722452,
+      0.10642724975646461,
+      0.10682486536512996,
+      0.02313691849260308,
+      0.5565395013974878,
+      -0.04318219316430105,
+      0.0885797841271965,
+      0.11414165927537791,
+      0.034503267199061674,
+      0.14234483261880956
+    ],
+    "intercept": -5.930414316151585,
+    "early_stopping": "없음(검증은 기준값·선정에만). best_val_ap = 조기 종료용 검증 h 배정에서의 AP(기록용)"
+  }
+}

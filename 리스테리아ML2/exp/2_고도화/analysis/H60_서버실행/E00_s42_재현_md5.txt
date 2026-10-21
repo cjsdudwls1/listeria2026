@@ -1,0 +1,9 @@
+# E00 시드 42 서버 재현 확인 (2026-10-19 16시께 다시 잼, 서버 결과 = H60 실행 전 13:4x 에 같은 코드로 돌린 것)
+server ~/cyj_listeria/root/results/E00__s42:
+b5d43b7995634456d5847295d09d6ce3  pred_val.parquet
+b7995daac4ba670c048710e74a5e4aa7  pred_test.parquet
+rounds 38 138
+local exp/2_고도화/results/E00__s42:
+b5d43b7995634456d5847295d09d6ce3  pred_val.parquet
+b7995daac4ba670c048710e74a5e4aa7  pred_test.parquet
+rounds 38 138

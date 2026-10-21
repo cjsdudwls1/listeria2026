@@ -1,0 +1,75 @@
+{
+ "steps": {
+  "vanilla": {
+   "done_at": "2026-10-21 03:36:28",
+   "Ls": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "pairs": [
+    "xgb:summary",
+    "lgbm:summary",
+    "cat:summary",
+    "xgb:raw",
+    "lgbm:raw",
+    "cat:raw",
+    "bilstm:seq"
+   ],
+   "seconds": 16206
+  },
+  "baseline": {
+   "done_at": "2026-10-21 03:36:30",
+   "model": "cat",
+   "input": "summary",
+   "L": 80,
+   "score": 0.07181891372692754
+  },
+  "wxsel": {
+   "done_at": "2026-10-21 06:42:57",
+   "wvars": [
+    "avg_temp",
+    "max_temp",
+    "min_temp",
+    "rain",
+    "avg_wind",
+    "max_wind",
+    "sunshine",
+    "solar_rad",
+    "soil_t5",
+    "soil_t10",
+    "soil_t20",
+    "soil_t30",
+    "soil_t_nas",
+    "soil_moist",
+    "no2",
+    "so2",
+    "wind_dir_sin",
+    "wind_dir_cos"
+   ],
+   "seconds": 11187
+  },
+  "kselect": {
+   "done_at": "2026-10-21 07:11:10",
+   "k": 200,
+   "seconds": 1693
+  },
+  "tune": {
+   "done_at": "2026-10-21 12:09:23",
+   "model": "cat",
+   "seconds": 17893
+  },
+  "stop_for_report": {
+   "done_at": "2026-10-21 12:09:23",
+   "total_seconds": 46980,
+   "note": "사양 4절 6번 보고(후보 고르기) - 사람이 고름"
+  }
+ }
+}

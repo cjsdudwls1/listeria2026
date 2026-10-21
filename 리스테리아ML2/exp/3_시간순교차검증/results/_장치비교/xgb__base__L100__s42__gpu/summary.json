@@ -1,0 +1,97 @@
+{
+ "model": "xgb",
+ "bundles": [
+  "wx"
+ ],
+ "mean": {
+  "pr_auc": 0.04326081319289953,
+  "p_at_r": 0.008669829245888437,
+  "r_at_thr": 0.8000995355009953,
+  "precision": 0.008728320780396679,
+  "recall": 0.8000359473444121,
+  "f1": 0.017266623252702267,
+  "accuracy": 0.6755135286790898,
+  "roc_auc": 0.818991960822185,
+  "inspect_reduction": 0.6726831051093676,
+  "tp": 80.38333333333334,
+  "fp": 9191.233333333334,
+  "fn": 20.083333333333332,
+  "tn": 19105.8,
+  "n": 28397.5,
+  "top1": 0.14016565709306283,
+  "top5": 0.301450166110047,
+  "top10": 0.4404072140142882,
+  "top20": 0.6318930409259588
+ },
+ "mean_folds": [
+  3
+ ],
+ "by_fold": {
+  "3": {
+   "pr_auc": 0.04326081319289953,
+   "p_at_r": 0.008669829245888437,
+   "r_at_thr": 0.8000995355009953,
+   "threshold": 3.925988949049497e-06,
+   "threshold_rule": "max_precision_at_recall>=0.80",
+   "precision": 0.008728320780396679,
+   "recall": 0.8000359473444121,
+   "f1": 0.017266623252702267,
+   "accuracy": 0.6755135286790898,
+   "roc_auc": 0.818991960822185,
+   "inspect_reduction": 0.6726831051093676,
+   "tp": 80.38333333333334,
+   "fp": 9191.233333333334,
+   "fn": 20.083333333333332,
+   "tn": 19105.8,
+   "n": 28397.5,
+   "top1": 0.14016565709306283,
+   "top5": 0.301450166110047,
+   "top10": 0.4404072140142882,
+   "top20": 0.6318930409259588,
+   "n_rows": 1703850,
+   "n_pos": 6028,
+   "h_without_both_classes": [],
+   "fold": 3,
+   "n_train_rows": 222793,
+   "n_train_pos": 851,
+   "best_rounds": 487,
+   "n_trained": 587,
+   "fit_seconds": 74.43,
+   "predict_seconds": 0.43,
+   "n_num": 286,
+   "n_cat": 4
+  }
+ },
+ "best_rounds": [
+  487
+ ],
+ "fit_seconds": 74.43,
+ "importance_bundle": {
+  "base": 0.4430638120619406,
+  "wx": 0.5569361879380592
+ },
+ "run": "xgb__base__L100__s42__gpu",
+ "model_name": "XGBoost",
+ "L": 100,
+ "seed": 42,
+ "device": "cuda",
+ "folds": [
+  3
+ ],
+ "thresholds": {
+  "3": 3.925988949049497e-06
+ },
+ "best_rounds_mean": 487.0,
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "limitations": [],
+ "finished_at": "2026-10-20 13:21:48",
+ "complete": true,
+ "total_seconds": 76.8,
+ "test_rows_built": 0,
+ "note": "이 명령은 시험 행을 만들지 않음(cv.TEST_ACCESS 빈 것 확인)"
+}

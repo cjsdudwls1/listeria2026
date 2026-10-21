@@ -1,0 +1,192 @@
+{
+ "L": 100,
+ "started": "2026-10-20 13:23:41",
+ "parts": [
+  "params"
+ ],
+ "smoke": {
+  "enabled": false,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "params_roundtrip": {
+  "xgb": {
+   "bit_equal": true,
+   "best_rounds": [
+    25,
+    25
+   ],
+   "params_saved": 37,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  "lgbm": {
+   "bit_equal": true,
+   "best_rounds": [
+    7,
+    7
+   ],
+   "params_saved": 22,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  "cat": {
+   "bit_equal": true,
+   "best_rounds": [
+    8,
+    8
+   ],
+   "params_saved": 10,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  "rf": {
+   "bit_equal": true,
+   "best_rounds": [
+    30,
+    30
+   ],
+   "params_saved": 19,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  "lr": {
+   "bit_equal": true,
+   "best_rounds": [
+    125,
+    125
+   ],
+   "params_saved": 14,
+   "cat_columns": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  }
+ },
+ "checks": [
+  {
+   "name": "모델 5개: 파라미터 저장(get_params JSON) -> 불러오기(set_params) -> 다시 학습한 예측이 비트 단위로 같음",
+   "ok": true,
+   "detail": {
+    "xgb": {
+     "bit_equal": true,
+     "best_rounds": [
+      25,
+      25
+     ],
+     "params_saved": 37,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    },
+    "lgbm": {
+     "bit_equal": true,
+     "best_rounds": [
+      7,
+      7
+     ],
+     "params_saved": 22,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    },
+    "cat": {
+     "bit_equal": true,
+     "best_rounds": [
+      8,
+      8
+     ],
+     "params_saved": 10,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    },
+    "rf": {
+     "bit_equal": true,
+     "best_rounds": [
+      30,
+      30
+     ],
+     "params_saved": 19,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    },
+    "lr": {
+     "bit_equal": true,
+     "best_rounds": [
+      125,
+      125
+     ],
+     "params_saved": 14,
+     "cat_columns": [
+      "sido",
+      "sgg",
+      "p2",
+      "p3",
+      "aw_label"
+     ]
+    }
+   }
+  },
+  {
+   "name": "모델 입력 범주 = [sido, sgg, p2, p3] + 식품 묶음 aw_label (작은 겹)",
+   "ok": true,
+   "detail": [
+    "sido",
+    "sgg",
+    "p2",
+    "p3",
+    "aw_label"
+   ]
+  },
+  {
+   "name": "점검 중 시험 행 접근 기록이 남지 않음(점검용 위치 세기는 지운 뒤 확인)",
+   "ok": true,
+   "detail": []
+  }
+ ],
+ "all_ok": true,
+ "seconds": 20.1
+}

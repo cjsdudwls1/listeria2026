@@ -1,0 +1,25 @@
+{
+ "tag": "fs12",
+ "files": {
+  "FS12__s42/config.json": "717a50555e8b7b306255602a78ff111e",
+  "FS12__s42/summary.json": "1bba8683322e3dd3ddc36f619511037a",
+  "FS12__s42/metrics_by_h.csv": "8f0ce87cdf07343693b67b2fb82aaa2e",
+  "FS12__s42/pred_val.parquet": "a0a5b5a02c8fb236cc0dd91ec9b5576e",
+  "FS12__s42/pred_test.parquet": "c173821dba5b493768cecf69b67b0e07",
+  "FS12__s43/config.json": "375cc1b84e758bc99433ad177fc77dd2",
+  "FS12__s43/summary.json": "6bf33d0bc9b07af9bbdecb29c4c02134",
+  "FS12__s43/metrics_by_h.csv": "51dbe0e0f34c199ef80c51a57cf522bd",
+  "FS12__s43/pred_val.parquet": "67fa4a03f8cb66ae51cf89bddb0ae9af",
+  "FS12__s43/pred_test.parquet": "9823bac731000320e3009d72120a4dab",
+  "FS12__s44/config.json": "7604356c8886cdfab4353e02dede701a",
+  "FS12__s44/summary.json": "65cf3c3418d7380d4fafcc7672532453",
+  "FS12__s44/metrics_by_h.csv": "edc24dd840941682e8154149adaa40ef",
+  "FS12__s44/pred_val.parquet": "00eb1a34bba87a64cb39c4f8e335b32d",
+  "FS12__s44/pred_test.parquet": "09bb94b1429d6d07c3d9d38f1fedd411",
+  "groups.json": "8874d2a940479892b182ac26a1e35e36",
+  "data_summary.csv": "6f68f624a379c7db50fa32ecb3fe07b5",
+  "selection_k.json": "359611350ca260b4e8378191f9e54372",
+  "selection_FS.json": "181fabc4c21ab28e1f8a34d6c10b73b2"
+ },
+ "masked": {}
+}

@@ -1,0 +1,36 @@
+{
+  "rule": "step1 7회 중 val 60일 평균 PR-AUC 최대 (test 미사용). 같은 값이면 실행 순서 앞쪽",
+  "ranking": [
+    {
+      "run": "catboost__summary__L100",
+      "val_pr_auc_mean60": 0.0727799986610365
+    },
+    {
+      "run": "catboost__raw__L100",
+      "val_pr_auc_mean60": 0.05700551893833402
+    },
+    {
+      "run": "lstm__seq__L100",
+      "val_pr_auc_mean60": 0.05538096618767356
+    },
+    {
+      "run": "xgboost__summary__L100",
+      "val_pr_auc_mean60": 0.04502661626038583
+    },
+    {
+      "run": "lightgbm__summary__L100",
+      "val_pr_auc_mean60": 0.0337269157476362
+    },
+    {
+      "run": "xgboost__raw__L100",
+      "val_pr_auc_mean60": 0.02897593938181269
+    },
+    {
+      "run": "lightgbm__raw__L100",
+      "val_pr_auc_mean60": 0.021819305229915573
+    }
+  ],
+  "selected_model": "catboost",
+  "selected_input": "summary",
+  "selected_run": "catboost__summary__L100"
+}

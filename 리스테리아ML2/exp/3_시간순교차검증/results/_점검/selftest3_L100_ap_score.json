@@ -1,0 +1,125 @@
+{
+ "L": 100,
+ "started": "2026-10-20 14:09:55",
+ "parts": [
+  "ap",
+  "score"
+ ],
+ "smoke": {
+  "enabled": false,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "score_example": {
+  "per_h": {
+   "h": 1.0,
+   "n": 10.0,
+   "pos": 3.0,
+   "pr_auc": 0.6555555555555554,
+   "roc_auc": 0.6190476190476191,
+   "threshold": 0.65,
+   "tp": 2.0,
+   "fp": 1.0,
+   "fn": 1.0,
+   "tn": 6.0,
+   "precision": 0.6666666666666666,
+   "recall": 0.6666666666666666,
+   "f1": 0.6666666666666666,
+   "accuracy": 0.8,
+   "inspect_reduction": 0.6,
+   "top1": 0.3333333333333333,
+   "top5": 0.3333333333333333,
+   "top10": 0.3333333333333333,
+   "top20": 0.3333333333333333
+  },
+  "thr": {
+   "threshold": 0.6000000238418579,
+   "precision": 0.6666666666666666,
+   "recall": 0.8,
+   "rule": "max_precision_at_recall>=0.80",
+   "n_candidates": 5
+  }
+ },
+ "checks": [
+  {
+   "name": "검사축소율·상위 n% 손계산 대조(10행 예: TP 2·FP 1·FN 1·TN 6, 검사축소율 0.6, 상위 1·5·10·20% 1/3, 30% 2/3)",
+   "ok": true,
+   "detail": {
+    "h": 1.0,
+    "n": 10.0,
+    "pos": 3.0,
+    "pr_auc": 0.6555555555555554,
+    "roc_auc": 0.6190476190476191,
+    "threshold": 0.65,
+    "tp": 2.0,
+    "fp": 1.0,
+    "fn": 1.0,
+    "tn": 6.0,
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1": 0.6666666666666666,
+    "accuracy": 0.8,
+    "inspect_reduction": 0.6,
+    "top1": 0.3333333333333333,
+    "top5": 0.3333333333333333,
+    "top10": 0.3333333333333333,
+    "top20": 0.3333333333333333
+   }
+  },
+  {
+   "name": "기준값 손계산 ①(Recall ≥ 0.8 중 Precision 최대): 기준값 0.6, Precision 0.6667, Recall 0.8",
+   "ok": true,
+   "detail": {
+    "threshold": 0.6000000238418579,
+    "precision": 0.6666666666666666,
+    "recall": 0.8,
+    "rule": "max_precision_at_recall>=0.80",
+    "n_candidates": 5
+   }
+  },
+  {
+   "name": "기준값 손계산 ②(같은 Precision 이면 Recall 큰 쪽): 기준값 0.1, Precision 0.5, Recall 1.0",
+   "ok": true,
+   "detail": {
+    "threshold": 0.10000000149011612,
+    "precision": 0.5,
+    "recall": 1.0,
+    "rule": "max_precision_at_recall>=0.80",
+    "n_candidates": 3
+   }
+  },
+  {
+   "name": "Recall 목표 0.8 을 못 지키는 경우 없음(무작위 300개 예, 고른 기준값의 최소 Recall >= 0.8, 혼동행렬 Precision = 곡선 값)",
+   "ok": true,
+   "detail": 0.8
+  },
+  {
+   "name": "빠른 AP(조기 종료용) = sklearn average_precision (동점 포함 50개 예, 최대 차이 <= 1e-12)",
+   "ok": true,
+   "detail": 1.3877787807814457e-17
+  },
+  {
+   "name": "원값 단계별 AP(열 단위 계산) = sklearn average_precision (동점 포함 10개 행렬, 최대 차이 <= 1e-12)",
+   "ok": true,
+   "detail": 1.457167719820518e-16
+  },
+  {
+   "name": "조기 종료 재현(인내 100): 처음 나온 최고(같은 값은 앞쪽)에서 멈춤 규칙",
+   "ok": true,
+   "detail": [
+    [
+     2,
+     102
+    ],
+    [
+     3,
+     53
+    ]
+   ]
+  }
+ ],
+ "all_ok": true,
+ "seconds": 2.5
+}

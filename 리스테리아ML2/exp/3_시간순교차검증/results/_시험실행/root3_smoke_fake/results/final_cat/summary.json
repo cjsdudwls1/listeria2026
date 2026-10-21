@@ -1,0 +1,83 @@
+{
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "model": "cat",
+ "params_source": "바닐라(기본 설정)",
+ "bundles": [
+  "wx"
+ ],
+ "bundles_source": "명령 옵션 --featset",
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "rounds": 130,
+ "cv_best_rounds": [
+  38,
+  351,
+  2
+ ],
+ "cv_mean": {
+  "pr_auc": 0.13610653324140268,
+  "p_at_r": 0.016231238062586976,
+  "r_at_thr": 0.8190476190476191,
+  "precision": 0.016325982689608786,
+  "recall": 0.7000000000000001,
+  "f1": 0.0316516464147751,
+  "accuracy": 0.6564103821209164,
+  "roc_auc": 0.7721534391534391,
+  "inspect_reduction": 0.6523246634348588,
+  "tp": 1.2333333333333334,
+  "fp": 103.24444444444445,
+  "fn": 0.29444444444444445,
+  "tn": 196.75555555555556,
+  "n": 301.52777777777777,
+  "top1": 0.15714285714285714,
+  "top5": 0.29325396825396827,
+  "top10": 0.4043650793650793,
+  "top20": 0.5376984126984127
+ },
+ "threshold": {
+  "threshold": 0.00037810346111655235,
+  "precision": 0.005880027670718451,
+  "recall": 0.8654545454545455,
+  "rule": "max_precision_at_recall>=0.80",
+  "n_candidates": 12470
+ },
+ "test": {
+  "accuracy": 0.03377630121816168,
+  "precision": 0.0034269969927330367,
+  "recall": 1.0,
+  "f1": 0.006830582969177982,
+  "pr_auc": 0.004775519576936846,
+  "roc_auc": 0.2768333333333333,
+  "inspect_reduction": 0.030454042081949056,
+  "tp": 1.0,
+  "fn": 0.0,
+  "fp": 290.8333333333333,
+  "tn": 9.166666666666666,
+  "n": 301.0,
+  "top1": 0.0,
+  "top5": 0.0,
+  "top10": 0.0,
+  "top20": 0.0,
+  "h_without_both_classes": [],
+  "threshold": 0.00037810346111655235,
+  "threshold_rule": "max_precision_at_recall>=0.80",
+  "p_pooled": 0.0034266133637921186,
+  "r_pooled": 1.0
+ },
+ "cat_learning_rate_fixed": 0.033901999394098915,
+ "test_access": [
+  {
+   "why": "final 시험 입력(wx)",
+   "at": "2026-10-20 13:24:37"
+  }
+ ],
+ "limitations": [],
+ "train_rows": 6010,
+ "train_pos": 10,
+ "test_pairs": 18060,
+ "test_pos_pairs": 60,
+ "finished_at": "2026-10-20 13:25:00"
+}

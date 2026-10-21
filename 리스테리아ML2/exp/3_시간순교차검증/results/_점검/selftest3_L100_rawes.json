@@ -1,0 +1,67 @@
+{
+ "L": 100,
+ "started": "2026-10-20 14:11:06",
+ "parts": [
+  "rawes"
+ ],
+ "smoke": {
+  "enabled": false,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "raw_es_reproduction": {
+  "xgb": {
+   "best_live": 857,
+   "best_staged": 857,
+   "pred_max_abs_diff": 0.0,
+   "staged_check_maxdiff": 2.7718813316646163e-05
+  },
+  "lgbm": {
+   "best_live": 2,
+   "best_staged": 2,
+   "pred_max_abs_diff": 0.0,
+   "staged_check_maxdiff": 0.0
+  },
+  "cat": {
+   "best_live": 28,
+   "best_staged": 28,
+   "pred_max_abs_diff": 0.0,
+   "staged_check_maxdiff": null
+  }
+ },
+ "checks": [
+  {
+   "name": "원값: 최대 반복 학습 + 단계별 점수 조기 종료 재현 = 실제 조기 종료(최적 반복 같음, 예측 차이 < 1e-6) - XGBoost·LightGBM·CatBoost (작은 겹)",
+   "ok": true,
+   "detail": {
+    "xgb": {
+     "best_live": 857,
+     "best_staged": 857,
+     "pred_max_abs_diff": 0.0,
+     "staged_check_maxdiff": 2.7718813316646163e-05
+    },
+    "lgbm": {
+     "best_live": 2,
+     "best_staged": 2,
+     "pred_max_abs_diff": 0.0,
+     "staged_check_maxdiff": 0.0
+    },
+    "cat": {
+     "best_live": 28,
+     "best_staged": 28,
+     "pred_max_abs_diff": 0.0,
+     "staged_check_maxdiff": null
+    }
+   }
+  },
+  {
+   "name": "점검 중 시험 행 접근 기록이 남지 않음(점검용 위치 세기는 지운 뒤 확인)",
+   "ok": true,
+   "detail": []
+  }
+ ],
+ "all_ok": true,
+ "seconds": 1793.9
+}

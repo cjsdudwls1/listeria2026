@@ -1,0 +1,24 @@
+{
+ "tag": "fs02",
+ "files": {
+  "FS02__s42/config.json": "0d0aeb45119c09ae13e64a850108a5c7",
+  "FS02__s42/summary.json": "b4e702f76c7b28ff39c133474f5b11f0",
+  "FS02__s42/metrics_by_h.csv": "54ec793530b5cee2bef261fcc5a6caa0",
+  "FS02__s42/pred_val.parquet": "f7693dc436e1bbfc9f2910d63efcd606",
+  "FS02__s42/pred_test.parquet": "08949d5eb432dc4204343654c3d10490",
+  "FS02__s43/config.json": "344e8afd54fd4b55a1e09a074f5c59e3",
+  "FS02__s43/summary.json": "34a06841cbc88c1cc6dd1124e824c0b1",
+  "FS02__s43/metrics_by_h.csv": "f8a7d6c78d3d0cf3d1dc6e399d52c87f",
+  "FS02__s43/pred_val.parquet": "05639d9d4074fcfc10dedf1b1241902a",
+  "FS02__s43/pred_test.parquet": "48a526215f9213a493a10c214609e165",
+  "FS02__s44/config.json": "aa70937c63f84bc6aeb20958215381c5",
+  "FS02__s44/summary.json": "997248f09fdfafa04f193c5199392af9",
+  "FS02__s44/metrics_by_h.csv": "b90b806b3168197d1fc74f489aeb28fa",
+  "FS02__s44/pred_val.parquet": "e80410d69b51906bfd0f00bdc81e79ba",
+  "FS02__s44/pred_test.parquet": "4591e2f7a55e610cef17a6e7f965d0af",
+  "groups.json": "8874d2a940479892b182ac26a1e35e36",
+  "data_summary.csv": "6f68f624a379c7db50fa32ecb3fe07b5",
+  "selection_k.json": "359611350ca260b4e8378191f9e54372"
+ },
+ "masked": {}
+}

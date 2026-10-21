@@ -1,0 +1,23 @@
+{
+ "tag": "cum01",
+ "files": {
+  "CUM01__s42/config.json": "1a203989ff4e1e4a7f635ca6ec50b7c1",
+  "CUM01__s42/summary.json": "a67f9fcda664939be5aa5b137d7dde83",
+  "CUM01__s42/metrics_by_h.csv": "89e0570e7a1a10c9e784e5ee988386cc",
+  "CUM01__s42/pred_val.parquet": "46824371b46e189e42622d5f434197be",
+  "CUM01__s42/pred_test.parquet": "219f96a2b1a07be446e445b7ba751be0",
+  "CUM01__s43/config.json": "65906162328faeb9c9013ce2eda02530",
+  "CUM01__s43/summary.json": "55dd3ea0d007efe88f96db30a0bafda6",
+  "CUM01__s43/metrics_by_h.csv": "8817baca6f0eb51144b6b42bc8f7c958",
+  "CUM01__s43/pred_val.parquet": "cd1eb7fe24d31ecf283e11c5cc51a122",
+  "CUM01__s43/pred_test.parquet": "cd2b464fdafab5a4214a84db24b47c82",
+  "CUM01__s44/config.json": "43d9cd8b45126bd83357d946e85bdfec",
+  "CUM01__s44/summary.json": "ee01c5a6190e7b01b860ff5a9a3e7f4c",
+  "CUM01__s44/metrics_by_h.csv": "630c1b8609a93dec0af29e27fa512df0",
+  "CUM01__s44/pred_val.parquet": "beb4c2813e8c45759e8978ad97c30164",
+  "CUM01__s44/pred_test.parquet": "39807d1a75ac8e97c650d85c0912f77b",
+  "groups.json": "8874d2a940479892b182ac26a1e35e36",
+  "data_summary.csv": "6f68f624a379c7db50fa32ecb3fe07b5"
+ },
+ "masked": {}
+}

@@ -1,0 +1,413 @@
+{
+  "rule": "T 통합 검증 60일평균 PR-AUC(시드 42·43·44 평균), 후보 점수 > 기준 점수면 남김",
+  "val_T_range": [
+    "2024-07-01",
+    "2025-05-01"
+  ],
+  "weather_L": 100,
+  "k_star": 10,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "start_base_id": "E00",
+  "steps": [
+    {
+      "phase": "forward",
+      "step": 1,
+      "round": null,
+      "bundle": "spi",
+      "bundle_name": "표준강수지수(SPI3·SPI6)",
+      "n_cols": 30,
+      "candidate_id": "FS01",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05620882499217433,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.05150384553471172,
+        0.057129323840040415,
+        0.059993305601770866
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 2,
+      "round": null,
+      "bundle": "soilmed",
+      "bundle_name": "토양 중앙값 3칸",
+      "n_cols": 3,
+      "candidate_id": "FS02",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05474314612458795,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.053074827550838366,
+        0.056766821867230303,
+        0.05438778895569517
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 3,
+      "round": null,
+      "bundle": "food",
+      "bundle_name": "식품 속성",
+      "n_cols": 4,
+      "candidate_id": "FS03",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05798044518191691,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.05329355508447499,
+        0.06104298143365935,
+        0.05960479902761639
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 4,
+      "round": null,
+      "bundle": "eco_gw_haccp",
+      "bundle_name": "외부 지표",
+      "n_cols": 3,
+      "candidate_id": "FS04",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05432704066310845,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.05442778002801639,
+        0.059580850454334505,
+        0.04897249150697445
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 5,
+      "round": null,
+      "bundle": "rg",
+      "bundle_name": "생장 범위",
+      "n_cols": 19,
+      "candidate_id": "FS05",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05284137765716302,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.05900310391431512,
+        0.04799826405441028,
+        0.05152276500276368
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 6,
+      "round": null,
+      "bundle": "g123",
+      "bundle_name": "생장식 지수",
+      "n_cols": 16,
+      "candidate_id": "FS06",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.059153428409962315,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.058250339055751575,
+        0.0614256291458419,
+        0.057784317028293467
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 7,
+      "round": null,
+      "bundle": "wxanom",
+      "bundle_name": "이동평균 차감 기상",
+      "n_cols": 57,
+      "candidate_id": "FS07",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05846073288200842,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.06085357299490811,
+        0.054183682481863976,
+        0.06034494316925317
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 8,
+      "round": null,
+      "bundle": "hist_core",
+      "bundle_name": "과거 검출 이력",
+      "n_cols": 9,
+      "candidate_id": "FS08",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.0517540410747517,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.04807921255940638,
+        0.05115599570753871,
+        0.056026914957309985
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 9,
+      "round": null,
+      "bundle": "hist_1y",
+      "bundle_name": "1년 검사 건수·검출률 불확실성",
+      "n_cols": 6,
+      "candidate_id": "FS09",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.06034029056443852,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.060596064215870576,
+        0.06395694209081075,
+        0.05646786538663424
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 10,
+      "round": null,
+      "bundle": "woe",
+      "bundle_name": "WOE",
+      "n_cols": 4,
+      "candidate_id": "FS10",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05221495181327726,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.046887812799007965,
+        0.05029905371891466,
+        0.059457988921909156
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 11,
+      "round": null,
+      "bundle": "n1",
+      "bundle_name": "제품명 과거 유형",
+      "n_cols": 84,
+      "candidate_id": "FS11",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.04806698732868814,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.05398133580154644,
+        0.045466108202255745,
+        0.044753517982262236
+      ]
+    },
+    {
+      "phase": "forward",
+      "step": 12,
+      "round": null,
+      "bundle": "ae4",
+      "bundle_name": "AE·VAE 이상 점수 4개",
+      "n_cols": 4,
+      "candidate_id": "FS12",
+      "base_id": "E00",
+      "base_score": 0.06054725398000757,
+      "candidate_score": 0.05637751374500715,
+      "decision": "drop",
+      "decision_ko": "뺌",
+      "new_base_id": "E00",
+      "candidate_score_by_seed": [
+        0.05976815201653749,
+        0.04915466658303574,
+        0.06020972263544821
+      ]
+    }
+  ],
+  "final": {
+    "model_id": "E00",
+    "bundles": [],
+    "score": 0.06054725398000757
+  },
+  "status": "끝",
+  "phases_done": [
+    "forward",
+    "backward"
+  ],
+  "score_detail": "검증 T 통합 60일평균 PR-AUC: 저장 검증 예측(pred_val.parquet) 중 예측하는 날 T = d − h 가 2024-07-01 ~ 2025-05-01 인 행만(2025-05-01 = 검증 끝 2025-06-30 − 60일, 모든 h 같은 예측일 305일), h 마다 PR-AUC(sklearn average_precision) -> h 1~60 단순 평균, 시드가 여러 개면 시드 평균. 시험 미사용",
+  "ae_fixed_note": "FS12(ae4) 의 AE·VAE 점수는 FS12 시점에 계산한 값(표 AE·VAE 입력 = FS12 기준 모델 입력)을 고정 묶음으로 취급 - 뒤로 단계에서 다른 묶음을 빼도 다시 계산하지 않음(입력 'ae_tab' 그대로, 같은 점수 캐시)",
+  "bundles_def": [
+    {
+      "bundle": "spi",
+      "bundle_name": "표준강수지수(SPI3·SPI6)",
+      "n_cols": 30,
+      "add": {
+        "ext": [
+          "spi"
+        ]
+      },
+      "desc": "창 T-100..T-1 요약, 기상과 같은 요약"
+    },
+    {
+      "bundle": "soilmed",
+      "bundle_name": "토양 중앙값 3칸",
+      "n_cols": 3,
+      "add": {
+        "ext": [
+          "soilmed"
+        ]
+      },
+      "desc": "산도·유기물·유효인산 지난 3년 중앙값, 검정 건수 제외"
+    },
+    {
+      "bundle": "food",
+      "bundle_name": "식품 속성",
+      "n_cols": 4,
+      "add": {
+        "ext": [
+          "food"
+        ]
+      },
+      "desc": "수분활성도·식품 pH·염도 3 + 수분활성도 표기 범주 1"
+    },
+    {
+      "bundle": "eco_gw_haccp",
+      "bundle_name": "외부 지표",
+      "n_cols": 3,
+      "add": {
+        "ext": [
+          "eco",
+          "gw",
+          "haccp"
+        ]
+      },
+      "desc": "친환경 인증 면적 비율·지하수 수질검사 적합률·HACCP 지정 비율"
+    },
+    {
+      "bundle": "rg",
+      "bundle_name": "생장 범위",
+      "n_cols": 19,
+      "add": {
+        "ext": [
+          "rgwx",
+          "rgsoil",
+          "rgfood"
+        ]
+      },
+      "desc": "기상 범위 12(창 T-100..T-1 평균·최근 10일 평균)·토양 pH 범위 3·식품 범위 4"
+    },
+    {
+      "bundle": "g123",
+      "bundle_name": "생장식 지수",
+      "n_cols": 16,
+      "add": {
+        "ext": [
+          "g1",
+          "g2",
+          "g3"
+        ]
+      },
+      "desc": "온도 생장 요인 4·최대 생장 속도와 생장 확률(2균주) 9·강수 검출 확률 3"
+    },
+    {
+      "bundle": "wxanom",
+      "bundle_name": "이동평균 차감 기상",
+      "n_cols": 57,
+      "add": {
+        "ext": [
+          "wxanom"
+        ]
+      },
+      "desc": "19변수 x 평균·최근 10일 평균·최대, a_t = x_t − 앞 30일 평균"
+    },
+    {
+      "bundle": "hist_core",
+      "bundle_name": "과거 검출 이력",
+      "n_cols": 9,
+      "add": {
+        "hist": [
+          "rate5",
+          "logn5",
+          "rate1"
+        ]
+      },
+      "desc": "5년 스무딩 검출률·5년 로그 검사 건수·1년 스무딩 검출률 x 품목군 3단계·시군구·단위, k = k*"
+    },
+    {
+      "bundle": "hist_1y",
+      "bundle_name": "1년 검사 건수·검출률 불확실성",
+      "n_cols": 6,
+      "add": {
+        "hist": [
+          "logn1",
+          "sd1"
+        ]
+      },
+      "desc": "1년 log(1+검사 수) 3·1년 스무딩 검출률의 베타 사후 표준편차 3"
+    },
+    {
+      "bundle": "woe",
+      "bundle_name": "WOE",
+      "n_cols": 4,
+      "add": {
+        "woe": true
+      },
+      "desc": "시도·시군구·품목 2단계·3단계, 5년 창 - 범주 4칸은 그대로"
+    },
+    {
+      "bundle": "n1",
+      "bundle_name": "제품명 과거 유형",
+      "n_cols": 84,
+      "add": {
+        "nb": [
+          "n1"
+        ]
+      },
+      "desc": "단위 과거 21뭉치 x 비율·스무딩 검출률 x 5년·1년, T 전날까지"
+    },
+    {
+      "bundle": "ae4",
+      "bundle_name": "AE·VAE 이상 점수 4개",
+      "n_cols": 4,
+      "add": {
+        "ae": [
+          "AEt",
+          "VAEt",
+          "AEs",
+          "VAEs"
+        ]
+      },
+      "desc": "표 AE·표 VAE(입력 = 그 시점 기준 모델 숫자 칸 + 범주 임베딩)·시퀀스 AE·시퀀스 VAE(100일 기상)"
+    }
+  ]
+}

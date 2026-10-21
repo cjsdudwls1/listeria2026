@@ -1,0 +1,27 @@
+{
+ "L": 100,
+ "started": "2026-10-20 14:21:17",
+ "parts": [
+  "cat"
+ ],
+ "smoke": {
+  "enabled": false,
+  "n_sgg": 12,
+  "train_neg_max": 6000,
+  "eval_per_h_max": 300,
+  "seed": 0
+ },
+ "cat_scan": {
+  "n": 37,
+  "bad": []
+ },
+ "checks": [
+  {
+   "name": "결과 폴더 config.json 37개의 범주 입력 = [sido, sgg, p2, p3](+ 식품 묶음 aw_label)",
+   "ok": true,
+   "detail": 37
+  }
+ ],
+ "all_ok": true,
+ "seconds": 0.0
+}

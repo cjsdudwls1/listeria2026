@@ -1,0 +1,30 @@
+{
+  "rule": "A1~A3 중 검증 구간 가중 PR-AUC 시드 평균(시드 [42]) 최대. 같은 값이면 앞. 시험 미사용",
+  "ranking": [
+    {
+      "exp": "A2",
+      "val_pr_auc_w_mean": 0.4378345526596108,
+      "val_pr_auc_w_by_seed": [
+        0.4378345526596108
+      ],
+      "test_pr_auc_w_mean": 0.4476089970859705
+    },
+    {
+      "exp": "A3",
+      "val_pr_auc_w_mean": 0.43115032817206506,
+      "val_pr_auc_w_by_seed": [
+        0.43115032817206506
+      ],
+      "test_pr_auc_w_mean": 0.45555769203156765
+    },
+    {
+      "exp": "A1",
+      "val_pr_auc_w_mean": 0.4281722984577348,
+      "val_pr_auc_w_by_seed": [
+        0.4281722984577348
+      ],
+      "test_pr_auc_w_mean": 0.4165492079381092
+    }
+  ],
+  "best": "A2"
+}

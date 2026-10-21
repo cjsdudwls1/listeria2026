@@ -1,0 +1,100 @@
+{
+ "model": "rf",
+ "bundles": [
+  "wx"
+ ],
+ "mean": {
+  "pr_auc": 0.01894697229810161,
+  "p_at_r": 0.003537870117674678,
+  "r_at_thr": 1.0,
+  "precision": 0.0035378611260516563,
+  "recall": 1.0,
+  "f1": 0.007050774055785239,
+  "accuracy": 0.0035378611260516563,
+  "roc_auc": 0.6509577077942451,
+  "inspect_reduction": 0.0,
+  "tp": 100.46666666666667,
+  "fp": 28297.033333333333,
+  "fn": 0.0,
+  "tn": 0.0,
+  "n": 28397.5,
+  "top1": 0.10715283444422231,
+  "top5": 0.18601659690467842,
+  "top10": 0.25785106418657244,
+  "top20": 0.4138351485230939
+ },
+ "mean_folds": [
+  3
+ ],
+ "by_fold": {
+  "3": {
+   "fold": 3,
+   "n_train_rows": 222793,
+   "n_train_pos": 851,
+   "best_rounds": 100,
+   "n_trained": 100,
+   "fit_seconds": 51.07,
+   "predict_seconds": 4.8,
+   "n_num": 286,
+   "n_cat": 4,
+   "pr_auc": 0.01894697229810161,
+   "p_at_r": 0.003537870117674678,
+   "r_at_thr": 1.0,
+   "threshold": 0.0,
+   "threshold_rule": "max_precision_at_recall>=0.80",
+   "precision": 0.0035378611260516563,
+   "recall": 1.0,
+   "f1": 0.007050774055785239,
+   "accuracy": 0.0035378611260516563,
+   "roc_auc": 0.6509577077942451,
+   "inspect_reduction": 0.0,
+   "tp": 100.46666666666667,
+   "fp": 28297.033333333333,
+   "fn": 0.0,
+   "tn": 0.0,
+   "n": 28397.5,
+   "top1": 0.10715283444422231,
+   "top5": 0.18601659690467842,
+   "top10": 0.25785106418657244,
+   "top20": 0.4138351485230939,
+   "n_rows": 1703850,
+   "n_pos": 6028,
+   "h_without_both_classes": []
+  }
+ },
+ "best_rounds": [
+  100
+ ],
+ "fit_seconds": 51.07,
+ "importance_bundle": {
+  "base": 0.10871980197739563,
+  "wx": 0.8912801980226037
+ },
+ "run": "rf__base__L100__s42",
+ "model_name": "랜덤 포레스트",
+ "L": 100,
+ "seed": 42,
+ "device": "cpu",
+ "folds": [
+  3
+ ],
+ "thresholds": {
+  "3": 0.0
+ },
+ "best_rounds_mean": 100.0,
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "limitations": [],
+ "finished_at": "2026-10-20 12:19:37",
+ "complete": true,
+ "total_seconds": 57.1,
+ "test_rows_built": 0,
+ "note": "이 명령은 시험 행을 만들지 않음(cv.TEST_ACCESS 빈 것 확인)",
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "rescored_at": "2026-10-20 13:02:48",
+ "rescored_from": "f2_max",
+ "rescore_note": "재학습 없음 - 저장된 맞혀 보는 행 예측으로 기준값·지표만 다시 계산"
+}
