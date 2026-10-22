@@ -1,0 +1,27 @@
+﻿칼럼,자료형,빈 값(null),빈 글자,서로 다른 값 수
+lims_data_key,large_string,0,0.0,628517
+hazard_label,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,1
+judge_result,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,2
+src_route,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,1
+data_source,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,1
+expr_iem_nm,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,2
+result_value,large_string,0,0.0,89
+result_value_num,float,624746,,1
+judge_stdr,large_string,628453,0.0,5
+judge_stdr_num,float,628453,,5
+inspct_instt_code,"dictionary<values=string, indices=int16, ordered=0>",0,0.0,269
+prdlst_code,"dictionary<values=string, indices=int16, ordered=0>",0,0.0,794
+train_prdlst_code,"dictionary<values=string, indices=int8, ordered=0>",130,0.0,51
+train_prdlst_nm,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,52
+train_prdlst_code_2,"dictionary<values=string, indices=int16, ordered=0>",130,0.0,217
+train_prdlst_nm_2,"dictionary<values=string, indices=int16, ordered=0>",0,0.0,217
+prduct_nm,large_string,1,0.0,270363
+mnfctur_cmpny_nm,large_string,293374,0.0,17191
+mnfctur_de,timestamp[ms],0,,3791
+date_basis,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,3
+addr,large_string,0,0.0,37803
+addr_source,"dictionary<values=string, indices=int8, ordered=0>",0,0.0,5
+legal_dong_code,"dictionary<values=string, indices=int16, ordered=0>",0,0.0,3767
+lat,float,0,,3589
+lon,float,0,,3561
+sgg_code,string,0,0.0,256

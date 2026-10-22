@@ -1,0 +1,109 @@
+{
+ "threshold_rule": "max_precision_at_recall>=0.80",
+ "score_version": "v4: 고르기 = 구간 가중 PR-AUC(0.5·0.3·0.2), 기준값 = 60개 h 합친 예측에서 Recall>=0.80 중 Precision 최대",
+ "model": "cat",
+ "params_source": "바닐라(기본 설정)",
+ "bundles": [
+  "wx"
+ ],
+ "drop_names": [],
+ "wvars": [
+  "avg_temp",
+  "max_temp",
+  "min_temp",
+  "rain",
+  "avg_wind",
+  "max_wind",
+  "sunshine",
+  "solar_rad",
+  "soil_t5",
+  "soil_t10",
+  "soil_t20",
+  "soil_t30",
+  "soil_t_nas",
+  "soil_moist",
+  "no2",
+  "so2",
+  "wind_dir_sin",
+  "wind_dir_cos"
+ ],
+ "bundles_source": "명령 옵션 --featset",
+ "k": {
+  "k": 10,
+  "used": false,
+  "selected_by_cv": null
+ },
+ "rounds": 309,
+ "cv_best_rounds": [
+  96,
+  783,
+  49
+ ],
+ "cv_mean": {
+  "wpr_auc": 0.07397412719334831,
+  "pr_auc": 0.06934832877403478,
+  "p_at_r": 0.010251335885862875,
+  "r_at_thr": 0.8001556720523575,
+  "wrecall": 0.8039745072772698,
+  "precision": 0.010257131780681876,
+  "recall": 0.8006822991952371,
+  "f1": 0.020253921758143906,
+  "accuracy": 0.6997419379248804,
+  "roc_auc": 0.8330121753112714,
+  "inspect_reduction": 0.6966375274522704,
+  "tp": 85.39444444444445,
+  "fp": 8242.383333333333,
+  "fn": 21.32777777777778,
+  "tn": 19204.988888888885,
+  "n": 27554.094444444443,
+  "top1": 0.2168685863706631,
+  "top5": 0.3890673898787436,
+  "top10": 0.524143247270442,
+  "top20": 0.6853869195414782
+ },
+ "threshold": {
+  "threshold": 0.0033987751230597496,
+  "precision": 0.009745196838010834,
+  "recall": 0.8,
+  "rule": "max_precision_at_recall>=0.80",
+  "n_candidates": 1980030
+ },
+ "test": {
+  "wpr_auc": 0.036158885888532354,
+  "pr_auc": 0.03616959880926327,
+  "wrecall": 0.8652378219018131,
+  "precision": 0.014253622974705065,
+  "recall": 0.863433572899227,
+  "f1": 0.028042380595242816,
+  "accuracy": 0.7214817566313462,
+  "roc_auc": 0.862462155093228,
+  "inspect_reduction": 0.7174634274132325,
+  "tp": 116.33333333333333,
+  "fp": 8047.216666666666,
+  "fn": 18.333333333333332,
+  "tn": 20777.2,
+  "n": 28959.083333333332,
+  "top1": 0.12400549902687458,
+  "top5": 0.31089773160697476,
+  "top10": 0.5160406093437232,
+  "top20": 0.7660343797375329,
+  "h_without_both_classes": [],
+  "threshold": 0.0033987751230597496,
+  "threshold_rule": "max_precision_at_recall>=0.80",
+  "p_pooled": 0.014250336352853027,
+  "r_pooled": 0.8638613861386139
+ },
+ "cat_learning_rate_fixed": 0.08551499744256337,
+ "test_access": [
+  {
+   "why": "final 시험 입력(wx)",
+   "at": "2026-10-22 15:49:18"
+  }
+ ],
+ "limitations": [],
+ "train_rows": 257042,
+ "train_pos": 973,
+ "test_pairs": 1737545,
+ "test_pos_pairs": 8080,
+ "finished_at": "2026-10-22 15:53:50"
+}

@@ -1,0 +1,18 @@
+[2026-10-22 15:34:42] ===== run3.py final --root /home/<user>/cyj_listeria/root3_base --model cat --vanilla --featset base --L 80 | pid 1442966 | L=80 | 장치 cpu | 시드 42 | 설정 /home/<user>/cyj_listeria/exp3/3_시간순교차검증/config3.json | OMP_NUM_THREADS=4
+[2026-10-22 15:34:45] 데이터 준비 3.9s: train 291,812행/양성 1,141, val 0행/양성 0, test 0행/양성 0 | 기상 W (256, 4573, 19) 2014-04-07~2026-10-13 | 이력 시료 628,517(검출 1,844), 날짜 2015-04-07~ 4103일
+[2026-10-22 15:34:45] 자료 준비 3.9s | 경계 {"data_end": "2026-06-30", "data_end_source": "시료 파일 mnfctur_de 최댓값", "test": {"t_start": "2025-07-01", "t_end": "2026-05-01", "d_range": ["2025-07-02", "2026-06-30"]}, "learn_end": "2025-06-30", "cv_end": "2025-06-30", "folds": [{"fold": 1, "train_end": "2022-06-30", "t_start": "2022-07-01", "t_end": "2023-05-01"}, {"fold": 2, "train_end": "2023-06-30", "t_start": "2023-07-01", "t_end": "2024-05-01"}, {"fold": 3, "train_end": "2024-06-30", "t_start": "2024-07-01", "t_end": "2025-05-01"}], "h_max": 60, "h_rule": "학습 행 h: 기준일 d <= 2024-06-30(마지막 겹 학습 끝) 행 = default_rng(seed), 그 뒤 ~ 2025-06-30(최종 학습 끝) 행 = default_rng(seed+1), 각각 단위 키+d 정렬 순서로 integers(1, 61)", "rule": "시험 = 데이터 마지막 1년(T ∈ [시험 시작, 데이터 끝 − 60일]), 겹 = 그 앞 해를 한 해씩(같은 규칙), 학습 = 각 겹 맞혀 보는 해 시작 전날까지(d ≤ 그해 시작 − 1일), 최종 = 시험 시작 전날까지. 결과 시차는 학습 범위에 반영하지 않음"} | 행 범위 전체
+[2026-10-22 15:37:26]   겹 1 자료: 학습 157,671행/검출 563, 맞혀 보는 (행,h) 1,601,116/검출 6708, 숫자 248칸 + 범주 4칸 (160.4s)
+[2026-10-22 15:39:52]   겹 2 자료: 학습 189,688행/검출 709, 맞혀 보는 (행,h) 1,654,771/검출 6474, 숫자 248칸 + 범주 4칸 (146.6s)
+[2026-10-22 15:42:19]   겹 3 자료: 학습 222,793행/검출 851, 맞혀 보는 (행,h) 1,703,850/검출 6028, 숫자 248칸 + 범주 4칸 (146.3s)
+/home/<user>/cyj_listeria/venv/lib/python3.12/site-packages/catboost/core.py:2627: UserWarning: Failed to import numba for optimizing custom metrics and objectives
+  _check_train_params(params)
+[2026-10-22 15:43:26]     겹 1: 구간 가중 PR-AUC 0.04287, 60일 평균 0.04131, P@R≥0.80 0.01042, 상위10% 0.4384, 최적 반복 96, 학습 58.3s, 예측 1.9s (157,671행 x 235+4칸)
+/home/<user>/cyj_listeria/venv/lib/python3.12/site-packages/catboost/core.py:2627: UserWarning: Failed to import numba for optimizing custom metrics and objectives
+  _check_train_params(params)
+[2026-10-22 15:47:58]     겹 2: 구간 가중 PR-AUC 0.11941, 60일 평균 0.11025, P@R≥0.80 0.01052, 상위10% 0.5662, 최적 반복 783, 학습 263.1s, 예측 1.7s (189,688행 x 235+4칸)
+/home/<user>/cyj_listeria/venv/lib/python3.12/site-packages/catboost/core.py:2627: UserWarning: Failed to import numba for optimizing custom metrics and objectives
+  _check_train_params(params)
+[2026-10-22 15:48:57]     겹 3: 구간 가중 PR-AUC 0.05964, 60일 평균 0.05648, P@R≥0.80 0.00981, 상위10% 0.5677, 최적 반복 49, 학습 49.5s, 예측 1.7s (222,793행 x 235+4칸)
+[2026-10-22 15:48:58] final: 교차검증 구간 가중 PR-AUC 0.07397, P@R 0.01025, 최적 반복 [96, 783, 49] -> 최종 반복 309, 기준값(세 겹 합친 행 max_precision_at_recall>=0.80) 0.003399 (합친 Precision 0.00975, Recall 0.80000)
+[2026-10-22 15:53:50] final 끝: 시험 구간 가중 PR-AUC 0.03616, Precision 0.01425, Recall 0.86343, 검사축소율 0.7175
+[2026-10-22 15:53:50] ===== final 끝 1148s (최소 여유 메모리 76.7 GB, 최대 RSS 14.8 GB, 최소 디스크 남은 공간 33.4 GB)

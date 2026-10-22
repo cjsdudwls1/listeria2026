@@ -1,0 +1,19 @@
+출처 머리말: ('PRDLST_CD', 'KOR_NM', 'LV', '수분활성도', '수분함량', '식품 pH', '염도', None, None)
+값 코드 653 출처 코드 653 코드 같음 True
+수분활성도: 값 있는 코드 464 중 출처 칸이 빈칸 아님 440
+식품 pH: 값 있는 코드 382 중 출처 칸이 빈칸 아님 371
+염도: 값 있는 코드 500 중 출처 칸이 빈칸 아님 484
+A0600100200000 양배추 | 엑셀 aw 0.975 | 출처: 이미라. (2007). 급식소에서 제공되는 비가열조리 음식의 위해요인 분석과 HACCP 제도 적용 후 위생개선효과 (Doctoral dissertation, 성신여자대학교 대학원).
+A0600202000000 치커리(잎) | 엑셀 aw 0.986 | 출처: 이미라. (2007). 급식소에서 제공되는 비가열조리 음식의 위해요인 분석과 HACCP 제도 적용 후 위생개선효과 (Doctoral dissertation, 성신여자대학교 대학원).
+B0206010500000 소라 | 엑셀 aw '≥0.95' | 출처: Kyo-Yeon Lee, Jae-Bong Jung, Chan-Yang Park, Ah-Na Kim, Seul-Ah So, M. Shafiur Rahman, Sung-Gil Choi. (2016). Effect of Pre-soaking with Salt and Sugar Treatmen
+C0308030000000 건면 | 엑셀 aw 0.51 | 출처: Rhee, S.K., Lee, K.B., Son, J.Y. (1999). Prediction of shelf-life and quality changes of dried noodle during storage period
+C0316040000000 건조저장육류 | 엑셀 aw '0.85-0.93' | 출처: U.S. Food and Drug Administration. (2016, August). Hazard analysis and risk-based preventive controls for human food: Draft guidance for industry: Chapter 4—Pre
+C0319030100000 조미건어포 | 엑셀 aw '0.6~0.85' | 출처: Fitri, N., Chan, S. X. Y., Che Lah, N. H., Jam, F. A., Misnan, N. M., Kamal, N., ... & Abas, F. (2022). A comprehensive review on the processing of dried fish a
+C0319030200000 건어포 | 엑셀 aw '0.6~0.85' | 출처: Fitri, N., Chan, S. X. Y., Che Lah, N. H., Jam, F. A., Misnan, N. M., Kamal, N., ... & Abas, F. (2022). A comprehensive review on the processing of dried fish a
+C0319030300000 기타 건포류 | 엑셀 aw '0.48~0.66' | 출처: Kim, J. H., Choi, H. S., Lee, S. H., Hong, J. H., & Kim, J. C. (2007). Comparative analysis of the physicochemical properties of sun-dried and natural cyclic fr
+C0318010100000 우유 | 엑셀 aw '0.98<' | 출처: International Commission on Microbiological Specifications for Foods. (1980). Microbial ecology of foods: Vol. 1. Factors affecting life and death of microorgan
+C0318010200000 환원유 | 엑셀 aw '0.98<' | 출처: International Commission on Microbiological Specifications for Foods. (1980). Microbial ecology of foods: Vol. 1. Factors affecting life and death of microorgan
+C0318020100000 강화우유 | 엑셀 aw '0.98<' | 출처: International Commission on Microbiological Specifications for Foods. (1980). Microbial ecology of foods: Vol. 1. Factors affecting life and death of microorgan
+C0318020200000 유산균첨가우유 | 엑셀 aw '0.98<' | 출처: International Commission on Microbiological Specifications for Foods. (1980). Microbial ecology of foods: Vol. 1. Factors affecting life and death of microorgan
+C0318020300000 유당분해우유 | 엑셀 aw '0.98<' | 출처: International Commission on Microbiological Specifications for Foods. (1980). Microbial ecology of foods: Vol. 1. Factors affecting life and death of microorgan
+C0318030000000 산양유 | 엑셀 aw '0.98<' | 출처: International Commission on Microbiological Specifications for Foods. (1980). Microbial ecology of foods: Vol. 1. Factors affecting life and death of microorgan
