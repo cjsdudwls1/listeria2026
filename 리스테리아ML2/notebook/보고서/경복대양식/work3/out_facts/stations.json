@@ -1,0 +1,62 @@
+{
+ "ASOS": {
+  "table": "api_data_info.kma_asos_daily_info",
+  "rows": 410789,
+  "stations": 99,
+  "date_min": "2015-01-01",
+  "date_max": "2026-10-13"
+ },
+ "NAS": {
+  "table": "api_data_info.nas_agri_weather_daily_info",
+  "rows": 993368,
+  "stations_all": 219,
+  "stations_used": 218,
+  "excluded": "561034A001(동방로거테스트, 사용자 결정 2026-10-06)",
+  "date_min": "2008-01-01",
+  "date_max": "2026-10-13"
+ },
+ "AIR": {
+  "table": "api_data_info.keco_airkorea_fine_dust_info",
+  "rows": 2201436,
+  "stations_in_daily": 692,
+  "stations_with_coord": 673,
+  "stations_without_coord": [
+   "난지도리(폐쇄)",
+   "남산동(폐쇄)",
+   "남중동",
+   "노원동(폐쇄)",
+   "동대문(폐쇄)",
+   "동탄기흥로",
+   "부곡동",
+   "석사동",
+   "송정1동(폐쇄)",
+   "송정동 대기환경측정소",
+   "송정동(봉명동)",
+   "신흥동",
+   "야음동",
+   "원시동",
+   "정곡리(폐쇄)",
+   "중동(유해+중금속)",
+   "지품면(폐쇄)",
+   "진상면(폐쇄)",
+   "호매실동(폐쇄)"
+  ],
+  "date_min": "2015-01-01",
+  "date_max": "2026-10-13"
+ },
+ "rates": {
+  "sample_det_rate_pct": 0.2933890411874301,
+  "unitday_pos_rate_pct": 0.39100516771071786,
+  "learn_pos_rate_pct": 0.3785373596532862,
+  "testperiod_pos_rate_pct": 0.4831751509922347,
+  "fold1_pair_pos_rate_pct": 0.41895777695057695,
+  "fold2_pair_pos_rate_pct": 0.39123238200331045,
+  "fold3_pair_pos_rate_pct": 0.3537870117674678,
+  "test_pair_pos_rate_pct": 0.46502392743785054,
+  "overseas_share_pct": 7.0422160468278845,
+  "domestic_det_share_pct": 93.65159979685119,
+  "date_basis_request_pct": 52.945584606303406,
+  "date_basis_mnf_pct": 47.0529834515216,
+  "learn_rows_share_of_all_pct": 88.08479431963045
+ }
+}
