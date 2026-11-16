@@ -1,0 +1,105 @@
+- [Python env: use py launcher](python-env-use-py-launcher.md) — anaconda python crashes from shell tools; `py` (3.14) has openpyxl, pandas 깨짐(10-14 dateutil 없음) → pyarrow 로 읽기
+- [Hazard data-source sheet red items](hazard-data-source-red-items.md) — red text in column D of 위해요소별_중요인자_데이터출처.xlsx = factors to collect; parse with openpyxl rich_text (old parse_red_items.py was deleted)
+- [User: Korean language](user-korean-language.md) — 사용자는 한국인, 모든 답변 한국어로
+- [Listeria variable mapping](listeria-variable-mapping.md) — 매핑 결과 xlsx(리스테리아ML/docs), 테이블정의서 색상 의미(모델팀본 노란색=judge_result, 20260901본 노랑·초록=수동 표시 변수 14개), DB에 없는 변수 목록
+- [wx160 아플라톡신 parquet 구조](wx160-aflatoxin-parquet-structure.md) — _00=기준일 당일, wx_key 지점코드, 리스테리아 결합 시 domestic 92.9%/overseas 8.5% 커버
+- [TOXIN DB read-only rule](toxin-db-read-only-rule.md) — TOXIN_MODEL_PRED([IP 가림]) 공용 [권한 가림] 계정: SELECT·다운로드만, 서버/계정 설정·TEMP 테이블 금지, 접속 정보는 리스테리아ML/.env(09-28~, 값 출력 금지)
+- [Listeria DB structure findings](listeria-db-structure-findings.md) — parquet 원천=staging_data.export_body_listeria, export 3열=build_export_qual, IM02 기타=검출 82%, 코드분류 IM*, 조인키·원재료 테이블, 수입 농산물 리스테리아 0행
+- [Feedback: memo examples are illustrations](feedback-memo-examples-generalize.md) — 메모 속 구체 사례(수입 연어 등)는 예시일 뿐, 일반 질문으로 넓혀서 다루기
+- [Listeria nb3 DB join findings](listeria-nb3-db-join-findings.md) — 결과보고 v3 위치, ASOS 강수 NULL=무강수 근거(11-03 0mm 채움 확정), 날짜 무관 최근접 관측소→개설·폐쇄로 행 없음, NAS 시험용 관측소, t_aw_cl=리서치팀 파일(원본 엑셀은 11-12 사용자 '쓰레기' → 삭제, DB 표만), 매핑 엑셀 오류
+- [nb2 main checkout user edits](listeria-nb2-main-checkout-user-edits.md) — 사용자가 메인 체크아웃 2.ipynb 를 직접 편집함; 덮어쓰기 전 커밋본과 셀 단위 비교 후 수정 반영
+- [Feedback: question list format](feedback-question-list-format.md) — 질문 문서: 임의 분석 단정 금지·전부 질문형, 근거는 DB·조인→작업→결과 캡처→상황→의문, 개조식 (책임 문제)
+- [Listeria question list doc](listeria-question-list-doc.md) — 질문 리스트 워드 현재 v0.3(15문항: 타겟 범위 A1~A10, 기상 연결 B1~B5) 위치·노트북 태그 셀 기반 생성기·레이아웃 교훈
+- [Listeria nb4 weather/scope findings](listeria-nb4-weather-scope-findings.md) — 4.ipynb 결과(추정): 가공식품 기온 신호 시도 보정 뒤 약함, '기타' 구성 착시, parquet 이 검사기관 주소 행 제외, 기준 날짜별 연결률
+- [Feedback: raw data, no preprocessing](feedback-raw-data-no-preprocessing.md) — DB 수집은 원자료 그대로; 결측 채움·단위 변환·필터·집계는 사용자 승인 후에만 (2026-09-14 강하게 지적)
+- [Feedback: report plain language](feedback-report-plain-language.md) — 교수님 보고 문서: 내부 약어(출처 rN)·모호어(부분·대체) 금지, 주장마다 판단 근거, 결측 컬럼별 이유, 0 포함 명시, 문자보고는 한글명만, DB 원값은 칼럼명과 함께
+- [Listeria share dataset](listeria-share-dataset.md) — 공유용/ 조인 178열 데이터셋(09-17), 기상 항목별 최근접·_dist_km/_stn, 관측소 좌표는 시료 파일 lat·lon 필수, 재생성 순서
+- [Listeria ledg join verification](listeria-ledg-join-verification.md) — 품목제조대장 ledg_* 조인 검증: 키·규칙 맞음(재구현 불일치 0, 99.7% 연결), 번호 재사용·대장번호 중복·이력 표 없음·컬럼사전 문구 누락 (2026-09-17); 09-28 pog_daycnt 조인(노트북 6-2) 사용자 규칙=원문 일치만·여러 행이면 연결 안 함, 결측 71.67%
+- [PENDING: ledg 숫자만 번호 변환 식정원 검증](pending-ledg-digit-number-verification.md) — 최종 데이터셋 확정할 때만 알림(평소 언급 금지): '20110476011-5→201104760115' 변환이 식정원 방식인지 내부 관계자 검증 필요, 사용자가 검증했다고 할 때까지 유지
+- [Git: GitHub 비공개 원격 복구](listeria-git-github-remote.md) — 2026-09-22 로컬 전용 규칙 해제, origin=cjsdudwls1/listeria2026(비공개)·사용자 요청 시 push, worktree 금지·data/collected 제외·계정 파일 커밋 금지 유지
+- [Feedback: sample-file coords for matching](feedback-sample-file-coords.md) — 좌표 매칭은 항상 시료 파일 lat·lon(DB 좌표 금지), float32 등호 0건 주의, 조인 데이터셋 기상·대기 43칼럼은 규칙 준수 확인 (2026-09-17)
+- [Listeria global country tables join](listeria-global-country-tables-join.md) — 해외 표 4개 수입 시료 연결률(날씨·pH 95.6%), 탈락=국가코드 없음 1,964·글자값 142, 나라 지점까지 중앙값 431km, 미세먼지 표 09-14 조회 사실 (2026-09-17)
+- [Listeria overseas weather & lifecycle brief](listeria-overseas-weather-lifecycle-brief.md) — 해외 기상 표 현황, 선적일 행 좌표 검증(한국 좌표 20행·일본 시설 4,194행·geocode_status), 제조~섭취 데이터 유무·연결률 (2026-09-15)
+- [Listeria item-code tables](listeria-item-code-tables.md) — 품목 계층=t_prdlst_cl(14자리), staging_data.prdlst_* 라벨 중간 표, parquet train 라벨 DB와 9,236행 차이(미결), 빈 라벨 C0111=코드없음(결정 55-1)
+- [Feedback: exact table names](feedback-exact-table-names.md) — "몸통·표" 같은 별칭 금지, 스키마.테이블·컬럼 이름으로 말하기 (2026-09-22 지적)
+- [HWP generation via pyhwpx + hwpx XML](hwp-generation-via-pyhwpx-hwpx.md) — 참고 hwp 서식 그대로 첨부 문서 만드는 절차(COM 변환·section0.xml 생성·linesegarray 금지·PDF→PNG 검수·스타일 ID 표) (2026-09-22)
+- [Feedback: 양성률 = 전체 양성 중 비중](feedback-positive-rate-means-share.md) — 사용자의 "양성률"은 그룹 내 검출률(검출/행수)이 아니라 유니크 값별 전체 검출 중 비중(검출/전체 검출×100); 표·그래프 기본 지표를 검출비중(%)으로 (2026-09-22)
+- [Listeria KNHANES 2024](listeria-knhanes-2024.md) — 국민건강영양조사 2024 SAS→knhanes_2024 parquet·컬럼 선정 xlsx, 시료와 공통 키·조사 날짜 없음, 식품코드별 성분 고정, 이용지침서·대응표 미결 (2026-09-28)
+- [Feedback: cite sources exactly](feedback-cite-sources-exactly.md) — 출처는 실제 출처(CLAUDE.md/메모리/DB)대로, 메모리 옛 수치를 CLAUDE.md 라 하지 말고 다시 재기, 표 구조는 조회 후 말하기 (2026-09-28 지적)
+- [Feedback: missing is not always bad](feedback-missing-not-always-bad.md) — 조인 결측률은 품목 분류·국내/수입별로 나눠 "원래 없는 행(원재료엔 제조공정 자료 없음)"과 "비어 있는 행"을 구분, 결측률만으로 후보 탈락 금지 (2026-10-06 지시)
+- [Feedback: own ideas, not the user's memo](feedback-own-ideas-not-user-memo.md) — 제안 요청에 memo.md 의 사용자 안을 되돌려 말하지 말 것, 데이터 먼저 재고 출처 확인한 자기 안 내기 (2026-10-06 지적)
+- [Feedback: brainstorm before downloading](feedback-brainstorm-before-download.md) — 아이디어를 묻는 열린 질문에는 내려받기·조사 작업 없이 대화로 먼저, 받아서 시험하는 것은 사용자가 고른 뒤 (2026-10-06 작업 중단 뒤 지시)
+- [Listeria external data candidates](listeria-external-data-candidates.md) — DB 밖 수집 후보: 검출 행은 번호 키가 없어 주소·날짜·제품명으로만 붙음, FDA 통관 거부 파일 주소·실측(한국 팽이버섯 151건), 확인된 공개 자료와 쓸모없는 것, 상세는 작업기록 2026-10-06 (결정 전), 수질오염원(축사·하수 포함) 수집은 접음(10-08 결정, 다시 제안 금지)
+- [Feedback: no background-knowledge labels](feedback-no-background-knowledge-labels.md) — DB 코멘트·정의서·실제 값에 없는 표현(예: "재분석 격자 값")·넘겨짚은 해석 금지, 출처 문구 그대로, 없으면 "설명 없음 — 확인 필요" (2026-10-01 지적)
+- [Listeria ML2 dataset](listeria-ml2-dataset.md) — 식품·토양 parquet 결측 구조, 교수님 전달용 데이터셋.parquet(10-08, 676,459×2,166) 위치·확정 조인 규칙·미결, 재실행은 사용자가 시킬 때만
+- [Feedback: kill only own processes](feedback-kill-only-own-processes.md) — 프로세스 종료는 내가 띄운 것만(PID·시작 시각·내 임시 경로 확인), 명령줄 패턴으로 ipykernel 을 죽여 사용자 커널 2개를 종료한 실수 (2026-10-06)
+- [Feedback: no rerun without asking](feedback-no-rerun-without-asking.md) — 코드 수정 요청에는 코드만, 노트북 재실행·데이터셋 덮어쓰기는 사용자가 시킬 때만 (2026-10-08 재실행 산출물 삭제 지시)
+- [Listeria sample file changed 10-12](listeria-sample-file-changed-1012.md) — **시료 파일 = 리스테리아ML/data/listeria_data.parquet**(676,520×25, train_prdlst_code_2), 검출 1,969, 작업 전 data/ 목록 확인
+- [SPI drought index data](spi-drought-index-data.md) — 표준강수지수 CSV 2개(외부_데이터/, cp949, 66지점=ASOS), 가까운 3곳 평균·D-0~D-180, 2014년치 포털 수집 지시 (10-12~14)
+- [Feedback: ask consent for new changes](feedback-ask-consent-for-new-changes.md) — 사용자가 모르는 새 결정·수정사항은 임의로 정하지 말고 그때그때 물어 동의받기 (2026-10-12 두 번 지시)
+- [Listeria 10-12 decisions](listeria-1012-decisions.md) — 해외(src_route=overseas) 행 전부 삭제(예측 대상 아님)·영업 인허가 대장 제외·lv 칼럼 따로 조인 안 함·교수님 레포 Listeria/ 배치 유지·Listeria_05 전체 데이터 실행(AutoGluon·MLflow) 요청 (2026-10-12)
+- [Feedback: delegate to agents, conduct only](feedback-delegate-to-agents-conduct-only.md) — 큰 작업은 실제 작업을 에이전트에게 맡기고 나는 지휘(지시·점검·사용자 질문)만, 보고서는 파일로 중간 저장 (2026-10-12 지시)
+- [Listeria 10-12 professor call](listeria-1012-professor-call.md) — 조상구 교수님 통화 지시: 시계열(기상)만 따로 모델(이동평균 차감 피처·LSTM/트랜스포머 vs XGBoost), LIMS 는 랜덤 포레스트만, VAE 다음 주, 60일치 예측 미정, 10-16 금요일 정리, 전사본 위치 (2026-10-12)
+- [Feedback: no unrequested deliverables](feedback-no-unrequested-deliverables.md) — 시키지 않은 전달용 문서(교수님께 보낼 요약 등) 만들지 말 것, 내가 만든 `교수님_전달용_요약.md` 를 "필요 없음, 삭제"라고 함 (2026-10-12)
+- [Feedback: explain first, work on order](feedback-explain-first-work-on-order.md) — 질문엔 기록으로 상황 설명부터, 재측정·DB 조회는 지시받을 때만 (2026-10-14 지적)
+- [Listeria exp1 baseline decisions](listeria-exp1-baseline-decisions.md) — 1번 베이스라인: 림스+기상 60일 예측, 시도·시군구 문자형, h 1~60, 기상 최대 100일, test 2025-07-01~2026-06-30 (10-13)
+- [Listeria production-unit inputs](listeria-production-unit-inputs.md) — 입력은 운영 단위(시군구×2단계×3단계)에서 만들 수 있는 값만(10-14 원칙), 기상은 시군구 대표값, 교수님 레포 재확인(10-15)
+- [Listeria DB sigungu weather tables](listeria-db-sigungu-weather-tables.md) — DB 시군구 기상은 2026 아플라톡신분뿐, 대표 좌표 kma_sigungu_point(98.61%)·korea_region_code 시군구청(99.52%) (10-15)
+- [Listeria restart 10-16 tasks](listeria-restart-1016-tasks.md) — 회의 과업(window 길이→baseline 비교표→파생변수), 교수님 test set 선정 지시는 없었음(사용자 착각), 리스테리아ML2 기존 산출물 전부 잘못·처음부터, 시군구 기준 재구축·미상 대응표 초안 (2026-10-16)
+- [Listeria individual report HWP](listeria-individual-report-hwp.md) — 상시 지시: 모든 작업을 04_개별 보고서_리스테리아_v1.hwp 에 틈틈이 쓰고 바뀌면 고칠 것, 서식은 패류독소 v1.2 와 똑같이, 한글 자동화 보안모듈 레지스트리 해결법 (2026-10-16)
+- [Feedback: report TOC is an example](feedback-report-toc-is-example.md) — 개별 보고서의 기존 목차는 예시일 뿐, 작업 흐름에 맞게 절 구성해도 됨(서식만 통일) (2026-10-16)
+- [Listeria task2 model/window exp](listeria-task2-model-window-exp.md) — 과업 2 결정(10-16): 4모델 100일→선정 모델 window 10~100→baseline, 단위×날짜 묶음·시도+시군구·트리 요약/원값 둘 다·불균형 처리 안 함·당일 기상 제외, 과업 3 대기, 보관/리스테리아ML2_20261016 삭제
+- [Listeria 10-17 professor call](listeria-1017-professor-call.md) — 교수님 통화: 그룹핑 OK, 다음 주 고위험 품목만 모델·SMOTE/WOE·과거 이력 파생변수(검사 건수 log, 1년/5년 검출률 스무딩)·로지스틱·외부 지표(지하수·유기농)·제품명 입력 여부 확인·60일 방식 정렬·h별 확률 변화 확인·실험 로그
+- [Feedback: no professor attribution](feedback-no-professor-attribution.md) — 보고서에 '(연구 책임 교수 의견, 날짜)' 출처 표기 달지 말 것 (2026-10-17)
+- [Food safety index docs](food-safety-index-docs.md) — 교수님 식품안전지수 PPT·엑셀: 지표 25개(17 아님)·전부 전국 연 1값·지역 지표 6개(음용지하수 적합률·GAP/유기 재배면적 등)와 출처 (2026-10-17)
+- [Listeria name/external features 10-19](listeria-name-external-features-1019.md) — 제품명 뭉치 N0~N2·HACCP·지하수·유기GAP 승인, 특성은 [질문] 세션·실험은 [1번 베이스라인 실험 다시] 세션(exp/2_고도화), 약속 파일 경로, 건수 칸 날짜 시계 교훈, 인허가 대장 제외 이유 기록 없음
+- [GPU server usage](gpu-server-usage.md) — 팀 공용 A100 40GB·RAM 94GB 서버: 쓸 수 있고 더 나으면 서버 GPU 사용(사용자 규칙), 접속 정보는 천영진/GPU 서버 사용법.md(11-12 7z로 묶었다 되돌림, 값 출력 금지), GPU 분할 없음·공용 계정 주의, 측정 배수 (2026-10-19)
+- [Listeria test T-basis scoring](listeria-test-T-basis-scoring.md) — 시험·검증 점수는 예측하는 날 T(=d−h) 기준(시험 2025-07-01~2026-05-01), rescore_T.py, 결론 불변 (10-19)
+- [Listeria model/feature-search plan 10-19](listeria-model-featsel-plan-1019.md) — 모델 추가·변수 탐색 제안(TCN·PatchTST·시간순 접기 등) — 사용자가 모델 넓히기 취소·선정 기준 변경 안 함·HPO 안 함으로 채택 안 됨(그때 실험 한정 — 11-06 최종 계획엔 사용자가 TCN 넣음), .venv-exp2 설치 패키지 실측 (2026-10-19)
+- [Listeria exp2 review 10-19](listeria-exp2-review-1019.md) — 2차 검토: 검증 점수가 학습 직후 60일(검출 23/122, PR-AUC 0.19~0.32)에 쏠림·검증으로 A3=E00 구분 안 됨·A3 결과 시차·logn 날짜 시계·N2/N0 당일 정보, 보강안 결정 전 (2026-10-19)
+- [Listeria AE·VAE·이력 추가 10-19](listeria-ae-vae-hist-1019.md) — AE·VAE 입력 표·시퀀스 둘 다·A3 CatBoost+1칸, 1년 log 검사 수·불확실성(베타 사후 SD) 3칸씩, AutoGluon 나중, 실험 세션이 구현·실행 수락(ID A3_L1·S_AEt 등, 위약 포함), 끝나면 재채점 (2026-10-19)
+- [Feedback: no std-dev caveats](feedback-no-stddev-caveats.md) — 실험 결과는 점수만: 표준편차·신뢰구간·부트스트랩·"흔들림/구분 안 됨" 단서 금지, 기준 대비 좋아짐/낮아짐만 숫자로; 위약판 같은 장치 이름은 뜻부터 풀기 (2026-10-19 두 번 지적)
+- [Feedback: ask via [종합] session](feedback-ask-via-jonghap-session.md) — 10-19~ 사용자는 [종합] 세션만 봄: 다른 세션은 AskUserQuestion·needs input 금지, 질문·결정·보고는 SendMessage 로 "[종합]"에
+- [Feedback: report F2 & figures](feedback-report-f2-figures.md) — 보고서 점수는 F2 중심+Recall·Precision·혼동행렬, 표·그림 적극; 10-20부터 판정 기준값 = 검증 Recall≥0.8 중 Precision 최대, 모델·창 선정 = 검증 PR-AUC
+- [Listeria reports 10-19](listeria-reports-1019.md) — [종합] 지휘: 1차 window·모델 비교표, 1차 보고서(골라 주세요), 경복대 양식 보고서(전처리·EDA·변수·알고리즘), 세션 역할·경로·한글 잠금 파일, 이상치 탐지(AE·VAE) 포함 (2026-10-19)
+- [Feedback: reports self-contained & short](feedback-report-self-contained-short.md) — 모든 보고서: 다른 문서 언급(계획서 n절) 금지, 우리 실험 전부를 한 순서대로 점진적으로, 분량 최소(116쪽의 1/10 이하도 길다) — 짧은 글+표·그림 (2026-10-19)
+- [Feedback: batch results report](feedback-batch-results-report.md) — 중간 결과 따로 보고 말고 다 끝난 뒤 한 번에, 보고서 작성은 사용자가 시킬 때 한 번에 (2026-10-20)
+- [Listeria result lag 90d](listeria-result-lag-90d.md) — 결과는 분기마다 DB에 올라옴 → T−90 안(10-20 낮)은 같은 날 저녁 최종 사양에서 '반영 안 함'으로 바뀜(3차 코드도 반영 안 함, 10-26 확인), 아플라톡신은 의뢰일+30일
+- [Feedback: report reader-first](feedback-report-reader-first.md) — 내부 용어 금지, permutation importance 근거 소개, 억지 번역 금지(train/test/fold/window 등 그대로), 절 번호 참조 금지 (10-22)
+- [Listeria report structure 10-22](listeria-report-structure-1022.md) — 3차 연구 보고서 구성(경복대 I·II 틀, 베이스라인 → 특성공학 순, 20쪽 안팎, 특성마다 왜·어떻게·쓰임) + 앞으로 실제로 할 실험 7개(다음엔 학습 행에 h 60개 전부 — 서버에서, 가능하면)
+- [Feedback: no relay before plan final](feedback-no-relay-before-plan-final.md) — 계획 검수 중엔 결정마다 실험 세션에 고치기·점검 지시 보내지 말 것, 계획서에만 모으고 사용자가 '확정'할 때 한 번에 (2026-10-20 지적)
+- [Listeria 10-20 professor call](listeria-1020-professor-call.md) — 교수님 통화로 방식 변경: 홀드아웃 1년 + 시간순 교차검증 3겹; 최종 계획 = 사양_20261020.md 개정판(고르기 PR-AUC·기준값 Recall0.8·결과 시차 90일·겹 학습 끝 −90일·k 교차검증·묶음 섞기 중요도·뭉치 한계), 학습은 [종합] '시작' 뒤 (2026-10-20)
+- [Feedback: trace data to source system](feedback-trace-source-system.md) — 공공데이터 파일 기간이 모자라면 원천 조회 시스템·KOSIS 지역통계까지 보고 '없음' 결론 (친환경 2014~2015 enviagro, 2026-10-26)
+- [Feedback: subagent effort medium](feedback-subagent-effort-medium.md) — 에이전트 effort: 작은 작업 medium, 복잡한 작업 high (2026-10-26)
+- [Listeria experiments & schedule 10-26](listeria-experiments-schedule-1026.md) — 실험 4개 이름(교수님 1·2번, 내 1·2번)·순위·마감, 내 2번에 일사량·낙농장 밀도 추가 지시(10-29)
+- [Listeria 4th exp plan](listeria-4th-exp-plan.md) — '교수님 2번 실험' 계획 `ML2/exp/다음실험_계획_4차.md`: 식품 속성 DB 품목코드 고정표·train 행당 h 1개 유지·제품명 넣되 쓰인 컬럼만·행 기준 재계산(10-26 밤 취소, 시료 기준 유지)·조기 종료는 3차대로 평균(10-27 통일 취소)·씨앗 1개 (2026-10-26)
+- [Listeria my1 results 10-26](listeria-my1-results-1026.md) — 내 1번(3차 − 튜닝 − 제품명) 결과: test 구간 가중 0.0470·평균 0.0482 대 베이스라인 0.0362, 변수 19개(생장 범위·지하수·1년 로그·WOE·불확실성 제외), 이상치 넣은 판, 트리 27, test Recall 0.665, 파일 위치 (2026-10-26)
+- [Feedback: wait for plan confirmation](feedback-wait-for-plan-confirmation.md) — 계획서 확정 전엔 코드 수정·점검·실행 시작 금지: [종합] 사양 변경은 '계획 확정'/'시작' 올 때까지 기록만, 에이전트에 안 넘김 (2026-10-20 "확정된 것도 아닌데 자꾸 시작한다")
+- [Feedback: HTML review gate](feedback-html-review-gate.md) — 실험 실행 전 4개 실험 과정·설정 비교 HTML(실험비교/ build.py, 근거 줄 대조)을 보여 주고 일괄 승인받기, '시작할까요' 먼저 묻지 말 것 (2026-10-26)
+- [Feedback: midcheck report rules](feedback-midcheck-report-rules.md) — 중간점검 보고서 규칙(댓글 41개: 용어 학습/검증/평가, 줄표 '-'만, 별첨 굵게, 파일명 금지), 1차=baseline·2차=변수 더한 모델 (10-27)
+- [Listeria prof dataset 10-27](listeria-prof-dataset-1027.md) — 교수님 전달용 시료 단위 데이터셋 전달_20261027(628,517×3,957), 친환경 2014~15 취소, 주의점 2개 교수님께 알리기(11-03)
+- [Feedback: check professor directives file](feedback-check-professor-directives-file.md) — 실험 계획마다 `리스테리아ML2/exp/교수님_지시_모음.md`(통화·카톡 원문+날짜)와 대조, 새 통화는 원문 추가 (2026-10-30)
+- [Feedback: Bash sandbox vs Downloads](feedback-bash-sandbox-downloads.md) — Bash cp 로 Downloads 에 넣으면 실제 디스크에 안 생김(10-27 v3 사고) → PowerShell Copy-Item 후 PowerShell 로 존재·해시 확인
+- [Listeria overseas inclusion exp 10-29](listeria-overseas-inclusion-exp-1029.md) — 내 1번을 해외 행 포함해 재실행·비교: 변수 전부(해외 null)·global_factory_weather 좌표 그대로·단위 맞춤, 결과: 검증 국내 −0.002·시험 국내 +0.011 (10-30)
+- [Feedback: light review then proceed](feedback-light-review-then-proceed.md) — 검수는 가볍게: 에이전트 1개·effort 낮게·바뀐 곳·상중만, 하만 남으면 내가 고치고 진행(11-06 "토큰낭비너무 심함"), HTML 게이트·승인 대기 생략(10-29)
+- [Feedback: rerun on failure](feedback-rerun-on-failure.md) — 학습이 멈추면(메모리 오류 등) 건너뛰거나 실패로 넘기지 말고, 원인 없앤 뒤 그 알고리즘·그 판부터 다시 돌려 완전한 결과 (11-06)
+- [Listeria 11-02 final integrated plan](listeria-1102-final-integrated-plan.md) — 실험 전부 처음부터: 최종실험_계획_20261102.md(GitHub PR #13 병합 11-07 — 단계 0 확정 기록, PR #12 = 해외 기상 DB 값만·1차=2차 기상·2-0 = 1차 A 판, PR #11 = 2차 세 단계 틀·5·6 따로·쌓기) = 1차(window 하나·1차 베이스라인) → 2차(준비 + 13 구조 각자 변수 빼기 → 결합·다운사이징·튜닝 사슬, 결합 모델도 구조), 결정 이력은 파일 본문
+- [Listeria livestock join 11-03](listeria-livestock-join-1103.md) — 축사: 국내 모집 지역 28곳뿐, 결정 35(시군구 10km²당·해외 나라별), 해외는 데이터 팀 조인; 11-04 저녁 최종v2 시군구 집계 = 외부_수집/축사/축사_시군구별_농장수.xlsx(우리 데이터와 안 합침)
+- [Feedback: no report files](feedback-no-report-files.md) — 조사·검수 결과를 별도 보고서 md 로 쌓지 말고 계획서 본문·대화로만, 11-03 보고서·옛 계획·지난 실험 삭제 지시(휴지통으로, 인용 원문·데이터는 남기고 알림)
+- [Feedback: no product-name info](feedback-no-product-name-info.md) — 제품명 정보는 변수·라벨 추정 근거·보고·주의점 어디에도 안 씀, 코드 체계·모델팀 라벨로만 판단 (2026-11-03 지적)
+- [Feedback: no AP anywhere](feedback-no-ap-anywhere.md) — 실험 결과에 AP 는 보고 표·결과 파일 어디에도 안 적음, 지표는 trapz PR-AUC 하나 (2026-11-04)
+- [Feedback: do all professor suggestions](feedback-do-all-professor-suggestions.md) — 교수님이 말한 실험 안은 전부 계획에 넣어 실행, 엇갈리면 사용자에게 물어 지금 결정 — 확인 대기 두지 않음(10-29·11-04·11-06), 단 말씀 의도를 먼저 — 단계마다 반복 판으로 부풀리지 말 것(11-06 ⑤ 삭제)
+- [Feedback: don't modify expert sources](feedback-dont-modify-expert-sources.md) — 식품 전공자가 준 문헌·식은 임의로 고쳐 쓰지 않음, 오류는 근거와 함께 알리고 고친 판을 받아 씀 (11-04)
+- [Feedback: plan = short how-to](feedback-plan-short-howto.md) — 계획서는 할 일·방법만(이력·날짜·인용·안 쓰는 항목 X), 맥락 모르는 적대적 검수 + 교수님 지시 대조를 지적 없을 때까지 반복 (11-05)
+- [Feedback: answer before review](feedback-answer-before-review.md) — 질문엔 답부터 바로, 사용자 변동사항 회신 뒤에 반영·검수(답 전에 검수 돌려 버림, 11-06 강한 지적)
+- [Feedback: code review before run](feedback-code-review-before-run.md) — 실험 코드는 짤 때마다 돌리기 전에 맥락 없는 검수 에이전트 검수 → 지적 고친 뒤 실행 (11-06)
+- [PENDING: 리서치 변수 결과 보고](pending-research-variables-report.md) — 실험 끝나면 꼭: 14쪽 PDF 일사량·축사·p12 변수의 기존 모델 대비 향상·어떤 변수가 나은지, 연구원께 복붙용 정리(수정중 PDF·Koutsoumanis 폐기) (11-04)
+- [Listeria final stage 0 run](listeria-final-stage0-run.md) — 최종 실험 코드·서버 결과 경로·MLflow 서버(5055)·얼린 코드 사본으로 긴 실행·7-a 결과·0-9 진행 (2026-11-07)
+- [Feedback: share compute when results identical](feedback-share-compute-same-results.md) — 결과가 같으면 입력·평가 쌍 계산을 공유해 시간 절약(1-1 세 알고리즘 입력 공유, 11-07 "앞으로도 같은결과면 이렇게 절약")
+- [Feedback: per-h metrics always viewable](feedback-per-h-metrics-always.md) — 모든 판 h 1~60 × 지표별 점수 바로 볼 수 있게(h_metrics.csv·내보내기 명령, 보고서용, 11-07)
+- [Listeria domestic-only version (폐기)](listeria-domestic-only-version-1109.md) — 11-09 병행 시작한 국내만 버전, 11-12 사용자 "멈추고 다 버려. 국내판은 쓸모없음"으로 폐기(결과·MLflow 삭제), 다시 제안 금지
+- [Feedback: keep server disk light](feedback-keep-server-disk-light.md) — 공용 서버 디스크: 끝난 판은 바로 로컬로 받고(md5 대조) 서버 큰 파일 지움, 필요할 때만 다시 올림 (11-07)
+- [Feedback: 메모장 = Notepad](feedback-notepad-not-sticky-notes.md) — "메모장"은 윈도우 메모장, 스티커 메모 아님; 저장 안 된 탭은 TabState\*.bin(UTF-16LE)에서 읽기 (11-11 지적)
+- [Feedback: use stage labels, not run IDs](feedback-use-stage-labels-not-run-ids.md) — 결과 표 설명은 표의 '단계' 칸 이름으로만, 3-0-LSTM 같은 판 이름 쓰지 말 것 (2026-11-13 지적)
+- [Listeria tech-verification package](listeria-tech-verification-package.md) — 11-13: '2차: 13구조 1위'(갱신 전 원래 판) 독립 기술검증 패키지, 양식 아플라톡신 패키지, 산출 Downloads\리스테리아_기술검증_제출패키지, 재현성·비결정성 명시
+- [Feedback: name techniques, not people](feedback-name-techniques-not-people.md) — '손 교수 방식' 같은 사람 이름·번호 대신 기법 이름(연도별 무작위 언더샘플링 등)으로, 보고서·패키지·엑셀·대화 모두 (2026-11-13)
