@@ -1,0 +1,13 @@
+{
+ "name": "2-1-k030",
+ "stage": "2-1",
+ "spec_md5": "7e033bc791a43ed40a756d4d076559c9",
+ "code_md5": "ba06ee18452d7969d218177bc540e67a",
+ "cv_band_weighted": 0.027220516953096626,
+ "many_ties": false,
+ "selection_count": 146,
+ "mlflow_run_id": "a243171bc65d4fbea9dfbb4900937d93",
+ "seconds_total": 1132.22,
+ "group": null,
+ "smoke": null
+}

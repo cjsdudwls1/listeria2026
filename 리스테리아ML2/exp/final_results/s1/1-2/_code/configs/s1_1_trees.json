@@ -1,0 +1,48 @@
+{
+ "plan": "단계 1-1 트리 window 탐색 — §6 1차 1-1, §0, §3, 부록 A-9·A-12·A-14·A-15 (60 설정, 라이브러리 기본 설정)",
+ "stage": "1-1",
+ "order": "1차",
+ "experiment": "listeria-1차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "incomplete_months": "s0/0-1/apply/12_incomplete_months.json",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "te7a_dir": "s0/0-10",
+ "n_jobs": 8,
+ "seed": 42,
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "log_pred_artifacts": true,
+ "algorithms": [
+  "XGB",
+  "LGB",
+  "CAT"
+ ],
+ "W_grid": [
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100
+ ],
+ "modes": [
+  "sum",
+  "raw"
+ ],
+ "input_set": "1차-트리",
+ "model_params": {},
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet"
+  },
+  "data": {},
+  "y_cut": "2025-06-30"
+ }
+}

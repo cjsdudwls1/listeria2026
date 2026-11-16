@@ -1,0 +1,101 @@
+{
+ "plan": "단계 0-9 시간 측정 — §6 단계 0-9, §3(최대 반복 2배·상한 16,000), §8 일정, 부록 A-9·A-7·A-15·B-1 (fold 3, 대리 설정 W 100 원값·§5 후보 전부·k 50·N_ma 15)",
+ "stage": "0-9",
+ "experiment": "listeria-준비",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "theil_targets": "s0/0-1/apply/14_theil_target_columns.json",
+ "sample_file": "리스테리아ML/data/listeria_data.parquet",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "spi_domestic_obs": "s0/0-4_spi/SPI_국내_관측_0-4.parquet",
+   "spi_domestic_fc": "s0/0-4_spi/SPI_국내_예보_0-4.parquet",
+   "spi_overseas": "s0/0-4_spi/SPI_해외_0-4.parquet",
+   "food_table": "s0/0-6_static/식품_고정표.parquet",
+   "livestock": "s0/0-6_static/축사_L1.parquet",
+   "missing_lists": "s0/0-6_missing/missing_lists.json"
+  },
+  "data": {
+   "soil": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+   "global_soil_ph": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet",
+   "eco": "리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet",
+   "gw": "리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet"
+  },
+  "y_cut": "2025-06-30"
+ },
+ "n_jobs": 8,
+ "seed": 42,
+ "gpu_memory_fraction": 0.4,
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": false,
+ "fold": "fold3",
+ "proxy": {
+  "W": 100,
+  "mode": "raw",
+  "k": 50,
+  "n_ma": 15,
+  "n_ma_dl": 15
+ },
+ "max_iter_start": 2000,
+ "importance_M": 10,
+ "dl_proxy_arch": "LSTM",
+ "optuna_cache_val": false,
+ "autokeras": {
+  "timing_arch": "LSTM",
+  "check_rows": 4096,
+  "check_epochs": 1,
+  "mapping": {
+   "LSTM": {
+    "supported": true,
+    "seq": "rnn",
+    "layer_type": "lstm",
+    "note": "RNNBlock(layer_type='lstm' 고정 — 층 수·양방향은 AutoKeras 탐색)"
+   },
+   "GRU": {
+    "supported": true,
+    "seq": "rnn",
+    "layer_type": "gru",
+    "note": "RNNBlock(layer_type='gru' 고정)"
+   },
+   "LSTMA": {
+    "supported": true,
+    "seq": "rnn",
+    "layer_type": "lstm",
+    "note": "AutoKeras 에 attention 블록 없음 — 시퀀스 갈래를 RNNBlock(lstm) 으로만(담당자 확인)"
+   },
+   "GRUA": {
+    "supported": true,
+    "seq": "rnn",
+    "layer_type": "gru",
+    "note": "AutoKeras 에 attention 블록 없음 — 시퀀스 갈래를 RNNBlock(gru) 으로만(담당자 확인)"
+   },
+   "TCN": {
+    "supported": true,
+    "seq": "conv",
+    "note": "ConvBlock(입력 3차원 → Conv1D) — 인과·dilation 합성곱 아님(담당자 확인)"
+   },
+   "CMB": {
+    "supported": true,
+    "seq": "rnn",
+    "layer_type": "lstm",
+    "note": "시계열 갈래 RNNBlock(lstm)(트랜스포머 1블록 대응 없음), 정형 갈래 DenseBlock(담당자 확인)"
+   },
+   "TRF": {
+    "supported": false,
+    "reason": "AutoKeras 3.0.0 공개 블록에 실수 시퀀스용 트랜스포머 인코더 없음(TextBlock 은 토큰 입력)"
+   },
+   "CMBV": {
+    "supported": false,
+    "reason": "VAE 손실(재구성 MSE + KL)을 AutoKeras 그래프로 못 만듦(부록 A-7 예시)"
+   }
+  },
+  "decision": "담당자 결정 2026-11-07: 가까운 블록으로 튜닝 — lst/tuning.py AK_PROPOSAL 그대로(LSTM·GRU·LSTMA·GRUA·CMB = RNNBlock, TCN = ConvBlock, TRF·CMBV·⑦-D = 튜닝 안 함)",
+  "approx_note": "근사 블록: LSTMA·GRUA 는 attention(MultiHeadAttention·잔차·LayerNorm)이 빠진 RNNBlock, TCN 은 인과·dilation 합성곱이 아닌 일반 ConvBlock, CMB 는 시계열 갈래의 트랜스포머 인코더 1블록이 빠진 RNNBlock(lstm) — 튜닝 대상 구조와 같은 구조가 아니라 가까운 블록 그래프를 탐색함. TRF·⑦-D 는 AutoKeras 3.0.0 에 실수 시퀀스용 트랜스포머 블록이 없고, CMBV 는 VAE 손실을 그래프로 못 만들어 튜닝 안 함."
+ },
+ "schedule_start": null,
+ "child_timeout_s": null
+}

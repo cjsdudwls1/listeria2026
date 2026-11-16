@@ -1,0 +1,108 @@
+{
+  "name": "global_weather_info",
+  "table": "api_data_info.global_weather_info",
+  "where": null,
+  "plan": "§4-4 해외 나라 기상(1차 = DB 값만), 부록 A-2 DB 칼럼 대응·보정 겹치는 기간·Open-Meteo 좌표, 부록 A-13 global_weather_info 좌표",
+  "sql": "select \"alpha_3\", \"date\", \"sunshine_duration\", \"precipitation_sum\", \"wind_speed_max\", \"wind_speed_mean\", \"temperature_min\", \"temperature_max\", \"temperature_mean\", \"relative_humidity_mean\", \"shortwave_radiation_sum\", \"soil_moisture_mean\", \"lat\", \"lon\", \"country_lat\", \"country_lon\", \"name_ko\" from \"api_data_info\".\"global_weather_info\"",
+  "count_sql": "select count(*) from \"api_data_info\".\"global_weather_info\"",
+  "rows": 1068459,
+  "db_count": 1068459,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "alpha_3",
+      "parquet_type": "string"
+    },
+    {
+      "name": "date",
+      "parquet_type": "date32[day]"
+    },
+    {
+      "name": "sunshine_duration",
+      "parquet_type": "double"
+    },
+    {
+      "name": "precipitation_sum",
+      "parquet_type": "double"
+    },
+    {
+      "name": "wind_speed_max",
+      "parquet_type": "double"
+    },
+    {
+      "name": "wind_speed_mean",
+      "parquet_type": "double"
+    },
+    {
+      "name": "temperature_min",
+      "parquet_type": "double"
+    },
+    {
+      "name": "temperature_max",
+      "parquet_type": "double"
+    },
+    {
+      "name": "temperature_mean",
+      "parquet_type": "double"
+    },
+    {
+      "name": "relative_humidity_mean",
+      "parquet_type": "double"
+    },
+    {
+      "name": "shortwave_radiation_sum",
+      "parquet_type": "double"
+    },
+    {
+      "name": "soil_moisture_mean",
+      "parquet_type": "double"
+    },
+    {
+      "name": "lat",
+      "parquet_type": "double"
+    },
+    {
+      "name": "lon",
+      "parquet_type": "double"
+    },
+    {
+      "name": "country_lat",
+      "parquet_type": "double"
+    },
+    {
+      "name": "country_lon",
+      "parquet_type": "double"
+    },
+    {
+      "name": "name_ko",
+      "parquet_type": "string"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [
+    "sunshine_duration",
+    "precipitation_sum",
+    "wind_speed_max",
+    "wind_speed_mean",
+    "temperature_min",
+    "temperature_max",
+    "temperature_mean",
+    "relative_humidity_mean",
+    "shortwave_radiation_sum",
+    "soil_moisture_mean",
+    "lat",
+    "lon",
+    "country_lat",
+    "country_lon"
+  ],
+  "parquet_md5": "fbf7aabd6abbdd781ef44a16250aa9a5",
+  "parquet_bytes": 19367602,
+  "started_at": "2026-11-07T00:50:56+09:00",
+  "seconds": 10.5,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

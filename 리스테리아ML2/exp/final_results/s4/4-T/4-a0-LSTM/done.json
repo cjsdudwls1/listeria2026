@@ -1,0 +1,13 @@
+{
+ "name": "4-a0-LSTM",
+ "stage": "4",
+ "spec_md5": "1a20bfc58f6bdf4bfa1bb32510f3a03b",
+ "code_md5": "ad0a5ffea2ed8e78197b4a4b14fbe2ac",
+ "cv_band_weighted": 0.007737862007771656,
+ "many_ties": false,
+ "selection_count": 195,
+ "mlflow_run_id": "4ee9302b4dfb4dc1947ca09e3efeae97",
+ "seconds_total": 2725.01,
+ "group": null,
+ "smoke": null
+}

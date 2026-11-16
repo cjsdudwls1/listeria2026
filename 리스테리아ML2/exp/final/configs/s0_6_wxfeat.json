@@ -1,0 +1,18 @@
+{
+ "plan": "단계 0-6 기상 파생 WX3~WX6 점검(fold 1 train 행 일부, 칼럼 결측 수·범위만) — §5 표, 부록 A-3, §6 단계 0-6",
+ "inputs": {
+  "samples": "s0/0-1/apply/samples.parquet",
+  "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+  "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet"
+ },
+ "growth_xlsx": "리스테리아ML2/data/데이터셋/리스테리아 생장식.xlsx",
+ "split": "fold1",
+ "n_rows": 20000,
+ "row_seed": 0,
+ "W": [10, 60, 100],
+ "food_table": {"path": "s0/0-6_static/식품_고정표.parquet", "key": "p3", "aw": "food_aw", "ph": "food_ph"},
+ "soil": {
+  "domestic": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+  "overseas": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "name": "3-0-LSTM-KO1",
+ "stage": "3-0",
+ "spec_md5": "3da2110acabcdafd79b0dd9347373f70",
+ "code_md5": "441a4e579cbc0867e2986f986e50dadb",
+ "cv_band_weighted": 0.030824592828841244,
+ "many_ties": false,
+ "selection_count": 224,
+ "mlflow_run_id": null,
+ "seconds_total": 4041.75,
+ "group": null,
+ "smoke": null
+}

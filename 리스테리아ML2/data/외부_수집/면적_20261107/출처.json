@@ -1,0 +1,48 @@
+{
+ "fetched_by": "scripts/s0_6_area_fetch.py",
+ "python": "3.14.0",
+ "items": [
+  {
+   "name": "molit_jijeok_2300_columns",
+   "file": "molit_jijeok_2300_columns_2025.json",
+   "url": "https://stat.molit.go.kr/portal/stat/columns.do?formId=2300&styleNum=2",
+   "base_year": 2025,
+   "description": "국토교통부 지적통계 '행정구역별·지목별 국토이용현황_시군구'(국토교통 통계누리 formId 2300) 칼럼 정의 — 매년 12월 31일 지적공부 등록 면적",
+   "fetched_utc": "2026-11-06T23:29:43+00:00",
+   "bytes": 10152,
+   "md5": "15f881c2f3173e2fe93105860833e054",
+   "status": 200,
+   "last_modified": null,
+   "content_type": "application/text;charset=utf8",
+   "final_url": "https://stat.molit.go.kr/portal/stat/columns.do?formId=2300&styleNum=2"
+  },
+  {
+   "name": "molit_jijeok_2300_data",
+   "file": "molit_jijeok_2300_data_2025.json",
+   "url": "https://stat.molit.go.kr/portal/stat/data.do?formId=2300&styleNum=2&apprYn=Y&startDate=2025&endDate=2025",
+   "base_year": 2025,
+   "description": "같은 표 2025년 값(단위 ㎡·필지) — 2025-12-31 기준",
+   "fetched_utc": "2026-11-06T23:29:43+00:00",
+   "bytes": 313010,
+   "md5": "c13236f2f01666f92f588b4450c3b21f",
+   "status": 200,
+   "last_modified": null,
+   "content_type": "application/text;charset=utf8",
+   "final_url": "https://stat.molit.go.kr/portal/stat/data.do?formId=2300&styleNum=2&apprYn=Y&startDate=2025&endDate=2025"
+  },
+  {
+   "name": "faostat_landuse_bulk",
+   "file": "Inputs_LandUse_E_All_Data_(Normalized).zip",
+   "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip",
+   "base_year": 2024,
+   "description": "FAOSTAT Land Use(RL) 일괄 파일 — 'Land area'(item 6601, element 5110 Area, 1000 ha), 쓰는 연도 = 2024(대상 94개 나라 모두 값 있는 마지막 해)",
+   "fetched_utc": "2026-11-06T23:29:45+00:00",
+   "bytes": 2970716,
+   "md5": "0c5cd521652ac5535fff638d867f975c",
+   "status": 200,
+   "last_modified": "Fri, 02 Oct 2026 08:15:20 GMT",
+   "content_type": "application/x-zip-compressed",
+   "final_url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip"
+  }
+ ]
+}

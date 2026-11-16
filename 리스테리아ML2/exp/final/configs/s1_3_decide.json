@@ -1,0 +1,11 @@
+{
+ "plan": "단계 1-3 정하기 — §6 1-3, §1-2 동점, 부록 A-12 동점 많은 판, A-15 선택 tag",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "dir_1_1": "s1/1-1",
+ "dir_1_2": "s1/1-2",
+ "config_1_1": "configs/s1_1_trees.json",
+ "config_1_2": "configs/s1_2_lstm.json",
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055"
+}

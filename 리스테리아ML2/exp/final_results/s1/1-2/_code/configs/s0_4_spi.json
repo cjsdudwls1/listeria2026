@@ -1,0 +1,25 @@
+{
+ "plan": "단계 0-4 SPI3·SPI6 — §4-5, §5 WX1, 부록 A-2(ASOS sum_rn 빈 값 = 무강수 0mm, 국내 가까운 3곳 = §4-3 규칙, SPI 칼럼 설명에 감마 적합 기간)",
+ "inputs": {
+  "kma_spi": "리스테리아ML2/data/외부_데이터/CLM_SPI_DD_합본_20140101_20261006.csv",
+  "asos_daily": "리스테리아ML2/data/raw/raw_kma_asos_daily_info.parquet",
+  "asos_station": "리스테리아ML2/data/raw/raw_kma_ground_obs_station_info.parquet"
+ },
+ "stage0_inputs": {
+  "sgg_coord": "s0/0-4_v2/시군구_대표좌표_0-4.parquet",
+  "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet"
+ },
+ "kma_columns": {
+  "spi3": "SPI3",
+  "spi6": "SPI6"
+ },
+ "months": [3, 6],
+ "pool_half_days": 15,
+ "fit_start": "2015-01-01",
+ "fit_end": "2026-06-30",
+ "rain_start": "2015-01-01",
+ "first_valid": {
+  "spi3": "2015-03-31",
+  "spi6": "2015-06-30"
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "inputs_md5": {
+  "member:3-3-RF:pred_fold1.parquet": "cec1dc448324218f85a75c1294a96220",
+  "member:3-3-RF:pred_fold2.parquet": "f7032cd74bb1658c83c0af681dfd5512",
+  "member:3-3-RF:pred_fold3.parquet": "a68c527ffceeecbfafe2b982c4400025",
+  "member:3-3-RF:pred_refit.parquet": "0dcd891059d8fa648f1d156643a00b3e",
+  "member:3-3-ET:pred_fold1.parquet": "d4ff6f3747301c379304b850b18f342a",
+  "member:3-3-ET:pred_fold2.parquet": "3af4c60790d5b2853de5402d114102d6",
+  "member:3-3-ET:pred_fold3.parquet": "0bc6eaf1255225542b3c1a25393085fb",
+  "member:3-3-ET:pred_refit.parquet": "6861aa479830c559b812e8c829da8a5f",
+  "member:3-3-CAT:pred_fold1.parquet": "ee4722f2273ed3c611560e88e8c448a0",
+  "member:3-3-CAT:pred_fold2.parquet": "0f5e792f54a18a1379a14c697d64d85d",
+  "member:3-3-CAT:pred_fold3.parquet": "1ea39a3355133414e49f6b6b8d88975d",
+  "member:3-3-CAT:pred_refit.parquet": "02b24fa24254a769f46c3e4fdb1d004c"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "3-3-T3",
+  "stage": "3-3",
+  "order": "2차",
+  "kind": "ensemble",
+  "algorithm": "T3",
+  "W": null,
+  "mode": null,
+  "input_set": "트리 상위 3개 (시료, h) 확률 단순 평균",
+  "role": "후보",
+  "train_count": 0,
+  "params": {},
+  "judgement": null,
+  "base_variant": null,
+  "extra": {
+   "members": [
+    {
+     "algorithm": "RF",
+     "name": "3-3-RF",
+     "source": "3-0-RF",
+     "pred_dir": "s3/3-0-T/3-0-RF"
+    },
+    {
+     "algorithm": "ET",
+     "name": "3-3-ET",
+     "source": "3-0-ET",
+     "pred_dir": "s3/3-0-T/3-0-ET"
+    },
+    {
+     "algorithm": "CAT",
+     "name": "3-3-CAT",
+     "source": "3-0-CAT",
+     "pred_dir": "s3/3-0-T/3-0-CAT"
+    }
+   ]
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-09T20:30:32+00:00",
+ "smoke": null
+}

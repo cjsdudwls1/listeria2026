@@ -1,0 +1,10 @@
+{
+ "name": "3-0-CAT",
+ "order": 2,
+ "W": 60,
+ "mode": "sum",
+ "include_ids": ["WEATHER", "HIS1", "HIS2", "HIS3", "HIS4", "WX1", "WX2", "WX3", "WX4", "WX5", "WX6", "WX7", "FD1", "SO1", "X1", "X2", "L1"],
+ "k": 50,
+ "n_ma": 15,
+ "n_ma_dl": 15
+}

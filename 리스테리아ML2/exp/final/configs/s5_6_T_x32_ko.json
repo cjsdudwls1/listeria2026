@@ -1,0 +1,69 @@
+{
+ "plan": "추가 비교 판(사용자 요청 2026-11-13): '결합 스태킹'(3-2-CAT = CatBoost + VAE 이상 점수)에 손 교수 방식(5) + 식품 고정표 v2 + Koutsoumanis 생장식 6칼럼 — val·test PR-AUC 만(최종 중요도·보고 안 함)",
+ "sub": "T",
+ "stage": "5-6-x32KO",
+ "order": "2차",
+ "experiment": "listeria-2차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "incomplete_months": "s0/0-1/apply/12_incomplete_months.json",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "te7a_dir": "s0/0-10",
+ "seed": 42,
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "log_pred_artifacts": false,
+ "n_jobs": 8,
+ "decision_1_3": "s1/1-3/1-3_decision.json",
+ "selection_2": "s2/2-select/2_prep_selection.json",
+ "dir_1_1": "s1/1-1",
+ "dir_1_2": "s1/1-2",
+ "chain_state_in": "logs/chain_state_x32.json",
+ "theil_targets": "s0/0-1/apply/14_theil_target_columns.json",
+ "dirs": {
+  "sel-hon5": "s5_6/sel-hon5",
+  "sel-hon6": "s5_6/sel-hon6",
+  "sel-stk-hon5": "s5_6/sel-stk-hon5",
+  "sel-stk-hon6": "s5_6/sel-stk-hon6",
+  "5-6-T": "s5_6/5-6-T-x32KO",
+  "5-6-judge": "s5_6/5-6-judge"
+ },
+ "gpu_memory_fraction": 0.25,
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "spi_domestic_obs": "s0/0-4_spi/SPI_국내_관측_0-4.parquet",
+   "spi_domestic_fc": "s0/0-4_spi/SPI_국내_예보_0-4.parquet",
+   "spi_overseas": "s0/0-4_spi/SPI_해외_0-4.parquet",
+   "food_table": "s0/0-6_static_v2/식품_고정표.parquet",
+   "livestock": "s0/0-6_static/축사_L1.parquet",
+   "missing_lists": "s0/0-6_missing/missing_lists.json"
+  },
+  "data": {
+   "soil": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+   "global_soil_ph": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet",
+   "eco": "리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet",
+   "gw": "리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet"
+  },
+  "y_cut": "2025-06-30"
+ },
+ "speed": {
+  "dl_keyed_inputs": true,
+  "fast_predict": true,
+  "gpu_importance": true,
+  "gpu_fraction_cap": 0.25
+ },
+ "rerun": {
+  "of": "5-CAT",
+  "of_dir": "s5_6/x32_spec/5-CAT",
+  "name": "5-3-2-CAT-KO",
+  "stage": "5-6-x32KO",
+  "reason": "'결합 스태킹'(3-2-CAT)을 바탕으로 손 교수 방식(5)·식품 고정표 v2·KO 6칼럼(사용자 요청 2026-11-13)",
+  "add_ids": [
+   "KO1"
+  ],
+  "compare": []
+ }
+}

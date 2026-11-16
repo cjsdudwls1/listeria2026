@@ -1,0 +1,17 @@
+{
+ "plan": "단계 4 준비: 줄이기(Theil's U 1위 칼럼, fold·refit 마다)·4-c 상위 5 품목 — §6 단계 4, 부록 A-6·B-8",
+ "sub": "prep",
+ "stage": "4",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "theil_targets": "s0/0-1/apply/14_theil_target_columns.json",
+ "dirs": {
+  "sel-reduce": "s4/sel-reduce",
+  "sel-top5": "s4/sel-top5",
+  "4-pre": "s4/4-pre",
+  "4-T": "s4/4-T",
+  "4-X1": "s4/4-X1",
+  "4-NN": "s4/4-NN",
+  "4-C": "s4/4-C",
+  "4-judge": "s4/4-judge"
+ }
+}

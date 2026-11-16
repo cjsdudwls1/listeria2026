@@ -1,0 +1,93 @@
+{
+ "code_md5": "407b74909b18408a29b5b7628c4e3af0",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "1-CAT-W070-sum",
+  "stage": "1-1",
+  "order": "1차",
+  "kind": "tree",
+  "algorithm": "CAT",
+  "W": 70,
+  "mode": "sum",
+  "input_set": "1차-트리",
+  "role": "후보",
+  "train_count": 4,
+  "params": {},
+  "judgement": "해당 없음",
+  "base_variant": null,
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER"
+    ]
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-07T18:04:58+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 341467,
+   "train_pos": 1045,
+   "n_pairs": 3765795,
+   "fit_seconds": 127.71,
+   "predict_seconds": 17.9,
+   "shared_train_input_seconds": 41.11,
+   "shared_eval_input_seconds": 501.74
+  },
+  "fold2": {
+   "train_rows": 416616,
+   "train_pos": 1279,
+   "n_pairs": 4070067,
+   "fit_seconds": 156.93,
+   "predict_seconds": 16.64,
+   "shared_train_input_seconds": 47.85,
+   "shared_eval_input_seconds": 446.51
+  },
+  "fold3": {
+   "train_rows": 497593,
+   "train_pos": 1491,
+   "n_pairs": 4430181,
+   "fit_seconds": 186.92,
+   "predict_seconds": 20.99,
+   "shared_train_input_seconds": 71.82,
+   "shared_eval_input_seconds": 487.01
+  },
+  "refit": {
+   "train_rows": 585102,
+   "train_pos": 1682,
+   "n_pairs": 4611605,
+   "fit_seconds": 219.03,
+   "predict_seconds": 19.8,
+   "shared_train_input_seconds": 64.12,
+   "shared_eval_input_seconds": 489.71
+  }
+ },
+ "seconds_own": 765.92,
+ "seconds_shared_inputs": 2149.87,
+ "group": [
+  "1-XGB-W070-sum",
+  "1-LGB-W070-sum",
+  "1-CAT-W070-sum"
+ ],
+ "resources_at_start": {
+  "available_ram_gb": 85.17650985717773,
+  "free_disk_gb": 27.494617462158203
+ },
+ "spec_md5": "83829705535a155f71fff9a7c9342bc9",
+ "smoke": null
+}

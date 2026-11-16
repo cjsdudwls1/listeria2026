@@ -1,0 +1,23 @@
+{
+ "arch": "LSTMA",
+ "cat_columns": null,
+ "cat_sizes": null,
+ "emb_dims": null,
+ "oov_index": 0,
+ "dims": {
+  "W": 60,
+  "C": 60,
+  "S": 2
+ },
+ "lr": 0.001,
+ "optimizer": "Adam",
+ "batch_size": 1024,
+ "max_epochs": 20,
+ "patience": 3,
+ "es_fraction": 0.1,
+ "es_unit": "(sgg, d)",
+ "loss": "binary_crossentropy",
+ "monitor": "es_binary_crossentropy",
+ "restore_best": true,
+ "n_params": 53379
+}

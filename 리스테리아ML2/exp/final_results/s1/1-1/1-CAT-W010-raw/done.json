@@ -1,0 +1,16 @@
+{
+ "name": "1-CAT-W010-raw",
+ "stage": "1-1",
+ "spec_md5": "18aa872e4ef3b15fe8ac2b39d6d63f52",
+ "code_md5": "407b74909b18408a29b5b7628c4e3af0",
+ "cv_band_weighted": 0.02060984030830376,
+ "many_ties": false,
+ "selection_count": 89,
+ "mlflow_run_id": "e9d0cf775da9402dbffe1f4cef3042c0",
+ "seconds_total": 1071.94,
+ "group": [
+  "1-LGB-W010-raw",
+  "1-CAT-W010-raw"
+ ],
+ "smoke": null
+}

@@ -1,0 +1,19 @@
+{
+ "name": "3-0-ET",
+ "stage": "3-0",
+ "spec_md5": "eeff3fb5b027021dc0fbb2b98b687be2",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.027736941988268413,
+ "many_ties": true,
+ "selection_count": 183,
+ "mlflow_run_id": "df1662a0cc15470bad4c1ec1bf464545",
+ "seconds_total": 1067.75,
+ "group": [
+  "3-0-XGB",
+  "3-0-LGB",
+  "3-0-CAT",
+  "3-0-RF",
+  "3-0-ET"
+ ],
+ "smoke": null
+}

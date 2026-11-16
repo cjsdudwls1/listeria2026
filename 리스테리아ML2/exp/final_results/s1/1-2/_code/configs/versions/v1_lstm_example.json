@@ -1,0 +1,8 @@
+{
+ "name": "1-LSTM-W060",
+ "order": 1,
+ "W": 60,
+ "mode": "sum",
+ "include_ids": ["WEATHER"],
+ "dl_layout": "standard"
+}

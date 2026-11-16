@@ -1,0 +1,76 @@
+{
+  "env_file": "리스테리아ML/.env",
+  "chunk_rows": 100000,
+  "statement_timeout_ms": 600000,
+  "tables": [
+    {
+      "name": "s_org_lims_data_info_listeria",
+      "table": "ba_data.s_org_lims_data_info",
+      "columns": [
+        "lims_seq",
+        "rcept_no",
+        "label",
+        "mnf_nation_cd",
+        "mnf_nation_nm"
+      ],
+      "where": "label = '리스테리아'",
+      "plan": "부록 A-2 해외 나라 코드 1순위 mnf_nation_cd (cntc_sys_key2 = rcept_no, label='리스테리아'), §2-3, RR4·RR5, 부록 B-6 원천별 빈 칸 비율"
+    },
+    {
+      "name": "hazard_preprocessed_data_nation",
+      "table": "ready_data.hazard_preprocessed_data",
+      "columns": [
+        "lims_data_key",
+        "hazard_label",
+        "cntc_sys_key2",
+        "prdctn_nation_code",
+        "orgplce_nation_code",
+        "import_nation_code"
+      ],
+      "where": "hazard_label = '리스테리아'",
+      "plan": "부록 A-2 해외 나라 코드 2~4순위 + s_org 잇는 키 cntc_sys_key2, 시료와 잇는 키 lims_data_key, 부록 B-6"
+    },
+    {
+      "name": "nation_code",
+      "table": "ba_data_info.nation_code",
+      "columns": null,
+      "where": null,
+      "plan": "부록 A-2 alpha-2·alpha-3 맞춤, §2-3 sgg = 'OV' + alpha-3"
+    },
+    {
+      "name": "global_weather_info",
+      "table": "api_data_info.global_weather_info",
+      "columns": null,
+      "where": null,
+      "plan": "§4-4 해외 나라 기상(1차 = DB 값만), 부록 A-2 DB 칼럼 대응·보정 겹치는 기간·Open-Meteo 좌표, 부록 A-13 global_weather_info 좌표"
+    },
+    {
+      "name": "global_soil_ph",
+      "table": "api_data_info.global_soil_ph",
+      "columns": null,
+      "where": null,
+      "plan": "§5 SO1 해외 pH = global_soil_ph.ph_mean, WX4 rg 토양 pH 3"
+    },
+    {
+      "name": "kma_sigungu_point",
+      "table": "api_data_info.kma_sigungu_point",
+      "columns": null,
+      "where": null,
+      "plan": "부록 A-2 국내 운영 예보 좌표, 단계 0-3 예보 좌표에 연결 안 되는 시군구 목록·예보 좌표 차이 측정(부록 A-13)"
+    },
+    {
+      "name": "p0830_fcst_long",
+      "table": "predict_data.p0830_fcst_long",
+      "columns": null,
+      "where": null,
+      "plan": "단계 0-3 국내 11일 예보 변수 목록(부록 A-13 예보 표)"
+    },
+    {
+      "name": "kma_weather_predict_info",
+      "table": "api_data_info.kma_weather_predict_info",
+      "columns": null,
+      "where": null,
+      "plan": "단계 0-3 국내 11일 예보 변수 목록(부록 A-13 예보 표)"
+    }
+  ]
+}

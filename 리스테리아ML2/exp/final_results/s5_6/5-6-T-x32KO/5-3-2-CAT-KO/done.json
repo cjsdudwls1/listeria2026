@@ -1,0 +1,37 @@
+{
+ "name": "5-3-2-CAT-KO",
+ "stage": "5-6-x32KO",
+ "spec_md5": "e6eeebb49ef2020931ac3876e7af35c4",
+ "code_md5": "6e20582664e0d8b4c5dc5bfe8c61a22c",
+ "cv_band_weighted": 0.035978006193558586,
+ "many_ties": false,
+ "selection_count": 223,
+ "mlflow_run_id": "763c06fde04b43ad9c44befa5b993605",
+ "seconds_total": 5867.37,
+ "group": null,
+ "smoke": null,
+ "n_iter": {
+  "max_iter": 2000,
+  "n_points": 56,
+  "cross_n": {
+   "fold1": 650,
+   "fold2": 800,
+   "fold3": 800
+  },
+  "common_n": 800,
+  "own_best_n": {
+   "fold1": 800,
+   "fold2": 650,
+   "fold3": 1850
+  },
+  "at_cap": false,
+  "train_rows": {
+   "fold1": 5225,
+   "fold2": 6395,
+   "fold3": 7455,
+   "refit": 8410
+  },
+  "learning_rate": 0.01198966676990191,
+  "max_iter_decided_here": false
+ }
+}

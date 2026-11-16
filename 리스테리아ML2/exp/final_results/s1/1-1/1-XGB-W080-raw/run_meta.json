@@ -1,0 +1,93 @@
+{
+ "code_md5": "407b74909b18408a29b5b7628c4e3af0",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "1-XGB-W080-raw",
+  "stage": "1-1",
+  "order": "1차",
+  "kind": "tree",
+  "algorithm": "XGB",
+  "W": 80,
+  "mode": "raw",
+  "input_set": "1차-트리",
+  "role": "후보",
+  "train_count": 4,
+  "params": {},
+  "judgement": "해당 없음",
+  "base_variant": null,
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER"
+    ]
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-07T22:18:05+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 341467,
+   "train_pos": 1045,
+   "n_pairs": 3765795,
+   "fit_seconds": 151.51,
+   "predict_seconds": 116.3,
+   "shared_train_input_seconds": 21.82,
+   "shared_eval_input_seconds": 292.46
+  },
+  "fold2": {
+   "train_rows": 416616,
+   "train_pos": 1279,
+   "n_pairs": 4070067,
+   "fit_seconds": 186.97,
+   "predict_seconds": 111.71,
+   "shared_train_input_seconds": 41.78,
+   "shared_eval_input_seconds": 283.35
+  },
+  "fold3": {
+   "train_rows": 497593,
+   "train_pos": 1491,
+   "n_pairs": 4430181,
+   "fit_seconds": 221.84,
+   "predict_seconds": 122.49,
+   "shared_train_input_seconds": 34.99,
+   "shared_eval_input_seconds": 313.39
+  },
+  "refit": {
+   "train_rows": 585102,
+   "train_pos": 1682,
+   "n_pairs": 4611605,
+   "fit_seconds": 262.82,
+   "predict_seconds": 125.33,
+   "shared_train_input_seconds": 40.73,
+   "shared_eval_input_seconds": 315.85
+  }
+ },
+ "seconds_own": 1298.97,
+ "seconds_shared_inputs": 1344.37,
+ "group": [
+  "1-XGB-W080-raw",
+  "1-LGB-W080-raw",
+  "1-CAT-W080-raw"
+ ],
+ "resources_at_start": {
+  "available_ram_gb": 85.12458801269531,
+  "free_disk_gb": 27.020999908447266
+ },
+ "spec_md5": "0fa5a73e157ae12dbef8a3ecd827a9ae",
+ "smoke": null
+}

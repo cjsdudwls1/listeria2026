@@ -1,0 +1,2396 @@
+{
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "x4-L6",
+  "stage": "3-2",
+  "order": "2차",
+  "kind": "tree",
+  "algorithm": "LR",
+  "W": 60,
+  "mode": "sum",
+  "input_set": "x4-LIMS(범주 5 + h·g) 스태킹",
+  "role": "교체 후보",
+  "train_count": 118,
+  "params": {},
+  "judgement": null,
+  "base_variant": null,
+  "extra": {
+   "stack": {
+    "base": [
+     "XGB",
+     "LGB",
+     "CAT",
+     "RF",
+     "ET",
+     "LR"
+    ],
+    "base_input": "범주 5 + h·g",
+    "base_params": "라이브러리 기본(반복 수 포함)",
+    "oof": "§7-3 fold 안 블록·전역 블록(같은 행 모델 재사용)",
+    "meta": "로지스틱(입력 p_<트리> 6칼럼, 표준화)",
+    "save_full_models": true
+   },
+   "cat_auto_lr": true
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-09T20:24:42+00:00",
+ "models": [
+  {
+   "algorithm": "XGB",
+   "model": "fold1-b1",
+   "aliases": [],
+   "roles": [
+    "fold1-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 8.2,
+   "seconds": 8.44
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold1-b2",
+   "aliases": [],
+   "roles": [
+    "fold1-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 4.37,
+   "seconds": 4.88
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold1-b3",
+   "aliases": [],
+   "roles": [
+    "fold1-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 4.67,
+   "seconds": 5.11
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 6.99,
+   "seconds": 7.83
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold1-full",
+   "aliases": [],
+   "roles": [
+    "fold1-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 9.3,
+   "seconds": 20.77
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold2-b1",
+   "aliases": [],
+   "roles": [
+    "fold2-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 12.38,
+   "seconds": 12.73
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold2-b2",
+   "aliases": [],
+   "roles": [
+    "fold2-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 10.67,
+   "seconds": 11.12
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold2-b3",
+   "aliases": [],
+   "roles": [
+    "fold2-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 9.06,
+   "seconds": 9.54
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 13.27,
+   "seconds": 26.8
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold3-b1",
+   "aliases": [],
+   "roles": [
+    "fold3-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 14.35,
+   "seconds": 14.88
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold3-b2",
+   "aliases": [],
+   "roles": [
+    "fold3-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 12.8,
+   "seconds": 13.3
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold3-b3",
+   "aliases": [],
+   "roles": [
+    "fold3-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 4.84,
+   "seconds": 5.38
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold3-b4",
+   "aliases": [],
+   "roles": [
+    "fold3-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 3.23,
+   "seconds": 3.77
+  },
+  {
+   "algorithm": "XGB",
+   "model": "fold3-full",
+   "aliases": [],
+   "roles": [
+    "fold3-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 4.11,
+   "seconds": 16.48
+  },
+  {
+   "algorithm": "XGB",
+   "model": "refit-b1",
+   "aliases": [],
+   "roles": [
+    "refit-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 4.38,
+   "seconds": 4.65
+  },
+  {
+   "algorithm": "XGB",
+   "model": "refit-b2",
+   "aliases": [],
+   "roles": [
+    "refit-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 3.68,
+   "seconds": 4.14
+  },
+  {
+   "algorithm": "XGB",
+   "model": "refit-b3",
+   "aliases": [],
+   "roles": [
+    "refit-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 3.6,
+   "seconds": 4.1
+  },
+  {
+   "algorithm": "XGB",
+   "model": "refit-b4",
+   "aliases": [],
+   "roles": [
+    "refit-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 3.57,
+   "seconds": 4.12
+  },
+  {
+   "algorithm": "XGB",
+   "model": "refit-full",
+   "aliases": [],
+   "roles": [
+    "refit-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 4.49,
+   "seconds": 15.89
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold1-b1",
+   "aliases": [],
+   "roles": [
+    "fold1-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 2.43,
+   "seconds": 2.71
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold1-b2",
+   "aliases": [],
+   "roles": [
+    "fold1-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 2.14,
+   "seconds": 2.53
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold1-b3",
+   "aliases": [],
+   "roles": [
+    "fold1-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 2.06,
+   "seconds": 2.47
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 2.21,
+   "seconds": 2.91
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold1-full",
+   "aliases": [],
+   "roles": [
+    "fold1-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 2.52,
+   "seconds": 13.09
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold2-b1",
+   "aliases": [],
+   "roles": [
+    "fold2-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 2.71,
+   "seconds": 2.97
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold2-b2",
+   "aliases": [],
+   "roles": [
+    "fold2-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 2.35,
+   "seconds": 2.75
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold2-b3",
+   "aliases": [],
+   "roles": [
+    "fold2-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 2.31,
+   "seconds": 2.74
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 2.75,
+   "seconds": 14.61
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold3-b1",
+   "aliases": [],
+   "roles": [
+    "fold3-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 2.92,
+   "seconds": 3.28
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold3-b2",
+   "aliases": [],
+   "roles": [
+    "fold3-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 2.66,
+   "seconds": 3.13
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold3-b3",
+   "aliases": [],
+   "roles": [
+    "fold3-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 2.56,
+   "seconds": 3.02
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold3-b4",
+   "aliases": [],
+   "roles": [
+    "fold3-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 2.5,
+   "seconds": 2.99
+  },
+  {
+   "algorithm": "LGB",
+   "model": "fold3-full",
+   "aliases": [],
+   "roles": [
+    "fold3-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 2.97,
+   "seconds": 14.65
+  },
+  {
+   "algorithm": "LGB",
+   "model": "refit-b1",
+   "aliases": [],
+   "roles": [
+    "refit-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 8.28,
+   "seconds": 8.58
+  },
+  {
+   "algorithm": "LGB",
+   "model": "refit-b2",
+   "aliases": [],
+   "roles": [
+    "refit-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 13.6,
+   "seconds": 14.17
+  },
+  {
+   "algorithm": "LGB",
+   "model": "refit-b3",
+   "aliases": [],
+   "roles": [
+    "refit-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 13.72,
+   "seconds": 14.45
+  },
+  {
+   "algorithm": "LGB",
+   "model": "refit-b4",
+   "aliases": [],
+   "roles": [
+    "refit-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 19.12,
+   "seconds": 19.9
+  },
+  {
+   "algorithm": "LGB",
+   "model": "refit-full",
+   "aliases": [],
+   "roles": [
+    "refit-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 19.28,
+   "seconds": 33.19
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold1-b1",
+   "aliases": [],
+   "roles": [
+    "fold1-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 79.54,
+   "seconds": 79.86
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold1-b2",
+   "aliases": [],
+   "roles": [
+    "fold1-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 59.51,
+   "seconds": 59.96
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold1-b3",
+   "aliases": [],
+   "roles": [
+    "fold1-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 44.05,
+   "seconds": 44.53
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 55.7,
+   "seconds": 56.56
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold1-full",
+   "aliases": [],
+   "roles": [
+    "fold1-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 68.28,
+   "seconds": 79.28
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold2-b1",
+   "aliases": [],
+   "roles": [
+    "fold2-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 75.89,
+   "seconds": 76.21
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold2-b2",
+   "aliases": [],
+   "roles": [
+    "fold2-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 74.69,
+   "seconds": 75.17
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold2-b3",
+   "aliases": [],
+   "roles": [
+    "fold2-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 71.51,
+   "seconds": 71.99
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 91.46,
+   "seconds": 103.09
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold3-b1",
+   "aliases": [],
+   "roles": [
+    "fold3-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 96.76,
+   "seconds": 97.23
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold3-b2",
+   "aliases": [],
+   "roles": [
+    "fold3-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 98.64,
+   "seconds": 99.26
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold3-b3",
+   "aliases": [],
+   "roles": [
+    "fold3-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 87.67,
+   "seconds": 88.13
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold3-b4",
+   "aliases": [],
+   "roles": [
+    "fold3-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 72.99,
+   "seconds": 73.54
+  },
+  {
+   "algorithm": "CAT",
+   "model": "fold3-full",
+   "aliases": [],
+   "roles": [
+    "fold3-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 107.93,
+   "seconds": 120.47
+  },
+  {
+   "algorithm": "CAT",
+   "model": "refit-b1",
+   "aliases": [],
+   "roles": [
+    "refit-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 143.11,
+   "seconds": 143.48
+  },
+  {
+   "algorithm": "CAT",
+   "model": "refit-b2",
+   "aliases": [],
+   "roles": [
+    "refit-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 98.67,
+   "seconds": 99.26
+  },
+  {
+   "algorithm": "CAT",
+   "model": "refit-b3",
+   "aliases": [],
+   "roles": [
+    "refit-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 95.53,
+   "seconds": 96.29
+  },
+  {
+   "algorithm": "CAT",
+   "model": "refit-b4",
+   "aliases": [],
+   "roles": [
+    "refit-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 109.61,
+   "seconds": 110.33
+  },
+  {
+   "algorithm": "CAT",
+   "model": "refit-full",
+   "aliases": [],
+   "roles": [
+    "refit-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 139.06,
+   "seconds": 150.65
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold1-b1",
+   "aliases": [],
+   "roles": [
+    "fold1-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 5.54,
+   "seconds": 5.83
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold1-b2",
+   "aliases": [],
+   "roles": [
+    "fold1-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 3.84,
+   "seconds": 4.28
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold1-b3",
+   "aliases": [],
+   "roles": [
+    "fold1-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 3.6,
+   "seconds": 4.12
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 4.44,
+   "seconds": 5.47
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold1-full",
+   "aliases": [],
+   "roles": [
+    "fold1-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 6.1,
+   "seconds": 17.94
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold2-b1",
+   "aliases": [],
+   "roles": [
+    "fold2-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 6.63,
+   "seconds": 6.93
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold2-b2",
+   "aliases": [],
+   "roles": [
+    "fold2-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 5.45,
+   "seconds": 5.87
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold2-b3",
+   "aliases": [],
+   "roles": [
+    "fold2-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 4.64,
+   "seconds": 5.08
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 7.63,
+   "seconds": 21.19
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold3-b1",
+   "aliases": [],
+   "roles": [
+    "fold3-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 9.42,
+   "seconds": 9.87
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold3-b2",
+   "aliases": [],
+   "roles": [
+    "fold3-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 6.8,
+   "seconds": 7.29
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold3-b3",
+   "aliases": [],
+   "roles": [
+    "fold3-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 5.95,
+   "seconds": 6.5
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold3-b4",
+   "aliases": [],
+   "roles": [
+    "fold3-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 5.9,
+   "seconds": 6.45
+  },
+  {
+   "algorithm": "RF",
+   "model": "fold3-full",
+   "aliases": [],
+   "roles": [
+    "fold3-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 10.6,
+   "seconds": 23.19
+  },
+  {
+   "algorithm": "RF",
+   "model": "refit-b1",
+   "aliases": [],
+   "roles": [
+    "refit-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 12.29,
+   "seconds": 12.6
+  },
+  {
+   "algorithm": "RF",
+   "model": "refit-b2",
+   "aliases": [],
+   "roles": [
+    "refit-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 9.31,
+   "seconds": 9.86
+  },
+  {
+   "algorithm": "RF",
+   "model": "refit-b3",
+   "aliases": [],
+   "roles": [
+    "refit-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 8.26,
+   "seconds": 8.82
+  },
+  {
+   "algorithm": "RF",
+   "model": "refit-b4",
+   "aliases": [],
+   "roles": [
+    "refit-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 7.71,
+   "seconds": 8.41
+  },
+  {
+   "algorithm": "RF",
+   "model": "refit-full",
+   "aliases": [],
+   "roles": [
+    "refit-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 14.03,
+   "seconds": 26.97
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold1-b1",
+   "aliases": [],
+   "roles": [
+    "fold1-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 3.98,
+   "seconds": 4.24
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold1-b2",
+   "aliases": [],
+   "roles": [
+    "fold1-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 2.99,
+   "seconds": 3.45
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold1-b3",
+   "aliases": [],
+   "roles": [
+    "fold1-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 2.83,
+   "seconds": 3.32
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 3.42,
+   "seconds": 4.37
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold1-full",
+   "aliases": [],
+   "roles": [
+    "fold1-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 4.26,
+   "seconds": 16.0
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold2-b1",
+   "aliases": [],
+   "roles": [
+    "fold2-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 4.92,
+   "seconds": 5.23
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold2-b2",
+   "aliases": [],
+   "roles": [
+    "fold2-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 3.84,
+   "seconds": 4.34
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold2-b3",
+   "aliases": [],
+   "roles": [
+    "fold2-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 3.57,
+   "seconds": 4.04
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 5.41,
+   "seconds": 19.65
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold3-b1",
+   "aliases": [],
+   "roles": [
+    "fold3-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 6.9,
+   "seconds": 7.46
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold3-b2",
+   "aliases": [],
+   "roles": [
+    "fold3-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 5.59,
+   "seconds": 6.16
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold3-b3",
+   "aliases": [],
+   "roles": [
+    "fold3-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 5.4,
+   "seconds": 6.1
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold3-b4",
+   "aliases": [],
+   "roles": [
+    "fold3-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 5.16,
+   "seconds": 5.81
+  },
+  {
+   "algorithm": "ET",
+   "model": "fold3-full",
+   "aliases": [],
+   "roles": [
+    "fold3-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 8.07,
+   "seconds": 22.13
+  },
+  {
+   "algorithm": "ET",
+   "model": "refit-b1",
+   "aliases": [],
+   "roles": [
+    "refit-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 8.74,
+   "seconds": 9.11
+  },
+  {
+   "algorithm": "ET",
+   "model": "refit-b2",
+   "aliases": [],
+   "roles": [
+    "refit-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 7.04,
+   "seconds": 7.66
+  },
+  {
+   "algorithm": "ET",
+   "model": "refit-b3",
+   "aliases": [],
+   "roles": [
+    "refit-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 6.62,
+   "seconds": 7.46
+  },
+  {
+   "algorithm": "ET",
+   "model": "refit-b4",
+   "aliases": [],
+   "roles": [
+    "refit-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 6.24,
+   "seconds": 6.93
+  },
+  {
+   "algorithm": "ET",
+   "model": "refit-full",
+   "aliases": [],
+   "roles": [
+    "refit-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 9.16,
+   "seconds": 22.82
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold1-b1",
+   "aliases": [],
+   "roles": [
+    "fold1-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 7.82,
+   "seconds": 8.31
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold1-b2",
+   "aliases": [],
+   "roles": [
+    "fold1-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 6.17,
+   "seconds": 7.08
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold1-b3",
+   "aliases": [],
+   "roles": [
+    "fold1-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 5.91,
+   "seconds": 6.99
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 6.64,
+   "seconds": 8.44
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold1-full",
+   "aliases": [],
+   "roles": [
+    "fold1-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 7.06,
+   "seconds": 35.81
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold2-b1",
+   "aliases": [],
+   "roles": [
+    "fold2-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 7.79,
+   "seconds": 8.17
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold2-b2",
+   "aliases": [],
+   "roles": [
+    "fold2-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 6.53,
+   "seconds": 7.37
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold2-b3",
+   "aliases": [],
+   "roles": [
+    "fold2-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 5.51,
+   "seconds": 6.87
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 9.28,
+   "seconds": 42.49
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold3-b1",
+   "aliases": [],
+   "roles": [
+    "fold3-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 8.74,
+   "seconds": 9.22
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold3-b2",
+   "aliases": [],
+   "roles": [
+    "fold3-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 7.58,
+   "seconds": 8.48
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold3-b3",
+   "aliases": [],
+   "roles": [
+    "fold3-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 6.49,
+   "seconds": 7.53
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold3-b4",
+   "aliases": [],
+   "roles": [
+    "fold3-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 8.55,
+   "seconds": 9.76
+  },
+  {
+   "algorithm": "LR",
+   "model": "fold3-full",
+   "aliases": [],
+   "roles": [
+    "fold3-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 11.05,
+   "seconds": 50.3
+  },
+  {
+   "algorithm": "LR",
+   "model": "refit-b1",
+   "aliases": [],
+   "roles": [
+    "refit-b1"
+   ],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 11.68,
+   "seconds": 12.26
+  },
+  {
+   "algorithm": "LR",
+   "model": "refit-b2",
+   "aliases": [],
+   "roles": [
+    "refit-b2"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 11.27,
+   "seconds": 12.32
+  },
+  {
+   "algorithm": "LR",
+   "model": "refit-b3",
+   "aliases": [],
+   "roles": [
+    "refit-b3"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 9.58,
+   "seconds": 10.79
+  },
+  {
+   "algorithm": "LR",
+   "model": "refit-b4",
+   "aliases": [],
+   "roles": [
+    "refit-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 9.17,
+   "seconds": 11.0
+  },
+  {
+   "algorithm": "LR",
+   "model": "refit-full",
+   "aliases": [],
+   "roles": [
+    "refit-full"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 14.21,
+   "seconds": 50.96
+  }
+ ],
+ "W_for_bounds": 60,
+ "smoke": null
+}

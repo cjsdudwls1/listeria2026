@@ -1,0 +1,13 @@
+{
+ "name": "2-1b-T-N07",
+ "stage": "2-1b",
+ "spec_md5": "d15fca79ad1bba3325e2b3080a24b21e",
+ "code_md5": "ba06ee18452d7969d218177bc540e67a",
+ "cv_band_weighted": 0.027342160463701446,
+ "many_ties": false,
+ "selection_count": 153,
+ "mlflow_run_id": "8fc5bdd93a9e44209ead85131c9c8d3f",
+ "seconds_total": 1130.47,
+ "group": null,
+ "smoke": null
+}

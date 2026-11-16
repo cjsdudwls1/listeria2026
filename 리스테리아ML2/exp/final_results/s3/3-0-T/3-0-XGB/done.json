@@ -1,0 +1,43 @@
+{
+ "name": "3-0-XGB",
+ "stage": "3-0",
+ "spec_md5": "c6b5c5ac27f2b68d3daf334d0e12dabd",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.010399415479521048,
+ "many_ties": true,
+ "selection_count": 179,
+ "mlflow_run_id": "54f963370ad84456881d328055cafb45",
+ "seconds_total": 4619.93,
+ "group": [
+  "3-0-XGB",
+  "3-0-LGB",
+  "3-0-CAT",
+  "3-0-RF",
+  "3-0-ET"
+ ],
+ "smoke": null,
+ "n_iter": {
+  "max_iter": 2000,
+  "n_points": 56,
+  "cross_n": {
+   "fold1": 10,
+   "fold2": 1700,
+   "fold3": 1700
+  },
+  "common_n": 1700,
+  "own_best_n": {
+   "fold1": 1700,
+   "fold2": 10,
+   "fold3": 10
+  },
+  "at_cap": false,
+  "train_rows": {
+   "fold3": 497593,
+   "fold1": 341467,
+   "fold2": 416616,
+   "refit": 585102
+  },
+  "learning_rate": null,
+  "max_iter_decided_here": true
+ }
+}

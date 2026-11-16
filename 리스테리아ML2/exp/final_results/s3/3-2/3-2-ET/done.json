@@ -1,0 +1,16 @@
+{
+ "name": "3-2-ET",
+ "stage": "3-2",
+ "spec_md5": "a6ca02ae9085600330196ceaccc9d282",
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "cv_band_weighted": 0.025396723451730052,
+ "many_ties": true,
+ "selection_count": 187,
+ "mlflow_run_id": "e5da1d11dd204c9d9563443a4b82f56a",
+ "seconds_total": 1224.03,
+ "group": [
+  "3-2-ET",
+  "3-2-CAT"
+ ],
+ "smoke": null
+}

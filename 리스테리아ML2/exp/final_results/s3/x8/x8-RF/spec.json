@@ -1,0 +1,51 @@
+{
+ "name": "x8-RF",
+ "stage": "⑧",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "RF",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "x8-RF-정형만",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7,
+   "exclude_groups": [
+    "기온",
+    "강수",
+    "바람",
+    "햇빛",
+    "지중온도",
+    "토양수분",
+    "습도",
+    "대기질"
+   ]
+  }
+ }
+}

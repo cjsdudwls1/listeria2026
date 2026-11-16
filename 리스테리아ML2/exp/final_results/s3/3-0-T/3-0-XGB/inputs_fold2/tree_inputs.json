@@ -1,0 +1,37 @@
+{
+ "spec": {
+  "name": "3-0-XGB",
+  "order": 2,
+  "W": 60,
+  "mode": "sum",
+  "include_ids": [
+   "WEATHER",
+   "HIS1",
+   "HIS2",
+   "HIS3",
+   "HIS4",
+   "WX1",
+   "WX2",
+   "WX3",
+   "WX4",
+   "WX5",
+   "WX6",
+   "WX7",
+   "FD1",
+   "SO1",
+   "X1",
+   "X2",
+   "L1"
+  ],
+  "include_units": [],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": 100,
+  "n_ma": 7,
+  "n_ma_dl": 7,
+  "tree_layout": "standard",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

@@ -1,0 +1,22 @@
+{
+ "name": "1-LSTM-W090",
+ "stage": "1-2",
+ "order": "1차",
+ "kind": "dl",
+ "algorithm": "LSTM",
+ "W": 90,
+ "mode": null,
+ "input_set": "1차-딥러닝",
+ "role": "후보",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER"
+   ]
+  }
+ }
+}

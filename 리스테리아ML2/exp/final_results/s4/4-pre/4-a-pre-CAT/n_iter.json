@@ -1,0 +1,233 @@
+{
+ "train_rows": {
+  "fold3": 166380,
+  "fold1": 124420,
+  "fold2": 141490,
+  "refit": 193010
+ },
+ "train_pos": {
+  "fold3": 14910,
+  "fold1": 10450,
+  "fold2": 12790,
+  "refit": 16820
+ },
+ "learning_rate": {
+  "fold_auto": {
+   "fold1": 0.04279600083827973,
+   "fold2": 0.045212000608444214,
+   "fold3": 0.04845099896192551
+  },
+  "mean": 0.04548633346954981,
+  "read_seconds": 2.23
+ },
+ "max_iter_source": {
+  "decided_here": true,
+  "record": {
+   "utc": "2026-11-08T18:00:44+00:00",
+   "pid": 2430800,
+   "event": "max_iter_decided",
+   "algorithm": "CAT",
+   "max_iter": 2000,
+   "at_cap": false,
+   "history": [
+    {
+     "max_iter": 2000,
+     "own_best_n": 130,
+     "last_point": 2000,
+     "n_points": 56,
+     "own_best_at_last": false,
+     "decided": true,
+     "next": null,
+     "at_cap": false
+    }
+   ],
+   "variant": "4-a-pre-CAT",
+   "stage": "4",
+   "code_md5": "d2577c144b8f3e877b48aab0a660f8e5"
+  },
+  "history": [
+   {
+    "max_iter": 2000,
+    "own_best_n": 130,
+    "last_point": 2000,
+    "n_points": 56,
+    "own_best_at_last": false,
+    "decided": true,
+    "next": null,
+    "at_cap": false
+   }
+  ]
+ },
+ "max_iter": 2000,
+ "points": [
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100,
+  110,
+  120,
+  130,
+  140,
+  150,
+  160,
+  170,
+  180,
+  190,
+  200,
+  250,
+  300,
+  350,
+  400,
+  450,
+  500,
+  550,
+  600,
+  650,
+  700,
+  750,
+  800,
+  850,
+  900,
+  950,
+  1000,
+  1050,
+  1100,
+  1150,
+  1200,
+  1250,
+  1300,
+  1350,
+  1400,
+  1450,
+  1500,
+  1550,
+  1600,
+  1650,
+  1700,
+  1750,
+  1800,
+  1850,
+  1900,
+  1950,
+  2000
+ ],
+ "selection": {
+  "points": [
+   10,
+   20,
+   30,
+   40,
+   50,
+   60,
+   70,
+   80,
+   90,
+   100,
+   110,
+   120,
+   130,
+   140,
+   150,
+   160,
+   170,
+   180,
+   190,
+   200,
+   250,
+   300,
+   350,
+   400,
+   450,
+   500,
+   550,
+   600,
+   650,
+   700,
+   750,
+   800,
+   850,
+   900,
+   950,
+   1000,
+   1050,
+   1100,
+   1150,
+   1200,
+   1250,
+   1300,
+   1350,
+   1400,
+   1450,
+   1500,
+   1550,
+   1600,
+   1650,
+   1700,
+   1750,
+   1800,
+   1850,
+   1900,
+   1950,
+   2000
+  ],
+  "cross_n": {
+   "fold1": 950,
+   "fold2": 60,
+   "fold3": 70
+  },
+  "common_n": 70,
+  "fold_score": {
+   "fold1": 0.006431488202378296,
+   "fold2": 0.02001048716274681,
+   "fold3": 0.010703328065164917
+  },
+  "cv_mean": 0.012381767810096674,
+  "own_best_n": {
+   "fold1": 40,
+   "fold2": 950,
+   "fold3": 130
+  },
+  "cross_n_at_cap": {
+   "fold1": false,
+   "fold2": false,
+   "fold3": false
+  },
+  "common_n_at_cap": false,
+  "any_at_cap": false,
+  "own_best_at_last": {
+   "fold1": false,
+   "fold2": false,
+   "fold3": false
+  }
+ },
+ "summary": {
+  "max_iter": 2000,
+  "n_points": 56,
+  "cross_n": {
+   "fold1": 950,
+   "fold2": 60,
+   "fold3": 70
+  },
+  "common_n": 70,
+  "own_best_n": {
+   "fold1": 40,
+   "fold2": 950,
+   "fold3": 130
+  },
+  "at_cap": false,
+  "train_rows": {
+   "fold3": 166380,
+   "fold1": 124420,
+   "fold2": 141490,
+   "refit": 193010
+  },
+  "learning_rate": 0.04548633346954981,
+  "max_iter_decided_here": true
+ }
+}

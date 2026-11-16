@@ -1,0 +1,7 @@
+{
+ "name": "1-CAT-W060-sum",
+ "order": 1,
+ "W": 60,
+ "mode": "sum",
+ "include_ids": ["WEATHER"]
+}

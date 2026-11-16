@@ -1,0 +1,80 @@
+{
+ "code_md5": "0d5ef9c04fe220e756a0b606c08f3842",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 4
+ },
+ "config": {
+  "name": "1-LSTM-W010",
+  "stage": "1-2",
+  "order": "1차",
+  "kind": "dl",
+  "algorithm": "LSTM",
+  "W": 10,
+  "mode": null,
+  "input_set": "1차-딥러닝",
+  "role": "후보",
+  "train_count": 4,
+  "params": {},
+  "judgement": "해당 없음",
+  "base_variant": null,
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER"
+    ]
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-07T06:01:27+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 341467,
+   "train_pos": 1045,
+   "fit_seconds": 34.3,
+   "predict_seconds": 146.73,
+   "n_pairs": 3765795
+  },
+  "fold2": {
+   "train_rows": 416616,
+   "train_pos": 1279,
+   "fit_seconds": 56.5,
+   "predict_seconds": 153.1,
+   "n_pairs": 4070067
+  },
+  "fold3": {
+   "train_rows": 497593,
+   "train_pos": 1491,
+   "fit_seconds": 45.77,
+   "predict_seconds": 147.18,
+   "n_pairs": 4430181
+  },
+  "refit": {
+   "train_rows": 585102,
+   "train_pos": 1682,
+   "fit_seconds": 78.18,
+   "predict_seconds": 129.26,
+   "n_pairs": 4611605
+  }
+ },
+ "seconds_total": 791.02,
+ "resources_at_start": {
+  "available_ram_gb": 78.93005752563477,
+  "free_disk_gb": 27.71029281616211
+ },
+ "spec_md5": "9f158dafa1ec856c19c21b00f1972b81",
+ "smoke": null
+}

@@ -1,0 +1,101 @@
+{
+  "name": "kma_weather_predict_info",
+  "table": "api_data_info.kma_weather_predict_info",
+  "where": null,
+  "plan": "단계 0-3 국내 11일 예보 변수 목록(부록 A-13 예보 표)",
+  "sql": "select \"predict_seq\", \"meas_date\", \"forecast_date\", \"lat\", \"lon\", \"temp\", \"hghst_artmp\", \"lowst_artmp\", \"hum\", \"wind\", \"max_wind\", \"precip_mm\", \"sun_time\", \"soil_wt\", \"error_msg\", \"created_at\" from \"api_data_info\".\"kma_weather_predict_info\"",
+  "count_sql": "select count(*) from \"api_data_info\".\"kma_weather_predict_info\"",
+  "rows": 7092,
+  "db_count": 7092,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "predict_seq",
+      "parquet_type": "int64"
+    },
+    {
+      "name": "meas_date",
+      "parquet_type": "date32[day]"
+    },
+    {
+      "name": "forecast_date",
+      "parquet_type": "date32[day]"
+    },
+    {
+      "name": "lat",
+      "parquet_type": "double"
+    },
+    {
+      "name": "lon",
+      "parquet_type": "double"
+    },
+    {
+      "name": "temp",
+      "parquet_type": "double"
+    },
+    {
+      "name": "hghst_artmp",
+      "parquet_type": "double"
+    },
+    {
+      "name": "lowst_artmp",
+      "parquet_type": "double"
+    },
+    {
+      "name": "hum",
+      "parquet_type": "double"
+    },
+    {
+      "name": "wind",
+      "parquet_type": "double"
+    },
+    {
+      "name": "max_wind",
+      "parquet_type": "double"
+    },
+    {
+      "name": "precip_mm",
+      "parquet_type": "double"
+    },
+    {
+      "name": "sun_time",
+      "parquet_type": "double"
+    },
+    {
+      "name": "soil_wt",
+      "parquet_type": "double"
+    },
+    {
+      "name": "error_msg",
+      "parquet_type": "string"
+    },
+    {
+      "name": "created_at",
+      "parquet_type": "timestamp[us]"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [
+    "lat",
+    "lon",
+    "temp",
+    "hghst_artmp",
+    "lowst_artmp",
+    "hum",
+    "wind",
+    "max_wind",
+    "precip_mm",
+    "sun_time",
+    "soil_wt"
+  ],
+  "parquet_md5": "555fb4fcc847e506f33ed4837cf4cbce",
+  "parquet_bytes": 190352,
+  "started_at": "2026-11-07T00:51:07+09:00",
+  "seconds": 0.1,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

@@ -1,0 +1,50 @@
+{
+ "name": "x1-LSTM",
+ "stage": "4",
+ "order": "2차",
+ "kind": "dl",
+ "algorithm": "LSTM",
+ "W": 60,
+ "mode": null,
+ "input_set": "x1-LSTM-입력",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": "3-0b-LSTM-end",
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "s4": {
+   "row_plan": {
+    "steps": [
+     "reduce"
+    ],
+    "rep": "x1",
+    "sel_dir": "s4/sel-reduce"
+   }
+  }
+ }
+}

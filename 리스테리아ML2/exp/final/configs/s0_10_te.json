@@ -1,0 +1,9 @@
+{
+ "plan": "단계 0-10 타겟 인코딩 단독 판(7-a) — §6 단계 7·0-10, §5-1, 부록 A-3(7-a 공식)·A-12(이름·고르기·동점), CV 만(test 채점 안 함)",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "lengths": ["1y", "5y", "all"],
+ "k_u_values": [10, 30, 50, 100, 200],
+ "k_p3_values": [10, 30, 50, 100, 200],
+ "cv_folds": ["fold1", "fold2", "fold3"],
+ "save_test_predictions": true
+}

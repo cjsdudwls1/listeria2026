@@ -1,0 +1,11 @@
+{
+ "name": "6-LSTMATT",
+ "order": 2,
+ "W": 60,
+ "mode": "raw",
+ "include_ids": ["WEATHER", "WX1", "WX2"],
+ "n_ma": 15,
+ "n_ma_dl": 15,
+ "tree_layout": "seq_only",
+ "dl_layout": "seq_only"
+}

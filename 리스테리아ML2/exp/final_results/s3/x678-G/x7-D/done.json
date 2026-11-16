@@ -1,0 +1,16 @@
+{
+ "name": "x7-D",
+ "stage": "⑥⑦⑧",
+ "spec_md5": "2c441ab0370837c4942e8352e164fe1a",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.003802508697194645,
+ "many_ties": false,
+ "selection_count": 178,
+ "mlflow_run_id": "af608c7afacc4724955c5b90939f0513",
+ "seconds_total": 3768.05,
+ "group": [
+  "x6-LSTMA",
+  "x7-D"
+ ],
+ "smoke": null
+}

@@ -1,0 +1,41 @@
+{
+ "plan": "추가 판 ⑦-T x7-T(시계열만 XGBoost, 반복 수 §3 — 교체 후보) — §6 추가 판, §3",
+ "sub": "C",
+ "stage": "⑥⑦⑧",
+ "order": "2차",
+ "experiment": "listeria-2차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "incomplete_months": "s0/0-1/apply/12_incomplete_months.json",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "te7a_dir": "s0/0-10",
+ "seed": 42,
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "log_pred_artifacts": false,
+ "n_jobs": 8,
+ "decision_1_3": "s1/1-3/1-3_decision.json",
+ "selection_2": "s2/2-select/2_prep_selection.json",
+ "dir_1_1": "s1/1-1",
+ "dir_1_2": "s1/1-2",
+ "dirs": {
+  "3-0-T": "s3/3-0-T",
+  "3-0-D": "s3/3-0-D",
+  "x678-G": "s3/x678-G",
+  "x678-C": "s3/x678-C",
+  "x8": "s3/x8",
+  "x67-judge": "s3/x67-judge"
+ },
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "spi_domestic_obs": "s0/0-4_spi/SPI_국내_관측_0-4.parquet",
+   "spi_domestic_fc": "s0/0-4_spi/SPI_국내_예보_0-4.parquet",
+   "spi_overseas": "s0/0-4_spi/SPI_해외_0-4.parquet"
+  },
+  "data": {},
+  "y_cut": "2025-06-30"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "name": "3-0-TRF",
+ "stage": "3-0",
+ "spec_md5": "fe86a8c172b41693149b349c9452c33d",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.0315059457514282,
+ "many_ties": false,
+ "selection_count": 172,
+ "mlflow_run_id": "0fb14b7c44ed46cfb3d636b05d13b2e4",
+ "seconds_total": 4483.15,
+ "group": [
+  "3-0-LSTM",
+  "3-0-GRU",
+  "3-0-TRF",
+  "3-0-LSTMA",
+  "3-0-TCN",
+  "3-0-CMB",
+  "3-0-CMBV"
+ ],
+ "smoke": null
+}

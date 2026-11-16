@@ -1,0 +1,42 @@
+{
+  "inputs": {
+    "global_weather_info": "리스테리아ML2/data/추출_20261107/global_weather_info.parquet",
+    "samples": "리스테리아ML/data/listeria_data.parquet",
+    "countries_geojson": "리스테리아ML2/data/외부_수집/축사/ne_10m_admin_0_countries_v5.1.2.geojson"
+  },
+  "periods": {
+    "rain_start": "2013-05-01",
+    "table_start": "2014-04-07",
+    "overlap_start": "2015-01-01",
+    "overlap_end": "2015-12-31",
+    "use_end": "2026-06-30"
+  },
+  "openmeteo": {
+    "endpoint": "https://archive-api.open-meteo.com/v1/archive",
+    "timezone": "auto",
+    "models": {
+      "rain": "era5_seamless",
+      "dbvars": "era5_seamless",
+      "soil_temp": "era5_land",
+      "dew_point": "era5",
+      "wind_dir": "era5"
+    },
+    "limits": {
+      "minute": 400,
+      "hour": 4000,
+      "day": 8000,
+      "month": 250000
+    },
+    "min_interval_s": 1.0,
+    "timeout_s": 120,
+    "max_tries": 6,
+    "backoff_s": [10, 30, 60, 120, 300],
+    "wait_429_s": {
+      "minute": 70,
+      "hour": 900,
+      "day": 3600,
+      "unknown": 300
+    },
+    "user_agent": "listeria-research-noncommercial/1.0 (university research, non-commercial)"
+  }
+}

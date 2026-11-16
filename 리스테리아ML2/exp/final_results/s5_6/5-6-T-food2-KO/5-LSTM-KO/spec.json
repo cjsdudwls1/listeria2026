@@ -1,0 +1,60 @@
+{
+ "name": "5-LSTM-KO",
+ "stage": "5-6-food2-KO",
+ "order": "2차",
+ "kind": "dl",
+ "algorithm": "LSTM",
+ "W": 60,
+ "mode": null,
+ "input_set": "5-LSTM-KO-입력",
+ "role": "후보",
+ "train_count": 4,
+ "params": {},
+ "judgement": null,
+ "base_variant": "3-0b-LSTM-end",
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1",
+    "KO1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "s4": {
+   "row_plan": {
+    "steps": [
+     "hon5"
+    ],
+    "rep": "own",
+    "sel_dir": "s5_6/sel-hon5"
+   },
+   "model_seed": 0
+  },
+  "rerun": {
+   "of": "5-LSTM",
+   "of_dir": "s5_6/5-6-T/5-LSTM",
+   "reason": "5-LSTM(식품 v2)에 Koutsoumanis et al. (2004) 생육확률 6칼럼만 더한 비교 판(사용자 결정 2026-11-12)",
+   "add_ids": [
+    "KO1"
+   ]
+  }
+ }
+}

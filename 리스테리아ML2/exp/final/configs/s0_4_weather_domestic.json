@@ -1,0 +1,33 @@
+{
+ "plan": "단계 0-4 국내 기상 — §4-3, 부록 A-2(NAS 2/29 채움·습도·이슬점·옹진군 대표 좌표·관측소 좌표 파일), 규칙 = 리스테리아ML2/notebook/03_시군구_기상.py",
+ "inputs": {
+  "weather_table": "리스테리아ML2/data/데이터셋/식정원_db_기상기후/시군구_일별_기상.parquet",
+  "sgg_coord": "리스테리아ML2/data/데이터셋/시군구_대표좌표.parquet",
+  "sample_sgg": "리스테리아ML2/data/데이터셋/시료_시군구.parquet",
+  "region_code": "리스테리아ML2/data/raw/raw_korea_region_code.parquet",
+  "asos_daily": "리스테리아ML2/data/raw/raw_kma_asos_daily_info.parquet",
+  "asos_station": "리스테리아ML2/data/raw/raw_kma_ground_obs_station_info.parquet",
+  "nas_daily": "리스테리아ML2/data/raw/raw_nas_agri_weather_daily_info.parquet",
+  "nas_station": "리스테리아ML2/data/raw/raw_nas_agri_weather_obs_station.parquet",
+  "air_daily": "리스테리아ML2/data/raw/raw_keco_airkorea_fine_dust_info.parquet",
+  "air_station": "리스테리아ML2/data/raw/raw_keco_airkorea_obs_station.parquet"
+ },
+ "ongjin_sgg_code": "28720",
+ "feb29_dates": [
+  "2016-02-29",
+  "2020-02-29",
+  "2024-02-29"
+ ],
+ "check_from": "2015-01-01",
+ "check_cv_end": "2025-06-30",
+ "raw_overrides": [
+  {
+   "input": "asos_daily",
+   "station": "295",
+   "date": "2025-06-14",
+   "column": "avg_td",
+   "value": null,
+   "reason": "담당자 결정(2026-11-07): avg_td 79.7 이 같은 날 avg_ta 21.0 보다 높음 — 이 한 칸만 결측(3곳 평균에 안 넣음)"
+  }
+ ]
+}

@@ -1,0 +1,139 @@
+{
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-4_spi/SPI_국내_관측_0-4.parquet": "47b75105feb574aabbe2da227e3e1ace",
+  "inputs:s0/0-4_spi/SPI_국내_예보_0-4.parquet": "220c915895f12f1d4bf5aab2286fb4a6",
+  "inputs:s0/0-4_spi/SPI_해외_0-4.parquet": "54d4ee3407a4ac74039045887bb4b56c",
+  "inputs:s0/0-6_static/식품_고정표.parquet": "fabcd4af37413fc7fde3988c7c4d024c",
+  "inputs:s0/0-6_static/축사_L1.parquet": "bad888b041fb9b6cff4d759c7f282ad7",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d",
+  "root:리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet": "25b219c71d012801fb86e3a2f5178e0e",
+  "root:리스테리아ML2/data/추출_20261107/global_soil_ph.parquet": "b13fa749f60f996f0a44fc0070d6fe53",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet": "9651572282858f5a9a78ceb1ad7d947f",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet": "85d78fd894f4ffc7cb9273674a59942e"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "4-a-pre-CAT",
+  "stage": "4",
+  "order": "2차",
+  "kind": "tree",
+  "algorithm": "CAT",
+  "W": 60,
+  "mode": "sum",
+  "input_set": "4-a-pre-CAT-입력",
+  "role": "비교만",
+  "train_count": 4,
+  "params": {
+   "iter_select": true
+  },
+  "judgement": "해당 없음",
+  "base_variant": "1-CAT-W060-sum",
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER"
+    ]
+   },
+   "s4": {
+    "row_plan": {
+     "steps": [
+      "reduce"
+     ],
+     "rep": "4-a",
+     "sel_dir": "s4/sel-reduce"
+    },
+    "catenc_k": 100,
+    "input_order": 1
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-08T18:22:26+00:00",
+ "timings": {
+  "fold1": {
+   "fit_seconds": 52.36,
+   "predict_seconds": 268.17,
+   "rounds": 1,
+   "shared_train_input_seconds": 9.81,
+   "shared_eval_input_seconds": 114.36,
+   "train_rows": 124420,
+   "train_pos": 10450,
+   "n_pairs": 3765795
+  },
+  "fold2": {
+   "fit_seconds": 56.67,
+   "predict_seconds": 282.66,
+   "rounds": 1,
+   "shared_train_input_seconds": 13.93,
+   "shared_eval_input_seconds": 126.48,
+   "train_rows": 141490,
+   "train_pos": 12790,
+   "n_pairs": 4070067
+  },
+  "fold3": {
+   "fit_seconds": 62.71,
+   "predict_seconds": 294.81,
+   "rounds": 1,
+   "shared_train_input_seconds": 13.66,
+   "shared_eval_input_seconds": 130.74,
+   "train_rows": 166380,
+   "train_pos": 14910,
+   "n_pairs": 4430181
+  },
+  "refit": {
+   "train_rows": 193010,
+   "train_pos": 16820,
+   "n_pairs": 4611605,
+   "fit_seconds": 69.26,
+   "predict_seconds": 5.65,
+   "shared_train_input_seconds": 20.06,
+   "shared_eval_input_seconds": 57.35
+  }
+ },
+ "seconds_own": 1092.29,
+ "seconds_shared_inputs": 486.39,
+ "group": null,
+ "resources_at_start": {
+  "available_ram_gb": 59.392005920410156,
+  "free_disk_gb": 25.041336059570312
+ },
+ "spec_md5": "e4f469a64bfd55344834b00687bd991a",
+ "smoke": null,
+ "n_iter": {
+  "max_iter": 2000,
+  "n_points": 56,
+  "cross_n": {
+   "fold1": 950,
+   "fold2": 60,
+   "fold3": 70
+  },
+  "common_n": 70,
+  "own_best_n": {
+   "fold1": 40,
+   "fold2": 950,
+   "fold3": 130
+  },
+  "at_cap": false,
+  "train_rows": {
+   "fold3": 166380,
+   "fold1": 124420,
+   "fold2": 141490,
+   "refit": 193010
+  },
+  "learning_rate": 0.04548633346954981,
+  "max_iter_decided_here": true
+ }
+}

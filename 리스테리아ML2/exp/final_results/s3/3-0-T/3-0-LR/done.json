@@ -1,0 +1,13 @@
+{
+ "name": "3-0-LR",
+ "stage": "3-0",
+ "spec_md5": "02e26846fc9ef89cc5f82d3fa13f0051",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.020617586163099295,
+ "many_ties": false,
+ "selection_count": 184,
+ "mlflow_run_id": "fe23617faaad4e179889cab574c4150b",
+ "seconds_total": 1291.77,
+ "group": null,
+ "smoke": null
+}

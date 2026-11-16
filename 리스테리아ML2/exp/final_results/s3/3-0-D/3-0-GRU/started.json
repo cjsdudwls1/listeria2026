@@ -1,0 +1,15 @@
+{
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "spec_md5": "30c669eec9cbfcf82ba01aa7937fbfba",
+ "pid": 2421004,
+ "group": [
+  "3-0-LSTM",
+  "3-0-GRU",
+  "3-0-TRF",
+  "3-0-LSTMA",
+  "3-0-TCN",
+  "3-0-CMB",
+  "3-0-CMBV"
+ ],
+ "utc": "2026-11-08T17:29:03+00:00"
+}

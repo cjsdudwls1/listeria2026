@@ -1,0 +1,37 @@
+{
+ "name": "3-3-T3",
+ "stage": "3-3",
+ "order": "2차",
+ "kind": "ensemble",
+ "algorithm": "T3",
+ "W": null,
+ "mode": null,
+ "input_set": "트리 상위 3개 (시료, h) 확률 단순 평균",
+ "role": "후보",
+ "train_count": 0,
+ "params": {},
+ "judgement": null,
+ "base_variant": null,
+ "extra": {
+  "members": [
+   {
+    "algorithm": "RF",
+    "name": "3-3-RF",
+    "source": "3-0-RF",
+    "pred_dir": "s3/3-0-T/3-0-RF"
+   },
+   {
+    "algorithm": "ET",
+    "name": "3-3-ET",
+    "source": "3-0-ET",
+    "pred_dir": "s3/3-0-T/3-0-ET"
+   },
+   {
+    "algorithm": "CAT",
+    "name": "3-3-CAT",
+    "source": "3-0-CAT",
+    "pred_dir": "s3/3-0-T/3-0-CAT"
+   }
+  ]
+ }
+}

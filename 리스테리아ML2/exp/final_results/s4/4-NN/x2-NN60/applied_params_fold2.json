@@ -1,0 +1,23 @@
+{
+ "arch": "NN60",
+ "layers": [
+  128,
+  64,
+  60
+ ],
+ "loss": "bce(own h)",
+ "cat_sizes": [
+  18,
+  352,
+  53,
+  222
+ ],
+ "dims": {
+  "d": 565
+ },
+ "lr": 0.001,
+ "batch_size": 1024,
+ "max_epochs": 20,
+ "patience": 3,
+ "es_fraction": 0.1
+}

@@ -1,0 +1,15 @@
+{
+ "catenc_k": null,
+ "drop_time": false,
+ "feature_only": false,
+ "scaler": null,
+ "columns": [
+  "sido",
+  "sgg",
+  "p2",
+  "p3",
+  "src_route",
+  "h",
+  "g"
+ ]
+}

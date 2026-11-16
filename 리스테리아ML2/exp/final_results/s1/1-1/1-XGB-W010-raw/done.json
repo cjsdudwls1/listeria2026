@@ -1,0 +1,12 @@
+{
+ "name": "1-XGB-W010-raw",
+ "stage": "1-1",
+ "spec_md5": "ddcf94bb5b3b2155b696597c0ac06233",
+ "code_md5": "0d5ef9c04fe220e756a0b606c08f3842",
+ "cv_band_weighted": 0.012636095875790737,
+ "many_ties": false,
+ "selection_count": 77,
+ "mlflow_run_id": "fd82e454e98f4725a28a9f3d5aa7ca61",
+ "seconds_total": 484.0,
+ "smoke": null
+}

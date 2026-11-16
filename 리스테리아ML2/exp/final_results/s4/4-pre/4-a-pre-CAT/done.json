@@ -1,0 +1,37 @@
+{
+ "name": "4-a-pre-CAT",
+ "stage": "4",
+ "spec_md5": "e4f469a64bfd55344834b00687bd991a",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.012381767810096674,
+ "many_ties": false,
+ "selection_count": 169,
+ "mlflow_run_id": "2ceb7dd9e7944cf28784fc765ce9ee10",
+ "seconds_total": 1578.68,
+ "group": null,
+ "smoke": null,
+ "n_iter": {
+  "max_iter": 2000,
+  "n_points": 56,
+  "cross_n": {
+   "fold1": 950,
+   "fold2": 60,
+   "fold3": 70
+  },
+  "common_n": 70,
+  "own_best_n": {
+   "fold1": 40,
+   "fold2": 950,
+   "fold3": 130
+  },
+  "at_cap": false,
+  "train_rows": {
+   "fold3": 166380,
+   "fold1": 124420,
+   "fold2": 141490,
+   "refit": 193010
+  },
+  "learning_rate": 0.04548633346954981,
+  "max_iter_decided_here": true
+ }
+}

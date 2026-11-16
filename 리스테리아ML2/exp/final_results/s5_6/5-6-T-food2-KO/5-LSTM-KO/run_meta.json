@@ -1,0 +1,145 @@
+{
+ "code_md5": "0a76245c1293a11affe5268cbdba4d2d",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-4_spi/SPI_국내_관측_0-4.parquet": "47b75105feb574aabbe2da227e3e1ace",
+  "inputs:s0/0-4_spi/SPI_국내_예보_0-4.parquet": "220c915895f12f1d4bf5aab2286fb4a6",
+  "inputs:s0/0-4_spi/SPI_해외_0-4.parquet": "54d4ee3407a4ac74039045887bb4b56c",
+  "inputs:s0/0-6_static_v2/식품_고정표.parquet": "aa888a8374b6e20e9e075870a03d6213",
+  "inputs:s0/0-6_static/축사_L1.parquet": "bad888b041fb9b6cff4d759c7f282ad7",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d",
+  "root:리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet": "25b219c71d012801fb86e3a2f5178e0e",
+  "root:리스테리아ML2/data/추출_20261107/global_soil_ph.parquet": "b13fa749f60f996f0a44fc0070d6fe53",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet": "9651572282858f5a9a78ceb1ad7d947f",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet": "85d78fd894f4ffc7cb9273674a59942e"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "5-LSTM-KO",
+  "stage": "5-6-food2-KO",
+  "order": "2차",
+  "kind": "dl",
+  "algorithm": "LSTM",
+  "W": 60,
+  "mode": null,
+  "input_set": "5-LSTM-KO-입력",
+  "role": "후보",
+  "train_count": 4,
+  "params": {},
+  "judgement": null,
+  "base_variant": "3-0b-LSTM-end",
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER",
+     "HIS1",
+     "HIS2",
+     "HIS3",
+     "HIS4",
+     "WX1",
+     "WX2",
+     "WX3",
+     "WX4",
+     "WX5",
+     "WX6",
+     "WX7",
+     "FD1",
+     "SO1",
+     "X1",
+     "X2",
+     "L1",
+     "KO1"
+    ],
+    "k": 100,
+    "n_ma": 7,
+    "n_ma_dl": 7
+   },
+   "s4": {
+    "row_plan": {
+     "steps": [
+      "hon5"
+     ],
+     "rep": "own",
+     "sel_dir": "s5_6/sel-hon5"
+    },
+    "model_seed": 0
+   },
+   "rerun": {
+    "of": "5-LSTM",
+    "of_dir": "s5_6/5-6-T/5-LSTM",
+    "reason": "5-LSTM(식품 v2)에 Koutsoumanis et al. (2004) 생육확률 6칼럼만 더한 비교 판(사용자 결정 2026-11-12)",
+    "add_ids": [
+     "KO1"
+    ]
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-12T09:40:24+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 5225,
+   "train_pos": 1045,
+   "n_pairs": 3765795,
+   "fit_seconds": 2.78,
+   "predict_seconds": 29.55,
+   "shared_train_input_seconds": 11.52,
+   "shared_eval_input_seconds": 298.95
+  },
+  "fold2": {
+   "train_rows": 6395,
+   "train_pos": 1279,
+   "n_pairs": 4070067,
+   "fit_seconds": 1.46,
+   "predict_seconds": 31.69,
+   "shared_train_input_seconds": 8.28,
+   "shared_eval_input_seconds": 319.46
+  },
+  "fold3": {
+   "train_rows": 7455,
+   "train_pos": 1491,
+   "n_pairs": 4430181,
+   "fit_seconds": 1.44,
+   "predict_seconds": 34.48,
+   "shared_train_input_seconds": 9.5,
+   "shared_eval_input_seconds": 338.16
+  },
+  "refit": {
+   "train_rows": 8410,
+   "train_pos": 1682,
+   "n_pairs": 4611605,
+   "fit_seconds": 1.92,
+   "predict_seconds": 35.98,
+   "shared_train_input_seconds": 10.54,
+   "shared_eval_input_seconds": 349.37
+  }
+ },
+ "seconds_own": 139.3,
+ "seconds_shared_inputs": 1345.78,
+ "group": null,
+ "resources_at_start": {
+  "available_ram_gb": 88.6397590637207,
+  "free_disk_gb": 22.144664764404297
+ },
+ "spec_md5": "81d64fa0e560972dde56357052c8d1f7",
+ "smoke": null,
+ "speed": {
+  "dl_keyed_inputs": true,
+  "fast_predict": true,
+  "gpu_importance": true,
+  "parallel_groups": 1,
+  "cpu_cores": null,
+  "gpu_fraction_cap": 0.25
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "plan": "단계 0-8 그룹 번호·소속 단위 전체 표(요약·원값·딥러닝 채널·x_static, 결측 표시 포함) + 그룹 사이 상관(fold 1 train, Spearman, 해석용) — §6 단계 0-8, 부록 A-5·A-8",
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "spi_domestic_obs": "s0/0-4_spi/SPI_국내_관측_0-4.parquet",
+   "spi_domestic_fc": "s0/0-4_spi/SPI_국내_예보_0-4.parquet",
+   "spi_overseas": "s0/0-4_spi/SPI_해외_0-4.parquet",
+   "food_table": "s0/0-6_static/식품_고정표.parquet",
+   "livestock": "s0/0-6_static/축사_L1.parquet",
+   "missing_lists": "s0/0-6_missing/missing_lists.json"
+  },
+  "data": {
+   "soil": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+   "global_soil_ph": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet",
+   "eco": "리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet",
+   "gw": "리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet"
+  },
+  "y_cut": "2025-06-30"
+ },
+ "W_list": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+ "corr": {"W": 100, "k": 50, "n_ma": 15, "split": "fold1", "min_periods": 100, "max_rows": 0, "seed": 0}
+}

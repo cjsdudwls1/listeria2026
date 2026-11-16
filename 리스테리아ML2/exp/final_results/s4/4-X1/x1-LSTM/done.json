@@ -1,0 +1,13 @@
+{
+ "name": "x1-LSTM",
+ "stage": "4",
+ "spec_md5": "4489f36639ebf208aaf392614eb3d215",
+ "code_md5": "ad0a5ffea2ed8e78197b4a4b14fbe2ac",
+ "cv_band_weighted": 0.010337828774450981,
+ "many_ties": false,
+ "selection_count": 196,
+ "mlflow_run_id": "fb62048dd1c043a499f37f71d3945f28",
+ "seconds_total": 115.79,
+ "group": null,
+ "smoke": null
+}

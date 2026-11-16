@@ -1,0 +1,24 @@
+{
+ "name": "2-1b-L-N30",
+ "stage": "2-1b",
+ "order": "2차",
+ "kind": "dl",
+ "algorithm": "LSTM",
+ "W": 60,
+ "mode": null,
+ "input_set": "2-1b-anom-dl-N30",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "WX2"
+   ],
+   "n_ma_dl": 30
+  }
+ }
+}

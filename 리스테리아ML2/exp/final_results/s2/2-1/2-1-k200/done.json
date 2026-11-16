@@ -1,0 +1,13 @@
+{
+ "name": "2-1-k200",
+ "stage": "2-1",
+ "spec_md5": "65f5bdf35c60877e550f1ab2f625e001",
+ "code_md5": "ba06ee18452d7969d218177bc540e67a",
+ "cv_band_weighted": 0.025459967049831136,
+ "many_ties": false,
+ "selection_count": 150,
+ "mlflow_run_id": "e4d7ffea117449e1a7c3927da1ac5e80",
+ "seconds_total": 1040.71,
+ "group": null,
+ "smoke": null
+}

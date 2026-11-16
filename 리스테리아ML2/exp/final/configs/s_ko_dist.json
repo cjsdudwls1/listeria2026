@@ -1,0 +1,15 @@
+{
+ "plan": "KO1 Koutsoumanis 생육확률 6칼럼 시료 기준 분포(자기 h·W 60 = 5-LSTM W) — 보고용",
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "food_table": "s0/0-6_static_v2/식품_고정표.parquet"
+  },
+  "data": {},
+  "y_cut": "2025-06-30"
+ },
+ "W": 60,
+ "chunk_rows": 50000
+}

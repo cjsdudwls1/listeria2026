@@ -1,0 +1,8 @@
+{
+ "plan": "단계 0-6 과거 이력(HIS1~HIS4) 칼럼 점검 — §5 표·§5-1(C 규칙·기간)·부록 A-3·부록 B-6(이력 관련 점검), k 5값 전부(단계 2-1)",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "k_values": [10, 30, 50, 100, 200],
+ "splits": ["fold1", "fold2", "fold3", "refit"],
+ "spot_check_rows": 200,
+ "spot_check_seed": 42
+}

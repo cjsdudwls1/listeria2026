@@ -1,0 +1,21 @@
+{
+ "spec": {
+  "name": "1-LGB-W090-sum",
+  "order": 1,
+  "W": 90,
+  "mode": "sum",
+  "include_ids": [
+   "WEATHER"
+  ],
+  "include_units": [],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": null,
+  "n_ma": null,
+  "n_ma_dl": null,
+  "tree_layout": "standard",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

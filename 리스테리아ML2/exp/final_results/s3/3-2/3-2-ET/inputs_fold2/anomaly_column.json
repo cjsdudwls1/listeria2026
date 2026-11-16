@@ -1,0 +1,5 @@
+{
+ "column": "anom_vae",
+ "source_dir": "3-1-VAEt",
+ "split": "fold2"
+}

@@ -1,0 +1,22 @@
+{
+ "name": "1-LGB-W060-raw",
+ "stage": "1-1",
+ "order": "1차",
+ "kind": "tree",
+ "algorithm": "LGB",
+ "W": 60,
+ "mode": "raw",
+ "input_set": "1차-트리",
+ "role": "후보",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER"
+   ]
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "name": "1-XGB-W030-sum",
+ "stage": "1-1",
+ "spec_md5": "7f9d61fb761d3faf8595d0f9abbcdee5",
+ "code_md5": "0d5ef9c04fe220e756a0b606c08f3842",
+ "cv_band_weighted": 0.010427610206102606,
+ "many_ties": false,
+ "selection_count": 82,
+ "mlflow_run_id": "85a58a87bfdb4f7d96c80e21e90b9a4b",
+ "seconds_total": 1460.45,
+ "smoke": null
+}

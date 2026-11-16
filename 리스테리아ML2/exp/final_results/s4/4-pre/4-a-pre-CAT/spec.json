@@ -1,0 +1,35 @@
+{
+ "name": "4-a-pre-CAT",
+ "stage": "4",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "CAT",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "4-a-pre-CAT-입력",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {
+  "iter_select": true
+ },
+ "judgement": "해당 없음",
+ "base_variant": "1-CAT-W060-sum",
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER"
+   ]
+  },
+  "s4": {
+   "row_plan": {
+    "steps": [
+     "reduce"
+    ],
+    "rep": "4-a",
+    "sel_dir": "s4/sel-reduce"
+   },
+   "catenc_k": 100,
+   "input_order": 1
+  }
+ }
+}

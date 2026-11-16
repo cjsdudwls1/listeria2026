@@ -1,0 +1,8 @@
+{
+ "nation_sources": ["mnf_nation_cd", "prdctn_nation_code", "orgplce_nation_code", "import_nation_code"],
+ "theil_columns": ["hazard_label", "src_route", "data_source", "expr_iem_nm", "inspct_instt_code", "prdlst_code",
+                   "train_prdlst_code", "train_prdlst_nm", "train_prdlst_code_2", "train_prdlst_nm_2", "prduct_nm",
+                   "date_basis", "addr", "addr_source", "legal_dong_code", "lat", "lon"],
+ "confirmed": true,
+ "confirmation_note": "2026-11-07 담당자 확인: 나라 코드 원천 = 부록 A-2 순서 4개 모두, Theil's U 대상에서 mnfctur_cmpny_nm 뺌(d ≤ 2021-06-30 빈 칸 비율 검출 83%·불검출 55% — 검사 결과에 따라 채워지는 칼럼으로 봄), 값 하나뿐인 칼럼은 부록 A-6 규칙대로 자동 제외"
+}

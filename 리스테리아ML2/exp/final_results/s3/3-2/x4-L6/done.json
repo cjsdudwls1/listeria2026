@@ -1,0 +1,11 @@
+{
+ "name": "x4-L6",
+ "stage": "3-2",
+ "spec_md5": "d1a8a52a236db6c7bc2d30cff0f6c0bc",
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "cv_band_weighted": 0.023701094866508843,
+ "many_ties": false,
+ "selection_count": 189,
+ "mlflow_run_id": "3908cd4c616740bfa7e57c47428c6fea",
+ "smoke": null
+}

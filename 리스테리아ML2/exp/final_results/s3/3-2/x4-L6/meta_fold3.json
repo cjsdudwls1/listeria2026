@@ -1,0 +1,83 @@
+{
+ "algo": "LR",
+ "cat_cols": [],
+ "indicator_cols": [],
+ "max_iter": null,
+ "params": {},
+ "seed": 42,
+ "n_jobs": 8,
+ "columns": [
+  "p_XGB",
+  "p_LGB",
+  "p_CAT",
+  "p_RF",
+  "p_ET",
+  "p_LR"
+ ],
+ "categories": {},
+ "fit_info": {
+  "n_rows": 497593,
+  "n_pos": 1491,
+  "fit_seconds": 0.49201250076293945,
+  "warnings": [],
+  "n_iter_": 15,
+  "converged": true
+ },
+ "non_default_params": {
+  "max_iter": 2000,
+  "random_state": 42
+ },
+ "applied_params": {
+  "get_params": {
+   "C": 1.0,
+   "class_weight": null,
+   "dual": false,
+   "fit_intercept": true,
+   "intercept_scaling": 1,
+   "l1_ratio": 0.0,
+   "max_iter": 2000,
+   "n_jobs": null,
+   "penalty": "deprecated",
+   "random_state": 42,
+   "solver": "lbfgs",
+   "tol": 0.0001,
+   "verbose": 0,
+   "warm_start": false
+  }
+ },
+ "library_versions": {
+  "xgboost": "3.3.0",
+  "lightgbm": "4.7.0",
+  "catboost": "1.2.10",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.3",
+  "pandas": "2.3.3"
+ },
+ "standardize": {
+  "mean": {
+   "p_XGB": 0.002856051174728318,
+   "p_LGB": 0.002898006843657134,
+   "p_CAT": 0.002742910600874226,
+   "p_RF": 0.0029746153911642563,
+   "p_ET": 0.0029761545031098363,
+   "p_LR": 0.002918795855875731
+  },
+  "scale": {
+   "p_XGB": 0.013896073275768271,
+   "p_LGB": 0.013347048488651167,
+   "p_CAT": 0.010539257663089744,
+   "p_RF": 0.02188209622913734,
+   "p_ET": 0.02475064455055726,
+   "p_LR": 0.0094772391256638
+  },
+  "all_nan_cols": []
+ },
+ "design_columns": [
+  "p_XGB",
+  "p_LGB",
+  "p_CAT",
+  "p_RF",
+  "p_ET",
+  "p_LR"
+ ]
+}

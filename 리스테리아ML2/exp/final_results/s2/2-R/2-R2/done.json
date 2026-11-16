@@ -1,0 +1,13 @@
+{
+ "name": "2-R2",
+ "stage": "2-R",
+ "spec_md5": "f14272bbe9bddb59c9351635ab1390bf",
+ "code_md5": "ba06ee18452d7969d218177bc540e67a",
+ "cv_band_weighted": 0.025429633036566285,
+ "many_ties": false,
+ "selection_count": 158,
+ "mlflow_run_id": "23b4bb46bcfa45c2803717d90f0a49b4",
+ "seconds_total": 1085.52,
+ "group": null,
+ "smoke": null
+}

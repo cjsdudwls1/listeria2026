@@ -1,0 +1,28 @@
+{
+ "plan": "단계 0-6 결측 표시 목록 — §4-2(원 변수 단위, 1차 표·2차 표 각 1개, d ≤ 2025-06-30 자료에 결측이 있는 원 변수, '해외 구조적 결측' 1칼럼), §6 단계 0-6, 부록 A-5·A-8",
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "spi_domestic_obs": "s0/0-4_spi/SPI_국내_관측_0-4.parquet",
+   "spi_domestic_fc": "s0/0-4_spi/SPI_국내_예보_0-4.parquet",
+   "spi_overseas": "s0/0-4_spi/SPI_해외_0-4.parquet",
+   "food_table": "s0/0-6_static/식품_고정표.parquet",
+   "livestock": "s0/0-6_static/축사_L1.parquet"
+  },
+  "data": {
+   "soil": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+   "global_soil_ph": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet",
+   "eco": "리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet",
+   "gw": "리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet"
+  },
+  "y_cut": "2025-06-30"
+ },
+ "n_ma_values": [5, 7, 15, 30],
+ "h_values": "all",
+ "table_W": 10,
+ "table_k": 10,
+ "max_samples": 0,
+ "sample_seed": 0
+}

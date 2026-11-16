@@ -1,0 +1,22 @@
+{
+ "spec": {
+  "name": "2-1b-T-N15",
+  "order": 2,
+  "W": 60,
+  "mode": "sum",
+  "include_ids": [
+   "WEATHER",
+   "WX2"
+  ],
+  "include_units": [],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": null,
+  "n_ma": 15,
+  "n_ma_dl": null,
+  "tree_layout": "standard",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

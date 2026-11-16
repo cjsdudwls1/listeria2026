@@ -1,0 +1,27 @@
+{
+ "name": "2-1-k010",
+ "stage": "2-1",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "CAT",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "2-1-his-k010",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4"
+   ],
+   "k": 10
+  }
+ }
+}

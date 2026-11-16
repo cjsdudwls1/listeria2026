@@ -1,0 +1,25 @@
+{
+ "spec": {
+  "name": "2-1-k050",
+  "order": 2,
+  "W": 60,
+  "mode": "sum",
+  "include_ids": [
+   "WEATHER",
+   "HIS1",
+   "HIS2",
+   "HIS3",
+   "HIS4"
+  ],
+  "include_units": [],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": 50,
+  "n_ma": null,
+  "n_ma_dl": null,
+  "tree_layout": "standard",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

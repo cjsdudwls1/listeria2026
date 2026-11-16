@@ -1,0 +1,48 @@
+{
+ "name": "3-2-CAT",
+ "stage": "3-2",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "CAT",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "3-0-전체+VAE",
+ "role": "후보",
+ "train_count": 4,
+ "params": {
+  "iter_select": true
+ },
+ "judgement": null,
+ "base_variant": "3-0-CAT",
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "anomaly": {
+   "column": "anom_vae",
+   "source": "3-1-VAEt",
+   "dir": "s3/3-1"
+  }
+ }
+}

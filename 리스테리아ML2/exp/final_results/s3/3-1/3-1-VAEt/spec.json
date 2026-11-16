@@ -1,0 +1,51 @@
+{
+ "name": "3-1-VAEt",
+ "stage": "3-1",
+ "order": "2차",
+ "kind": "vae",
+ "algorithm": "VAE",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "3-0-전체 숫자 칼럼(h·g·범주 뺌)",
+ "role": "비교만",
+ "train_count": 19,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": "3-0-RF",
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "vae": "표(tab) VAE, 부록 A-8",
+  "block_plan": {
+   "total": 19,
+   "strict": 14,
+   "global": 6,
+   "strict_only": 13,
+   "split_full": 4,
+   "roles": 22
+  },
+  "score": "robust z(음의 ELBO, 기준 = 조기 종료 묶음 불검출 행)"
+ }
+}

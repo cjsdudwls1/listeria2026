@@ -1,0 +1,13 @@
+{
+ "name": "4-c-L-RF",
+ "stage": "4",
+ "spec_md5": "c064c404b94568e47e81626fc2cec899",
+ "code_md5": "ad0a5ffea2ed8e78197b4a4b14fbe2ac",
+ "cv_band_weighted": 0.017228504350807295,
+ "many_ties": true,
+ "selection_count": 198,
+ "mlflow_run_id": "41887ffa3a8249ff97e6db1043ed436a",
+ "seconds_total": 51.67,
+ "group": null,
+ "smoke": null
+}

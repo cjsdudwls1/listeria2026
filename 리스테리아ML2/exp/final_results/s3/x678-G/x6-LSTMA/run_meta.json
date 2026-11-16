@@ -1,0 +1,100 @@
+{
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-4_spi/SPI_국내_관측_0-4.parquet": "47b75105feb574aabbe2da227e3e1ace",
+  "inputs:s0/0-4_spi/SPI_국내_예보_0-4.parquet": "220c915895f12f1d4bf5aab2286fb4a6",
+  "inputs:s0/0-4_spi/SPI_해외_0-4.parquet": "54d4ee3407a4ac74039045887bb4b56c",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 4
+ },
+ "config": {
+  "name": "x6-LSTMA",
+  "stage": "⑥⑦⑧",
+  "order": "2차",
+  "kind": "dl",
+  "algorithm": "LSTMA",
+  "W": 60,
+  "mode": null,
+  "input_set": "x6x7D-시계열만",
+  "role": "교체 후보",
+  "train_count": 4,
+  "params": {},
+  "judgement": null,
+  "base_variant": null,
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER",
+     "WX1",
+     "WX2"
+    ],
+    "n_ma_dl": 7,
+    "dl_layout": "seq_only"
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-08T21:17:02+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 341467,
+   "train_pos": 1045,
+   "n_pairs": 3765795,
+   "fit_seconds": 67.02,
+   "predict_seconds": 60.09,
+   "shared_train_input_seconds": 171.68,
+   "shared_eval_input_seconds": 531.71
+  },
+  "fold2": {
+   "train_rows": 416616,
+   "train_pos": 1279,
+   "n_pairs": 4070067,
+   "fit_seconds": 27.57,
+   "predict_seconds": 62.52,
+   "shared_train_input_seconds": 170.85,
+   "shared_eval_input_seconds": 553.48
+  },
+  "fold3": {
+   "train_rows": 497593,
+   "train_pos": 1491,
+   "n_pairs": 4430181,
+   "fit_seconds": 83.92,
+   "predict_seconds": 70.21,
+   "shared_train_input_seconds": 178.7,
+   "shared_eval_input_seconds": 629.65
+  },
+  "refit": {
+   "train_rows": 585102,
+   "train_pos": 1682,
+   "n_pairs": 4611605,
+   "fit_seconds": 127.92,
+   "predict_seconds": 70.35,
+   "shared_train_input_seconds": 203.58,
+   "shared_eval_input_seconds": 607.3
+  }
+ },
+ "seconds_own": 569.6,
+ "seconds_shared_inputs": 3046.95,
+ "group": [
+  "x6-LSTMA",
+  "x7-D"
+ ],
+ "resources_at_start": {
+  "available_ram_gb": 59.43730163574219,
+  "free_disk_gb": 22.091075897216797
+ },
+ "spec_md5": "d000d5803682f3975fe30e02fa1663e5",
+ "smoke": null
+}

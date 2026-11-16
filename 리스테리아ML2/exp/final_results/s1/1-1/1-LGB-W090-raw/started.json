@@ -1,0 +1,11 @@
+{
+ "code_md5": "407b74909b18408a29b5b7628c4e3af0",
+ "spec_md5": "3eb3c18ed3e8e311bcdd89310c9aa78a",
+ "pid": 2026786,
+ "group": [
+  "1-XGB-W090-raw",
+  "1-LGB-W090-raw",
+  "1-CAT-W090-raw"
+ ],
+ "utc": "2026-11-07T23:31:01+00:00"
+}

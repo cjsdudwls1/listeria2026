@@ -1,0 +1,21 @@
+{
+ "plan": "단계 8-D 판정(쌓는 후보 대 단계 8 판정 뒤 현재 최고 판 — CV 4자리 상승, 2차 공통) — 단계 8-D 절(초안)·§6 2차 공통",
+ "sub": "judge",
+ "stage": "8",
+ "order": "2차",
+ "experiment": "listeria-2차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "chain_state_in": "logs/chain_state_8.json",
+ "chain_state_out": "logs/chain_state_8D.json",
+ "chain_log": "logs/chain_log.jsonl",
+ "fold_majority": false,
+ "dirs": {
+  "8-D-tune": "s8/8-D-tune",
+  "8-D": "s8/8-D",
+  "8-D-judge": "s8/8-D-judge"
+ }
+}

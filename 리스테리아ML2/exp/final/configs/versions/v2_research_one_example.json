@@ -1,0 +1,8 @@
+{
+ "name": "2-R2-CAT",
+ "order": 2,
+ "W": 60,
+ "mode": "sum",
+ "include_ids": ["WEATHER"],
+ "include_units": ["t3"]
+}

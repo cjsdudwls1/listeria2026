@@ -1,0 +1,25 @@
+{
+ "name": "2-R2",
+ "stage": "2-R",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "CAT",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "2-R-research-t3",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER"
+   ],
+   "include_units": [
+    "t3"
+   ]
+  }
+ }
+}

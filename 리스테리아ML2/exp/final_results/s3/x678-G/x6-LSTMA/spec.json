@@ -1,0 +1,26 @@
+{
+ "name": "x6-LSTMA",
+ "stage": "⑥⑦⑧",
+ "order": "2차",
+ "kind": "dl",
+ "algorithm": "LSTMA",
+ "W": 60,
+ "mode": null,
+ "input_set": "x6x7D-시계열만",
+ "role": "교체 후보",
+ "train_count": 4,
+ "params": {},
+ "judgement": null,
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "WX1",
+    "WX2"
+   ],
+   "n_ma_dl": 7,
+   "dl_layout": "seq_only"
+  }
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "plan": "단계 1-2 LSTM window 탐색 — §6 1차 1-2, §7, 부록 A-8·A-9·A-14·A-15 (10 설정, 부록 A-8 구조·학습 그대로)",
+ "stage": "1-2",
+ "order": "1차",
+ "experiment": "listeria-1차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "incomplete_months": "s0/0-1/apply/12_incomplete_months.json",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "n_jobs": 4,
+ "seed": 42,
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "log_pred_artifacts": false,
+ "algorithms": [
+  "LSTM"
+ ],
+ "W_grid": [
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100
+ ],
+ "input_set": "1차-딥러닝",
+ "model_params": {},
+ "gpu_memory_fraction": 0.4,
+ "context": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "missing_lists": "s0/0-6_missing/missing_lists.json"
+  },
+  "data": {},
+  "y_cut": "2025-06-30"
+ }
+}

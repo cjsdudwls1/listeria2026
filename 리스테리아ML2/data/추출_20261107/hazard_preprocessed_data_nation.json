@@ -1,0 +1,49 @@
+{
+  "name": "hazard_preprocessed_data_nation",
+  "table": "ready_data.hazard_preprocessed_data",
+  "where": "hazard_label = '리스테리아'",
+  "plan": "부록 A-2 해외 나라 코드 2~4순위 + s_org 잇는 키 cntc_sys_key2, 시료와 잇는 키 lims_data_key, 부록 B-6",
+  "sql": "select \"lims_data_key\", \"hazard_label\", \"cntc_sys_key2\", \"prdctn_nation_code\", \"orgplce_nation_code\", \"import_nation_code\" from \"ready_data\".\"hazard_preprocessed_data\" where hazard_label = '리스테리아'",
+  "count_sql": "select count(*) from \"ready_data\".\"hazard_preprocessed_data\" where hazard_label = '리스테리아'",
+  "rows": 765891,
+  "db_count": 765891,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "lims_data_key",
+      "parquet_type": "string"
+    },
+    {
+      "name": "hazard_label",
+      "parquet_type": "string"
+    },
+    {
+      "name": "cntc_sys_key2",
+      "parquet_type": "string"
+    },
+    {
+      "name": "prdctn_nation_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "orgplce_nation_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "import_nation_code",
+      "parquet_type": "string"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [],
+  "parquet_md5": "2b7d8dc674d147b891ead8f2adc339b9",
+  "parquet_bytes": 5639152,
+  "started_at": "2026-11-07T00:50:49+09:00",
+  "seconds": 7.2,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

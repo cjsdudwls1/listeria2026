@@ -1,0 +1,13 @@
+{
+ "name": "2-R8",
+ "stage": "2-R",
+ "spec_md5": "1f791bca2b9926463ecac66cd236dbcd",
+ "code_md5": "ba06ee18452d7969d218177bc540e67a",
+ "cv_band_weighted": 0.024888689438785732,
+ "many_ties": false,
+ "selection_count": 165,
+ "mlflow_run_id": "59861447b2034b90920c0393ec0d2006",
+ "seconds_total": 1006.43,
+ "group": null,
+ "smoke": null
+}

@@ -1,0 +1,21 @@
+{
+ "name": "3-0-CMBV",
+ "stage": "3-0",
+ "spec_md5": "6849c8959bd178b0e078f1913449d97b",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.023116206265837855,
+ "many_ties": false,
+ "selection_count": 176,
+ "mlflow_run_id": "2952783fd6e34e5cb7a8bb00b352fffb",
+ "seconds_total": 4342.66,
+ "group": [
+  "3-0-LSTM",
+  "3-0-GRU",
+  "3-0-TRF",
+  "3-0-LSTMA",
+  "3-0-TCN",
+  "3-0-CMB",
+  "3-0-CMBV"
+ ],
+ "smoke": null
+}

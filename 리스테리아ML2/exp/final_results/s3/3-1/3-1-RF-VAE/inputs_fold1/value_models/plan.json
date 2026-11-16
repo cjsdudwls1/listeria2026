@@ -1,0 +1,110 @@
+{
+ "def": {
+  "kind": "vae",
+  "column": "anom_vae",
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "W": 60,
+  "mode": "sum",
+  "source": "3-1-VAEt"
+ },
+ "row_plan": {
+  "steps": [],
+  "rep": "own",
+  "sel_dir": null
+ },
+ "seed": 42,
+ "models": [
+  {
+   "model": "fold1-b1",
+   "source_model": "fold1-b1",
+   "n": 311283,
+   "pos": 1011,
+   "train_d": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "fold1-b2",
+   "source_model": "fold1-b2",
+   "n": 233095,
+   "pos": 827,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "fold1-b3",
+   "source_model": "fold1-b3",
+   "n": 210068,
+   "pos": 447,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "fold1-b4",
+   "source_model": "fold1-b4",
+   "n": 269955,
+   "pos": 850,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "fold1-full",
+   "source_model": "fold1-full",
+   "n": 341467,
+   "pos": 1045,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ]
+  }
+ ],
+ "source": "3-1-VAEt 의 재사용 계획 모델 사본(3-1 — 줄이지 않은 자료)"
+}

@@ -1,0 +1,121 @@
+{
+  "name": "nation_code",
+  "table": "ba_data_info.nation_code",
+  "where": null,
+  "plan": "부록 A-2 alpha-2·alpha-3 맞춤, §2-3 sgg = 'OV' + alpha-3",
+  "sql": "select \"name_en\", \"name_ko\", \"synonyms\", \"alpha_2\", \"alpha_3\", \"nation_code\", \"iso_3166_2\", \"region_en\", \"region_ko\", \"region_code\", \"continent_en\", \"continent_ko\", \"sub_region\", \"sub_region_code\", \"intermediate_region\", \"intermediate_region_code\", \"capital_name\", \"capital_lat\", \"capital_lon\", \"nation_lat\", \"nation_lon\" from \"ba_data_info\".\"nation_code\"",
+  "count_sql": "select count(*) from \"ba_data_info\".\"nation_code\"",
+  "rows": 249,
+  "db_count": 249,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "name_en",
+      "parquet_type": "string"
+    },
+    {
+      "name": "name_ko",
+      "parquet_type": "string"
+    },
+    {
+      "name": "synonyms",
+      "parquet_type": "string"
+    },
+    {
+      "name": "alpha_2",
+      "parquet_type": "string"
+    },
+    {
+      "name": "alpha_3",
+      "parquet_type": "string"
+    },
+    {
+      "name": "nation_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "iso_3166_2",
+      "parquet_type": "string"
+    },
+    {
+      "name": "region_en",
+      "parquet_type": "string"
+    },
+    {
+      "name": "region_ko",
+      "parquet_type": "string"
+    },
+    {
+      "name": "region_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "continent_en",
+      "parquet_type": "string"
+    },
+    {
+      "name": "continent_ko",
+      "parquet_type": "string"
+    },
+    {
+      "name": "sub_region",
+      "parquet_type": "string"
+    },
+    {
+      "name": "sub_region_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "intermediate_region",
+      "parquet_type": "string"
+    },
+    {
+      "name": "intermediate_region_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "capital_name",
+      "parquet_type": "string"
+    },
+    {
+      "name": "capital_lat",
+      "parquet_type": "double"
+    },
+    {
+      "name": "capital_lon",
+      "parquet_type": "double"
+    },
+    {
+      "name": "nation_lat",
+      "parquet_type": "double"
+    },
+    {
+      "name": "nation_lon",
+      "parquet_type": "double"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [
+    "alpha_2",
+    "alpha_3",
+    "nation_code",
+    "region_code",
+    "sub_region_code",
+    "intermediate_region_code"
+  ],
+  "numeric_to_float64_columns": [
+    "capital_lat",
+    "capital_lon",
+    "nation_lat",
+    "nation_lon"
+  ],
+  "parquet_md5": "8b6fa7a6017050078f0beff71c71ec96",
+  "parquet_bytes": 30041,
+  "started_at": "2026-11-07T00:50:56+09:00",
+  "seconds": 0.0,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

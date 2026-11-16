@@ -1,0 +1,32 @@
+{
+ "name": "3-3-T3",
+ "stage": "3-3",
+ "spec_md5": "4150442bfc617331209c216030d9c0b8",
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "cv_band_weighted": 0.031725121885499336,
+ "many_ties": false,
+ "selection_count": 191,
+ "mlflow_run_id": "1b698d62845d49038525ff88227205fc",
+ "smoke": null,
+ "members": [
+  {
+   "algorithm": "RF",
+   "name": "3-3-RF",
+   "source": "3-0-RF",
+   "pred_dir": "s3/3-0-T/3-0-RF"
+  },
+  {
+   "algorithm": "ET",
+   "name": "3-3-ET",
+   "source": "3-0-ET",
+   "pred_dir": "s3/3-0-T/3-0-ET"
+  },
+  {
+   "algorithm": "CAT",
+   "name": "3-3-CAT",
+   "source": "3-0-CAT",
+   "pred_dir": "s3/3-0-T/3-0-CAT"
+  }
+ ],
+ "pct_cv_band_weighted": 0.035047600759474426
+}

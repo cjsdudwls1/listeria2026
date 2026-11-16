@@ -1,0 +1,126 @@
+{
+ "def": {
+  "kind": "vae",
+  "column": "anom_vae",
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "W": 60,
+  "mode": "sum",
+  "source": "3-1-VAEt"
+ },
+ "row_plan": {
+  "steps": [],
+  "rep": "own",
+  "sel_dir": null
+ },
+ "seed": 42,
+ "models": [
+  {
+   "model": "refit-b1",
+   "source_model": "refit-b1",
+   "n": 554918,
+   "pos": 1648,
+   "train_d": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "refit-b2",
+   "source_model": "refit-b2",
+   "n": 476730,
+   "pos": 1464,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "refit-b3",
+   "source_model": "refit-b3",
+   "n": 453703,
+   "pos": 1084,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "refit-b4",
+   "source_model": "refit-b4",
+   "n": 438441,
+   "pos": 1253,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "refit-b5",
+   "source_model": "fold2-full",
+   "n": 416616,
+   "pos": 1279,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ]
+  },
+  {
+   "model": "refit-full",
+   "source_model": "refit-full",
+   "n": 585102,
+   "pos": 1682,
+   "train_d": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ]
+  }
+ ],
+ "source": "3-1-VAEt 의 재사용 계획 모델 사본(3-1 — 줄이지 않은 자료)"
+}

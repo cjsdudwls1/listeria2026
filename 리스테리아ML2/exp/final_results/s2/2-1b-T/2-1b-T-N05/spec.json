@@ -1,0 +1,24 @@
+{
+ "name": "2-1b-T-N05",
+ "stage": "2-1b",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "CAT",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "2-1b-anom-tree-N05",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "WX2"
+   ],
+   "n_ma": 5
+  }
+ }
+}

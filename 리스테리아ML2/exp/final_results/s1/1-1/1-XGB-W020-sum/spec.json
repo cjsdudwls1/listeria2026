@@ -1,0 +1,22 @@
+{
+ "name": "1-XGB-W020-sum",
+ "stage": "1-1",
+ "order": "1차",
+ "kind": "tree",
+ "algorithm": "XGB",
+ "W": 20,
+ "mode": "sum",
+ "input_set": "1차-트리",
+ "role": "후보",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER"
+   ]
+  }
+ }
+}

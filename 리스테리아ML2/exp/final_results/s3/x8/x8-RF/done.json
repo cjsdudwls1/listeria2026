@@ -1,0 +1,13 @@
+{
+ "name": "x8-RF",
+ "stage": "⑧",
+ "spec_md5": "46cde5ac36753ff4c84a09a9847ac0d6",
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "cv_band_weighted": 0.02006857321035702,
+ "many_ties": true,
+ "selection_count": 192,
+ "mlflow_run_id": "13010f1d7257461badf47544d5c0bf7f",
+ "seconds_total": 371.21,
+ "group": null,
+ "smoke": null
+}

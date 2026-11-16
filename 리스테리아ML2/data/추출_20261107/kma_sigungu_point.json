@@ -1,0 +1,60 @@
+{
+  "name": "kma_sigungu_point",
+  "table": "api_data_info.kma_sigungu_point",
+  "where": null,
+  "plan": "부록 A-2 국내 운영 예보 좌표, 단계 0-3 예보 좌표에 연결 안 되는 시군구 목록·예보 좌표 차이 측정(부록 A-13)",
+  "sql": "select \"sigungu_code\", \"sigungu_nm\", \"lat\", \"lon\", \"n_points\", \"sources\", \"method\", \"created_at\" from \"api_data_info\".\"kma_sigungu_point\"",
+  "count_sql": "select count(*) from \"api_data_info\".\"kma_sigungu_point\"",
+  "rows": 251,
+  "db_count": 251,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "sigungu_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "sigungu_nm",
+      "parquet_type": "string"
+    },
+    {
+      "name": "lat",
+      "parquet_type": "double"
+    },
+    {
+      "name": "lon",
+      "parquet_type": "double"
+    },
+    {
+      "name": "n_points",
+      "parquet_type": "int64"
+    },
+    {
+      "name": "sources",
+      "parquet_type": "string"
+    },
+    {
+      "name": "method",
+      "parquet_type": "string"
+    },
+    {
+      "name": "created_at",
+      "parquet_type": "timestamp[us]"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [
+    "lat",
+    "lon"
+  ],
+  "parquet_md5": "8bb16730d9fd5c78e7006c79a90ce9a9",
+  "parquet_bytes": 11213,
+  "started_at": "2026-11-07T00:51:07+09:00",
+  "seconds": 0.0,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

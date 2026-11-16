@@ -1,0 +1,38 @@
+{
+ "arch": "LSTM",
+ "cat_columns": [
+  "sido",
+  "sgg",
+  "p2",
+  "p3"
+ ],
+ "cat_sizes": [
+  18,
+  352,
+  53,
+  222
+ ],
+ "emb_dims": [
+  9,
+  50,
+  27,
+  50
+ ],
+ "oov_index": 0,
+ "dims": {
+  "W": 10,
+  "C": 28,
+  "S": 3
+ },
+ "lr": 0.001,
+ "optimizer": "Adam",
+ "batch_size": 1024,
+ "max_epochs": 20,
+ "patience": 3,
+ "es_fraction": 0.1,
+ "es_unit": "(sgg, d)",
+ "loss": "binary_crossentropy",
+ "monitor": "es_binary_crossentropy",
+ "restore_best": true,
+ "n_params": 67478
+}

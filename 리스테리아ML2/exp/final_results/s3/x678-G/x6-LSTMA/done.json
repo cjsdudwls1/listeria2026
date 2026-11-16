@@ -1,0 +1,16 @@
+{
+ "name": "x6-LSTMA",
+ "stage": "⑥⑦⑧",
+ "spec_md5": "d000d5803682f3975fe30e02fa1663e5",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.003446214443252606,
+ "many_ties": false,
+ "selection_count": 177,
+ "mlflow_run_id": "0cd1f3d3f089417a904ccbcbad2a6371",
+ "seconds_total": 3616.55,
+ "group": [
+  "x6-LSTMA",
+  "x7-D"
+ ],
+ "smoke": null
+}

@@ -1,0 +1,113 @@
+{
+ "code_md5": "6e20582664e0d8b4c5dc5bfe8c61a22c",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "logs/chain_state_8.json": "67902b20393d79bfe48d32fe2ad7ca1a",
+  "logs/chain_log.jsonl": "d6d9ef694062a3ab9f2bbfbe2aaa5367"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "plan": "최종 보고(식품 고정표 v2 + Koutsoumanis 생장식 6칼럼 판을 최종으로 — 사용자 결정 2026-11-12 'KO 점수 더 좋으면 그게 최종', s_food2_pick.py 가 val 로 고른 때만 씀) — §6 최종 모델 고르기, §1-3, 부록 A-10·A-12·A-15",
+  "stage": "최종",
+  "order": "2차",
+  "experiment": "listeria-2차",
+  "samples": "s0/0-1/apply/samples.parquet",
+  "incomplete_months": "s0/0-1/apply/12_incomplete_months.json",
+  "experiment_log": "logs/experiment_log.jsonl",
+  "use_mlflow": true,
+  "mlflow_uri": "http://127.0.0.1:5055",
+  "code_reviewed": true,
+  "n_jobs": 8,
+  "seed": 42,
+  "decision_1_3": "s1/1-3/1-3_decision.json",
+  "dir_1_1": "s1/1-1",
+  "dir_1_2": "s1/1-2",
+  "chain_state": "logs/chain_state_8.json",
+  "chain_log": "logs/chain_log.jsonl",
+  "decision_3_0b": "s3/3-0b-best/3-0b_decision.json",
+  "dir_2_0": "s2/2-0/2-0-CAT",
+  "dir_2_R": "s2/2-R",
+  "search_dirs": [
+   "s3/3-0b-best",
+   "s3/3-0b",
+   "s3/x678-G",
+   "s3/x678-C",
+   "s3/3-1",
+   "s3/3-2",
+   "s3/3-3",
+   "s4/4-T",
+   "s4/4-NN",
+   "s5_6/5-6-T",
+   "s8/8-T",
+   "s8/8-F",
+   "s8/8-D"
+  ],
+  "prdlst_cl": "리스테리아ML2/data/raw/raw_t_prdlst_cl.parquet",
+  "theil_targets": "s0/0-1/apply/14_theil_target_columns.json",
+  "importance_M": 10,
+  "importance_parts": [
+   "fold1:1-30",
+   "fold1:31-60",
+   "fold2:1-30",
+   "fold2:31-60",
+   "fold3:1-30",
+   "fold3:31-60"
+  ],
+  "gpu_memory_fraction": 0.25,
+  "x1_dir": "s4/4-X1/x1-LSTM",
+  "context": {
+   "results": {
+    "samples": "s0/0-1/apply/samples.parquet",
+    "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+    "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+    "spi_domestic_obs": "s0/0-4_spi/SPI_국내_관측_0-4.parquet",
+    "spi_domestic_fc": "s0/0-4_spi/SPI_국내_예보_0-4.parquet",
+    "spi_overseas": "s0/0-4_spi/SPI_해외_0-4.parquet",
+    "food_table": "s0/0-6_static_v2/식품_고정표.parquet",
+    "livestock": "s0/0-6_static/축사_L1.parquet",
+    "missing_lists": "s0/0-6_missing/missing_lists.json"
+   },
+   "data": {
+    "soil": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+    "global_soil_ph": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet",
+    "eco": "리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet",
+    "gw": "리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet"
+   },
+   "y_cut": "2025-06-30"
+  },
+  "speed": {
+   "dl_keyed_inputs": true,
+   "fast_predict": true,
+   "gpu_importance": true,
+   "gpu_fraction_cap": 0.25,
+   "cpu_cores": 12
+  },
+  "final_override": {
+   "name": "5-LSTM-KO",
+   "dir": "s5_6/5-6-T-food2-KO/5-LSTM-KO",
+   "replaces": "5-LSTM",
+   "label": "최종(식품 갱신 + 생장식 KO)",
+   "reason": "식품 고정표 v2 + Koutsoumanis 생장식 6칼럼 판이 val 로 5-LSTM-food2 를 넘음(사용자 결정 2026-11-12)",
+   "via": [
+    {
+     "name": "5-LSTM-food2",
+     "dir": "s5_6/5-6-T-food2/5-LSTM-food2",
+     "label": "식품 갱신(생장식 KO 없음)"
+    }
+   ],
+   "tag": "예(식품 갱신 + 생장식 KO)",
+   "header_note": "식품 고정표 갱신 + 생장식 KO 6칼럼 판"
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-12T11:19:24+00:00",
+ "mode": "report",
+ "reason": "최종 보고(식품 갱신 — s_food2_pick 이 val 로 고른 판, 사용자 결정 2026-11-12)"
+}

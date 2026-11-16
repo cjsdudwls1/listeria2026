@@ -1,0 +1,33 @@
+{
+ "name": "x4-L6",
+ "stage": "3-2",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "LR",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "x4-LIMS(범주 5 + h·g) 스태킹",
+ "role": "교체 후보",
+ "train_count": 118,
+ "params": {},
+ "judgement": null,
+ "base_variant": null,
+ "extra": {
+  "stack": {
+   "base": [
+    "XGB",
+    "LGB",
+    "CAT",
+    "RF",
+    "ET",
+    "LR"
+   ],
+   "base_input": "범주 5 + h·g",
+   "base_params": "라이브러리 기본(반복 수 포함)",
+   "oof": "§7-3 fold 안 블록·전역 블록(같은 행 모델 재사용)",
+   "meta": "로지스틱(입력 p_<트리> 6칼럼, 표준화)",
+   "save_full_models": true
+  },
+  "cat_auto_lr": true
+ }
+}

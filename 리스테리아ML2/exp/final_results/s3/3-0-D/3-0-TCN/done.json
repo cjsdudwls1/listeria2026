@@ -1,0 +1,21 @@
+{
+ "name": "3-0-TCN",
+ "stage": "3-0",
+ "spec_md5": "e84154b5f2106454218ec9ccfdda5a4b",
+ "code_md5": "d2577c144b8f3e877b48aab0a660f8e5",
+ "cv_band_weighted": 0.02854545278800956,
+ "many_ties": false,
+ "selection_count": 174,
+ "mlflow_run_id": "427698b3d26d4910b8f1114ab349974c",
+ "seconds_total": 4343.95,
+ "group": [
+  "3-0-LSTM",
+  "3-0-GRU",
+  "3-0-TRF",
+  "3-0-LSTMA",
+  "3-0-TCN",
+  "3-0-CMB",
+  "3-0-CMBV"
+ ],
+ "smoke": null
+}

@@ -1,0 +1,29 @@
+{
+ "name": "4-c-L-RF",
+ "stage": "4",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "RF",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "4-c-L-RF-입력",
+ "role": "비교만",
+ "train_count": 4,
+ "params": {},
+ "judgement": "해당 없음",
+ "base_variant": "3-0-RF",
+ "extra": {
+  "version": {
+   "include_ids": []
+  },
+  "s4": {
+   "row_plan": {
+    "steps": [
+     "top5"
+    ],
+    "rep": "own",
+    "sel_dir": "s4/sel-top5"
+   }
+  }
+ }
+}

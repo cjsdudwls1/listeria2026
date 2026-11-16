@@ -1,0 +1,15 @@
+{
+ "plan": "단계 5·6 뽑기(해마다 양성 전부 + 음성 4배, 씨앗 0 — 따로·쌓기) — §6 단계 5·6",
+ "sub": "prep",
+ "stage": "5-6",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "chain_state_in": "logs/chain_state_4.json",
+ "dirs": {
+  "sel-hon5": "s5_6/sel-hon5",
+  "sel-hon6": "s5_6/sel-hon6",
+  "sel-stk-hon5": "s5_6/sel-stk-hon5",
+  "sel-stk-hon6": "s5_6/sel-stk-hon6",
+  "5-6-T": "s5_6/5-6-T",
+  "5-6-judge": "s5_6/5-6-judge"
+ }
+}

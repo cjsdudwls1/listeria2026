@@ -1,0 +1,22 @@
+{
+ "plan": "단계 8 Focal 판정(쌓는 후보 대 8-T 판정 뒤 현재 최고 판) — §6 2차 공통·단계 8",
+ "sub": "judgeF",
+ "stage": "8",
+ "order": "2차",
+ "experiment": "listeria-2차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "chain_state_in": "logs/chain_state_5-6.json",
+ "chain_state_mid": "logs/chain_state_8T.json",
+ "chain_log": "logs/chain_log.jsonl",
+ "dirs": {
+  "8-tune": "s8/8-tune",
+  "8-T": "s8/8-T",
+  "8-F": "s8/8-F",
+  "8-judge": "s8/8-judge"
+ },
+ "chain_state_out": "logs/chain_state_8.json"
+}

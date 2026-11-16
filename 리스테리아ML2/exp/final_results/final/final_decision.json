@@ -1,0 +1,69 @@
+{
+ "stage": "최종",
+ "final": "5-LSTM",
+ "final_source": "사슬 마지막 현재 최고 판",
+ "final_def": {
+  "name": "5-LSTM",
+  "kind": "dl",
+  "dir": "s5_6/5-6-T/5-LSTM",
+  "replacement": false,
+  "members": [
+   {
+    "name": "5-LSTM",
+    "dir": "s5_6/5-6-T/5-LSTM",
+    "anomaly": null,
+    "row_plan": {
+     "steps": [
+      "hon5"
+     ],
+     "rep": "own",
+     "sel_dir": "s5_6/sel-hon5"
+    },
+    "catenc_k": null
+   }
+  ]
+ },
+ "chain_last": "5-LSTM",
+ "baseline_1": "1-CAT-W060-sum",
+ "selection": {
+  "selected": "5-LSTM",
+  "ranking": [
+   "5-LSTM",
+   "1-CAT-W060-sum"
+  ],
+  "cv": {
+   "5-LSTM": 0.03459757159414746,
+   "1-CAT-W060-sum": 0.028253970601609165
+  },
+  "rescored": {},
+  "ranking_rescore": null,
+  "rescore_same_top": null,
+  "alerts": []
+ },
+ "x1": {
+  "final": "5-LSTM",
+  "x1": "x1-LSTM",
+  "x1_dir": "s4/4-X1/x1-LSTM",
+  "final_h1": {
+   "cv": 0.041046455857201826,
+   "fold": {
+    "fold1": 0.03499158355652797,
+    "fold2": 0.07722160918898355,
+    "fold3": 0.010926174826093957
+   }
+  },
+  "x1_h1": {
+   "cv": 0.010337828774450981,
+   "fold": {
+    "fold1": 0.009733410362794494,
+    "fold2": 0.010302527599401238,
+    "fold3": 0.010977548361157214
+   }
+  },
+  "①_better": false
+ },
+ "①_better": false,
+ "chain_state_md5": "67902b20393d79bfe48d32fe2ad7ca1a",
+ "alerts": [],
+ "utc": "2026-11-11T07:14:59+00:00"
+}

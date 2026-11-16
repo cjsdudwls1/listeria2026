@@ -1,0 +1,94 @@
+{
+ "name": "5-3-2-CAT-KO",
+ "stage": "5-6-x32KO",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "CAT",
+ "W": 60,
+ "mode": "sum",
+ "input_set": "5-3-2-CAT-KO-입력",
+ "role": "후보",
+ "train_count": 4,
+ "params": {
+  "iter_select": true
+ },
+ "judgement": null,
+ "base_variant": "3-2-CAT",
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "HIS1",
+    "HIS2",
+    "HIS3",
+    "HIS4",
+    "WX1",
+    "WX2",
+    "WX3",
+    "WX4",
+    "WX5",
+    "WX6",
+    "WX7",
+    "FD1",
+    "SO1",
+    "X1",
+    "X2",
+    "L1",
+    "KO1"
+   ],
+   "k": 100,
+   "n_ma": 7,
+   "n_ma_dl": 7
+  },
+  "s4": {
+   "row_plan": {
+    "steps": [
+     "hon5"
+    ],
+    "rep": "own",
+    "sel_dir": "s5_6/sel-hon5"
+   },
+   "catenc_k": 100,
+   "provider": {
+    "kind": "vae",
+    "column": "anom_vae",
+    "version": {
+     "include_ids": [
+      "WEATHER",
+      "HIS1",
+      "HIS2",
+      "HIS3",
+      "HIS4",
+      "WX1",
+      "WX2",
+      "WX3",
+      "WX4",
+      "WX5",
+      "WX6",
+      "WX7",
+      "FD1",
+      "SO1",
+      "X1",
+      "X2",
+      "L1"
+     ],
+     "k": 100,
+     "n_ma": 7,
+     "n_ma_dl": 7
+    },
+    "W": 60,
+    "mode": "sum",
+    "source": "3-1-VAEt"
+   },
+   "model_seed": 0
+  },
+  "rerun": {
+   "of": "5-CAT",
+   "of_dir": "s5_6/x32_spec/5-CAT",
+   "reason": "'결합 스태킹'(3-2-CAT)을 바탕으로 손 교수 방식(5)·식품 고정표 v2·KO 6칼럼(사용자 요청 2026-11-13)",
+   "add_ids": [
+    "KO1"
+   ]
+  }
+ }
+}

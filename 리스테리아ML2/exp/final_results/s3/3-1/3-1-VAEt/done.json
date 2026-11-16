@@ -1,0 +1,11 @@
+{
+ "name": "3-1-VAEt",
+ "stage": "3-1",
+ "spec_md5": "3103993ddcf41453b328ace28accfef1",
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "cv_band_weighted": 0.014060702641713696,
+ "many_ties": false,
+ "selection_count": 185,
+ "mlflow_run_id": "f11b694b8a194a398fe20a38cd67fd4c",
+ "smoke": null
+}

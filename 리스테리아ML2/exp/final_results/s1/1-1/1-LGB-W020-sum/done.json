@@ -1,0 +1,16 @@
+{
+ "name": "1-LGB-W020-sum",
+ "stage": "1-1",
+ "spec_md5": "13d2f67ad9b8e6ce825e930862f113bb",
+ "code_md5": "407b74909b18408a29b5b7628c4e3af0",
+ "cv_band_weighted": 0.009285710406549018,
+ "many_ties": true,
+ "selection_count": 90,
+ "mlflow_run_id": "18789a76507345aaa43b36918750f984",
+ "seconds_total": 911.84,
+ "group": [
+  "1-LGB-W020-sum",
+  "1-CAT-W020-sum"
+ ],
+ "smoke": null
+}

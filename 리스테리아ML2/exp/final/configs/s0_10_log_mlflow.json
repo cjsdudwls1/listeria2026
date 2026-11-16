@@ -1,0 +1,8 @@
+{
+ "plan": "단계 0-10 7-a 결과를 MLflow listeria-준비 에 — 부록 A-15·A-12·B-3",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "dir_0_10": "s0/0-10",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "grid_size": 75
+}

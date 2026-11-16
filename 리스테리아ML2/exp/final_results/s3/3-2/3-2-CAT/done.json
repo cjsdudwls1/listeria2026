@@ -1,0 +1,40 @@
+{
+ "name": "3-2-CAT",
+ "stage": "3-2",
+ "spec_md5": "317cefd04f826fcd3a20b4b71b4bcebf",
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "cv_band_weighted": 0.0312890214498194,
+ "many_ties": false,
+ "selection_count": 188,
+ "mlflow_run_id": "29b29b228aa5404381ab4a54135d634e",
+ "seconds_total": 5026.66,
+ "group": [
+  "3-2-ET",
+  "3-2-CAT"
+ ],
+ "smoke": null,
+ "n_iter": {
+  "max_iter": 2000,
+  "n_points": 56,
+  "cross_n": {
+   "fold1": 350,
+   "fold2": 150,
+   "fold3": 350
+  },
+  "common_n": 350,
+  "own_best_n": {
+   "fold1": 70,
+   "fold2": 350,
+   "fold3": 750
+  },
+  "at_cap": false,
+  "train_rows": {
+   "fold1": 341467,
+   "fold2": 416616,
+   "fold3": 497593,
+   "refit": 585102
+  },
+  "learning_rate": 0.07163666685422261,
+  "max_iter_decided_here": false
+ }
+}

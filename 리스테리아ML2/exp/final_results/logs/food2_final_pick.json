@@ -1,0 +1,28 @@
+{
+ "stage": "최종(식품 갱신)",
+ "rule": "2차 사슬 채택 규칙 — val(CV 구간 가중 PR-AUC) 소수 4자리 반올림 뒤 후보가 오를 때만 채택(judge_adoption)",
+ "user_decision": "Koutsoumanis 생장식 6칼럼 추가해서 점수 더 좋으면 그게 최종(2026-11-12)",
+ "current": {
+  "name": "5-LSTM-food2",
+  "cv": 0.02963488151660919,
+  "cv_round4": 0.0296,
+  "dir": "s5_6/5-6-T-food2/5-LSTM-food2",
+  "config": "configs/s_final_food2.json"
+ },
+ "candidate": {
+  "name": "5-LSTM-KO",
+  "cv": 0.03466073550603418,
+  "cv_round4": 0.0347,
+  "dir": "s5_6/5-6-T-food2-KO/5-LSTM-KO",
+  "config": "configs/s_final_food2_ko.json"
+ },
+ "judge": {
+  "candidate": "5-LSTM-KO",
+  "current": "5-LSTM-food2",
+  "adopt": true,
+  "rescore": null,
+  "alerts": []
+ },
+ "chosen": "5-LSTM-KO",
+ "chosen_config": "configs/s_final_food2_ko.json"
+}

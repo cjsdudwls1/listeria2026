@@ -1,0 +1,12 @@
+{
+ "name": "1-LSTM-W010",
+ "stage": "1-2",
+ "spec_md5": "9f158dafa1ec856c19c21b00f1972b81",
+ "code_md5": "0d5ef9c04fe220e756a0b606c08f3842",
+ "cv_band_weighted": 0.025464738888236717,
+ "many_ties": false,
+ "selection_count": 76,
+ "mlflow_run_id": "b0d9a1b32e11497cb3b0993f7f8147dd",
+ "seconds_total": 791.02,
+ "smoke": null
+}

@@ -1,0 +1,89 @@
+{
+  "name": "p0830_fcst_long",
+  "table": "predict_data.p0830_fcst_long",
+  "where": null,
+  "plan": "단계 0-3 국내 11일 예보 변수 목록(부록 A-13 예보 표)",
+  "sql": "select \"sigungu_code\", \"day_offset\", \"forecast_date\", \"tmprt_150\", \"tmprt_150Top\", \"tmprt_150Lwet\", \"hd_150\", \"arvlty_300\", \"arvlty_300Top\", \"afp\", \"일조\", \"solrad_Qy\", \"soil_Mitr_10\", \"미세먼지\", \"pm_src\", \"sun_src\" from \"predict_data\".\"p0830_fcst_long\"",
+  "count_sql": "select count(*) from \"predict_data\".\"p0830_fcst_long\"",
+  "rows": 2761,
+  "db_count": 2761,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "sigungu_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "day_offset",
+      "parquet_type": "int64"
+    },
+    {
+      "name": "forecast_date",
+      "parquet_type": "date32[day]"
+    },
+    {
+      "name": "tmprt_150",
+      "parquet_type": "double"
+    },
+    {
+      "name": "tmprt_150Top",
+      "parquet_type": "double"
+    },
+    {
+      "name": "tmprt_150Lwet",
+      "parquet_type": "double"
+    },
+    {
+      "name": "hd_150",
+      "parquet_type": "double"
+    },
+    {
+      "name": "arvlty_300",
+      "parquet_type": "double"
+    },
+    {
+      "name": "arvlty_300Top",
+      "parquet_type": "double"
+    },
+    {
+      "name": "afp",
+      "parquet_type": "double"
+    },
+    {
+      "name": "일조",
+      "parquet_type": "double"
+    },
+    {
+      "name": "solrad_Qy",
+      "parquet_type": "double"
+    },
+    {
+      "name": "soil_Mitr_10",
+      "parquet_type": "double"
+    },
+    {
+      "name": "미세먼지",
+      "parquet_type": "double"
+    },
+    {
+      "name": "pm_src",
+      "parquet_type": "string"
+    },
+    {
+      "name": "sun_src",
+      "parquet_type": "string"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [],
+  "parquet_md5": "950fed63c9b35471309ad791e43a8a97",
+  "parquet_bytes": 108158,
+  "started_at": "2026-11-07T00:51:07+09:00",
+  "seconds": 0.0,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

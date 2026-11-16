@@ -1,0 +1,464 @@
+{
+ "code_md5": "a100b81685695e4f399f6b51f98f254a",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-4_spi/SPI_국내_관측_0-4.parquet": "47b75105feb574aabbe2da227e3e1ace",
+  "inputs:s0/0-4_spi/SPI_국내_예보_0-4.parquet": "220c915895f12f1d4bf5aab2286fb4a6",
+  "inputs:s0/0-4_spi/SPI_해외_0-4.parquet": "54d4ee3407a4ac74039045887bb4b56c",
+  "inputs:s0/0-6_static/식품_고정표.parquet": "fabcd4af37413fc7fde3988c7c4d024c",
+  "inputs:s0/0-6_static/축사_L1.parquet": "bad888b041fb9b6cff4d759c7f282ad7",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d",
+  "root:리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet": "25b219c71d012801fb86e3a2f5178e0e",
+  "root:리스테리아ML2/data/추출_20261107/global_soil_ph.parquet": "b13fa749f60f996f0a44fc0070d6fe53",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet": "9651572282858f5a9a78ceb1ad7d947f",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet": "85d78fd894f4ffc7cb9273674a59942e"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "3-1-VAEt",
+  "stage": "3-1",
+  "order": "2차",
+  "kind": "vae",
+  "algorithm": "VAE",
+  "W": 60,
+  "mode": "sum",
+  "input_set": "3-0-전체 숫자 칼럼(h·g·범주 뺌)",
+  "role": "비교만",
+  "train_count": 19,
+  "params": {},
+  "judgement": "해당 없음",
+  "base_variant": "3-0-RF",
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER",
+     "HIS1",
+     "HIS2",
+     "HIS3",
+     "HIS4",
+     "WX1",
+     "WX2",
+     "WX3",
+     "WX4",
+     "WX5",
+     "WX6",
+     "WX7",
+     "FD1",
+     "SO1",
+     "X1",
+     "X2",
+     "L1"
+    ],
+    "k": 100,
+    "n_ma": 7,
+    "n_ma_dl": 7
+   },
+   "vae": "표(tab) VAE, 부록 A-8",
+   "block_plan": {
+    "total": 19,
+    "strict": 14,
+    "global": 6,
+    "strict_only": 13,
+    "split_full": 4,
+    "roles": 22
+   },
+   "score": "robust z(음의 ELBO, 기준 = 조기 종료 묶음 불검출 행)"
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-09T17:20:29+00:00",
+ "models": [
+  {
+   "model": "fold1-b1",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "roles": [
+    "fold1-b1"
+   ],
+   "n_train_rows": 311283,
+   "n_train_pos": 1011,
+   "fit_seconds": 27.62,
+   "seconds": 28.5
+  },
+  {
+   "model": "fold1-b2",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "roles": [
+    "fold1-b2"
+   ],
+   "n_train_rows": 233095,
+   "n_train_pos": 827,
+   "fit_seconds": 19.48,
+   "seconds": 22.61
+  },
+  {
+   "model": "fold1-b3",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2022-06-30"
+    ]
+   ],
+   "roles": [
+    "fold1-b3"
+   ],
+   "n_train_rows": 210068,
+   "n_train_pos": 447,
+   "fit_seconds": 16.39,
+   "seconds": 20.34
+  },
+  {
+   "model": "fold1-b4",
+   "aliases": [
+    "fold2-b4"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ]
+   ],
+   "roles": [
+    "fold1-b4",
+    "fold2-b4"
+   ],
+   "n_train_rows": 269955,
+   "n_train_pos": 850,
+   "fit_seconds": 23.85,
+   "seconds": 30.17
+  },
+  {
+   "model": "fold1-full",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2022-06-30"
+    ]
+   ],
+   "roles": [
+    "fold1-full"
+   ],
+   "n_train_rows": 341467,
+   "n_train_pos": 1045,
+   "fit_seconds": 32.2,
+   "seconds": 202.9
+  },
+  {
+   "model": "fold2-b1",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "roles": [
+    "fold2-b1"
+   ],
+   "n_train_rows": 386432,
+   "n_train_pos": 1245,
+   "fit_seconds": 23.7,
+   "seconds": 24.29
+  },
+  {
+   "model": "fold2-b2",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "roles": [
+    "fold2-b2"
+   ],
+   "n_train_rows": 308244,
+   "n_train_pos": 1061,
+   "fit_seconds": 19.37,
+   "seconds": 21.34
+  },
+  {
+   "model": "fold2-b3",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2023-06-30"
+    ]
+   ],
+   "roles": [
+    "fold2-b3"
+   ],
+   "n_train_rows": 285217,
+   "n_train_pos": 681,
+   "fit_seconds": 20.06,
+   "seconds": 23.46
+  },
+  {
+   "model": "fold2-full",
+   "aliases": [
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2023-06-30"
+    ]
+   ],
+   "roles": [
+    "fold2-full",
+    "fold3-b5",
+    "refit-b5"
+   ],
+   "n_train_rows": 416616,
+   "n_train_pos": 1279,
+   "fit_seconds": 28.85,
+   "seconds": 245.6
+  },
+  {
+   "model": "fold3-b1",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "roles": [
+    "fold3-b1"
+   ],
+   "n_train_rows": 467409,
+   "n_train_pos": 1457,
+   "fit_seconds": 27.22,
+   "seconds": 27.98
+  },
+  {
+   "model": "fold3-b2",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "roles": [
+    "fold3-b2"
+   ],
+   "n_train_rows": 389221,
+   "n_train_pos": 1273,
+   "fit_seconds": 25.31,
+   "seconds": 28.02
+  },
+  {
+   "model": "fold3-b3",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "roles": [
+    "fold3-b3"
+   ],
+   "n_train_rows": 366194,
+   "n_train_pos": 893,
+   "fit_seconds": 24.41,
+   "seconds": 27.71
+  },
+  {
+   "model": "fold3-b4",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2024-06-30"
+    ]
+   ],
+   "roles": [
+    "fold3-b4"
+   ],
+   "n_train_rows": 350932,
+   "n_train_pos": 1062,
+   "fit_seconds": 23.87,
+   "seconds": 27.79
+  },
+  {
+   "model": "fold3-full",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2024-06-30"
+    ]
+   ],
+   "roles": [
+    "fold3-full"
+   ],
+   "n_train_rows": 497593,
+   "n_train_pos": 1491,
+   "fit_seconds": 41.94,
+   "seconds": 286.41
+  },
+  {
+   "model": "refit-b1",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2017-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "roles": [
+    "refit-b1"
+   ],
+   "n_train_rows": 554918,
+   "n_train_pos": 1648,
+   "fit_seconds": 52.55,
+   "seconds": 53.25
+  },
+  {
+   "model": "refit-b2",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2017-06-30"
+    ],
+    [
+     "2019-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "roles": [
+    "refit-b2"
+   ],
+   "n_train_rows": 476730,
+   "n_train_pos": 1464,
+   "fit_seconds": 52.03,
+   "seconds": 54.41
+  },
+  {
+   "model": "refit-b3",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2019-06-30"
+    ],
+    [
+     "2021-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "roles": [
+    "refit-b3"
+   ],
+   "n_train_rows": 453703,
+   "n_train_pos": 1084,
+   "fit_seconds": 33.42,
+   "seconds": 37.38
+  },
+  {
+   "model": "refit-b4",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2021-06-30"
+    ],
+    [
+     "2023-07-01",
+     "2025-06-30"
+    ]
+   ],
+   "roles": [
+    "refit-b4"
+   ],
+   "n_train_rows": 438441,
+   "n_train_pos": 1253,
+   "fit_seconds": 32.42,
+   "seconds": 37.08
+  },
+  {
+   "model": "refit-full",
+   "aliases": [],
+   "train_intervals": [
+    [
+     "2015-04-07",
+     "2025-06-30"
+    ]
+   ],
+   "roles": [
+    "refit-full"
+   ],
+   "n_train_rows": 585102,
+   "n_train_pos": 1682,
+   "fit_seconds": 49.36,
+   "seconds": 246.63
+  }
+ ],
+ "block_plan": {
+  "total": 19,
+  "strict": 14,
+  "global": 6,
+  "strict_only": 13,
+  "split_full": 4,
+  "roles": 22
+ },
+ "tree_target": "3-0-RF",
+ "smoke": null
+}

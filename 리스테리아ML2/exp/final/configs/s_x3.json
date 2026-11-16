@@ -1,0 +1,37 @@
+{
+ "plan": "추가 판 ③ 시료 무작위 나누기(1차 베이스라인 설정 하나, 시료 무작위 3겹·씨앗 42, 비교만) — §6 추가 판 ③, §1-2, 부록 A-9·A-14·A-15",
+ "stage": "③",
+ "order": "1차",
+ "experiment": "listeria-1차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "incomplete_months": "s0/0-1/apply/12_incomplete_months.json",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "n_jobs": 8,
+ "seed": 42,
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "decision_1_3": "s1/1-3/1-3_decision.json",
+ "dir_1_1": "s1/1-1",
+ "dir_1_2": "s1/1-2",
+ "gpu_memory_fraction": 0.4,
+ "context_tree": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet"
+  },
+  "data": {},
+  "y_cut": "2025-06-30"
+ },
+ "context_lstm": {
+  "results": {
+   "samples": "s0/0-1/apply/samples.parquet",
+   "domestic_weather": "s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet",
+   "overseas_weather": "s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet",
+   "missing_lists": "s0/0-6_missing/missing_lists.json"
+  },
+  "data": {},
+  "y_cut": "2025-06-30"
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "code_md5": "ad0a5ffea2ed8e78197b4a4b14fbe2ac",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-4_spi/SPI_국내_관측_0-4.parquet": "47b75105feb574aabbe2da227e3e1ace",
+  "inputs:s0/0-4_spi/SPI_국내_예보_0-4.parquet": "220c915895f12f1d4bf5aab2286fb4a6",
+  "inputs:s0/0-4_spi/SPI_해외_0-4.parquet": "54d4ee3407a4ac74039045887bb4b56c",
+  "inputs:s0/0-6_static/식품_고정표.parquet": "fabcd4af37413fc7fde3988c7c4d024c",
+  "inputs:s0/0-6_static/축사_L1.parquet": "bad888b041fb9b6cff4d759c7f282ad7",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d",
+  "root:리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet": "25b219c71d012801fb86e3a2f5178e0e",
+  "root:리스테리아ML2/data/추출_20261107/global_soil_ph.parquet": "b13fa749f60f996f0a44fc0070d6fe53",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet": "9651572282858f5a9a78ceb1ad7d947f",
+  "root:리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet": "85d78fd894f4ffc7cb9273674a59942e"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 8
+ },
+ "config": {
+  "name": "x2-NN60",
+  "stage": "4",
+  "order": "2차",
+  "kind": "dl",
+  "algorithm": "NN60",
+  "W": 60,
+  "mode": "sum",
+  "input_set": "x2-NN60-입력",
+  "role": "교체 후보",
+  "train_count": 4,
+  "params": {},
+  "judgement": null,
+  "base_variant": "3-0-RF",
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER",
+     "HIS1",
+     "HIS2",
+     "HIS3",
+     "HIS4",
+     "WX1",
+     "WX2",
+     "WX3",
+     "WX4",
+     "WX5",
+     "WX6",
+     "WX7",
+     "FD1",
+     "SO1",
+     "X1",
+     "X2",
+     "L1"
+    ],
+    "k": 100,
+    "n_ma": 7,
+    "n_ma_dl": 7
+   },
+   "s4": {
+    "row_plan": {
+     "steps": [
+      "reduce"
+     ],
+     "rep": "own",
+     "sel_dir": "s4/sel-reduce"
+    },
+    "nn60_from": "3-0-RF"
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-10T21:49:48+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 12442,
+   "train_pos": 1045,
+   "n_pairs": 3765795,
+   "fit_seconds": 4.03,
+   "predict_seconds": 7.28,
+   "shared_train_input_seconds": 18.21,
+   "shared_eval_input_seconds": 198.27
+  },
+  "fold2": {
+   "train_rows": 14149,
+   "train_pos": 1279,
+   "n_pairs": 4070067,
+   "fit_seconds": 0.8,
+   "predict_seconds": 7.93,
+   "shared_train_input_seconds": 13.68,
+   "shared_eval_input_seconds": 204.57
+  },
+  "fold3": {
+   "train_rows": 16638,
+   "train_pos": 1491,
+   "n_pairs": 4430181,
+   "fit_seconds": 0.65,
+   "predict_seconds": 8.39,
+   "shared_train_input_seconds": 15.28,
+   "shared_eval_input_seconds": 217.67
+  },
+  "refit": {
+   "train_rows": 19301,
+   "train_pos": 1682,
+   "n_pairs": 4611605,
+   "fit_seconds": 0.91,
+   "predict_seconds": 8.78,
+   "shared_train_input_seconds": 18.79,
+   "shared_eval_input_seconds": 226.82
+  }
+ },
+ "seconds_own": 38.77,
+ "seconds_shared_inputs": 913.29,
+ "group": null,
+ "resources_at_start": {
+  "available_ram_gb": 79.614013671875,
+  "free_disk_gb": 18.132781982421875
+ },
+ "spec_md5": "42ff6f5a3b1845efaf3c3201755ed61f",
+ "smoke": null
+}

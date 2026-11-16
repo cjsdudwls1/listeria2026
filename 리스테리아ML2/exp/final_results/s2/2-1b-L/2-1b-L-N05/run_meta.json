@@ -1,0 +1,92 @@
+{
+ "code_md5": "ba06ee18452d7969d218177bc540e67a",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5",
+  "inputs:s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "inputs:s0/0-4_v2/시군구_일별_기상_0-4_합본.parquet": "733aba408994f2d420e18831ad87dcff",
+  "inputs:s0/0-4_weather_overseas/해외_나라_일별_기상_1차.parquet": "6d952dcfcd94475f657781d20e568f50",
+  "inputs:s0/0-6_missing/missing_lists.json": "bab62b3586af0582d345f47becd13a2d"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": 4
+ },
+ "config": {
+  "name": "2-1b-L-N05",
+  "stage": "2-1b",
+  "order": "2차",
+  "kind": "dl",
+  "algorithm": "LSTM",
+  "W": 60,
+  "mode": null,
+  "input_set": "2-1b-anom-dl-N05",
+  "role": "비교만",
+  "train_count": 4,
+  "params": {},
+  "judgement": "해당 없음",
+  "base_variant": null,
+  "extra": {
+   "version": {
+    "include_ids": [
+     "WEATHER",
+     "WX2"
+    ],
+    "n_ma_dl": 5
+   }
+  }
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-08T07:17:34+00:00",
+ "timings": {
+  "fold1": {
+   "train_rows": 341467,
+   "train_pos": 1045,
+   "n_pairs": 3765795,
+   "fit_seconds": 56.68,
+   "predict_seconds": 46.48,
+   "shared_train_input_seconds": 134.93,
+   "shared_eval_input_seconds": 448.88
+  },
+  "fold2": {
+   "train_rows": 416616,
+   "train_pos": 1279,
+   "n_pairs": 4070067,
+   "fit_seconds": 64.44,
+   "predict_seconds": 51.61,
+   "shared_train_input_seconds": 129.53,
+   "shared_eval_input_seconds": 501.15
+  },
+  "fold3": {
+   "train_rows": 497593,
+   "train_pos": 1491,
+   "n_pairs": 4430181,
+   "fit_seconds": 77.25,
+   "predict_seconds": 60.14,
+   "shared_train_input_seconds": 175.76,
+   "shared_eval_input_seconds": 609.48
+  },
+  "refit": {
+   "train_rows": 585102,
+   "train_pos": 1682,
+   "n_pairs": 4611605,
+   "fit_seconds": 86.59,
+   "predict_seconds": 58.62,
+   "shared_train_input_seconds": 202.51,
+   "shared_eval_input_seconds": 570.09
+  }
+ },
+ "seconds_own": 501.81,
+ "seconds_shared_inputs": 2772.33,
+ "group": null,
+ "resources_at_start": {
+  "available_ram_gb": 72.49626159667969,
+  "free_disk_gb": 18.215290069580078
+ },
+ "spec_md5": "bc6f067f7f1bf4acb0d837a8c186cdeb",
+ "smoke": null
+}

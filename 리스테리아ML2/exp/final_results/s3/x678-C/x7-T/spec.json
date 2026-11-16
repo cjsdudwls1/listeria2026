@@ -1,0 +1,28 @@
+{
+ "name": "x7-T",
+ "stage": "⑥⑦⑧",
+ "order": "2차",
+ "kind": "tree",
+ "algorithm": "XGB",
+ "W": 60,
+ "mode": "raw",
+ "input_set": "x7T-시계열만",
+ "role": "교체 후보",
+ "train_count": 4,
+ "params": {
+  "iter_select": true
+ },
+ "judgement": null,
+ "base_variant": null,
+ "extra": {
+  "version": {
+   "include_ids": [
+    "WEATHER",
+    "WX1",
+    "WX2"
+   ],
+   "n_ma": 7,
+   "tree_layout": "seq_only"
+  }
+ }
+}

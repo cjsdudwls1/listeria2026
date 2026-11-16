@@ -1,0 +1,45 @@
+{
+  "name": "s_org_lims_data_info_listeria",
+  "table": "ba_data.s_org_lims_data_info",
+  "where": "label = '리스테리아'",
+  "plan": "부록 A-2 해외 나라 코드 1순위 mnf_nation_cd (cntc_sys_key2 = rcept_no, label='리스테리아'), §2-3, RR4·RR5, 부록 B-6 원천별 빈 칸 비율",
+  "sql": "select \"lims_seq\", \"rcept_no\", \"label\", \"mnf_nation_cd\", \"mnf_nation_nm\" from \"ba_data\".\"s_org_lims_data_info\" where label = '리스테리아'",
+  "count_sql": "select count(*) from \"ba_data\".\"s_org_lims_data_info\" where label = '리스테리아'",
+  "rows": 53176,
+  "db_count": 53176,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "lims_seq",
+      "parquet_type": "int64"
+    },
+    {
+      "name": "rcept_no",
+      "parquet_type": "string"
+    },
+    {
+      "name": "label",
+      "parquet_type": "string"
+    },
+    {
+      "name": "mnf_nation_cd",
+      "parquet_type": "string"
+    },
+    {
+      "name": "mnf_nation_nm",
+      "parquet_type": "string"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [],
+  "parquet_md5": "fa2ab19986daca7fd5b8b4db05d50d24",
+  "parquet_bytes": 789177,
+  "started_at": "2026-11-07T00:50:48+09:00",
+  "seconds": 1.4,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}

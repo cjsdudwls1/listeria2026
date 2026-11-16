@@ -1,0 +1,161 @@
+{
+ "aw_source_filter": "all",
+ "inputs": {
+  "prdlst_cl": "리스테리아ML2/data/raw/raw_t_prdlst_cl.parquet",
+  "aw_cl": "리스테리아ML2/data/추출_20261112/t_aw_cl.parquet",
+  "prev_food_table": "리스테리아ML2/data/데이터셋/품목3단계_식품속성_DB고정표_20261027.parquet",
+  "farm_domestic_xlsx": "리스테리아ML2/data/외부_수집/축사/축사_시군구별_농장수.xlsx",
+  "farm_overseas_csv": "리스테리아ML2/data/외부_수집/축사/국가리스트_1_농장전체.csv",
+  "sgg_names": "리스테리아ML2/data/데이터셋/시군구_대표좌표.parquet",
+  "sample_sgg": "리스테리아ML2/data/데이터셋/시료_시군구.parquet",
+  "area_domestic_columns": "리스테리아ML2/data/외부_수집/면적_20261107/molit_jijeok_2300_columns_2025.json",
+  "area_domestic_data": "리스테리아ML2/data/외부_수집/면적_20261107/molit_jijeok_2300_data_2025.json",
+  "area_overseas_zip": "리스테리아ML2/data/외부_수집/면적_20261107/Inputs_LandUse_E_All_Data_(Normalized).zip",
+  "area_provenance": "리스테리아ML2/data/외부_수집/면적_20261107/출처.json",
+  "nation_code": "리스테리아ML2/data/추출_20261107/nation_code.parquet",
+  "soil_sgg": "리스테리아ML2/data/데이터셋/식정원_db_토양/시군구_일별_토양.parquet",
+  "global_soil_ph": "리스테리아ML2/data/추출_20261107/global_soil_ph.parquet",
+  "eco": "리스테리아ML2/data/데이터셋/외부_지표/친환경_인증비율.parquet",
+  "gw": "리스테리아ML2/data/데이터셋/외부_지표/지하수_정기수질검사.parquet",
+  "raw_soil": "리스테리아ML2/data/raw/raw_soil_ph_info.parquet",
+  "sgg02": "리스테리아ML2/notebook/02_시군구_배정.py",
+  "krc": "리스테리아ML2/data/raw/raw_korea_region_code.parquet",
+  "sgg_xlsx": "리스테리아ML2/data/시군구_코드_대응표.xlsx"
+ },
+ "results_inputs": {
+  "samples": "s0/0-1/apply/samples.parquet",
+  "prev_food_static": "s0/0-6_static/식품_고정표.parquet"
+ },
+ "farm_sheet": "시군구별_농장수",
+ "molit_year": 2025,
+ "molit_sido_abbr": {
+  "서울특별시": [
+   "서울"
+  ],
+  "부산광역시": [
+   "부산"
+  ],
+  "대구광역시": [
+   "대구"
+  ],
+  "인천광역시": [
+   "인천"
+  ],
+  "대전광역시": [
+   "대전"
+  ],
+  "울산광역시": [
+   "울산"
+  ],
+  "세종특별자치시": [
+   "세종특별자치시"
+  ],
+  "경기도": [
+   "경기"
+  ],
+  "강원특별자치도": [
+   "강원"
+  ],
+  "충청북도": [
+   "충북"
+  ],
+  "충청남도": [
+   "충남"
+  ],
+  "전북특별자치도": [
+   "전북"
+  ],
+  "전남광주통합특별시": [
+   "전남",
+   "광주"
+  ],
+  "경상북도": [
+   "경북"
+  ],
+  "경상남도": [
+   "경남"
+  ],
+  "제주특별자치도": [
+   "제주"
+  ]
+ },
+ "domestic_area_manual": [
+  {
+   "sgg_code": "41591",
+   "area_km2": 466.5,
+   "source": "경기일보 2026-01-20 '화성특례시 4개 일반구 체제 내달 1일 공식 출범'(화성시 발표 인용, 공식 통계 아님 — 2026-02 신설 구라 지적통계 2025 에 없음, 담당자 결정 2026-11-07)",
+   "url": "https://kyeonggi.com/article/20260120580382",
+   "base_year": 2026,
+   "fetched": "2026-11-07"
+  },
+  {
+   "sgg_code": "41593",
+   "area_km2": 153.5,
+   "source": "경기일보 2026-01-20 '화성특례시 4개 일반구 체제 내달 1일 공식 출범'(화성시 발표 인용, 공식 통계 아님 — 2026-02 신설 구라 지적통계 2025 에 없음, 담당자 결정 2026-11-07)",
+   "url": "https://kyeonggi.com/article/20260120580382",
+   "base_year": 2026,
+   "fetched": "2026-11-07"
+  },
+  {
+   "sgg_code": "41595",
+   "area_km2": 24.3,
+   "source": "경기일보 2026-01-20 '화성특례시 4개 일반구 체제 내달 1일 공식 출범'(화성시 발표 인용, 공식 통계 아님 — 2026-02 신설 구라 지적통계 2025 에 없음, 담당자 결정 2026-11-07)",
+   "url": "https://kyeonggi.com/article/20260120580382",
+   "base_year": 2026,
+   "fetched": "2026-11-07"
+  }
+ ],
+ "domestic_area_nan_ok": [],
+ "fao": {
+  "item_code": "6601",
+  "element_code": "5110",
+  "unit": "1000 ha",
+  "year": 2024
+ },
+ "so1_verify": {
+  "n_cells": 200,
+  "seed": 20261107,
+  "window_days": 1095
+ },
+ "area_fetch": {
+  "dir": "리스테리아ML2/data/외부_수집/면적_20261107",
+  "timeout_s": 120,
+  "user_agent": "listeria-research-noncommercial/1.0 (university research, non-commercial)",
+  "items": [
+   {
+    "name": "molit_jijeok_2300_columns",
+    "url": "https://stat.molit.go.kr/portal/stat/columns.do?formId=2300&styleNum=2",
+    "file": "molit_jijeok_2300_columns_2025.json",
+    "base_year": 2025,
+    "description": "국토교통부 지적통계 '행정구역별·지목별 국토이용현황_시군구'(국토교통 통계누리 formId 2300) 칼럼 정의 — 매년 12월 31일 지적공부 등록 면적",
+    "headers": {
+     "X-Requested-With": "XMLHttpRequest",
+     "Referer": "https://stat.molit.go.kr/portal/cate/statView.do?hRsId=24&hFormId=2300"
+    }
+   },
+   {
+    "name": "molit_jijeok_2300_data",
+    "url": "https://stat.molit.go.kr/portal/stat/data.do?formId=2300&styleNum=2&apprYn=Y&startDate=2025&endDate=2025",
+    "file": "molit_jijeok_2300_data_2025.json",
+    "base_year": 2025,
+    "description": "같은 표 2025년 값(단위 ㎡·필지) — 2025-12-31 기준",
+    "headers": {
+     "X-Requested-With": "XMLHttpRequest",
+     "Referer": "https://stat.molit.go.kr/portal/cate/statView.do?hRsId=24&hFormId=2300"
+    }
+   },
+   {
+    "name": "faostat_landuse_bulk",
+    "url": "https://bulks-faostat.fao.org/production/Inputs_LandUse_E_All_Data_(Normalized).zip",
+    "file": "Inputs_LandUse_E_All_Data_(Normalized).zip",
+    "base_year": 2024,
+    "description": "FAOSTAT Land Use(RL) 일괄 파일 — 'Land area'(item 6601, element 5110 Area, 1000 ha), 쓰는 연도 = 2024(대상 94개 나라 모두 값 있는 마지막 해)",
+    "headers": {}
+   }
+  ]
+ },
+ "missing_check": {
+  "missing_lists": "s0/0-6_missing/missing_lists.json",
+  "y_cut": "2025-06-30"
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "spec": {
+  "name": "2-R6",
+  "order": 2,
+  "W": 60,
+  "mode": "sum",
+  "include_ids": [
+   "WEATHER"
+  ],
+  "include_units": [
+   "solar_23"
+  ],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": null,
+  "n_ma": null,
+  "n_ma_dl": null,
+  "tree_layout": "standard",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

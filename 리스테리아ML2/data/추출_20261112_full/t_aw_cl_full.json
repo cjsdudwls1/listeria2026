@@ -1,0 +1,65 @@
+{
+  "name": "t_aw_cl_full",
+  "table": "ba_data.t_aw_cl_full",
+  "where": null,
+  "plan": "식품 고정표 원천 — 2026-11-12 리서치팀이 올린 전 식품분류코드 판(t_aw_cl_full) 받기",
+  "sql": "select \"prdlst_cd\", \"kor_nm\", \"lv\", \"hrnk_prdlst_cd\", \"aw\", \"mc\", \"ph\", \"na\", \"aflatoxin_aw\", \"aw_source\" from \"ba_data\".\"t_aw_cl_full\"",
+  "count_sql": "select count(*) from \"ba_data\".\"t_aw_cl_full\"",
+  "rows": 8864,
+  "db_count": 8864,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "prdlst_cd",
+      "parquet_type": "string"
+    },
+    {
+      "name": "kor_nm",
+      "parquet_type": "string"
+    },
+    {
+      "name": "lv",
+      "parquet_type": "double"
+    },
+    {
+      "name": "hrnk_prdlst_cd",
+      "parquet_type": "string"
+    },
+    {
+      "name": "aw",
+      "parquet_type": "string"
+    },
+    {
+      "name": "mc",
+      "parquet_type": "string"
+    },
+    {
+      "name": "ph",
+      "parquet_type": "string"
+    },
+    {
+      "name": "na",
+      "parquet_type": "string"
+    },
+    {
+      "name": "aflatoxin_aw",
+      "parquet_type": "string"
+    },
+    {
+      "name": "aw_source",
+      "parquet_type": "string"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [],
+  "parquet_md5": "994c01c55fbe0381e19aca120f6b156e",
+  "parquet_bytes": 190256,
+  "started_at": "2026-11-12T16:44:47+09:00",
+  "seconds": 0.1,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "358fd4035a398583d082b03aacc08252"
+}

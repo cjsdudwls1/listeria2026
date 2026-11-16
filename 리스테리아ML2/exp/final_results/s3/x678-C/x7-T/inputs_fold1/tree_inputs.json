@@ -1,0 +1,23 @@
+{
+ "spec": {
+  "name": "x7-T",
+  "order": 2,
+  "W": 60,
+  "mode": "raw",
+  "include_ids": [
+   "WEATHER",
+   "WX1",
+   "WX2"
+  ],
+  "include_units": [],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": null,
+  "n_ma": 7,
+  "n_ma_dl": null,
+  "tree_layout": "seq_only",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

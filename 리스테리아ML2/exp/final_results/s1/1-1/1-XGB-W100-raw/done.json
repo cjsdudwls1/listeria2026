@@ -1,0 +1,17 @@
+{
+ "name": "1-XGB-W100-raw",
+ "stage": "1-1",
+ "spec_md5": "8dc3d4fc42c9ccb9c987c8741e52bd0b",
+ "code_md5": "407b74909b18408a29b5b7628c4e3af0",
+ "cv_band_weighted": 0.016830205801486916,
+ "many_ties": false,
+ "selection_count": 142,
+ "mlflow_run_id": "55bb044495614d01b294884e29da4012",
+ "seconds_total": 4033.61,
+ "group": [
+  "1-XGB-W100-raw",
+  "1-LGB-W100-raw",
+  "1-CAT-W100-raw"
+ ],
+ "smoke": null
+}

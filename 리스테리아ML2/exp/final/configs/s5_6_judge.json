@@ -1,0 +1,24 @@
+{
+ "plan": "단계 5·6 판정: 4판 중 val 1위 대 현재 최고 판 — §6 2차 공통",
+ "sub": "judge",
+ "stage": "5-6",
+ "order": "2차",
+ "experiment": "listeria-2차",
+ "samples": "s0/0-1/apply/samples.parquet",
+ "experiment_log": "logs/experiment_log.jsonl",
+ "use_mlflow": true,
+ "mlflow_uri": "http://127.0.0.1:5055",
+ "code_reviewed": true,
+ "selection_2": "s2/2-select/2_prep_selection.json",
+ "chain_state_in": "logs/chain_state_4.json",
+ "chain_state_out": "logs/chain_state_5-6.json",
+ "chain_log": "logs/chain_log.jsonl",
+ "dirs": {
+  "sel-hon5": "s5_6/sel-hon5",
+  "sel-hon6": "s5_6/sel-hon6",
+  "sel-stk-hon5": "s5_6/sel-stk-hon5",
+  "sel-stk-hon6": "s5_6/sel-stk-hon6",
+  "5-6-T": "s5_6/5-6-T",
+  "5-6-judge": "s5_6/5-6-judge"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "code_md5": "72ccaa3d3dc16d6b3db90b88a75bb412",
+ "inputs_md5": {
+  "s0/0-1/apply/samples.parquet": "752a87088d6f3d3e694d1f7d7a5010d8",
+  "s0/0-1/apply/12_incomplete_months.json": "b354de1d62a3915dfa00a3dcf944fec5"
+ },
+ "threads": {
+  "OMP_NUM_THREADS": "8",
+  "MKL_NUM_THREADS": "8",
+  "OPENBLAS_NUM_THREADS": "8",
+  "NUMEXPR_NUM_THREADS": "8",
+  "n_jobs": null
+ },
+ "config": {
+  "lengths": [
+   "1y",
+   "5y",
+   "all"
+  ],
+  "reason": "담당자 요청: 스무딩 없는 과거 검출률 기준 줄(비교만) — 2026-11-09"
+ },
+ "python": "3.12.3",
+ "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+ "created_utc": "2026-11-08T23:23:48+00:00",
+ "outputs": [
+  "te7a_cv_pred_7-a-raw-1y.parquet",
+  "te7a_test_pred_7-a-raw-1y.parquet",
+  "h_metrics_7-a-raw-1y.csv",
+  "te7a_cv_pred_7-a-raw-5y.parquet",
+  "te7a_test_pred_7-a-raw-5y.parquet",
+  "h_metrics_7-a-raw-5y.csv",
+  "te7a_cv_pred_7-a-raw-all.parquet",
+  "te7a_test_pred_7-a-raw-all.parquet",
+  "h_metrics_7-a-raw-all.csv",
+  "raw_table.csv"
+ ],
+ "resources_at_start": {
+  "available_ram_gb": 55.88042068481445,
+  "free_disk_gb": 19.358802795410156
+ },
+ "seconds": 641.9
+}

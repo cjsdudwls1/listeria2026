@@ -1,0 +1,85 @@
+{
+ "stage": "최종",
+ "final": "5-LSTM-KO",
+ "final_source": "사슬 마지막 현재 최고 판(5-LSTM)을 바꿔 끼운 판 — 식품 고정표 v2 + Koutsoumanis 생장식 6칼럼 판이 val 로 5-LSTM-food2 를 넘음(사용자 결정 2026-11-12)",
+ "final_def": {
+  "name": "5-LSTM-KO",
+  "kind": "dl",
+  "dir": "s5_6/5-6-T-food2-KO/5-LSTM-KO",
+  "replacement": false,
+  "members": [
+   {
+    "name": "5-LSTM-KO",
+    "dir": "s5_6/5-6-T-food2-KO/5-LSTM-KO",
+    "anomaly": null,
+    "row_plan": {
+     "steps": [
+      "hon5"
+     ],
+     "rep": "own",
+     "sel_dir": "s5_6/sel-hon5"
+    },
+    "catenc_k": null
+   }
+  ]
+ },
+ "chain_last": "5-LSTM",
+ "baseline_1": "1-CAT-W060-sum",
+ "selection": {
+  "selected": "5-LSTM-KO",
+  "ranking": [
+   "5-LSTM-KO",
+   "1-CAT-W060-sum"
+  ],
+  "cv": {
+   "5-LSTM-KO": 0.03466073550603418,
+   "1-CAT-W060-sum": 0.028253970601609165
+  },
+  "rescored": {},
+  "ranking_rescore": null,
+  "rescore_same_top": null,
+  "alerts": []
+ },
+ "final_override": {
+  "name": "5-LSTM-KO",
+  "dir": "s5_6/5-6-T-food2-KO/5-LSTM-KO",
+  "replaces": "5-LSTM",
+  "label": "최종(식품 갱신 + 생장식 KO)",
+  "reason": "식품 고정표 v2 + Koutsoumanis 생장식 6칼럼 판이 val 로 5-LSTM-food2 를 넘음(사용자 결정 2026-11-12)",
+  "via": [
+   {
+    "name": "5-LSTM-food2",
+    "dir": "s5_6/5-6-T-food2/5-LSTM-food2",
+    "label": "식품 갱신(생장식 KO 없음)"
+   }
+  ],
+  "tag": "예(식품 갱신 + 생장식 KO)",
+  "header_note": "식품 고정표 갱신 + 생장식 KO 6칼럼 판"
+ },
+ "x1": {
+  "final": "5-LSTM-KO",
+  "x1": "x1-LSTM",
+  "x1_dir": "s4/4-X1/x1-LSTM",
+  "final_h1": {
+   "cv": 0.04093457429735079,
+   "fold": {
+    "fold1": 0.0352547005032776,
+    "fold2": 0.07704615265266952,
+    "fold3": 0.010502869736105263
+   }
+  },
+  "x1_h1": {
+   "cv": 0.010337828774450981,
+   "fold": {
+    "fold1": 0.009733410362794494,
+    "fold2": 0.010302527599401238,
+    "fold3": 0.010977548361157214
+   }
+  },
+  "①_better": false
+ },
+ "①_better": false,
+ "chain_state_md5": "67902b20393d79bfe48d32fe2ad7ca1a",
+ "alerts": [],
+ "utc": "2026-11-12T10:03:36+00:00"
+}

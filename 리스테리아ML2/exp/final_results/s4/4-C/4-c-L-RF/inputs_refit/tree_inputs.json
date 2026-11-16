@@ -1,0 +1,19 @@
+{
+ "spec": {
+  "name": "4-c-L-RF",
+  "order": 2,
+  "W": 60,
+  "mode": "sum",
+  "include_ids": [],
+  "include_units": [],
+  "exclude_units": [],
+  "exclude_groups": [],
+  "k": null,
+  "n_ma": null,
+  "n_ma_dl": null,
+  "tree_layout": "standard",
+  "dl_layout": "standard"
+ },
+ "scale": false,
+ "scaler": null
+}

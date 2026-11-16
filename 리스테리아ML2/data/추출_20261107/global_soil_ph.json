@@ -1,0 +1,53 @@
+{
+  "name": "global_soil_ph",
+  "table": "api_data_info.global_soil_ph",
+  "where": null,
+  "plan": "§5 SO1 해외 pH = global_soil_ph.ph_mean, WX4 rg 토양 pH 3",
+  "sql": "select \"iso3\", \"name_ko\", \"nation_code\", \"sub_region\", \"ph_mean\", \"ph_std\", \"n_pixels\" from \"api_data_info\".\"global_soil_ph\"",
+  "count_sql": "select count(*) from \"api_data_info\".\"global_soil_ph\"",
+  "rows": 235,
+  "db_count": 235,
+  "rows_match": true,
+  "columns": [
+    {
+      "name": "iso3",
+      "parquet_type": "string"
+    },
+    {
+      "name": "name_ko",
+      "parquet_type": "string"
+    },
+    {
+      "name": "nation_code",
+      "parquet_type": "string"
+    },
+    {
+      "name": "sub_region",
+      "parquet_type": "string"
+    },
+    {
+      "name": "ph_mean",
+      "parquet_type": "double"
+    },
+    {
+      "name": "ph_std",
+      "parquet_type": "double"
+    },
+    {
+      "name": "n_pixels",
+      "parquet_type": "double"
+    }
+  ],
+  "bpchar_columns(끝 공백 그대로)": [],
+  "numeric_to_float64_columns": [],
+  "parquet_md5": "b13fa749f60f996f0a44fc0070d6fe53",
+  "parquet_bytes": 14210,
+  "started_at": "2026-11-07T00:51:07+09:00",
+  "seconds": 0.0,
+  "transaction": "REPEATABLE READ, READ ONLY (count 와 데이터 같은 트랜잭션)",
+  "driver": "psycopg 3.3.5",
+  "python": "3.14.0",
+  "pyarrow": "25.0.1",
+  "code_md5": "1b652a07198aa27910e53ef8237a56a2",
+  "config_md5": "606c4e1cd3704c6c32d3adeb7a678f6b"
+}
